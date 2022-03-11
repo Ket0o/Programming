@@ -41,7 +41,7 @@
             this.WeekdayTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.output_of_digits = new System.Windows.Forms.TextBox();
+            this.IntValueTextBox = new System.Windows.Forms.TextBox();
             this.ValuesListBox = new System.Windows.Forms.ListBox();
             this.EnumsListBox = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -165,7 +165,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.output_of_digits);
+            this.groupBox1.Controls.Add(this.IntValueTextBox);
             this.groupBox1.Controls.Add(this.ValuesListBox);
             this.groupBox1.Controls.Add(this.EnumsListBox);
             this.groupBox1.Controls.Add(this.label3);
@@ -178,12 +178,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enumerations";
             // 
-            // output_of_digits
+            // IntValueTextBox
             // 
-            this.output_of_digits.Location = new System.Drawing.Point(520, 55);
-            this.output_of_digits.Name = "output_of_digits";
-            this.output_of_digits.Size = new System.Drawing.Size(225, 26);
-            this.output_of_digits.TabIndex = 5;
+            this.IntValueTextBox.Location = new System.Drawing.Point(520, 55);
+            this.IntValueTextBox.Name = "IntValueTextBox";
+            this.IntValueTextBox.Size = new System.Drawing.Size(225, 26);
+            this.IntValueTextBox.TabIndex = 5;
             // 
             // ValuesListBox
             // 
@@ -260,7 +260,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage Enums_tabPage;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox output_of_digits;
+        private System.Windows.Forms.TextBox IntValueTextBox;
         private System.Windows.Forms.ListBox ValuesListBox;
         private System.Windows.Forms.ListBox EnumsListBox;
         private System.Windows.Forms.Label label3;
