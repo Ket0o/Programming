@@ -47,16 +47,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Classes_TabPage = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.RectanglesListBox = new System.Windows.Forms.ListBox();
+            this.Length_label = new System.Windows.Forms.Label();
+            this.Length_textbox = new System.Windows.Forms.TextBox();
+            this.Width_label = new System.Windows.Forms.Label();
+            this.Width_textbox = new System.Windows.Forms.TextBox();
+            this.Color_label = new System.Windows.Forms.Label();
+            this.Color_textbox = new System.Windows.Forms.TextBox();
+            this.FindButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Enums_tabPage.SuspendLayout();
             this.SeasonNamesGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.Classes_TabPage.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Enums_tabPage);
+            this.tabControl1.Controls.Add(this.Classes_TabPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -234,6 +247,100 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Choose enumeration:";
             // 
+            // Classes_TabPage
+            // 
+            this.Classes_TabPage.Controls.Add(this.groupBox3);
+            this.Classes_TabPage.Location = new System.Drawing.Point(4, 29);
+            this.Classes_TabPage.Name = "Classes_TabPage";
+            this.Classes_TabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.Classes_TabPage.Size = new System.Drawing.Size(1014, 646);
+            this.Classes_TabPage.TabIndex = 1;
+            this.Classes_TabPage.Text = "Classes";
+            this.Classes_TabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.FindButton);
+            this.groupBox3.Controls.Add(this.Width_textbox);
+            this.groupBox3.Controls.Add(this.Color_textbox);
+            this.groupBox3.Controls.Add(this.Color_label);
+            this.groupBox3.Controls.Add(this.Width_label);
+            this.groupBox3.Controls.Add(this.Length_textbox);
+            this.groupBox3.Controls.Add(this.Length_label);
+            this.groupBox3.Controls.Add(this.RectanglesListBox);
+            this.groupBox3.Location = new System.Drawing.Point(17, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(471, 313);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Rectangles";
+            // 
+            // RectanglesListBox
+            // 
+            this.RectanglesListBox.FormattingEnabled = true;
+            this.RectanglesListBox.ItemHeight = 20;
+            this.RectanglesListBox.Location = new System.Drawing.Point(6, 25);
+            this.RectanglesListBox.Name = "RectanglesListBox";
+            this.RectanglesListBox.Size = new System.Drawing.Size(200, 264);
+            this.RectanglesListBox.TabIndex = 0;
+            // 
+            // Length_label
+            // 
+            this.Length_label.AutoSize = true;
+            this.Length_label.Location = new System.Drawing.Point(212, 25);
+            this.Length_label.Name = "Length_label";
+            this.Length_label.Size = new System.Drawing.Size(63, 20);
+            this.Length_label.TabIndex = 1;
+            this.Length_label.Text = "Length:";
+            // 
+            // Length_textbox
+            // 
+            this.Length_textbox.Location = new System.Drawing.Point(216, 48);
+            this.Length_textbox.Name = "Length_textbox";
+            this.Length_textbox.Size = new System.Drawing.Size(146, 26);
+            this.Length_textbox.TabIndex = 2;
+            // 
+            // Width_label
+            // 
+            this.Width_label.AutoSize = true;
+            this.Width_label.Location = new System.Drawing.Point(212, 86);
+            this.Width_label.Name = "Width_label";
+            this.Width_label.Size = new System.Drawing.Size(54, 20);
+            this.Width_label.TabIndex = 3;
+            this.Width_label.Text = "Width:";
+            // 
+            // Width_textbox
+            // 
+            this.Width_textbox.Location = new System.Drawing.Point(216, 109);
+            this.Width_textbox.Name = "Width_textbox";
+            this.Width_textbox.Size = new System.Drawing.Size(146, 26);
+            this.Width_textbox.TabIndex = 4;
+            // 
+            // Color_label
+            // 
+            this.Color_label.AutoSize = true;
+            this.Color_label.Location = new System.Drawing.Point(216, 148);
+            this.Color_label.Name = "Color_label";
+            this.Color_label.Size = new System.Drawing.Size(50, 20);
+            this.Color_label.TabIndex = 5;
+            this.Color_label.Text = "Color:";
+            // 
+            // Color_textbox
+            // 
+            this.Color_textbox.Location = new System.Drawing.Point(216, 171);
+            this.Color_textbox.Name = "Color_textbox";
+            this.Color_textbox.Size = new System.Drawing.Size(146, 26);
+            this.Color_textbox.TabIndex = 6;
+            // 
+            // FindButton
+            // 
+            this.FindButton.Location = new System.Drawing.Point(216, 258);
+            this.FindButton.Name = "FindButton";
+            this.FindButton.Size = new System.Drawing.Size(146, 30);
+            this.FindButton.TabIndex = 7;
+            this.FindButton.Text = "Find";
+            this.FindButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -251,6 +358,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Classes_TabPage.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -275,6 +385,16 @@
         private System.Windows.Forms.Button GoButton;
         private System.Windows.Forms.ComboBox SeasonNamesComboBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage Classes_TabPage;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label Length_label;
+        private System.Windows.Forms.ListBox RectanglesListBox;
+        private System.Windows.Forms.Button FindButton;
+        private System.Windows.Forms.TextBox Color_textbox;
+        private System.Windows.Forms.Label Color_label;
+        private System.Windows.Forms.TextBox Width_textbox;
+        private System.Windows.Forms.Label Width_label;
+        private System.Windows.Forms.TextBox Length_textbox;
     }
 }
 
