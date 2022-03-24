@@ -8,15 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
+using Rectangle = Programming.Model.Classes.Rectangle;
+using Programming.Model.Classes;
 
 
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        private Rectangle[] _rectangles;
+        private Rectangle _currentRectangle;
+
+        private Film[] _films;
+        private Film _currentFilm;
+
+        
+
         public MainForm()
         {
             InitializeComponent();
+            
 
             Array typeValues = System.Enum.GetValues(typeof(Enums));
             foreach (Enums value in typeValues)
@@ -33,6 +44,8 @@ namespace Programming.View
             }
 
             SeasonNamesComboBox.SelectedIndex = 0;
+
+            Rectangle _currentRectangle = new Rectangle(); //
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
