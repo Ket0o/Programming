@@ -75,15 +75,15 @@ namespace Programming.Model.Classes
             }
         }
 
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         public string Genre { get; set; }
 
         public Film() { }
 
-        public Film(string title, int durationInMinutes, int yearOfRelease, string genre, double rating)
+        public Film(string name, int durationInMinutes, int yearOfRelease, string genre, double rating)
         {
-            Title = title;
+            Name = name;
             DurationInMinutes = durationInMinutes;
             YearOfRelease = yearOfRelease;
             Genre = genre;
