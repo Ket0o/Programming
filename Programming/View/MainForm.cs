@@ -16,18 +16,17 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private Rectangle[] _rectangles;
-        private Rectangle _currentRectangle;
+        //private Rectangle[] _rectangles;
+        //private Rectangle _currentRectangle;
 
-        private Film[] _films;
-        private Film _currentFilm;
+        //private Film[] _films;
+        //private Film _currentFilm;
 
         
 
         public MainForm()
         {
             InitializeComponent();
-            
 
             Array typeValues = System.Enum.GetValues(typeof(Enums));
             foreach (Enums value in typeValues)

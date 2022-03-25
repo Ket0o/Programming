@@ -8,45 +8,44 @@ namespace Programming.Model.Classes
 {
     public class Time
     {
-        private int _clock;
+        private int _hours;
+
         private int _minutes;
+
         private int _seconds;
 
-        public Time() { }
-
-        public Time(int clock, int minutes, int seconds)
+        public int Hours
         {
-            Clock = clock;
-            Minutes = minutes;
-            Seconds = seconds;
-        }
-
-        public int Clock
-        {
-            get { return _clock; }
+            get 
+            { 
+                return _hours; 
+            }
             set
             {
                 if (value < 0
                  || value > 23)
                 {
-                    throw new ArgumentException("Часов может быть от 0 до 23");
+                    throw new ArgumentException("Hours can be from 0 to 23");
                 }
                 else
                 {
-                    _clock = value;
+                    _hours = value;
                 }
             }
         }
 
         public int Minutes
         {
-            get { return _minutes; }
+            get 
+            { 
+                return _minutes; 
+            }
             set
             {
                 if(value < 0
                 || value > 60)
                 {
-                    throw new ArgumentException("Минуты могут быть от 0 до 60");
+                    throw new ArgumentException("Minutes can be from 0 to 60");
                 }
                 else
                 {
@@ -57,19 +56,31 @@ namespace Programming.Model.Classes
 
         public int Seconds
         {
-            get { return _seconds; }
+            get 
+            { 
+                return _seconds; 
+            }
             set
             {
                 if (value < 0
                  || value > 60)
                 {
-                    throw new ArgumentException("Секунды могут быть от 0 до 60");
+                    throw new ArgumentException("Seconds can be from 0 to 60");
                 }
                 else
                 {
                     _seconds = value;
                 }
             }
+        }
+
+        public Time() { }
+
+        public Time(int hours, int minutes, int seconds)
+        {
+            Hours = hours;
+            Minutes = minutes;
+            Seconds = seconds;
         }
     }
 }
