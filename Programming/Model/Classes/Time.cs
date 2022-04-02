@@ -43,7 +43,7 @@ namespace Programming.Model.Classes
             set
             {
                 if(value < 0
-                || value > 60)
+                || value > 59)
                 {
                     throw new ArgumentException("Minutes can be from 0 to 60");
                 }
@@ -63,7 +63,7 @@ namespace Programming.Model.Classes
             set
             {
                 if (value < 0
-                 || value > 60)
+                 || value > 59)
                 {
                     throw new ArgumentException("Seconds can be from 0 to 60");
                 }

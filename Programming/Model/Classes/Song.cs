@@ -8,41 +8,35 @@ namespace Programming.Model.Classes
 {
     public class Song
     {
-        /// <summary>
-        /// Число после запятой может быть от 00 до 59 
-        /// </summary>
-        private double _duration;
+        private int _durationSeconds;
 
-        public double Duration
+        public int Duration
         {
             get 
             { 
-                return _duration; 
+                return _durationSeconds; 
             }
             set
             {
-                if((value / 100) > 59 )
+                if (value < 0)
                 {
-                    throw new ArgumentException("In a minute 60 seconds");
+                    throw new ArgumentException("the value of the Duration Seconds field must be greater than zero");
                 }
-                else
-                {
-                    _duration = value;
-                }
+                _durationSeconds = value;
             }
         }
 
         public string Name { get; set; }
 
-        public string Executor { get; set; }
+        public string Author { get; set; }
 
         public Song() { }
 
-        public Song(string name, string executor, double duration)
+        public Song(string name, string author, int durationSeconds)
         {
             Name = name;
-            Executor = executor;
-            Duration = duration;
+            Author = author;
+            Duration = durationSeconds;
         }
     }
 }

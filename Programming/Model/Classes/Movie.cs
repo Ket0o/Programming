@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Film
+    public class Movie
     {
-        private int _durationInMinutes;
+        private int _durationMinutes;
 
-        private int _yearOfRelease;
+        private int _releaseYear;
 
         private double _rating;
 
@@ -33,11 +33,11 @@ namespace Programming.Model.Classes
             }
         }
 
-        public int DurationInMinutes
+        public int DurationMinutes
         {
             get 
             { 
-                return _durationInMinutes; 
+                return _durationMinutes; 
             }
             set
             {
@@ -47,16 +47,16 @@ namespace Programming.Model.Classes
                 }
                 else
                 {
-                    _durationInMinutes = value;
+                    _durationMinutes = value;
                 }
             }
         }
 
-        public int YearOfRelease
+        public int ReleaseYear
         {
             get 
             { 
-                return _yearOfRelease; 
+                return _releaseYear; 
             }
             set
             {
@@ -70,7 +70,7 @@ namespace Programming.Model.Classes
                 }
                 else
                 {
-                    _yearOfRelease = value;
+                    _releaseYear = value;
                 }
             }
         }
@@ -79,13 +79,13 @@ namespace Programming.Model.Classes
 
         public string Genre { get; set; }
 
-        public Film() { }
+        public Movie() { }
 
-        public Film(string name, int durationInMinutes, int yearOfRelease, string genre, double rating)
+        public Movie(string name, int durationMinutes, int releaseYear, string genre, double rating)
         {
             Name = name;
-            DurationInMinutes = durationInMinutes;
-            YearOfRelease = yearOfRelease;
+            DurationMinutes = durationMinutes;
+            ReleaseYear = releaseYear;
             Genre = genre;
             Rating = rating;
         }

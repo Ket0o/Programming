@@ -9,7 +9,7 @@ namespace Programming.Model.Classes
 {
     public class Contact
     {
-        Regex regex = new Regex(@"\d{11}");
+        private readonly Regex regex = new Regex(@"\d{11}");
 
         /// <summary>
         /// Телефонный номер. Не более 11 знаков

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Flight
+    public class Route
     {
-        private int _flightTimeInMinutes;
+        private int _flightTimeMinutes;
 
-        public int FlightTimeInMinutes
+        public int FlightTimeMinutes
         {
             get 
             { 
-                return _flightTimeInMinutes; 
+                return _flightTimeMinutes; 
             }
             set
             {
@@ -24,7 +24,7 @@ namespace Programming.Model.Classes
                 }
                 else
                 {
-                    _flightTimeInMinutes = value;
+                    _flightTimeMinutes = value;
                 }
             }
         }
@@ -33,13 +33,13 @@ namespace Programming.Model.Classes
 
         public string Destination { get; set; }
 
-        public Flight() { }
+        public Route() { }
 
-        public Flight(string departure, string destination, int flightTimeInMinutes)
+        public Route(string departure, string destination, int flightTimeMinutes)
         {
             Departure = departure;
             Destination = destination;
-            FlightTimeInMinutes = flightTimeInMinutes;
+            FlightTimeMinutes = flightTimeMinutes;
         }
     }
 }
