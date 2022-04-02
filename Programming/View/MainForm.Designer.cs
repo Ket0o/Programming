@@ -294,10 +294,10 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Movie";
             // 
-            // RatingFilmTextBox
+            // RatingMovieTextBox
             // 
             this.RatingMovieTextBox.Location = new System.Drawing.Point(216, 288);
-            this.RatingMovieTextBox.Name = "RatingFilmTextBox";
+            this.RatingMovieTextBox.Name = "RatingMovieTextBox";
             this.RatingMovieTextBox.Size = new System.Drawing.Size(146, 26);
             this.RatingMovieTextBox.TabIndex = 11;
             this.RatingMovieTextBox.TextChanged += new System.EventHandler(this.RatingMovieTextBox_TextChanged);
@@ -311,10 +311,10 @@
             this.label10.TabIndex = 10;
             this.label10.Text = "Rating:";
             // 
-            // DurationMinutesFilmTextBox
+            // DurationMinutesMovieTextBox
             // 
             this.DurationMinutesMovieTextBox.Location = new System.Drawing.Point(216, 228);
-            this.DurationMinutesMovieTextBox.Name = "DurationMinutesFilmTextBox";
+            this.DurationMinutesMovieTextBox.Name = "DurationMinutesMovieTextBox";
             this.DurationMinutesMovieTextBox.Size = new System.Drawing.Size(146, 26);
             this.DurationMinutesMovieTextBox.TabIndex = 9;
             this.DurationMinutesMovieTextBox.TextChanged += new System.EventHandler(this.DurationMinutesMovieTextBox_TextChanged);
@@ -338,18 +338,18 @@
             this.FindFilmButton.UseVisualStyleBackColor = true;
             this.FindFilmButton.Click += new System.EventHandler(this.FindMovieButton_Click);
             // 
-            // GenreFilmTextBox
+            // GenreMovieTextBox
             // 
             this.GenreMovieTextBox.Location = new System.Drawing.Point(216, 108);
-            this.GenreMovieTextBox.Name = "GenreFilmTextBox";
+            this.GenreMovieTextBox.Name = "GenreMovieTextBox";
             this.GenreMovieTextBox.Size = new System.Drawing.Size(146, 26);
             this.GenreMovieTextBox.TabIndex = 4;
             this.GenreMovieTextBox.TextChanged += new System.EventHandler(this.GenreMovieTextBox_TextChanged);
             // 
-            // YearReleaseFilmTextBox
+            // YearReleaseMovieTextBox
             // 
             this.YearReleaseMovieTextBox.Location = new System.Drawing.Point(216, 168);
-            this.YearReleaseMovieTextBox.Name = "YearReleaseFilmTextBox";
+            this.YearReleaseMovieTextBox.Name = "YearReleaseMovieTextBox";
             this.YearReleaseMovieTextBox.Size = new System.Drawing.Size(146, 26);
             this.YearReleaseMovieTextBox.TabIndex = 6;
             this.YearReleaseMovieTextBox.TextChanged += new System.EventHandler(this.ReleaseYearMovieTextBox_TextChanged);
@@ -372,10 +372,10 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Genre:";
             // 
-            // NameFilmTextBox
+            // NameMovieTextBox
             // 
             this.NameMovieTextBox.Location = new System.Drawing.Point(216, 48);
-            this.NameMovieTextBox.Name = "NameFilmTextBox";
+            this.NameMovieTextBox.Name = "NameMovieTextBox";
             this.NameMovieTextBox.Size = new System.Drawing.Size(146, 26);
             this.NameMovieTextBox.TabIndex = 2;
             // 
