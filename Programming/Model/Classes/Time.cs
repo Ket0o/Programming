@@ -45,7 +45,7 @@ namespace Programming.Model.Classes
                 if(value < 0
                 || value > 59)
                 {
-                    throw new ArgumentException("Minutes can be from 0 to 60");
+                    throw new ArgumentException("Minutes can be from 0 to 59");
                 }
                 else
                 {
@@ -65,7 +65,7 @@ namespace Programming.Model.Classes
                 if (value < 0
                  || value > 59)
                 {
-                    throw new ArgumentException("Seconds can be from 0 to 60");
+                    throw new ArgumentException("Seconds can be from 0 to 59");
                 }
                 else
                 {

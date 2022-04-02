@@ -23,7 +23,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 2 || value > 5)
                 {
-                    throw new ArgumentException("Marks from 1 to 5");
+                    throw new ArgumentException("Marks from 2 to 5");
                 }
                 else
                 {

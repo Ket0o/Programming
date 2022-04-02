@@ -66,7 +66,7 @@ namespace Programming.Model.Classes
                 }
                 else if(value > DateTime.Now.Year)
                 {
-                    throw new ArgumentException("Last year of publication, current");
+                    throw new ArgumentException("Last year of release, current");
                 }
                 else
                 {

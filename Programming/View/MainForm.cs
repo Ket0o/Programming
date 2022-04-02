@@ -54,14 +54,12 @@ namespace Programming.View
 
             _random = new Random();
 
-            _rectangles = InitRectangles();
-            RectanglesListBox.SelectedIndex = 0;
+            InitRectangles();
 
-            _movies = InitMovies();
-            MovieListBox.SelectedIndex = 0;
+            InitMovies();
         }
 
-        private Rectangle[] InitRectangles()
+        private void InitRectangles()
         {
             _rectangles = new Rectangle[ElementsCount];
 
@@ -75,10 +73,10 @@ namespace Programming.View
                 _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
-            return _rectangles;
+            RectanglesListBox.SelectedIndex = 0;
         }
 
-        private Movie[] InitMovies()
+        private void InitMovies()
         {
             _movies = new Movie[ElementsCount];
 
@@ -94,7 +92,7 @@ namespace Programming.View
                 _movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
-            return _movies;
+            MovieListBox.SelectedIndex = 0;
         }
 
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
@@ -186,9 +184,9 @@ namespace Programming.View
         {
             try
             {
-                string currentLengthRectangle = LengthRectangleTextBox.Text;
-                double lengthRectangle = double.Parse(currentLengthRectangle);
-                _currentRectangle.Length = lengthRectangle;
+                string rectnagleCurrentLength = LengthRectangleTextBox.Text;
+                double rectangleLength = double.Parse(rectnagleCurrentLength);
+                _currentRectangle.Length = rectangleLength;
             }
             catch
             {
@@ -202,9 +200,9 @@ namespace Programming.View
         {
             try
             {
-                string currentWidtRectangle = WidthRectangleTextBox.Text;
-                double widthRectangle = double.Parse(currentWidtRectangle);
-                _currentRectangle.Width = widthRectangle;
+                string rectangleCurrentWidt = WidthRectangleTextBox.Text;
+                double rectangleWidth = double.Parse(rectangleCurrentWidt);
+                _currentRectangle.Width = rectangleWidth;
             }
             catch
             {
@@ -216,79 +214,79 @@ namespace Programming.View
 
         private void ColorRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
-            string currentColorRectangle = ColorRectangleTextBox.Text;
-            _currentRectangle.Color = currentColorRectangle;
+            string rectangleCurrentColor = ColorRectangleTextBox.Text;
+            _currentRectangle.Color = rectangleCurrentColor;
         }
 
         private void MovieListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedIndexMovie = MovieListBox.SelectedIndex;
-            _currentMovie = _movies[selectedIndexMovie];
-            NameMovieTextBox.Text = _currentMovie.Name;
-            GenreMovieTextBox.Text = _currentMovie.Genre;
-            YearReleaseMovieTextBox.Text = _currentMovie.ReleaseYear.ToString();
-            DurationMinutesMovieTextBox.Text = _currentMovie.DurationMinutes.ToString();
-            RatingMovieTextBox.Text = _currentMovie.Rating.ToString();
+            int movieSelectedIndex = MovieListBox.SelectedIndex;
+            _currentMovie = _movies[movieSelectedIndex];
+            MovieNameTextBox.Text = _currentMovie.Name;
+            MovieGenreTextBox.Text = _currentMovie.Genre;
+            MovieYearReleaseTextBox.Text = _currentMovie.ReleaseYear.ToString();
+            MovieDurationMinutesTextBox.Text = _currentMovie.DurationMinutes.ToString();
+            MovieRatingTextBox.Text = _currentMovie.Rating.ToString();
         }
 
         private void NameMovieTextBox_TextChanged(object sender, EventArgs e)
         {
-            string nameMovie = NameMovieTextBox.Text;
-            _currentMovie.Name = nameMovie;
+            string movieName = MovieNameTextBox.Text;
+            _currentMovie.Name = movieName;
         }
 
         private void GenreMovieTextBox_TextChanged(object sender, EventArgs e)
         {
-            string genreMovie = GenreMovieTextBox.Text;
-            _currentMovie.Genre = genreMovie;
+            string movieGenre = MovieGenreTextBox.Text;
+            _currentMovie.Genre = movieGenre;
         }
 
         private void RatingMovieTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentRating = RatingMovieTextBox.Text;
-                double ratingMovie = double.Parse(currentRating);
-                _currentMovie.Rating = ratingMovie;
+                string currentRating = MovieRatingTextBox.Text;
+                double movieRating = double.Parse(currentRating);
+                _currentMovie.Rating = movieRating;
             }
             catch
             {
-                RatingMovieTextBox.BackColor = _errorColor;
+                MovieRatingTextBox.BackColor = _errorColor;
                 return;
             }
-            RatingMovieTextBox.BackColor = _correctColor;
+            MovieRatingTextBox.BackColor = _correctColor;
         }
 
         private void ReleaseYearMovieTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentYearRelease = YearReleaseMovieTextBox.Text;
-                int releaseYearMovie = int.Parse(currentYearRelease);
-                _currentMovie.ReleaseYear = releaseYearMovie;
+                string currentYearRelease = MovieYearReleaseTextBox.Text;
+                int movieReleaseYear = int.Parse(currentYearRelease);
+                _currentMovie.ReleaseYear = movieReleaseYear;
             }
             catch
             {
-                YearReleaseMovieTextBox.BackColor = _errorColor;
+                MovieYearReleaseTextBox.BackColor = _errorColor;
                 return;
             }
-            YearReleaseMovieTextBox.BackColor = _correctColor;
+            MovieYearReleaseTextBox.BackColor = _correctColor;
         }
 
         private void DurationMinutesMovieTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string durationAsString = DurationMinutesMovieTextBox.Text;
+                string durationAsString = MovieDurationMinutesTextBox.Text;
                 int durationInMinutes = int.Parse(durationAsString);
                 _currentMovie.DurationMinutes = durationInMinutes;
             }
             catch
             {
-                DurationMinutesMovieTextBox.BackColor = _errorColor;
+                MovieDurationMinutesTextBox.BackColor = _errorColor;
                 return;
             }
-            DurationMinutesMovieTextBox.BackColor = _correctColor;
+            MovieDurationMinutesTextBox.BackColor = _correctColor;
         }
 
         private void ParseWeekdayButton_Click(object sender, EventArgs e)
