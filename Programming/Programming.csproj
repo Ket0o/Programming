@@ -53,6 +53,7 @@
     <Compile Include="Model\Classes\Rectangle.cs" />
     <Compile Include="Model\Classes\Time.cs" />
     <Compile Include="Model\Classes\Song.cs" />
+    <Compile Include="Model\Classes\Validator.cs" />
     <Compile Include="View\Enums.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>

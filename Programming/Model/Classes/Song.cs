@@ -10,7 +10,7 @@ namespace Programming.Model.Classes
     {
         private int _durationSeconds;
 
-        public int Duration
+        public int DurationSeconds
         {
             get 
             { 
@@ -18,10 +18,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException("the value of the Duration Seconds field must be greater than zero");
-                }
+                Validator.AssertOnPositiveValue(value, "DurationSeconds");
                 _durationSeconds = value;
             }
         }
@@ -36,7 +33,7 @@ namespace Programming.Model.Classes
         {
             Name = name;
             Author = author;
-            Duration = durationSeconds;
+            DurationSeconds = durationSeconds;
         }
     }
 }

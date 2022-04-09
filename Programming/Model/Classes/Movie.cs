@@ -41,14 +41,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException("The duration of the movie must be greater than 0");
-                }
-                else
-                {
-                    _durationMinutes = value;
-                }
+                Validator.AssertOnPositiveValue(value, "DurationMinutes");
+                _durationMinutes = value;
             }
         }
 

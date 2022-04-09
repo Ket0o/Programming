@@ -16,6 +16,36 @@ namespace Programming.Model.Classes
         /// </summary>
         private string _phoneNumber;
 
+        private string _name;
+
+        private string _surname;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                AssertStringContainsOnlyLetters(value, "Name");
+                _name = value;
+            }
+        }
+        
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                AssertStringContainsOnlyLetters(value, "Surname");
+                _surname = value;
+            }
+        }
+
         /// <summary>
         /// Проверка на ввод цифр
         /// </summary>
@@ -43,10 +73,6 @@ namespace Programming.Model.Classes
             }
         }
 
-        public string Name { get; set; }
-
-        public string Surname { get; set; }
-
         public Contact() { }
 
         public Contact(string name, string surname, string phoneNumber)
@@ -56,5 +82,15 @@ namespace Programming.Model.Classes
             PhoneNumber = phoneNumber;
         }
 
+        private void AssertStringContainsOnlyLetters(string value, string propertyName)
+        {
+            for(int i = 0; i < value.Length; i++)
+            {
+                if(!char.IsLetter(value[i]))
+                {
+                    throw new ArgumentException($"{propertyName} must cintains letters only");
+                }
+            }
+        }
     }
 }
