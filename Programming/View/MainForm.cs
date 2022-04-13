@@ -70,6 +70,7 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 1001) / 10.0;
                 _currentRectangle.Length = _random.Next(1, 1001) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+                _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
                 _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
@@ -178,6 +179,8 @@ namespace Programming.View
             LengthRectangleTextBox.Text = _currentRectangle.Length.ToString();
             WidthRectangleTextBox.Text = _currentRectangle.Width.ToString();
             ColorRectangleTextBox.Text = _currentRectangle.Color;
+            XRectangleTextBox.Text = _currentRectangle.Center.X.ToString();
+            YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString();
         }
 
         private void LengthRectangleTextBox_TextChanged(object sender, EventArgs e)
