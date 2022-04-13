@@ -22,14 +22,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 10 )
-                {
-                    throw new ArgumentException("The rating is set on a 10-point scale");
-                }
-                else
-                {
-                    _rating = value;
-                }
+                Validator.AssertValueInRange(nameof(Rating), value, 0d, 10d);
+                _rating = value;
             }
         }
 
@@ -41,7 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "DurationMinutes");
+                Validator.AssertOnPositiveValue(value, nameof(DurationMinutes));
                 _durationMinutes = value;
             }
         }
@@ -54,18 +48,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 1900)
-                {
-                    throw new ArgumentException("Year of manufacture since 1900");
-                }
-                else if(value > DateTime.Now.Year)
-                {
-                    throw new ArgumentException("Last year of release, current");
-                }
-                else
-                {
-                    _releaseYear = value;
-                }
+                Validator.AssertValueInRange(nameof(ReleaseYear), value, 1900, 2022);
+                _releaseYear = value;
             }
         }
 
@@ -73,7 +57,10 @@ namespace Programming.Model.Classes
 
         public string Genre { get; set; }
 
-        public Movie() { }
+        public Movie() 
+        {
+
+        }
 
         public Movie(string name, int durationMinutes, int releaseYear, string genre, double rating)
         {

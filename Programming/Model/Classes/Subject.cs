@@ -13,6 +13,8 @@ namespace Programming.Model.Classes
         /// </summary>
         private int _mark;
 
+        private int _hoursNumber;
+
         public int Mark
         {
             get
@@ -21,20 +23,25 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 2 || value > 5)
-                {
-                    throw new ArgumentException("Marks from 2 to 5");
-                }
-                else
-                {
-                    _mark = value;
-                }
+                Validator.AssertValueInRange(nameof(Mark), value, 2, 5);
+                _mark = value;
+            }
+        }
+
+        public int HoursNumber
+        {
+            get
+            {
+                return _hoursNumber;
+            }
+            set
+            {
+                Validator.AssertOnPositiveValue(value, nameof(HoursNumber));
+                _hoursNumber = value;
             }
         }
 
         public string Name { get; set; }
-
-        public int HoursNumber { get; set; }
 
         public Subject()
         {

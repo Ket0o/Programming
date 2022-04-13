@@ -28,8 +28,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                AssertStringContainsOnlyLetters(value, "Name");
-                _name = value;
+                _name = AssertStringContainsOnlyLetters(nameof(Name), value);
             }
         }
         
@@ -41,8 +40,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                AssertStringContainsOnlyLetters(value, "Surname");
-                _surname = value;
+                _surname = AssertStringContainsOnlyLetters(nameof(Surname), value);
             }
         }
 
@@ -73,7 +71,10 @@ namespace Programming.Model.Classes
             }
         }
 
-        public Contact() { }
+        public Contact() 
+        { 
+
+        }
 
         public Contact(string name, string surname, string phoneNumber)
         {
@@ -82,7 +83,7 @@ namespace Programming.Model.Classes
             PhoneNumber = phoneNumber;
         }
 
-        private void AssertStringContainsOnlyLetters(string value, string propertyName)
+        private string AssertStringContainsOnlyLetters(string value, string propertyName)
         {
             for(int i = 0; i < value.Length; i++)
             {
@@ -91,6 +92,8 @@ namespace Programming.Model.Classes
                     throw new ArgumentException($"{propertyName} must cintains letters only");
                 }
             }
+
+            return value; 
         }
     }
 }
