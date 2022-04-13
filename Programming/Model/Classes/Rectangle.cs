@@ -8,9 +8,21 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
+        private static int _allRectanglesCount;
+
         private double _length;
 
         private double _width;
+
+        private int _id;
+
+        public static int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+        }
 
         public double Length
         {
@@ -38,11 +50,23 @@ namespace Programming.Model.Classes
             }
         }
 
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+
         public Point2D Center { get; set; }
 
         public string Color { get; set; }
 
-        public Rectangle() { }
+        public Rectangle() 
+        {
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
+        }
 
         public Rectangle(double length, double width, string color, Point2D center)
         {
@@ -50,6 +74,8 @@ namespace Programming.Model.Classes
             Width = width;
             Color = color;
             Center = center;
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
     }
 }
