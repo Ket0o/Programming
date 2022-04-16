@@ -62,6 +62,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.MovieListBox = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.IdRectangleTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.YRectangleTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@
             this.LengthRectangleTextBox = new System.Windows.Forms.TextBox();
             this.Length_label = new System.Windows.Forms.Label();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.IdRectangleTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.Enums_tabPage.SuspendLayout();
             this.SeasonNamesGroupBox.SuspendLayout();
@@ -427,6 +427,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rectangles";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(216, 334);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(27, 20);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Id:";
+            // 
+            // IdRectangleTextBox
+            // 
+            this.IdRectangleTextBox.Location = new System.Drawing.Point(216, 357);
+            this.IdRectangleTextBox.Name = "IdRectangleTextBox";
+            this.IdRectangleTextBox.Size = new System.Drawing.Size(146, 26);
+            this.IdRectangleTextBox.TabIndex = 12;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -463,7 +479,7 @@
             // 
             // FindButton
             // 
-            this.FindButton.Location = new System.Drawing.Point(216, 408);
+            this.FindButton.Location = new System.Drawing.Point(216, 399);
             this.FindButton.Name = "FindButton";
             this.FindButton.Size = new System.Drawing.Size(146, 30);
             this.FindButton.TabIndex = 7;
@@ -528,25 +544,9 @@
             this.RectanglesListBox.ItemHeight = 20;
             this.RectanglesListBox.Location = new System.Drawing.Point(6, 25);
             this.RectanglesListBox.Name = "RectanglesListBox";
-            this.RectanglesListBox.Size = new System.Drawing.Size(200, 264);
+            this.RectanglesListBox.Size = new System.Drawing.Size(200, 404);
             this.RectanglesListBox.TabIndex = 0;
             this.RectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(216, 334);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(27, 20);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Id:";
-            // 
-            // IdRectangleTextBox
-            // 
-            this.IdRectangleTextBox.Location = new System.Drawing.Point(216, 357);
-            this.IdRectangleTextBox.Name = "IdRectangleTextBox";
-            this.IdRectangleTextBox.Size = new System.Drawing.Size(146, 26);
-            this.IdRectangleTextBox.TabIndex = 12;
             // 
             // MainForm
             // 
