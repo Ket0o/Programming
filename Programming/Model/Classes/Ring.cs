@@ -20,8 +20,8 @@ namespace Programming.Model.Classes
             }
             private set
             {
-                Validator.AssertOnPositiveValue(value, nameof(OuterRadius));
-                Validator.AssertValueInRange(nameof(OuterRadius), value, _innerRadius, double.MaxValue);
+                Validator.AssertOnPositiveValue (value, nameof(OuterRadius));
+                Validator.AssertValueInRange (nameof(OuterRadius), value, _innerRadius, double.MaxValue);
                 _outerRadius = value;
             }
         }
@@ -34,8 +34,8 @@ namespace Programming.Model.Classes
             }
             private set
             {
-                Validator.AssertOnPositiveValue(value, nameof(InnerRadius));
-                Validator.AssertValueInRange(nameof(InnerRadius), value, 0, _outerRadius);
+                Validator.AssertOnPositiveValue (value, nameof(InnerRadius));
+                Validator.AssertValueInRange (nameof(InnerRadius), value, 0, _outerRadius);
                 _innerRadius = value;
             }
         }
@@ -50,7 +50,7 @@ namespace Programming.Model.Classes
 
         public Point2D Center { get; set; }
 
-        public Ring(Point2D center,
+        public Ring (Point2D center,
                    double outerRadius,
                    double innerRadius)
         {

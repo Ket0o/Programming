@@ -18,7 +18,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, nameof(FlightTimeMinutes));
+                Validator.AssertOnPositiveValue (value, nameof(FlightTimeMinutes));
                 _flightTimeMinutes = value;
             }
         }
@@ -27,9 +27,12 @@ namespace Programming.Model.Classes
 
         public string Destination { get; set; }
 
-        public Route() { }
+        public Route () 
+        {
 
-        public Route(string departure, string destination, int flightTimeMinutes)
+        }
+
+        public Route (string departure, string destination, int flightTimeMinutes)
         {
             Departure = departure;
             Destination = destination;

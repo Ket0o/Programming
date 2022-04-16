@@ -18,7 +18,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, nameof(DurationSeconds));
+                Validator.AssertOnPositiveValue (value, nameof(DurationSeconds));
                 _durationSeconds = value;
             }
         }
@@ -27,9 +27,12 @@ namespace Programming.Model.Classes
 
         public string Author { get; set; }
 
-        public Song() { }
+        public Song () 
+        { 
 
-        public Song(string name, string author, int durationSeconds)
+        }
+
+        public Song (string name, string author, int durationSeconds)
         {
             Name = name;
             Author = author;

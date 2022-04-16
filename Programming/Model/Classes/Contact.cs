@@ -9,7 +9,7 @@ namespace Programming.Model.Classes
 {
     public class Contact
     {
-        private readonly Regex regex = new Regex(@"\d{11}");
+        private readonly Regex regex = new Regex (@"\d{11}");
 
         /// <summary>
         /// Телефонный номер. Не более 11 знаков
@@ -28,7 +28,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                _name = AssertStringContainsOnlyLetters(nameof(Name), value);
+                _name = AssertStringContainsOnlyLetters (nameof(Name), value);
             }
         }
         
@@ -40,7 +40,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                _surname = AssertStringContainsOnlyLetters(nameof(Surname), value);
+                _surname = AssertStringContainsOnlyLetters (nameof(Surname), value);
             }
         }
 
@@ -55,14 +55,14 @@ namespace Programming.Model.Classes
             }
             set
             {
-                MatchCollection matches = regex.Matches(value);
-                if(matches.Count != 11)
+                MatchCollection matches = regex.Matches (value);
+                if (matches.Count != 11)
                 {
-                    throw new ArgumentException("Enter only numbers");
+                    throw new ArgumentException ("Enter only numbers");
                 }
                 if (value.Length > 11)
                 {
-                    throw new ArgumentException("The phone number contains more than 11 digits");
+                    throw new ArgumentException ("The phone number contains more than 11 digits");
                 }
                 else
                 {
@@ -71,12 +71,12 @@ namespace Programming.Model.Classes
             }
         }
 
-        public Contact() 
+        public Contact () 
         { 
 
         }
 
-        public Contact(string name, string surname, string phoneNumber)
+        public Contact (string name, string surname, string phoneNumber)
         {
             Name = name;
             Surname = surname;
@@ -85,11 +85,11 @@ namespace Programming.Model.Classes
 
         private string AssertStringContainsOnlyLetters(string value, string propertyName)
         {
-            for(int i = 0; i < value.Length; i++)
+            for (int i = 0; i < value.Length; i++)
             {
-                if(!char.IsLetter(value[i]))
+                if (!char.IsLetter(value[i]))
                 {
-                    throw new ArgumentException($"{propertyName} must cintains letters only");
+                    throw new ArgumentException ($"{propertyName} must cintains letters only");
                 }
             }
 

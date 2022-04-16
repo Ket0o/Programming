@@ -438,6 +438,7 @@
             // 
             // IdRectangleTextBox
             // 
+            this.IdRectangleTextBox.Enabled = false;
             this.IdRectangleTextBox.Location = new System.Drawing.Point(216, 357);
             this.IdRectangleTextBox.Name = "IdRectangleTextBox";
             this.IdRectangleTextBox.Size = new System.Drawing.Size(146, 26);

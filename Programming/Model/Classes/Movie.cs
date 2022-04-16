@@ -22,7 +22,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(nameof(Rating), value, 0d, 10d);
+                Validator.AssertValueInRange (nameof(Rating), value, 0d, 10d);
                 _rating = value;
             }
         }
@@ -35,7 +35,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, nameof(DurationMinutes));
+                Validator.AssertOnPositiveValue (value, nameof(DurationMinutes));
                 _durationMinutes = value;
             }
         }
@@ -48,7 +48,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(nameof(ReleaseYear), value, 1900, 2022);
+                Validator.AssertValueInRange (nameof(ReleaseYear), value, 1900, 2022);
                 _releaseYear = value;
             }
         }
@@ -57,12 +57,12 @@ namespace Programming.Model.Classes
 
         public string Genre { get; set; }
 
-        public Movie() 
+        public Movie () 
         {
 
         }
 
-        public Movie(string name, int durationMinutes, int releaseYear, string genre, double rating)
+        public Movie (string name, int durationMinutes, int releaseYear, string genre, double rating)
         {
             Name = name;
             DurationMinutes = durationMinutes;

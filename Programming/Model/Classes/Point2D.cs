@@ -20,7 +20,7 @@ namespace Programming.Model.Classes
             }
             private set
             {
-                Validator.AssertOnPositiveValue(value, nameof(X));
+                Validator.AssertOnPositiveValue (value, nameof(X));
                 _x = value;
             }
         } 
@@ -33,12 +33,12 @@ namespace Programming.Model.Classes
             }
             private set
             {
-                Validator.AssertOnPositiveValue(value, nameof(Y));
+                Validator.AssertOnPositiveValue (value, nameof(Y));
                 _y = value;
             }
         }
 
-        public Point2D(int x, int y)
+        public Point2D (int x, int y)
         {
             X = x;
             Y = y;

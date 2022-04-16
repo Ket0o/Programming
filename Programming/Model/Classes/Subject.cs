@@ -23,7 +23,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange(nameof(Mark), value, 2, 5);
+                Validator.AssertValueInRange (nameof(Mark), value, 2, 5);
                 _mark = value;
             }
         }
@@ -36,19 +36,19 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, nameof(HoursNumber));
+                Validator.AssertOnPositiveValue (value, nameof(HoursNumber));
                 _hoursNumber = value;
             }
         }
 
         public string Name { get; set; }
 
-        public Subject()
+        public Subject ()
         {
 
         }
 
-        public Subject(int mark, string name, int hoursNumber)
+        public Subject (int mark, string name, int hoursNumber)
         {
             Mark = mark;
             Name = name;

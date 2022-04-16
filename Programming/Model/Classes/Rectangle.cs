@@ -32,7 +32,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "Length");
+                Validator.AssertOnPositiveValue (value, "Length");
                 _length = value;
             }
         }
@@ -45,7 +45,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(value, "Width");
+                Validator.AssertOnPositiveValue (value, "Width");
                 _width = value;
             }
         }
@@ -62,13 +62,13 @@ namespace Programming.Model.Classes
 
         public string Color { get; set; }
 
-        public Rectangle() 
+        public Rectangle () 
         {
             _allRectanglesCount++;
             _id = _allRectanglesCount;
         }
 
-        public Rectangle(double length, double width, string color, Point2D center)
+        public Rectangle (double length, double width, string color, Point2D center)
         {
             Length = length;
             Width = width;
