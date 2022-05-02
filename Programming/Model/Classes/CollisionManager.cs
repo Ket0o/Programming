@@ -13,7 +13,7 @@ namespace Programming.Model.Classes
             int dX = Math.Abs (rectangle1.Center.X - rectangle2.Center.X);
             int dY = Math.Abs (rectangle1.Center.Y - rectangle2.Center.Y);
             double widthDifference = Math.Abs (rectangle1.Width + rectangle2.Width) / 2;
-            double lengthDifference = Math.Abs (rectangle1.Length + rectangle2.Length) / 2;
+            double lengthDifference = Math.Abs (rectangle1.Height + rectangle2.Height) / 2;
 
             return (dX < widthDifference) && (dY < lengthDifference);
         }

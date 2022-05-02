@@ -68,7 +68,7 @@ namespace Programming.View
             {
                 _currentRectangle = new Rectangle ();
                 _currentRectangle.Width = _random.Next (1, 1001) / 10.0;
-                _currentRectangle.Length = _random.Next (1, 1001) / 10.0;
+                _currentRectangle.Height = _random.Next (1, 1001) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_random.Next (0, colors.Length)).ToString ();
                 _currentRectangle.Center = new Point2D (_random.Next(1, 100), _random.Next (1, 100));
                 _rectangles[i] = _currentRectangle;
@@ -176,7 +176,7 @@ namespace Programming.View
         {
             int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
             _currentRectangle = _rectangles[selectedIndexRectangle];
-            LengthRectangleTextBox.Text = _currentRectangle.Length.ToString ();
+            LengthRectangleTextBox.Text = _currentRectangle.Height.ToString ();
             WidthRectangleTextBox.Text = _currentRectangle.Width.ToString ();
             ColorRectangleTextBox.Text = _currentRectangle.Color;
             XRectangleTextBox.Text = _currentRectangle.Center.X.ToString ();
@@ -190,7 +190,7 @@ namespace Programming.View
             {
                 string rectnagleCurrentLength = LengthRectangleTextBox.Text;
                 double rectangleLength = double.Parse (rectnagleCurrentLength);
-                _currentRectangle.Length = rectangleLength;
+                _currentRectangle.Height = rectangleLength;
             }
             catch
             {
@@ -339,5 +339,15 @@ namespace Programming.View
             int findMaxRatingIndex = FindMovieWithMaxRating (_movies);
             MovieListBox.SelectedIndex = findMaxRatingIndex;
         }
+
+        private void AddRectangleButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void RemoveRectangleButton_Click(object sender, EventArgs e)
+        {
+            
+    }
     }
 }
