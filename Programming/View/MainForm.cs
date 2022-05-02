@@ -222,14 +222,17 @@ namespace Programming.View
 
         private void RectanglesListBox_SelectedIndexChanged (object sender, EventArgs e)
         {
-            int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
-            _currentRectangle = _rectangles[selectedIndexRectangle];
-            LengthRectangleTextBox.Text = _currentRectangle.Height.ToString ();
-            WidthRectangleTextBox.Text = _currentRectangle.Width.ToString ();
-            ColorRectangleTextBox.Text = _currentRectangle.Color;
-            XRectangleTextBox.Text = _currentRectangle.Center.X.ToString ();
-            YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString ();
-            IdRectangleTextBox.Text = _currentRectangle.Id.ToString ();
+            if (RectanglesListBox.SelectedItem != null)
+            {
+                int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
+                _currentRectangle = _rectangles[selectedIndexRectangle];
+                LengthRectangleTextBox.Text = _currentRectangle.Height.ToString();
+                WidthRectangleTextBox.Text = _currentRectangle.Width.ToString();
+                ColorRectangleTextBox.Text = _currentRectangle.Color;
+                XRectangleTextBox.Text = _currentRectangle.Center.X.ToString();
+                YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString();
+                IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
+            }
         }
 
         private void LengthRectangleTextBox_TextChanged (object sender, EventArgs e)
