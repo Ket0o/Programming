@@ -49,6 +49,7 @@
     <Compile Include="Model\Classes\CollisionManager.cs" />
     <Compile Include="Model\Classes\Contact.cs" />
     <Compile Include="Model\Classes\Point2D.cs" />
+    <Compile Include="Model\Classes\RectangleFactory.cs" />
     <Compile Include="Model\Classes\Ring.cs" />
     <Compile Include="Model\Classes\Subject.cs" />
     <Compile Include="Model\Classes\Movie.cs" />
@@ -100,6 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icon_programm.ico" />
+    <Content Include="Resources\rectangle_add_24x24.png" />
+    <Content Include="Resources\rectangle_edit_24x24.png" />
+    <Content Include="Resources\rectangle_edit_24x24_uncolor.png" />
+    <Content Include="Resources\rectangle_remove_24x24.png" />
     <None Include="Resources\rectangle_remove_24x24_uncolor.png" />
     <None Include="Resources\rectangle_add_24x24_uncolor.png" />
   </ItemGroup>

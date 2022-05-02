@@ -24,6 +24,8 @@ namespace Programming.View
 
         private List<Rectangle> _rectangles;
 
+        private List<Panel> _rectanglePanels;
+
         private Rectangle _currentRectangle;
 
         private Movie[] _movies;
@@ -54,6 +56,8 @@ namespace Programming.View
 
             _random = new Random ();
 
+            _rectanglePanels = new List<Panel> ();
+
             _rectangles = new List<Rectangle> ();
 
             //InitRectangles ();
@@ -78,6 +82,26 @@ namespace Programming.View
         //    }
         //    RectanglesListBox.SelectedIndex = 0;
         //}
+        private void FindCollisions()
+        {
+            for(int i = 0; i < _rectanglePanels.Count; i++)
+            {
+                CanvasPanel.Controls[i].BackColor = Color.FromArgb(127, 127, 255, 127);
+            }
+
+            for(int i = 0; i < _rectanglePanels.Count - 1; i++)
+            {
+                for(int j = i + 1; j < _rectanglePanels.Count; j++)
+                {
+                    if(CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
+                    {
+                        CanvasPanel.Controls[i].BackColor = Color.FromArgb(127, 255, 127, 127);
+                        CanvasPanel.Controls[j].BackColor = Color.FromArgb(127, 255, 127, 127);
+                    }
+                }
+            }
+        }
+
         private void ClearRectangleInfo()
         {
             ListBoxRectanglesTabPage.Items.Clear();
@@ -366,15 +390,20 @@ namespace Programming.View
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            var colors = Enum.GetValues(typeof(Colors));
-            _currentRectangle = new Rectangle();
-            _currentRectangle.Width = _random.Next(1, 1001) / 10;
-            _currentRectangle.Height = _random.Next(1, 1001) / 10;
-            _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-            _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
+            _currentRectangle = RectangleFactory.Randomize();
             _rectangles.Add(_currentRectangle);
             ListBoxRectanglesTabPage.Items.Add($"{_currentRectangle.Id}: (X= {_currentRectangle.Center.X}; Y= {_currentRectangle.Center.Y}; W= {_currentRectangle.Width}; H= {_currentRectangle.Height}) ");
             RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
+
+            Panel rectanglePanel = new Panel();
+            rectanglePanel.Width = _currentRectangle.Width;
+            rectanglePanel.Height = _currentRectangle.Height;
+            rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            rectanglePanel.BackColor = Color.FromArgb(127, 127, 255, 127);
+            _rectanglePanels.Add(rectanglePanel);
+            CanvasPanel.Controls.Add(rectanglePanel);
+
+            FindCollisions();
         }
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
@@ -383,19 +412,22 @@ namespace Programming.View
             if(index != -1)
             {
                 _rectangles.RemoveAt(index);
+                _rectanglePanels.RemoveAt(index);
                 ListBoxRectanglesTabPage.Items.RemoveAt(index);
                 RectanglesListBox.Items.RemoveAt(index);
+                CanvasPanel.Controls.RemoveAt(index);
+                FindCollisions();
                 ClearRectangleInfo();
 
                 for (int i = 0; i < _rectangles.Count; i++)
                 {
                     ListBoxRectanglesTabPage.Items.Add($"{_rectangles[i].Id}: " +
-                                                  $"(X: {_rectangles[i].Center.X};" +
-                                                  $" Y: {_rectangles[i].Center.Y};" +
-                                                  $" W: {_rectangles[i].Width};" +
-                                                  $" H: {_rectangles[i].Height})");
+                                                  $"(X= {_rectangles[i].Center.X};" +
+                                                  $" Y= {_rectangles[i].Center.Y};" +
+                                                  $" W= {_rectangles[i].Width};" +
+                                                  $" H= {_rectangles[i].Height})");
+                    ListBoxRectanglesTabPage.SelectedIndex = 0;
                 }
-                ListBoxRectanglesTabPage.SelectedIndex = 0;
             }
         }
 
@@ -423,6 +455,8 @@ namespace Programming.View
                 string rectnagleCurrentHeight = HeightRectangle.Text;
                 int rectangleHeight = int.Parse(rectnagleCurrentHeight);
                 _currentRectangle.Height = rectangleHeight;
+                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Height = _currentRectangle.Height;
+                FindCollisions ();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
@@ -442,6 +476,8 @@ namespace Programming.View
                 string rectnagleCurrentWidth = WidthRectangle.Text;
                 int rectangleWidth = int.Parse(rectnagleCurrentWidth);
                 _currentRectangle.Width = rectangleWidth;
+                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Width = _currentRectangle.Width;
+                FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
@@ -461,6 +497,8 @@ namespace Programming.View
                 string rectnagleCurrentX = XRectangle.Text;
                 int rectangleX = int.Parse(rectnagleCurrentX);
                 _currentRectangle.Center.X = rectangleX;
+                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+                FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
@@ -480,6 +518,8 @@ namespace Programming.View
                 string rectnagleCurrentY = YRectangle.Text;
                 int rectangleY = int.Parse(rectnagleCurrentY);
                 _currentRectangle.Center.Y = rectangleY;
+                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+                FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
@@ -488,6 +528,26 @@ namespace Programming.View
                 return;
             }
             YRectangle.BackColor = _correctColor;
+        }
+
+        private void RemoveRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24;
+        }
+
+        private void RemoveRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24_uncolor;
+        }
+
+        private void AddRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddRectangleButton.Image = Properties.Resources.rectangle_add_24x24;
+        }
+
+        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddRectangleButton.Image = Properties.Resources.rectangle_add_24x24_uncolor;
         }
     }
 }
