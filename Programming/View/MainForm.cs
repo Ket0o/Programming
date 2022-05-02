@@ -78,6 +78,16 @@ namespace Programming.View
         //    }
         //    RectanglesListBox.SelectedIndex = 0;
         //}
+        private void ClearRectangleInfo()
+        {
+            ListBoxRectanglesTabPage.Items.Clear();
+            IdRectangle.Clear();
+            XRectangle.Clear();
+            YRectangle.Clear();
+            WidthRectangle.Clear();
+            HeightRectangle.Clear();
+        }
+        
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             int ind = ListBoxRectanglesTabPage.FindString(rectangle.Id.ToString());
@@ -375,23 +385,33 @@ namespace Programming.View
                 _rectangles.RemoveAt(index);
                 ListBoxRectanglesTabPage.Items.RemoveAt(index);
                 RectanglesListBox.Items.RemoveAt(index);
+                ClearRectangleInfo();
+
+                for (int i = 0; i < _rectangles.Count; i++)
+                {
+                    ListBoxRectanglesTabPage.Items.Add($"{_rectangles[i].Id}: " +
+                                                  $"(X: {_rectangles[i].Center.X};" +
+                                                  $" Y: {_rectangles[i].Center.Y};" +
+                                                  $" W: {_rectangles[i].Width};" +
+                                                  $" H: {_rectangles[i].Height})");
+                }
                 ListBoxRectanglesTabPage.SelectedIndex = 0;
-                RectanglesListBox.SelectedIndex = 0;
             }
         }
 
         private void ListBoxRectanglesTabPage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!(ListBoxRectanglesTabPage.SelectedIndex == null))
+            if (ListBoxRectanglesTabPage.SelectedItem != null)
             {
-                int selectedIndexRectangle = ListBoxRectanglesTabPage.SelectedIndex;
-                _currentRectangle = _rectangles[selectedIndexRectangle];
-                HeightRectangle.Text = _currentRectangle.Height.ToString();
-                WidthRectangle.Text = _currentRectangle.Width.ToString();
+                int indexSelectedRectangle = ListBoxRectanglesTabPage.SelectedIndex;
+                _currentRectangle = _rectangles[indexSelectedRectangle];
+                IdRectangle.Text = _currentRectangle.Id.ToString();
                 XRectangle.Text = _currentRectangle.Center.X.ToString();
                 YRectangle.Text = _currentRectangle.Center.Y.ToString();
-                IdRectangle.Text = _currentRectangle.Id.ToString();
+                WidthRectangle.Text = _currentRectangle.Width.ToString();
+                HeightRectangle.Text = _currentRectangle.Height.ToString();
             }
+            
         }
 
         private void HeightRectangle_TextChanged(object sender, EventArgs e)
