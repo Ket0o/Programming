@@ -678,9 +678,9 @@
             // 
             this.RemoveRectangleButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
             this.RemoveRectangleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.RemoveRectangleButton.Location = new System.Drawing.Point(186, 277);
+            this.RemoveRectangleButton.Location = new System.Drawing.Point(185, 273);
             this.RemoveRectangleButton.Name = "RemoveRectangleButton";
-            this.RemoveRectangleButton.Size = new System.Drawing.Size(40, 33);
+            this.RemoveRectangleButton.Size = new System.Drawing.Size(66, 41);
             this.RemoveRectangleButton.TabIndex = 5;
             this.RemoveRectangleButton.UseVisualStyleBackColor = true;
             this.RemoveRectangleButton.Click += new System.EventHandler(this.RemoveRectangleButton_Click);
@@ -689,9 +689,9 @@
             // 
             this.AddRectangleButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
             this.AddRectangleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.AddRectangleButton.Location = new System.Drawing.Point(62, 277);
+            this.AddRectangleButton.Location = new System.Drawing.Point(62, 273);
             this.AddRectangleButton.Name = "AddRectangleButton";
-            this.AddRectangleButton.Size = new System.Drawing.Size(40, 33);
+            this.AddRectangleButton.Size = new System.Drawing.Size(66, 41);
             this.AddRectangleButton.TabIndex = 4;
             this.AddRectangleButton.Text = "\r\n";
             this.AddRectangleButton.UseVisualStyleBackColor = true;
