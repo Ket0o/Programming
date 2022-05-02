@@ -22,7 +22,7 @@ namespace Programming.View
 
         private readonly Color _correctColor = Color.White;
 
-        private Rectangle[] _rectangles;
+        private List<Rectangle> _rectangles;
 
         private Rectangle _currentRectangle;
 
@@ -54,27 +54,41 @@ namespace Programming.View
 
             _random = new Random ();
 
-            InitRectangles ();
+            _rectangles = new List<Rectangle> ();
+
+            //InitRectangles ();
 
             InitMovies ();
         }
 
-        private void InitRectangles ()
-        {
-            _rectangles = new Rectangle[ElementsCount];
+        //private void InitRectangles ()
+        //{
+        //    _rectangles = new List<Rectangle> ();
 
-            var colors = Enum.GetValues (typeof(Colors));
-            for (int i = 0; i < ElementsCount; i++)
-            {
-                _currentRectangle = new Rectangle ();
-                _currentRectangle.Width = _random.Next (1, 1001) / 10.0;
-                _currentRectangle.Height = _random.Next (1, 1001) / 10.0;
-                _currentRectangle.Color = colors.GetValue(_random.Next (0, colors.Length)).ToString ();
-                _currentRectangle.Center = new Point2D (_random.Next(1, 100), _random.Next (1, 100));
-                _rectangles[i] = _currentRectangle;
-                RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
-            }
-            RectanglesListBox.SelectedIndex = 0;
+        //    var colors = Enum.GetValues (typeof(Colors));
+        //    for (int i = 0; i < ElementsCount; i++)
+        //    {
+        //        _currentRectangle = new Rectangle ();
+        //        _currentRectangle.Width = _random.Next (1, 1001) / 10.0;
+        //        _currentRectangle.Height = _random.Next (1, 1001) / 10.0;
+        //        _currentRectangle.Color = colors.GetValue(_random.Next (0, colors.Length)).ToString ();
+        //        _currentRectangle.Center = new Point2D (_random.Next(1, 100), _random.Next (1, 100));
+        //        _rectangles.Add(_currentRectangle);
+        //        RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
+        //    }
+        //    RectanglesListBox.SelectedIndex = 0;
+        //}
+        private void UpdateRectangleInfo(Rectangle rectangle)
+        {
+            int ind = ListBoxRectanglesTabPage.FindString(rectangle.Id.ToString());
+
+            if (ind == -1) return;
+
+            ListBoxRectanglesTabPage.Items[ind] = $"{rectangle.Id}: " +
+                                                        $"(X= {rectangle.Center.X};" +
+                                                        $" Y= {rectangle.Center.Y};" +
+                                                        $" W= {rectangle.Width};" +
+                                                        $" H= {rectangle.Height})";
         }
 
         private void InitMovies ()
@@ -96,7 +110,7 @@ namespace Programming.View
             MovieListBox.SelectedIndex = 0;
         }
 
-        private int FindRectangleWithMaxWidth (Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth (List<Rectangle> rectangles)
         {
             int maxWidthIndex = 0;
             double max = 0;
@@ -189,7 +203,7 @@ namespace Programming.View
             try
             {
                 string rectnagleCurrentLength = LengthRectangleTextBox.Text;
-                double rectangleLength = double.Parse (rectnagleCurrentLength);
+                int rectangleLength = int.Parse(rectnagleCurrentLength);
                 _currentRectangle.Height = rectangleLength;
             }
             catch
@@ -205,7 +219,7 @@ namespace Programming.View
             try
             {
                 string rectangleCurrentWidt = WidthRectangleTextBox.Text;
-                double rectangleWidth = double.Parse (rectangleCurrentWidt);
+                int rectangleWidth = int.Parse (rectangleCurrentWidt);
                 _currentRectangle.Width = rectangleWidth;
             }
             catch
@@ -342,12 +356,118 @@ namespace Programming.View
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            
+            var colors = Enum.GetValues(typeof(Colors));
+            _currentRectangle = new Rectangle();
+            _currentRectangle.Width = _random.Next(1, 1001) / 10;
+            _currentRectangle.Height = _random.Next(1, 1001) / 10;
+            _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+            _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
+            _rectangles.Add(_currentRectangle);
+            ListBoxRectanglesTabPage.Items.Add($"{_currentRectangle.Id}: (X= {_currentRectangle.Center.X}; Y= {_currentRectangle.Center.Y}; W= {_currentRectangle.Width}; H= {_currentRectangle.Height}) ");
+            RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
         }
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
         {
-            
-    }
+            int index = ListBoxRectanglesTabPage.SelectedIndex;
+            if(index != -1)
+            {
+                _rectangles.RemoveAt(index);
+                ListBoxRectanglesTabPage.Items.RemoveAt(index);
+                RectanglesListBox.Items.RemoveAt(index);
+                ListBoxRectanglesTabPage.SelectedIndex = 0;
+                RectanglesListBox.SelectedIndex = 0;
+            }
+        }
+
+        private void ListBoxRectanglesTabPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!(ListBoxRectanglesTabPage.SelectedIndex == null))
+            {
+                int selectedIndexRectangle = ListBoxRectanglesTabPage.SelectedIndex;
+                _currentRectangle = _rectangles[selectedIndexRectangle];
+                HeightRectangle.Text = _currentRectangle.Height.ToString();
+                WidthRectangle.Text = _currentRectangle.Width.ToString();
+                XRectangle.Text = _currentRectangle.Center.X.ToString();
+                YRectangle.Text = _currentRectangle.Center.Y.ToString();
+                IdRectangle.Text = _currentRectangle.Id.ToString();
+            }
+        }
+
+        private void HeightRectangle_TextChanged(object sender, EventArgs e)
+        {
+            if (ListBoxRectanglesTabPage.SelectedIndex == -1)
+                return;
+            try
+            {
+                string rectnagleCurrentHeight = HeightRectangle.Text;
+                int rectangleHeight = int.Parse(rectnagleCurrentHeight);
+                _currentRectangle.Height = rectangleHeight;
+                UpdateRectangleInfo(_currentRectangle);
+            }
+            catch
+            {
+                HeightRectangle.BackColor = _errorColor;
+                return;
+            }
+            HeightRectangle.BackColor = _correctColor;
+        }
+
+        private void WidthRectangle_TextChanged(object sender, EventArgs e)
+        {
+            if (ListBoxRectanglesTabPage.SelectedIndex == -1)
+                return;
+            try
+            {
+                string rectnagleCurrentWidth = WidthRectangle.Text;
+                int rectangleWidth = int.Parse(rectnagleCurrentWidth);
+                _currentRectangle.Width = rectangleWidth;
+                UpdateRectangleInfo(_currentRectangle);
+            }
+            catch
+            {
+                WidthRectangle.BackColor = _errorColor;
+                return;
+            }
+            WidthRectangle.BackColor = _correctColor;
+        }
+
+        private void XRectangle_TextChanged(object sender, EventArgs e)
+        {
+            if (ListBoxRectanglesTabPage.SelectedIndex == -1)
+                return;
+            try
+            {
+                string rectnagleCurrentX = XRectangle.Text;
+                int rectangleX = int.Parse(rectnagleCurrentX);
+                _currentRectangle.Center.X = rectangleX;
+                UpdateRectangleInfo(_currentRectangle);
+            }
+            catch
+            {
+                XRectangle.BackColor = _errorColor;
+                return;
+            }
+            XRectangle.BackColor = _correctColor;
+        }
+
+        private void YRectangle_TextChanged(object sender, EventArgs e)
+        {
+            if (ListBoxRectanglesTabPage.SelectedIndex == -1)
+                return;
+            try
+            {
+                string rectnagleCurrentY = YRectangle.Text;
+                int rectangleY = int.Parse(rectnagleCurrentY);
+                _currentRectangle.Center.Y = rectangleY;
+                UpdateRectangleInfo(_currentRectangle);
+            }
+            catch
+            {
+                YRectangle.BackColor = _errorColor;
+                return;
+            }
+            YRectangle.BackColor = _correctColor;
+        }
     }
 }

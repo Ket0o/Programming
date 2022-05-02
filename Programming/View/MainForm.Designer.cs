@@ -609,6 +609,7 @@
             this.HeightRectangle.Name = "HeightRectangle";
             this.HeightRectangle.Size = new System.Drawing.Size(135, 26);
             this.HeightRectangle.TabIndex = 14;
+            this.HeightRectangle.TextChanged += new System.EventHandler(this.HeightRectangle_TextChanged);
             // 
             // label18
             // 
@@ -625,6 +626,7 @@
             this.WidthRectangle.Name = "WidthRectangle";
             this.WidthRectangle.Size = new System.Drawing.Size(135, 26);
             this.WidthRectangle.TabIndex = 12;
+            this.WidthRectangle.TextChanged += new System.EventHandler(this.WidthRectangle_TextChanged);
             // 
             // label19
             // 
@@ -641,6 +643,7 @@
             this.YRectangle.Name = "YRectangle";
             this.YRectangle.Size = new System.Drawing.Size(135, 26);
             this.YRectangle.TabIndex = 10;
+            this.YRectangle.TextChanged += new System.EventHandler(this.YRectangle_TextChanged);
             // 
             // label17
             // 
@@ -657,6 +660,7 @@
             this.XRectangle.Name = "XRectangle";
             this.XRectangle.Size = new System.Drawing.Size(135, 26);
             this.XRectangle.TabIndex = 8;
+            this.XRectangle.TextChanged += new System.EventHandler(this.XRectangle_TextChanged);
             // 
             // label16
             // 
@@ -722,6 +726,7 @@
             this.ListBoxRectanglesTabPage.Name = "ListBoxRectanglesTabPage";
             this.ListBoxRectanglesTabPage.Size = new System.Drawing.Size(389, 224);
             this.ListBoxRectanglesTabPage.TabIndex = 1;
+            this.ListBoxRectanglesTabPage.SelectedIndexChanged += new System.EventHandler(this.ListBoxRectanglesTabPage_SelectedIndexChanged);
             // 
             // labelRectanglesTabPage
             // 
