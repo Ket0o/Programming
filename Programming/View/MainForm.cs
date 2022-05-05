@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
-using Rectangle = Programming.Model.Classes.Rectangle;
+using Rectangle = Programming.Model.Geometry.Rectangle;
 using Programming.Model.Classes;
+using Programming.Model.Geometry;
 
 
 namespace Programming.View

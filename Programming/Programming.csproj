@@ -46,15 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Classes\CollisionManager.cs" />
+    <Compile Include="Model\Geometry\CollisionManager.cs" />
     <Compile Include="Model\Classes\Contact.cs" />
-    <Compile Include="Model\Classes\Point2D.cs" />
-    <Compile Include="Model\Classes\RectangleFactory.cs" />
-    <Compile Include="Model\Classes\Ring.cs" />
+    <Compile Include="Model\Geometry\Point2D.cs" />
+    <Compile Include="Model\Geometry\RectangleFactory.cs" />
+    <Compile Include="Model\Geometry\Ring.cs" />
     <Compile Include="Model\Classes\Subject.cs" />
     <Compile Include="Model\Classes\Movie.cs" />
     <Compile Include="Model\Classes\Route.cs" />
-    <Compile Include="Model\Classes\Rectangle.cs" />
+    <Compile Include="Model\Geometry\Rectangle.cs" />
     <Compile Include="Model\Classes\Time.cs" />
     <Compile Include="Model\Classes\Song.cs" />
     <Compile Include="Model\Classes\Validator.cs" />
@@ -108,5 +108,6 @@
     <None Include="Resources\rectangle_remove_24x24_uncolor.png" />
     <None Include="Resources\rectangle_add_24x24_uncolor.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
