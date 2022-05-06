@@ -83,16 +83,6 @@ namespace Programming.View
                 }
             }
         }
-
-        private void ClearRectangleInfo()
-        {
-            ListBoxRectanglesTabPage.Items.Clear();
-            IdRectangle.Clear();
-            XRectangle.Clear();
-            YRectangle.Clear();
-            WidthRectangle.Clear();
-            HeightRectangle.Clear();
-        }
         
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
@@ -402,7 +392,12 @@ namespace Programming.View
                 RectanglesListBox.Items.RemoveAt(index);
                 CanvasPanel.Controls.RemoveAt(index);
                 FindCollisions();
-                ClearRectangleInfo();
+                ListBoxRectanglesTabPage.Items.Clear();
+                IdRectangle.Clear();
+                XRectangle.Clear();
+                YRectangle.Clear();
+                WidthRectangle.Clear();
+                HeightRectangle.Clear();
 
                 for (int i = 0; i < _rectangles.Count; i++)
                 {
