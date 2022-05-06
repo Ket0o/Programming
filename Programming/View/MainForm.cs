@@ -61,28 +61,9 @@ namespace Programming.View
 
             _rectangles = new List<Rectangle> ();
 
-            //InitRectangles ();
-
             InitMovies ();
         }
 
-        //private void InitRectangles ()
-        //{
-        //    _rectangles = new List<Rectangle> ();
-
-        //    var colors = Enum.GetValues (typeof(Colors));
-        //    for (int i = 0; i < ElementsCount; i++)
-        //    {
-        //        _currentRectangle = new Rectangle ();
-        //        _currentRectangle.Width = _random.Next (1, 1001) / 10.0;
-        //        _currentRectangle.Height = _random.Next (1, 1001) / 10.0;
-        //        _currentRectangle.Color = colors.GetValue(_random.Next (0, colors.Length)).ToString ();
-        //        _currentRectangle.Center = new Point2D (_random.Next(1, 100), _random.Next (1, 100));
-        //        _rectangles.Add(_currentRectangle);
-        //        RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
-        //    }
-        //    RectanglesListBox.SelectedIndex = 0;
-        //}
         private void FindCollisions()
         {
             for(int i = 0; i < _rectanglePanels.Count; i++)
@@ -120,10 +101,10 @@ namespace Programming.View
             if (ind == -1) return;
 
             ListBoxRectanglesTabPage.Items[ind] = $"{rectangle.Id}: " +
-                                                        $"(X= {rectangle.Center.X};" +
-                                                        $" Y= {rectangle.Center.Y};" +
-                                                        $" W= {rectangle.Width};" +
-                                                        $" H= {rectangle.Height})";
+                                                  $"(X= {rectangle.Center.X};" +
+                                                  $" Y= {rectangle.Center.Y};" +
+                                                  $" W= {rectangle.Width};" +
+                                                  $" H= {rectangle.Height})";
         }
 
         private void InitMovies ()
@@ -426,10 +407,10 @@ namespace Programming.View
                 for (int i = 0; i < _rectangles.Count; i++)
                 {
                     ListBoxRectanglesTabPage.Items.Add($"{_rectangles[i].Id}: " +
-                                                  $"(X= {_rectangles[i].Center.X};" +
-                                                  $" Y= {_rectangles[i].Center.Y};" +
-                                                  $" W= {_rectangles[i].Width};" +
-                                                  $" H= {_rectangles[i].Height})");
+                                                       $"(X= {_rectangles[i].Center.X};" +
+                                                       $" Y= {_rectangles[i].Center.Y};" +
+                                                       $" W= {_rectangles[i].Width};" +
+                                                       $" H= {_rectangles[i].Height})");
                     ListBoxRectanglesTabPage.SelectedIndex = 0;
                 }
             }
