@@ -84,6 +84,16 @@ namespace Programming.View
             }
         }
         
+        private void ClearReactangleInfo()
+        {
+            ListBoxRectanglesTabPage.Items.Clear();
+            IdRectangle.Clear();
+            XRectangle.Clear();
+            YRectangle.Clear();
+            WidthRectangle.Clear();
+            HeightRectangle.Clear();
+        }
+
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             int ind = ListBoxRectanglesTabPage.FindString(rectangle.Id.ToString());
@@ -392,12 +402,7 @@ namespace Programming.View
                 RectanglesListBox.Items.RemoveAt(index);
                 CanvasPanel.Controls.RemoveAt(index);
                 FindCollisions();
-                ListBoxRectanglesTabPage.Items.Clear();
-                IdRectangle.Clear();
-                XRectangle.Clear();
-                YRectangle.Clear();
-                WidthRectangle.Clear();
-                HeightRectangle.Clear();
+                ClearReactangleInfo();
 
                 for (int i = 0; i < _rectangles.Count; i++)
                 {
