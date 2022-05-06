@@ -49,7 +49,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(48, 531);
+            this.label20.Location = new System.Drawing.Point(13, 491);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 20);
             this.label20.TabIndex = 31;
@@ -57,7 +57,7 @@
             // 
             // HeightRectangle
             // 
-            this.HeightRectangle.Location = new System.Drawing.Point(118, 527);
+            this.HeightRectangle.Location = new System.Drawing.Point(83, 487);
             this.HeightRectangle.Name = "HeightRectangle";
             this.HeightRectangle.Size = new System.Drawing.Size(134, 26);
             this.HeightRectangle.TabIndex = 30;
@@ -66,7 +66,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(58, 498);
+            this.label18.Location = new System.Drawing.Point(23, 458);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(54, 20);
             this.label18.TabIndex = 29;
@@ -74,7 +74,7 @@
             // 
             // WidthRectangle
             // 
-            this.WidthRectangle.Location = new System.Drawing.Point(118, 495);
+            this.WidthRectangle.Location = new System.Drawing.Point(83, 455);
             this.WidthRectangle.Name = "WidthRectangle";
             this.WidthRectangle.Size = new System.Drawing.Size(134, 26);
             this.WidthRectangle.TabIndex = 28;
@@ -83,7 +83,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(84, 466);
+            this.label19.Location = new System.Drawing.Point(49, 426);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(24, 20);
             this.label19.TabIndex = 27;
@@ -91,7 +91,7 @@
             // 
             // YRectangle
             // 
-            this.YRectangle.Location = new System.Drawing.Point(118, 463);
+            this.YRectangle.Location = new System.Drawing.Point(83, 423);
             this.YRectangle.Name = "YRectangle";
             this.YRectangle.Size = new System.Drawing.Size(134, 26);
             this.YRectangle.TabIndex = 26;
@@ -100,7 +100,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(84, 434);
+            this.label17.Location = new System.Drawing.Point(49, 394);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(24, 20);
             this.label17.TabIndex = 25;
@@ -108,7 +108,7 @@
             // 
             // XRectangle
             // 
-            this.XRectangle.Location = new System.Drawing.Point(118, 431);
+            this.XRectangle.Location = new System.Drawing.Point(83, 391);
             this.XRectangle.Name = "XRectangle";
             this.XRectangle.Size = new System.Drawing.Size(134, 26);
             this.XRectangle.TabIndex = 24;
@@ -117,7 +117,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(84, 401);
+            this.label16.Location = new System.Drawing.Point(49, 361);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(27, 20);
             this.label16.TabIndex = 23;
@@ -125,7 +125,7 @@
             // 
             // IdRectangle
             // 
-            this.IdRectangle.Location = new System.Drawing.Point(118, 398);
+            this.IdRectangle.Location = new System.Drawing.Point(83, 358);
             this.IdRectangle.Name = "IdRectangle";
             this.IdRectangle.Size = new System.Drawing.Size(134, 26);
             this.IdRectangle.TabIndex = 22;
@@ -138,7 +138,7 @@
             this.RemoveRectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.RemoveRectangleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.RemoveRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveRectangleButton.Location = new System.Drawing.Point(317, 301);
+            this.RemoveRectangleButton.Location = new System.Drawing.Point(282, 261);
             this.RemoveRectangleButton.Name = "RemoveRectangleButton";
             this.RemoveRectangleButton.Size = new System.Drawing.Size(112, 40);
             this.RemoveRectangleButton.TabIndex = 21;
@@ -155,7 +155,7 @@
             this.AddRectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.AddRectangleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.AddRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddRectangleButton.Location = new System.Drawing.Point(38, 301);
+            this.AddRectangleButton.Location = new System.Drawing.Point(3, 261);
             this.AddRectangleButton.Name = "AddRectangleButton";
             this.AddRectangleButton.Size = new System.Drawing.Size(112, 40);
             this.AddRectangleButton.TabIndex = 20;
@@ -168,7 +168,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(34, 367);
+            this.label15.Location = new System.Drawing.Point(-1, 327);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(153, 20);
             this.label15.TabIndex = 19;
@@ -177,7 +177,7 @@
             // CanvasPanel
             // 
             this.CanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CanvasPanel.Location = new System.Drawing.Point(442, 43);
+            this.CanvasPanel.Location = new System.Drawing.Point(407, 3);
             this.CanvasPanel.Name = "CanvasPanel";
             this.CanvasPanel.Size = new System.Drawing.Size(580, 580);
             this.CanvasPanel.TabIndex = 18;
@@ -186,7 +186,7 @@
             // 
             this.ListBoxRectanglesTabPage.FormattingEnabled = true;
             this.ListBoxRectanglesTabPage.ItemHeight = 20;
-            this.ListBoxRectanglesTabPage.Location = new System.Drawing.Point(38, 66);
+            this.ListBoxRectanglesTabPage.Location = new System.Drawing.Point(3, 26);
             this.ListBoxRectanglesTabPage.Name = "ListBoxRectanglesTabPage";
             this.ListBoxRectanglesTabPage.Size = new System.Drawing.Size(390, 224);
             this.ListBoxRectanglesTabPage.TabIndex = 17;
@@ -195,7 +195,7 @@
             // labelRectanglesTabPage
             // 
             this.labelRectanglesTabPage.AutoSize = true;
-            this.labelRectanglesTabPage.Location = new System.Drawing.Point(34, 43);
+            this.labelRectanglesTabPage.Location = new System.Drawing.Point(-1, 3);
             this.labelRectanglesTabPage.Name = "labelRectanglesTabPage";
             this.labelRectanglesTabPage.Size = new System.Drawing.Size(94, 20);
             this.labelRectanglesTabPage.TabIndex = 16;
@@ -222,7 +222,7 @@
             this.Controls.Add(this.ListBoxRectanglesTabPage);
             this.Controls.Add(this.labelRectanglesTabPage);
             this.Name = "RectanglesCollisionControl";
-            this.Size = new System.Drawing.Size(1062, 644);
+            this.Size = new System.Drawing.Size(993, 589);
             this.ResumeLayout(false);
             this.PerformLayout();
 

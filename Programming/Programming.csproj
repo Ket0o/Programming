@@ -73,6 +73,12 @@
     <Compile Include="Model\Enums\Weekday.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Panels\MoviesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Panels\MoviesControl.Designer.cs">
+      <DependentUpon>MoviesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Panels\RectanglesCollisionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +98,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Panels\MoviesControl.resx">
+      <DependentUpon>MoviesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Panels\RectanglesCollisionControl.resx">
       <DependentUpon>RectanglesCollisionControl.cs</DependentUpon>
     </EmbeddedResource>
