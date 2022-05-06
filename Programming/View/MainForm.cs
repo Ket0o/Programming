@@ -39,7 +39,7 @@ namespace Programming.View
         {
             InitializeComponent ();
 
-            Array typeValues = System.Enum.GetValues (typeof(Enums));
+            Array typeValues = Enum.GetValues (typeof(Enums));
             foreach (Enums value in typeValues)
             {
                 EnumsListBox.Items.Add(value);
@@ -47,7 +47,7 @@ namespace Programming.View
 
             EnumsListBox.SelectedIndex = 0;
 
-            Array seasonValues = System.Enum.GetValues (typeof(Season));
+            Array seasonValues = Enum.GetValues (typeof(Season));
             foreach (Season value in seasonValues)
             {
                 SeasonNamesComboBox.Items.Add (value);
