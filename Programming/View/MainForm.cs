@@ -428,7 +428,6 @@ namespace Programming.View
                 WidthRectangle.Text = _currentRectangle.Width.ToString();
                 HeightRectangle.Text = _currentRectangle.Height.ToString();
             }
-            
         }
 
         private void HeightRectangle_TextChanged(object sender, EventArgs e)
