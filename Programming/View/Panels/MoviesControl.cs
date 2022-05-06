@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Classes;
 using Programming.Model.Enums;
@@ -19,10 +12,6 @@ namespace Programming.View.Panels
         private Movie[] _movies;
 
         private Movie _currentMovie;
-
-        private readonly Color _errorColor = Color.LightPink;
-
-        private readonly Color _correctColor = Color.White;
 
         private Random _random;
 
@@ -102,10 +91,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                MovieRatingTextBox.BackColor = _errorColor;
+                MovieRatingTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieRatingTextBox.BackColor = _correctColor;
+            MovieRatingTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void MovieYearReleaseTextBox_TextChanged(object sender, EventArgs e)
@@ -118,10 +107,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                MovieYearReleaseTextBox.BackColor = _errorColor;
+                MovieYearReleaseTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieYearReleaseTextBox.BackColor = _correctColor;
+            MovieYearReleaseTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void MovieDurationMinutesTextBox_TextChanged(object sender, EventArgs e)
@@ -134,10 +123,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                MovieDurationMinutesTextBox.BackColor = _errorColor;
+                MovieDurationMinutesTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            MovieDurationMinutesTextBox.BackColor = _correctColor;
+            MovieDurationMinutesTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void FindMovieButton_Click(object sender, EventArgs e)

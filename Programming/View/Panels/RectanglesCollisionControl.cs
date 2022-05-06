@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Geometry;
 using Rectangle = Programming.Model.Geometry.Rectangle;
+using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
@@ -19,10 +15,6 @@ namespace Programming.View.Panels
         private List<Panel> _rectanglePanels;
 
         private Rectangle _currentRectangle;
-
-        private readonly Color _errorColor = Color.LightPink;
-
-        private readonly Color _correctColor = Color.White;
 
         public RectanglesCollisionControl()
         {
@@ -37,7 +29,7 @@ namespace Programming.View.Panels
         {
             for (int i = 0; i < _rectanglePanels.Count; i++)
             {
-                CanvasPanel.Controls[i].BackColor = Color.FromArgb(127, 127, 255, 127);
+                CanvasPanel.Controls[i].BackColor = AppColors.IsCollisionFalse;
             }
 
             for (int i = 0; i < _rectanglePanels.Count - 1; i++)
@@ -46,8 +38,8 @@ namespace Programming.View.Panels
                 {
                     if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        CanvasPanel.Controls[i].BackColor = Color.FromArgb(127, 255, 127, 127);
-                        CanvasPanel.Controls[j].BackColor = Color.FromArgb(127, 255, 127, 127);
+                        CanvasPanel.Controls[i].BackColor = AppColors.IsCollisionTrue;
+                        CanvasPanel.Controls[j].BackColor = AppColors.IsCollisionTrue;
                     }
                 }
             }
@@ -105,10 +97,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                HeightRectangle.BackColor = _errorColor;
+                HeightRectangle.BackColor = AppColors.ErrorColor;
                 return;
             }
-            HeightRectangle.BackColor = _correctColor;
+            HeightRectangle.BackColor = AppColors.CorrectColor;
         }
 
         private void WidthRectangle_TextChanged(object sender, EventArgs e)
@@ -126,10 +118,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                WidthRectangle.BackColor = _errorColor;
+                WidthRectangle.BackColor = AppColors.ErrorColor;
                 return;
             }
-            WidthRectangle.BackColor = _correctColor;
+            WidthRectangle.BackColor = AppColors.CorrectColor;
         }
 
         private void XRectangle_TextChanged(object sender, EventArgs e)
@@ -147,10 +139,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                XRectangle.BackColor = _errorColor;
+                XRectangle.BackColor = AppColors.ErrorColor;
                 return;
             }
-            XRectangle.BackColor = _correctColor;
+            XRectangle.BackColor = AppColors.CorrectColor;
         }
 
         private void YRectangle_TextChanged(object sender, EventArgs e)
@@ -168,10 +160,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                YRectangle.BackColor = _errorColor;
+                YRectangle.BackColor = AppColors.ErrorColor;
                 return;
             }
-            YRectangle.BackColor = _correctColor;
+            YRectangle.BackColor = AppColors.CorrectColor;
         }
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
@@ -184,7 +176,7 @@ namespace Programming.View.Panels
             rectanglePanel.Width = _currentRectangle.Width;
             rectanglePanel.Height = _currentRectangle.Height;
             rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
-            rectanglePanel.BackColor = Color.FromArgb(127, 127, 255, 127);
+            rectanglePanel.BackColor = AppColors.IsCollisionTrue;
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
 
