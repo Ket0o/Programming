@@ -7,16 +7,30 @@ using Programming.Model.Classes;
 
 namespace Programming.Model.Geometry
 {
+    /// <summary>
+    /// Хранит данные о прямоугольниках.
+    /// </summary>
     public class Rectangle
     {
+        /// <summary>
+        /// Количйество всех прямоугольников.
+        /// </summary>
         private static int _allRectanglesCount;
-
+        /// <summary>
+        /// Высота.
+        /// </summary>
         private int _height;
-
+        /// <summary>
+        /// Ширина.
+        /// </summary>
         private int _width;
-
+        /// <summary>
+        /// Уникальный идентификатор для всех объектов класса.
+        /// </summary>
         private int _id;
-
+        /// <summary>
+        /// 
+        /// </summary>
         public static int AllRectanglesCount
         {
             get

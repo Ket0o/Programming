@@ -31,10 +31,10 @@ namespace Programming.Model.Geometry
 
         }
         /// <summary>
-        /// 
+        /// Проверяет окружности на пересечение и возвращает True, если они пересекаются и False, если нет.
         /// </summary>
-        /// <param name="ring1"></param>
-        /// <param name="ring2"></param>
+        /// <param name="ring1">Первая окружность для сравнения.</param>
+        /// <param name="ring2">Вторая окружность для сравнения.</param>
         /// <returns></returns>
         public static bool IsCollision (Ring ring1, Ring ring2)
         {
