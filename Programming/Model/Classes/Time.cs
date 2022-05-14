@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о времени.
+    /// </summary>
     public class Time
     {
+        /// <summary>
+        /// Часы.
+        /// </summary>
         private int _hours;
-
+        /// <summary>
+        /// Минуты.
+        /// </summary>
         private int _minutes;
-
+        /// <summary>
+        /// Секунды.
+        /// </summary>
         private int _seconds;
-
+        /// <summary>
+        /// Возвращает и задает сколько часов. Может принимать значения от 0 до 23 включительно. 
+        /// </summary>
         public int Hours
         {
             get 
@@ -26,7 +38,9 @@ namespace Programming.Model.Classes
                 _hours = value;
             }
         }
-
+        /// <summary>
+        /// Возвращает и задает сколько минут. Может принимать значения от 0 до 59 включительно.
+        /// </summary>
         public int Minutes
         {
             get 
@@ -39,7 +53,9 @@ namespace Programming.Model.Classes
                 _minutes = value;
             }
         }
-
+        /// <summary>
+        /// Возвращает и задает сколько секунд. Может принимать значения от 0 до 59 включительно.
+        /// </summary>
         public int Seconds
         {
             get 
@@ -52,12 +68,19 @@ namespace Programming.Model.Classes
                 _seconds = value;
             }
         }
-
+        /// <summary>
+        /// Создает экземпляр класса.
+        /// </summary>
         public Time () 
         { 
 
         }
-
+        /// <summary>
+        /// Создает экземпляр класса.
+        /// </summary>
+        /// <param name="hours">Часы. Принимает значения от 0 до 23 включительно.</param>
+        /// <param name="minutes">Минуты. Принимает значения от 0 до 59 включительно.</param>
+        /// <param name="seconds">Секунды. Принимает значения от 0 до 59 включительно.</param>
         public Time (int hours, int minutes, int seconds)
         {
             Hours = hours;

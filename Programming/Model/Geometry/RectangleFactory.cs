@@ -9,12 +9,7 @@ namespace Programming.Model.Geometry
 {
     public static class RectangleFactory
     {
-        private static Random _random;
-
-        static RectangleFactory()
-        {
-            _random = new Random();
-        }
+        private static Random _random = new Random();
 
         public static Rectangle Randomize()
         {
