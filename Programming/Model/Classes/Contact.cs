@@ -7,19 +7,30 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о телефонном контакте
+    /// </summary>
     public class Contact
     {
-        private readonly Regex regex = new Regex (@"\d{11}");
-
         /// <summary>
-        /// Телефонный номер. Не более 11 знаков
+        /// Регулярное выражение(только цифры)
+        /// </summary>
+        private readonly Regex regex = new Regex (@"\d{11}");
+        /// <summary>
+        /// Уникальный номер телефона для всех объектов класса
         /// </summary>
         private string _phoneNumber;
-
+        /// <summary>
+        /// Уникальное имя для всех объектов класса
+        /// </summary>
         private string _name;
-
+        /// <summary>
+        /// Уникальная фамилия для всех объектов класса
+        /// </summary>
         private string _surname;
-
+        /// <summary>
+        /// Возвращает и создает имя человека. Должно состоять только из букв.
+        /// </summary>
         public string Name
         {
             get
@@ -31,7 +42,9 @@ namespace Programming.Model.Classes
                 _name = AssertStringContainsOnlyLetters (nameof(Name), value);
             }
         }
-        
+        /// <summary>
+        /// Возвращает и задает фамилию человека. Должна состоять только из букв.
+        /// </summary>
         public string Surname
         {
             get
@@ -45,7 +58,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Проверка на ввод цифр
+        /// 
         /// </summary>
         public string PhoneNumber
         {
