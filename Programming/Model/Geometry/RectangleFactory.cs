@@ -7,10 +7,19 @@ using Programming.Model.Enums;
 
 namespace Programming.Model.Geometry
 {
+    /// <summary>
+    /// Класс создает прямоугольники.
+    /// </summary>
     public static class RectangleFactory
     {
+        /// <summary>
+        /// Переменная псевдо-случайных чисел.
+        /// </summary>
         private static Random _random = new Random();
-
+        /// <summary>
+        /// Создание прямоугольника со случайными значениями.
+        /// </summary>
+        /// <returns></returns>
         public static Rectangle Randomize()
         {
             var colors = Enum.GetValues(typeof(Colors));

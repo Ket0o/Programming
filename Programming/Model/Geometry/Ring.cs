@@ -7,12 +7,24 @@ using Programming.Model.Classes;
 
 namespace Programming.Model.Geometry
 {
+    /// <summary>
+    /// Создает окружность.
+    /// </summary>
     public class Ring
     {
+        /// <summary>
+        /// Внешний радиус.
+        /// </summary>
         private double _outerRadius;
-
+        /// <summary>
+        /// Внутренний радиус.
+        /// </summary>
         private double _innerRadius;
-
+        /// <summary>
+        /// Возвращает и задает внешний радиус. Не может быть отрицательным. 
+        /// Может быть в диапозоне от значения внутреннего радиуса до наибольшего возможного значения типа double (включая их).
+        /// Изменить вне класса нельзя.
+        /// </summary>
         public double OuterRadius
         {
             get
@@ -26,7 +38,11 @@ namespace Programming.Model.Geometry
                 _outerRadius = value;
             }
         }
-
+        /// <summary>
+        /// Возвращает и задает внутренний радиус. Не может быть отрицательным.
+        /// Может быть в диапозоне от 0 до значения внешнего радиуса (включая их).
+        /// Изменить вне класса нельзя.
+        /// </summary>
         public double InnerRadius
         {
             get
@@ -40,7 +56,9 @@ namespace Programming.Model.Geometry
                 _innerRadius = value;
             }
         }
-
+        /// <summary>
+        /// Возвращает и задает площадь окружности. Доступно только для чтения.
+        /// </summary>
         public double Area
         {
             get
@@ -48,9 +66,18 @@ namespace Programming.Model.Geometry
                 return Math.PI * (_outerRadius * _outerRadius - _innerRadius * _innerRadius);
             }
         }
-
+        /// <summary>
+        /// Возвращает и задает координаты центра окружности.
+        /// </summary>
         public Point2D Center { get; set; }
-
+        /// <summary>
+        /// Создает экземпляр класса.
+        /// </summary>
+        /// <param name="center">Координаты центра окружности.</param>
+        /// <param name="outerRadius">Внешний радиус. Не может быть отрицательным. 
+        /// Может быть в диапозоне от значения внутреннего радиуса до наибольшего возможного значения типа double (включая их).</param>
+        /// <param name="innerRadius">Внутренний радиус. Не может быть отрицательным.
+        /// Может быть в диапозоне от 0 до значения внешнего радиуса (включая их).</param>
         public Ring (Point2D center,
                    double outerRadius,
                    double innerRadius)
