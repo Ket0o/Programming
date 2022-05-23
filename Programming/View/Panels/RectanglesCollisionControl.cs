@@ -8,14 +8,26 @@ using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Реализация по представлению прямоугольников.
+    /// </summary>
     public partial class RectanglesCollisionControl : UserControl
     {
+        /// <summary>
+        /// Коллекция прямоугольников.
+        /// </summary>
         private List<Rectangle> _rectangles;
-
+        /// <summary>
+        /// Коллекция отображаемых прямоугольников.
+        /// </summary>
         private List<Panel> _rectanglePanels;
-
+        /// <summary>
+        /// Выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
-
+        /// <summary>
+        /// Создает экземпляр класса <see cref="RectanglesCollisionControl"/>.
+        /// </summary>
         public RectanglesCollisionControl()
         {
             InitializeComponent();
@@ -24,7 +36,9 @@ namespace Programming.View.Panels
 
             _rectangles = new List<Rectangle>();
         }
-
+        /// <summary>
+        /// Находит пересекающиеся прямоугольники и перекрашивает их в красный цвет.
+        /// </summary>
         private void FindCollisions()
         {
             for (int i = 0; i < _rectanglePanels.Count; i++)
@@ -44,7 +58,11 @@ namespace Programming.View.Panels
                 }
             }
         }
-
+        /// <summary>
+        /// Из данных прямоугольника, собирает форматированную строку.
+        /// </summary>
+        /// <param name="rectangle">Прямоугольник.</param>
+        /// <returns>Возвращает форматированную строку.</returns>
         private string FormatRectangle(Rectangle rectangle)
         {
             string lineOutputRectangle = $"{rectangle.Id}: " +
@@ -54,7 +72,9 @@ namespace Programming.View.Panels
                                          $" H= {rectangle.Height})";
             return lineOutputRectangle;
         }
-
+        /// <summary>
+        /// Очищает информацию с текстовых полей и со списка.
+        /// </summary>
         private void ClearReactangleInfo()
         {
             ListBoxRectanglesTabPage.Items.Clear();
@@ -64,7 +84,10 @@ namespace Programming.View.Panels
             WidthRectangle.Clear();
             HeightRectangle.Clear();
         }
-
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
+        /// <param name="rectangle">Прямоугольник.</param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             int ind = ListBoxRectanglesTabPage.FindString(rectangle.Id.ToString());

@@ -5,16 +5,30 @@ using Programming.Model.Enums;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Реализация по представлению фильмов.
+    /// </summary>
     public partial class MoviesControl : UserControl
     {
+        /// <summary>
+        /// Количество элементов.
+        /// </summary>
         private const int ElementsCount = 5;
-
+        /// <summary>
+        /// Массив фильмов.
+        /// </summary>
         private Movie[] _movies;
-
+        /// <summary>
+        /// Выбранный фильм.
+        /// </summary>
         private Movie _currentMovie;
-
+        /// <summary>
+        /// Переменная псевдо-случайных чисел.
+        /// </summary>
         private Random _random;
-
+        /// <summary>
+        /// Создает экземпляр класса <see cref="MoviesControl"/>.
+        /// </summary>
         public MoviesControl()
         {
             InitializeComponent();
@@ -23,7 +37,9 @@ namespace Programming.View.Panels
 
             InitMovies();
         }
-
+        /// <summary>
+        /// Инициализирует массив фильмов.
+        /// </summary>
         private void InitMovies()
         {
             _movies = new Movie[ElementsCount];
@@ -42,7 +58,11 @@ namespace Programming.View.Panels
             }
             MovieListBox.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// Находит фильм, чей рейтинг больше остальных.
+        /// </summary>
+        /// <param name="movies">Массив фильмов.</param>
+        /// <returns>Возвращает индекс элемента, чей рейтинг больше остальных.</returns>
         private int FindMovieWithMaxRating(Movie[] movies)
         {
             int maxRatingIndex = 0;
