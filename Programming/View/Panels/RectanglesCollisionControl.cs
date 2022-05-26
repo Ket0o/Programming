@@ -63,15 +63,15 @@ namespace Programming.View.Panels
         /// </summary>
         /// <param name="rectangle">Прямоугольник.</param>
         /// <returns>Возвращает форматированную строку.</returns>
-        private string FormatRectangle(Rectangle rectangle)
-        {
-            string lineOutputRectangle = $"{rectangle.Id}: " +
-                                         $"(X= {rectangle.Center.X};" +
-                                         $" Y= {rectangle.Center.Y};" +
-                                         $" W= {rectangle.Width};" +
-                                         $" H= {rectangle.Height})";
-            return lineOutputRectangle;
-        }
+            private string FormatRectangle(Rectangle rectangle)
+            {
+                string lineOutputRectangle = $"{rectangle.Id}: " +
+                                             $"(X= {rectangle.Center.X};" +
+                                             $" Y= {rectangle.Center.Y};" +
+                                             $" W= {rectangle.Width};" +
+                                             $" H= {rectangle.Height})";
+                return lineOutputRectangle;
+            }
         /// <summary>
         /// Очищает информацию с текстовых полей и со списка.
         /// </summary>
