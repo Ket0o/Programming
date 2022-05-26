@@ -19,9 +19,54 @@ namespace ListOfEmployees
             _employees = new List<Employee>();
         }
 
+        public List<Employee> SortedEmployees(List<Employee> employees)
+        {
+            Employee temp;
+
+            for (int j = 0; j < _employees.Count; j++)
+            {
+                for (int i = 0; i < _employees.Count - 1; i++)
+                {
+                    string x_str = _employees[i].FullName;
+                    string y_str = _employees[i + 1].FullName; ;
+                    x_str = x_str.Substring(1); y_str = y_str.Substring(1);
+                    int x = Convert.ToInt32(x_str); int y = Convert.ToInt32(y_str);
+
+                    if (x > y)
+                    {
+                        temp = _employees[i];
+                        _employees[i] = _employees[i + 1];
+                        _employees[i + 1] = temp;
+                    }
+                }
+            }
+
+            return _employees;
+        }
+
+        private int IndexById ()
+        {
+            SortedEmployees(_employees);
+
+            int currentEmployeeId = _currentEmployee.Id;
+
+            int index = -1;
+
+            for(int i = 0; i < _employees.Count; i++)
+            {
+                if (_employees[i].Id == currentEmployeeId)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
+        }
+
         private string FormatEmployee(Employee employee)
         {
-            string lineOutputEmployee = $"{employee.Id}: " + $" {employee.FullName};";
+            string lineOutputEmployee = $"{employee.FullName}";
             return lineOutputEmployee;
         }
 
@@ -34,13 +79,20 @@ namespace ListOfEmployees
             dateTimePicker.Value = new DateTime(1753, 1, 1);
         }
 
-        private void UpdateEmployeeInfo(Employee employee)
+        private void UpdateEmployeeInfo(int selectedIndex)
         {
-            int index = listBoxEmployees.FindString(employee.Id.ToString());
+            ClearEmployeeInfo();
 
-            if (index == -1) return;
+            SortedEmployees(_employees);
 
-            listBoxEmployees.Items[index] = FormatEmployee(employee);
+            foreach(Employee employee in _employees)
+            {
+                listBoxEmployees.Items.Add($"{employee.FullName}");
+            }
+
+            if (selectedIndex == -1) return;
+
+            listBoxEmployees.SelectedIndex = selectedIndex;
         }
 
 
@@ -74,7 +126,8 @@ namespace ListOfEmployees
                 string employeeCurrentFullName = fullNameTextBox.Text;
                 string employeeFullName = employeeCurrentFullName;
                 _currentEmployee.FullName = employeeFullName;
-                UpdateEmployeeInfo(_currentEmployee);
+                int index = IndexById();
+                UpdateEmployeeInfo(index);
             }
             catch
             {
@@ -93,7 +146,6 @@ namespace ListOfEmployees
                 string employeeCurrentPost = postTextBox.Text;
                 string employeePost = employeeCurrentPost;
                 _currentEmployee.Post = employeePost;
-                UpdateEmployeeInfo(_currentEmployee);
             }
             catch
             {
@@ -112,7 +164,6 @@ namespace ListOfEmployees
                 string employeeCurrentDate = dateTimePicker.Text;
                 DateTime employeeDate = DateTime.Parse(employeeCurrentDate);
                 _currentEmployee.DateOfEmployment = employeeDate;
-                UpdateEmployeeInfo(_currentEmployee);
             }
             catch
             {
@@ -131,7 +182,6 @@ namespace ListOfEmployees
                 string employeeCurrentSalary = salaryTextBox.Text;
                 int employeeSalary = int.Parse(employeeCurrentSalary);
                 _currentEmployee.Salary = employeeSalary;
-                UpdateEmployeeInfo(_currentEmployee);
             }
             catch
             {
