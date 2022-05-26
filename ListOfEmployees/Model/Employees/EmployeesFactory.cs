@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ListOfEmployees.Model.Employees
 {
-    internal class EmployeesFactory
+    public static class EmployeesFactory
     {
+        private static Random _random = new Random();
+
+        public static Employee Randomize()
+        {
+
+        }
     }
 }

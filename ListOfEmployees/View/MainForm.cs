@@ -16,5 +16,10 @@ namespace ListOfEmployees
         {
             InitializeComponent();
         }
+
+        private void plusButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

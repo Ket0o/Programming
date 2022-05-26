@@ -11,5 +11,9 @@ namespace ListOfEmployees.Model.Classes
         public static int maxLengthFullName = 100;
 
         public static int maxLengthPost = 50;
+
+        public static int maxValueSalary = 500000;
+
+        public static int minValueSalary = 0;
     }
 }

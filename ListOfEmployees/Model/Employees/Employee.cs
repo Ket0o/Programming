@@ -11,6 +11,9 @@ namespace ListOfEmployees.Model.Employees
 
         private int _salary;
 
+        public DateTime _dateOfEmployment;
+
+
         public string FullName
         {
             get { return _fullName; }
@@ -36,10 +39,27 @@ namespace ListOfEmployees.Model.Employees
             get { return _salary; }
             set
             {
-                Validator.AssertValueInRange("Salary", value, 0, 500000);
+                Validator.AssertValueInRange("Salary", value, Maximum_and_minimum_values.minValueSalary, Maximum_and_minimum_values.maxValueSalary);
+                _salary = value;
             }
         }
 
-        public DateTime _dateOfEmployment { get; set; }
+        public DateTime DateOfEmployment
+        {
+            get { return _dateOfEmployment; }
+            set
+            {
+                Validator.NoMoreThan(value, "DateOfEmployment");
+                _dateOfEmployment = value;
+            }
+        }
+
+        public Employee(string fullName, string post, int salary, DateTime dateOfEmployment)
+        {
+            FullName = fullName;
+            Post = post;
+            Salary = salary;
+            DateOfEmployment = dateOfEmployment;
+        }
     }
 }
