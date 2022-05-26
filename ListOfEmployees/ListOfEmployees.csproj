@@ -46,10 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Classes\AppColors.cs" />
     <Compile Include="Model\Classes\Maximum and minimum values.cs" />
     <Compile Include="Model\Classes\Validator.cs" />
     <Compile Include="Model\Employees\Employee.cs" />
-    <Compile Include="Model\Employees\EmployeesFactory.cs" />
+    <Compile Include="Model\Employees\EmployeeFactory.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

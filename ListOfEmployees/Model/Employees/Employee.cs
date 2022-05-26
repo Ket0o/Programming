@@ -5,14 +5,22 @@ namespace ListOfEmployees.Model.Employees
 {
     public class Employee
     {
+        private static int _allEmployeesCount;
+
         private string _fullName;
 
         private string _post;
 
         private int _salary;
 
+        private int _id;
+
         public DateTime _dateOfEmployment;
 
+        public static int AllEmployeesCount
+        {
+            get { return _allEmployeesCount; }
+        }
 
         public string FullName
         {
@@ -54,12 +62,24 @@ namespace ListOfEmployees.Model.Employees
             }
         }
 
+        public int Id
+        {
+            get { return _id; }
+        }
+
+        public Employee()
+        {
+            _allEmployeesCount++;
+            _id = _allEmployeesCount;
+        }
         public Employee(string fullName, string post, int salary, DateTime dateOfEmployment)
         {
             FullName = fullName;
             Post = post;
             Salary = salary;
             DateOfEmployment = dateOfEmployment;
+            _allEmployeesCount++;
+            _id = _allEmployeesCount;
         }
     }
 }

@@ -32,7 +32,6 @@
             this.SelectedEmployeesGroupBox = new System.Windows.Forms.GroupBox();
             this.postTextBox = new System.Windows.Forms.TextBox();
             this.salaryTextBox = new System.Windows.Forms.TextBox();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.fullNameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.plusButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SelectedEmployeesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,12 +52,13 @@
             this.listBoxEmployees.Name = "listBoxEmployees";
             this.listBoxEmployees.Size = new System.Drawing.Size(291, 444);
             this.listBoxEmployees.TabIndex = 0;
+            this.listBoxEmployees.SelectedIndexChanged += new System.EventHandler(this.listBoxEmployees_SelectedIndexChanged);
             // 
             // SelectedEmployeesGroupBox
             // 
+            this.SelectedEmployeesGroupBox.Controls.Add(this.dateTimePicker);
             this.SelectedEmployeesGroupBox.Controls.Add(this.postTextBox);
             this.SelectedEmployeesGroupBox.Controls.Add(this.salaryTextBox);
-            this.SelectedEmployeesGroupBox.Controls.Add(this.dateTextBox);
             this.SelectedEmployeesGroupBox.Controls.Add(this.fullNameTextBox);
             this.SelectedEmployeesGroupBox.Controls.Add(this.label4);
             this.SelectedEmployeesGroupBox.Controls.Add(this.label3);
@@ -76,6 +77,7 @@
             this.postTextBox.Name = "postTextBox";
             this.postTextBox.Size = new System.Drawing.Size(229, 26);
             this.postTextBox.TabIndex = 7;
+            this.postTextBox.TextChanged += new System.EventHandler(this.postTextBox_TextChanged);
             // 
             // salaryTextBox
             // 
@@ -83,13 +85,7 @@
             this.salaryTextBox.Name = "salaryTextBox";
             this.salaryTextBox.Size = new System.Drawing.Size(229, 26);
             this.salaryTextBox.TabIndex = 6;
-            // 
-            // dateTextBox
-            // 
-            this.dateTextBox.Location = new System.Drawing.Point(168, 117);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(229, 26);
-            this.dateTextBox.TabIndex = 5;
+            this.salaryTextBox.TextChanged += new System.EventHandler(this.salaryTextBox_TextChanged);
             // 
             // fullNameTextBox
             // 
@@ -97,6 +93,7 @@
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.Size = new System.Drawing.Size(409, 26);
             this.fullNameTextBox.TabIndex = 4;
+            this.fullNameTextBox.TextChanged += new System.EventHandler(this.fullNameTextBox_TextChanged);
             // 
             // label4
             // 
@@ -165,6 +162,15 @@
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "button3";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(168, 115);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(229, 26);
+            this.dateTimePicker.TabIndex = 5;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // MainForm
             // 
@@ -190,7 +196,6 @@
         private System.Windows.Forms.GroupBox SelectedEmployeesGroupBox;
         private System.Windows.Forms.TextBox postTextBox;
         private System.Windows.Forms.TextBox salaryTextBox;
-        private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox fullNameTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -199,6 +204,7 @@
         private System.Windows.Forms.Button plusButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }
 
