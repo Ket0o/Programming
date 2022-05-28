@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ListOfEmployees.Model.Employees;
 using ListOfEmployees.Model.Classes;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace ListOfEmployees
 {
@@ -21,25 +22,11 @@ namespace ListOfEmployees
 
         public List<Employee> SortedEmployees(List<Employee> employees)
         {
-            Employee temp;
+            var sortedListEmployees = from employee in employees
+                                      orderby employee.FullName
+                                      select employee;
 
-            for (int j = 0; j < _employees.Count; j++)
-            {
-                for (int i = 0; i < _employees.Count - 1; i++)
-                {
-                    string x_str = _employees[i].FullName;
-                    string y_str = _employees[i + 1].FullName; ;
-                    x_str = x_str.Substring(1); y_str = y_str.Substring(1);
-                    int x = Convert.ToInt32(x_str); int y = Convert.ToInt32(y_str);
-
-                    if (x > y)
-                    {
-                        temp = _employees[i];
-                        _employees[i] = _employees[i + 1];
-                        _employees[i + 1] = temp;
-                    }
-                }
-            }
+            _employees = sortedListEmployees.ToList();
 
             return _employees;
         }
@@ -81,8 +68,6 @@ namespace ListOfEmployees
 
         private void UpdateEmployeeInfo(int selectedIndex)
         {
-            ClearEmployeeInfo();
-
             SortedEmployees(_employees);
 
             foreach(Employee employee in _employees)
@@ -101,6 +86,7 @@ namespace ListOfEmployees
         {
             _currentEmployee = EmployeeFactory.Randomize();
             _employees.Add(_currentEmployee);
+            /*SortedEmployees(_employees)*/;
             listBoxEmployees.Items.Add(FormatEmployee(_currentEmployee));
         }
 
