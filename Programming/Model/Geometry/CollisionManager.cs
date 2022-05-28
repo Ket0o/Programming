@@ -30,6 +30,7 @@ namespace Programming.Model.Geometry
                    rectangle1.Height + rectangle1.Center.Y > rectangle2.Center.Y;
 
         }
+
         /// <summary>
         /// Проверяет окружности на пересечение и возвращает True, если они пересекаются и False, если нет.
         /// </summary>

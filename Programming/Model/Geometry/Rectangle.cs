@@ -16,18 +16,22 @@ namespace Programming.Model.Geometry
         /// Количество всех прямоугольников.
         /// </summary>
         private static int _allRectanglesCount;
+
         /// <summary>
         /// Высота.
         /// </summary>
         private int _height;
+
         /// <summary>
         /// Ширина.
         /// </summary>
         private int _width;
+
         /// <summary>
         /// Уникальный идентификатор для всех объектов класса.
         /// </summary>
         private int _id;
+
         /// <summary>
         /// Возвращает и задает количество всех прямоугольников. 
         /// </summary>
@@ -38,6 +42,7 @@ namespace Programming.Model.Geometry
                 return _allRectanglesCount;
             }
         }
+
         /// <summary>
         /// Возвращает и задает высоту. Не может быть отрицательной.
         /// </summary>
@@ -53,6 +58,7 @@ namespace Programming.Model.Geometry
                 _height = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает ширину. Не может быть отрицательной.
         /// </summary>
@@ -68,6 +74,7 @@ namespace Programming.Model.Geometry
                 _width = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает уникальный индефикатор. Доступно только для чтения.
         /// </summary>
@@ -78,24 +85,28 @@ namespace Programming.Model.Geometry
                 return _id;
             }
         }
+
         /// <summary>
         /// Возвращает и задает координаты центра фигуры.
         /// </summary>
         public Point2D Center { get; set; }
+
         /// <summary>
         /// Возвращает и зададет цвет.
         /// </summary>
         public string Color { get; set; }
+
         /// <summary>
-        /// Создает экземпляр класса.
+        /// Создает экземпляр класса <see cref="Rectangle"/>.
         /// </summary>
         public Rectangle () 
         {
             _allRectanglesCount++;
             _id = _allRectanglesCount;
         }
+
         /// <summary>
-        /// Создает экземпляр класса
+        /// Создает экземпляр класса <see cref="Rectangle"/>.
         /// </summary>
         /// <param name="height">Высота. Не может быть отрицательной.</param>
         /// <param name="width">Ширина. Не может быть отрицательной.</param>

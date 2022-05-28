@@ -15,14 +15,17 @@ namespace Programming.Model.Classes
         /// Часы.
         /// </summary>
         private int _hours;
+
         /// <summary>
         /// Минуты.
         /// </summary>
         private int _minutes;
+
         /// <summary>
         /// Секунды.
         /// </summary>
         private int _seconds;
+
         /// <summary>
         /// Возвращает и задает сколько часов. Может принимать значения от 0 до 23 включительно. 
         /// </summary>
@@ -38,6 +41,7 @@ namespace Programming.Model.Classes
                 _hours = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает сколько минут. Может принимать значения от 0 до 59 включительно.
         /// </summary>
@@ -53,6 +57,7 @@ namespace Programming.Model.Classes
                 _minutes = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает сколько секунд. Может принимать значения от 0 до 59 включительно.
         /// </summary>
@@ -68,15 +73,17 @@ namespace Programming.Model.Classes
                 _seconds = value;
             }
         }
+
         /// <summary>
-        /// Создает экземпляр класса.
+        /// Создает экземпляр класса <see cref="Time"/>.
         /// </summary>
         public Time () 
         { 
 
         }
+
         /// <summary>
-        /// Создает экземпляр класса.
+        /// Создает экземпляр класса <see cref="Time"/>.
         /// </summary>
         /// <param name="hours">Часы. Принимает значения от 0 до 23 включительно.</param>
         /// <param name="minutes">Минуты. Принимает значения от 0 до 59 включительно.</param>

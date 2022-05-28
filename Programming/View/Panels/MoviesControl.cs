@@ -14,18 +14,22 @@ namespace Programming.View.Panels
         /// Количество элементов.
         /// </summary>
         private const int ElementsCount = 5;
+
         /// <summary>
         /// Массив фильмов.
         /// </summary>
         private Movie[] _movies;
+
         /// <summary>
         /// Выбранный фильм.
         /// </summary>
         private Movie _currentMovie;
+
         /// <summary>
         /// Переменная псевдо-случайных чисел.
         /// </summary>
         private Random _random;
+
         /// <summary>
         /// Создает экземпляр класса <see cref="MoviesControl"/>.
         /// </summary>
@@ -37,6 +41,7 @@ namespace Programming.View.Panels
 
             InitMovies();
         }
+
         /// <summary>
         /// Инициализирует массив фильмов.
         /// </summary>
@@ -58,6 +63,7 @@ namespace Programming.View.Panels
             }
             MovieListBox.SelectedIndex = 0;
         }
+
         /// <summary>
         /// Находит фильм, чей рейтинг больше остальных.
         /// </summary>

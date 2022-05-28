@@ -23,7 +23,8 @@ namespace Programming.Model.Classes
             {
                 throw new ArgumentException ($"the value of the {nameProperty} field must be positive");
             }
-        } 
+        }
+
         /// <summary>
         /// Проверяет, чтобы значение типа double было положительным.
         /// </summary>
@@ -37,6 +38,7 @@ namespace Programming.Model.Classes
                 throw new ArgumentException ($"the value of the {nameProperty} field must be positive");
             }
         }
+
         /// <summary>
         /// Проверяет находиться ли значение типа int в диапозоне от одного числа до другого.
         /// </summary>
@@ -52,6 +54,7 @@ namespace Programming.Model.Classes
                 throw new System.ArgumentException ($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
         }
+
         /// <summary>
         /// Проверяет находиться ли значение типа double в диапозоне от одного числа до другого.
         /// </summary>

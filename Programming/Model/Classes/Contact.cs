@@ -15,19 +15,23 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Регулярное выражение(только цифры).
         /// </summary>
-        private readonly Regex regex = new Regex (@"\d{11}");
+        private readonly Regex _onlyNumbers = new Regex (@"\d{11}");
+
         /// <summary>
         /// Номер.
         /// </summary>
         private string _phoneNumber;
+
         /// <summary>
         /// Имя.
         /// </summary>
         private string _name;
+
         /// <summary>
         /// Фамилия.
         /// </summary>
         private string _surname;
+
         /// <summary>
         /// Возвращает и создает имя контакта. Должно состоять только из букв.
         /// </summary>
@@ -42,6 +46,7 @@ namespace Programming.Model.Classes
                 _name = AssertStringContainsOnlyLetters (nameof(Name), value);
             }
         }
+
         /// <summary>
         /// Возвращает и задает фамилию контакта. Должна состоять только из букв.
         /// </summary>
@@ -68,7 +73,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                MatchCollection matches = regex.Matches (value);
+                MatchCollection matches = _onlyNumbers.Matches (value);
                 if (matches.Count != 11)
                 {
                     throw new ArgumentException ("Enter only numbers");
@@ -83,15 +88,17 @@ namespace Programming.Model.Classes
                 }
             }
         }
+
         /// <summary>
-        /// Создаёт экземпляр класса
+        /// Создаёт экземпляр класса <see cref="Contact"/>.
         /// </summary>
         public Contact () 
-        { 
+        {
 
         }
+
         /// <summary>
-        ///  Создаёт экземпляр класса
+        ///  Создаёт экземпляр класса <see cref="Contact"/>.
         /// </summary>
         /// <param name="name">Имя. Должно состоять только из букв.</param>
         /// <param name="surname">Фамилия. Должна состоять только из букв.</param>
@@ -102,6 +109,7 @@ namespace Programming.Model.Classes
             Surname = surname;
             PhoneNumber = phoneNumber;
         }
+
         /// <summary>
         /// Проверяет, что строка состоит только из букв.
         /// </summary>

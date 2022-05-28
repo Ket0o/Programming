@@ -15,10 +15,12 @@ namespace Programming.Model.Classes
         /// Оценка.
         /// </summary>
         private int _mark;
+
         /// <summary>
         /// Количество часов.
         /// </summary>
         private int _hoursNumber;
+
         /// <summary>
         /// Возвращает и задает оценку. Принимает значение от 2 до 5 включительно.
         /// </summary>
@@ -34,6 +36,7 @@ namespace Programming.Model.Classes
                 _mark = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает количество часов по предмету. Не может быть отрицательной.
         /// </summary>
@@ -49,19 +52,22 @@ namespace Programming.Model.Classes
                 _hoursNumber = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает название предмета.
         /// </summary>
         public string Name { get; set; }
+
         /// <summary>
-        /// Создает экземпляр класса.
+        /// Создает экземпляр класса <see cref="Subject"/>.
         /// </summary>
         public Subject ()
         {
 
         }
+
         /// <summary>
-        /// Создает экземпляр класса.
+        /// Создает экземпляр класса <see cref="Subject"/>.
         /// </summary>
         /// <param name="mark">Оценка. Принимает значение от 2 до 5 включительно</param>
         /// <param name="name">Название предмета.</param>

@@ -16,6 +16,7 @@ namespace Programming.Model.Geometry
         /// Переменная псевдо-случайных чисел.
         /// </summary>
         private static Random _random = new Random();
+
         /// <summary>
         /// Создание прямоугольника со случайными значениями.
         /// </summary>

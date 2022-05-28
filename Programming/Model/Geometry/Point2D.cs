@@ -11,10 +11,12 @@ namespace Programming.Model.Geometry
         /// Координата по X.
         /// </summary>
         private int _x;
+
         /// <summary>
         /// Координата по Y.
         /// </summary>
         private int _y;
+
         /// <summary>
         /// Возвращает и задает координату по X. Не может быть отрицательным значением.
         /// </summary>
@@ -30,6 +32,7 @@ namespace Programming.Model.Geometry
                 _x = value;
             }
         } 
+
         /// <summary>
         /// Возвращает и задает координату по Y. Не может быть отрицательным значением.
         /// </summary>
@@ -45,8 +48,9 @@ namespace Programming.Model.Geometry
                 _y = value;
             }
         }
+
         /// <summary>
-        /// Экземпляр класса.
+        /// Экземпляр класса <see cref="Point2D"/>.
         /// </summary>
         /// <param name="x">Координата по X. Не может быть отрицательным.</param>
         /// <param name="y">Координата по Y. Не может быть отрицательным.</param>

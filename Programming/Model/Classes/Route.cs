@@ -15,6 +15,7 @@ namespace Programming.Model.Classes
         /// Время полета в минутах.
         /// </summary>
         private int _flightTimeMinutes;
+
         /// <summary>
         /// Возвращает и задает время полета в минутах. Значение больше 0.
         /// </summary>
@@ -30,23 +31,27 @@ namespace Programming.Model.Classes
                 _flightTimeMinutes = value;
             }
         }
+
         /// <summary>
         /// Точка вылета. Возвращает и задает точку вылета.
         /// </summary>
         public string Departure { get; set; }
+
         /// <summary>
         /// Точка прибытия. Возвращает и задает точку прибытия.
         /// </summary>
         public string Destination { get; set; }
+
         /// <summary>
-        /// Создаёт экземпляр класса.
+        /// Создаёт экземпляр класса <see cref="Route"/>.
         /// </summary>
         public Route () 
         {
 
         }
+
         /// <summary>
-        /// Создаёт экземпляр класса.
+        /// Создаёт экземпляр класса <see cref="Route"/>.
         /// </summary>
         /// <param name="departure">Точка вылета.</param>
         /// <param name="destination">Точка прибытия.</param>

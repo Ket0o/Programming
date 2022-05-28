@@ -17,14 +17,17 @@ namespace Programming.View.Panels
         /// Коллекция прямоугольников.
         /// </summary>
         private List<Rectangle> _rectangles;
+
         /// <summary>
         /// Коллекция отображаемых прямоугольников.
         /// </summary>
         private List<Panel> _rectanglePanels;
+
         /// <summary>
         /// Выбранный прямоугольник.
         /// </summary>
         private Rectangle _currentRectangle;
+
         /// <summary>
         /// Создает экземпляр класса <see cref="RectanglesCollisionControl"/>.
         /// </summary>
@@ -36,6 +39,7 @@ namespace Programming.View.Panels
 
             _rectangles = new List<Rectangle>();
         }
+
         /// <summary>
         /// Находит пересекающиеся прямоугольники и перекрашивает их в красный цвет.
         /// </summary>
@@ -58,20 +62,22 @@ namespace Programming.View.Panels
                 }
             }
         }
+
         /// <summary>
         /// Из данных прямоугольника, собирает форматированную строку.
         /// </summary>
         /// <param name="rectangle">Прямоугольник.</param>
         /// <returns>Возвращает форматированную строку.</returns>
-            private string FormatRectangle(Rectangle rectangle)
-            {
-                string lineOutputRectangle = $"{rectangle.Id}: " +
-                                             $"(X= {rectangle.Center.X};" +
-                                             $" Y= {rectangle.Center.Y};" +
-                                             $" W= {rectangle.Width};" +
-                                             $" H= {rectangle.Height})";
-                return lineOutputRectangle;
-            }
+        private string FormatRectangle(Rectangle rectangle)
+        {
+            string lineOutputRectangle = $"{rectangle.Id}: " +
+                                         $"(X= {rectangle.Center.X};" +
+                                         $" Y= {rectangle.Center.Y};" +
+                                         $" W= {rectangle.Width};" +
+                                         $" H= {rectangle.Height})";
+            return lineOutputRectangle;
+        }
+
         /// <summary>
         /// Очищает информацию с текстовых полей и со списка.
         /// </summary>
@@ -84,6 +90,7 @@ namespace Programming.View.Panels
             WidthRectangle.Clear();
             HeightRectangle.Clear();
         }
+
         /// <summary>
         /// Обновляет информацию в списке.
         /// </summary>
