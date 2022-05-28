@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Programming.Model.Enums;
+using System;
 using System.Windows.Forms;
-using Programming.Model.Enums;
 
 namespace Programming.View.Panels
 {

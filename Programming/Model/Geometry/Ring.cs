@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Programming.Model.Classes;
+﻿using Programming.Model.Classes;
+using System;
 
 namespace Programming.Model.Geometry
 {
@@ -35,8 +31,8 @@ namespace Programming.Model.Geometry
             }
             private set
             {
-                Validator.AssertOnPositiveValue (value, nameof(OuterRadius));
-                Validator.AssertValueInRange (nameof(OuterRadius), value, _innerRadius, double.MaxValue);
+                Validator.AssertOnPositiveValue(value, nameof(OuterRadius));
+                Validator.AssertValueInRange(nameof(OuterRadius), value, _innerRadius, double.MaxValue);
                 _outerRadius = value;
             }
         }
@@ -54,8 +50,8 @@ namespace Programming.Model.Geometry
             }
             private set
             {
-                Validator.AssertOnPositiveValue (value, nameof(InnerRadius));
-                Validator.AssertValueInRange (nameof(InnerRadius), value, 0, _outerRadius);
+                Validator.AssertOnPositiveValue(value, nameof(InnerRadius));
+                Validator.AssertValueInRange(nameof(InnerRadius), value, 0, _outerRadius);
                 _innerRadius = value;
             }
         }
@@ -84,7 +80,7 @@ namespace Programming.Model.Geometry
         /// Может быть в диапозоне от значения внутреннего радиуса до наибольшего возможного значения типа double (включая их).</param>
         /// <param name="innerRadius">Внутренний радиус. Не может быть отрицательным.
         /// Может быть в диапозоне от 0 до значения внешнего радиуса (включая их).</param>
-        public Ring (Point2D center,
+        public Ring(Point2D center,
                    double outerRadius,
                    double innerRadius)
         {

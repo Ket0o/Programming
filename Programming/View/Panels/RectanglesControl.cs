@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using Programming.Model.Classes;
 using Programming.Model.Enums;
 using Programming.Model.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
-using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
@@ -103,7 +103,7 @@ namespace Programming.View.Panels
                 LengthRectangleTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            LengthRectangleTextBox.BackColor =AppColors.CorrectColor;
+            LengthRectangleTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о перелетах.
@@ -21,13 +15,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int FlightTimeMinutes
         {
-            get 
-            { 
-                return _flightTimeMinutes; 
+            get
+            {
+                return _flightTimeMinutes;
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, nameof(FlightTimeMinutes));
+                Validator.AssertOnPositiveValue(value, nameof(FlightTimeMinutes));
                 _flightTimeMinutes = value;
             }
         }
@@ -45,7 +39,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Создаёт экземпляр класса <see cref="Route"/>.
         /// </summary>
-        public Route () 
+        public Route()
         {
 
         }
@@ -56,7 +50,7 @@ namespace Programming.Model.Classes
         /// <param name="departure">Точка вылета.</param>
         /// <param name="destination">Точка прибытия.</param>
         /// <param name="flightTimeMinutes">Время полета в минутах. Не может быть отрицательным.</param>
-        public Route (string departure, string destination, int flightTimeMinutes)
+        public Route(string departure, string destination, int flightTimeMinutes)
         {
             Departure = departure;
             Destination = destination;

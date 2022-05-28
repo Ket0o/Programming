@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о фильме.
@@ -31,13 +25,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public double Rating
         {
-            get 
-            { 
-                return _rating; 
+            get
+            {
+                return _rating;
             }
             set
             {
-                Validator.AssertValueInRange (nameof(Rating), value, 0d, 10d);
+                Validator.AssertValueInRange(nameof(Rating), value, 0d, 10d);
                 _rating = value;
             }
         }
@@ -47,13 +41,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int DurationMinutes
         {
-            get 
-            { 
-                return _durationMinutes; 
+            get
+            {
+                return _durationMinutes;
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, nameof(DurationMinutes));
+                Validator.AssertOnPositiveValue(value, nameof(DurationMinutes));
                 _durationMinutes = value;
             }
         }
@@ -63,13 +57,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int ReleaseYear
         {
-            get 
-            { 
-                return _releaseYear; 
+            get
+            {
+                return _releaseYear;
             }
             set
             {
-                Validator.AssertValueInRange (nameof(ReleaseYear), value, 1900, 2022);
+                Validator.AssertValueInRange(nameof(ReleaseYear), value, 1900, 2022);
                 _releaseYear = value;
             }
         }
@@ -87,7 +81,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Создаёт экземпляр класса <see cref="Movie"/>.
         /// </summary>
-        public Movie () 
+        public Movie()
         {
 
         }
@@ -100,7 +94,7 @@ namespace Programming.Model.Classes
         /// <param name="releaseYear">Год выпуска фильма. Значение принимает от 1900 до 2022 включая.</param>
         /// <param name="genre">Жанр фильма</param>
         /// <param name="rating">Рейтинг фильма. Значение принимает от 0 до 10, типа double.</param>
-        public Movie (string name, int durationMinutes, int releaseYear, string genre, double rating)
+        public Movie(string name, int durationMinutes, int releaseYear, string genre, double rating)
         {
             Name = name;
             DurationMinutes = durationMinutes;

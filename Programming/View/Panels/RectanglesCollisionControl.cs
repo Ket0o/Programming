@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Programming.Model.Classes;
+using Programming.Model.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Programming.Model.Geometry;
 using Rectangle = Programming.Model.Geometry.Rectangle;
-using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
@@ -169,7 +169,7 @@ namespace Programming.View.Panels
                 string rectnagleCurrentX = XRectangle.Text;
                 int rectangleX = int.Parse(rectnagleCurrentX);
                 _currentRectangle.Center.X = rectangleX;
-                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Location = 
+                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
                 FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
@@ -191,7 +191,7 @@ namespace Programming.View.Panels
                 string rectnagleCurrentY = YRectangle.Text;
                 int rectangleY = int.Parse(rectnagleCurrentY);
                 _currentRectangle.Center.Y = rectangleY;
-                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Location = 
+                CanvasPanel.Controls[ListBoxRectanglesTabPage.SelectedIndex].Location =
                     new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
                 FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);

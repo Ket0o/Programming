@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Programming.Model.Classes
 {
@@ -25,11 +20,11 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Переменная цвета, если прямоугольники пересекаются
         /// </summary>
-        public static Color IsCollisionTrue = Color.FromArgb(127, 255, 127, 127); 
+        public static Color IsCollisionTrue = Color.FromArgb(127, 255, 127, 127);
 
         /// <summary>
         /// Переменная цвета, если прямоугольники не пересекаются
         /// </summary>
-        public static Color IsCollisionFalse = Color.FromArgb(127, 127, 255, 127); 
+        public static Color IsCollisionFalse = Color.FromArgb(127, 127, 255, 127);
     }
 }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
@@ -15,7 +11,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Регулярное выражение(только цифры).
         /// </summary>
-        private readonly Regex _onlyNumbers = new Regex (@"\d{11}");
+        private readonly Regex _onlyNumbers = new Regex(@"\d{11}");
 
         /// <summary>
         /// Номер.
@@ -43,7 +39,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                _name = AssertStringContainsOnlyLetters (nameof(Name), value);
+                _name = AssertStringContainsOnlyLetters(nameof(Name), value);
             }
         }
 
@@ -58,7 +54,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                _surname = AssertStringContainsOnlyLetters (nameof(Surname), value);
+                _surname = AssertStringContainsOnlyLetters(nameof(Surname), value);
             }
         }
 
@@ -73,14 +69,14 @@ namespace Programming.Model.Classes
             }
             set
             {
-                MatchCollection matches = _onlyNumbers.Matches (value);
+                MatchCollection matches = _onlyNumbers.Matches(value);
                 if (matches.Count != 11)
                 {
-                    throw new ArgumentException ("Enter only numbers");
+                    throw new ArgumentException("Enter only numbers");
                 }
                 if (value.Length > 11)
                 {
-                    throw new ArgumentException ("The phone number contains more than 11 digits");
+                    throw new ArgumentException("The phone number contains more than 11 digits");
                 }
                 else
                 {
@@ -92,7 +88,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Создаёт экземпляр класса <see cref="Contact"/>.
         /// </summary>
-        public Contact () 
+        public Contact()
         {
 
         }
@@ -103,7 +99,7 @@ namespace Programming.Model.Classes
         /// <param name="name">Имя. Должно состоять только из букв.</param>
         /// <param name="surname">Фамилия. Должна состоять только из букв.</param>
         /// <param name="phoneNumber">Номер телефона. Должен состоять из цифр и их должно быть 11.</param>
-        public Contact (string name, string surname, string phoneNumber)
+        public Contact(string name, string surname, string phoneNumber)
         {
             Name = name;
             Surname = surname;
@@ -123,11 +119,11 @@ namespace Programming.Model.Classes
             {
                 if (!char.IsLetter(value[i]))
                 {
-                    throw new ArgumentException ($"{propertyName} must cintains letters only");
+                    throw new ArgumentException($"{propertyName} must cintains letters only");
                 }
             }
 
-            return value; 
+            return value;
         }
     }
 }

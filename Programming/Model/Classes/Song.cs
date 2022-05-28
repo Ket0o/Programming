@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о песнях.
@@ -21,13 +15,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int DurationSeconds
         {
-            get 
-            { 
-                return _durationSeconds; 
+            get
+            {
+                return _durationSeconds;
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, nameof(DurationSeconds));
+                Validator.AssertOnPositiveValue(value, nameof(DurationSeconds));
                 _durationSeconds = value;
             }
         }
@@ -45,8 +39,8 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Создает экземпляр класса <see cref="Song"/>.
         /// </summary>
-        public Song () 
-        { 
+        public Song()
+        {
 
         }
 
@@ -56,7 +50,7 @@ namespace Programming.Model.Classes
         /// <param name="name">Название песни.</param>
         /// <param name="author">Автор песни.</param>
         /// <param name="durationSeconds">Длительность песни в секундах. Не может быть отрицательным.</param>
-        public Song (string name, string author, int durationSeconds)
+        public Song(string name, string author, int durationSeconds)
         {
             Name = name;
             Author = author;

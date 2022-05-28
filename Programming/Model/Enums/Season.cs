@@ -8,6 +8,6 @@
         Winter,
         Spring,
         Summer,
-        Autumn 
+        Autumn
     }
 }

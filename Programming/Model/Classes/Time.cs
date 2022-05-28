@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о времени.
@@ -31,13 +25,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int Hours
         {
-            get 
-            { 
-                return _hours; 
+            get
+            {
+                return _hours;
             }
             set
             {
-                Validator.AssertValueInRange (nameof(Hours), value, 0, 23);
+                Validator.AssertValueInRange(nameof(Hours), value, 0, 23);
                 _hours = value;
             }
         }
@@ -47,13 +41,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int Minutes
         {
-            get 
-            { 
-                return _minutes; 
+            get
+            {
+                return _minutes;
             }
             set
             {
-                Validator.AssertValueInRange (nameof(Minutes), value, 0, 59);
+                Validator.AssertValueInRange(nameof(Minutes), value, 0, 59);
                 _minutes = value;
             }
         }
@@ -63,13 +57,13 @@ namespace Programming.Model.Classes
         /// </summary>
         public int Seconds
         {
-            get 
-            { 
-                return _seconds; 
+            get
+            {
+                return _seconds;
             }
             set
             {
-                Validator.AssertValueInRange (nameof(Seconds), value, 0, 59);
+                Validator.AssertValueInRange(nameof(Seconds), value, 0, 59);
                 _seconds = value;
             }
         }
@@ -77,8 +71,8 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Создает экземпляр класса <see cref="Time"/>.
         /// </summary>
-        public Time () 
-        { 
+        public Time()
+        {
 
         }
 
@@ -88,7 +82,7 @@ namespace Programming.Model.Classes
         /// <param name="hours">Часы. Принимает значения от 0 до 23 включительно.</param>
         /// <param name="minutes">Минуты. Принимает значения от 0 до 59 включительно.</param>
         /// <param name="seconds">Секунды. Принимает значения от 0 до 59 включительно.</param>
-        public Time (int hours, int minutes, int seconds)
+        public Time(int hours, int minutes, int seconds)
         {
             Hours = hours;
             Minutes = minutes;

@@ -28,10 +28,10 @@ namespace Programming.Model.Geometry
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, nameof(X));
+                Validator.AssertOnPositiveValue(value, nameof(X));
                 _x = value;
             }
-        } 
+        }
 
         /// <summary>
         /// Возвращает и задает координату по Y. Не может быть отрицательным значением.
@@ -44,7 +44,7 @@ namespace Programming.Model.Geometry
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, nameof(Y));
+                Validator.AssertOnPositiveValue(value, nameof(Y));
                 _y = value;
             }
         }
@@ -54,7 +54,7 @@ namespace Programming.Model.Geometry
         /// </summary>
         /// <param name="x">Координата по X. Не может быть отрицательным.</param>
         /// <param name="y">Координата по Y. Не может быть отрицательным.</param>
-        public Point2D (int x, int y)
+        public Point2D(int x, int y)
         {
             X = x;
             Y = y;

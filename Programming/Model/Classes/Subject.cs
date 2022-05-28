@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные об учебных предметах.
@@ -32,7 +26,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertValueInRange (nameof(Mark), value, 2, 5);
+                Validator.AssertValueInRange(nameof(Mark), value, 2, 5);
                 _mark = value;
             }
         }
@@ -48,7 +42,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, nameof(HoursNumber));
+                Validator.AssertOnPositiveValue(value, nameof(HoursNumber));
                 _hoursNumber = value;
             }
         }
@@ -61,7 +55,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Создает экземпляр класса <see cref="Subject"/>.
         /// </summary>
-        public Subject ()
+        public Subject()
         {
 
         }
@@ -72,7 +66,7 @@ namespace Programming.Model.Classes
         /// <param name="mark">Оценка. Принимает значение от 2 до 5 включительно</param>
         /// <param name="name">Название предмета.</param>
         /// <param name="hoursNumber">Количество часов. Не может быть отрицательным.</param>
-        public Subject (int mark, string name, int hoursNumber)
+        public Subject(int mark, string name, int hoursNumber)
         {
             Mark = mark;
             Name = name;

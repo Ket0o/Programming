@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Programming.Model.Classes;
+﻿using Programming.Model.Classes;
 
 namespace Programming.Model.Geometry
 {
@@ -48,13 +43,13 @@ namespace Programming.Model.Geometry
         /// </summary>
         public int Height
         {
-            get 
-            { 
-                return _height; 
+            get
+            {
+                return _height;
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, "Length");
+                Validator.AssertOnPositiveValue(value, "Length");
                 _height = value;
             }
         }
@@ -64,13 +59,13 @@ namespace Programming.Model.Geometry
         /// </summary>
         public int Width
         {
-            get 
-            { 
-                return _width; 
+            get
+            {
+                return _width;
             }
             set
             {
-                Validator.AssertOnPositiveValue (value, "Width");
+                Validator.AssertOnPositiveValue(value, "Width");
                 _width = value;
             }
         }
@@ -99,7 +94,7 @@ namespace Programming.Model.Geometry
         /// <summary>
         /// Создает экземпляр класса <see cref="Rectangle"/>.
         /// </summary>
-        public Rectangle () 
+        public Rectangle()
         {
             _allRectanglesCount++;
             _id = _allRectanglesCount;
@@ -112,7 +107,7 @@ namespace Programming.Model.Geometry
         /// <param name="width">Ширина. Не может быть отрицательной.</param>
         /// <param name="color">Цвет.</param>
         /// <param name="center">Координаты центра фигуры.</param>
-        public Rectangle (int height, int width, string color, Point2D center)
+        public Rectangle(int height, int width, string color, Point2D center)
         {
             Height = height;
             Width = width;
