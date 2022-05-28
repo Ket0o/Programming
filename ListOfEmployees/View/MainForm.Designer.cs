@@ -30,6 +30,7 @@
         {
             this.listBoxEmployees = new System.Windows.Forms.ListBox();
             this.SelectedEmployeesGroupBox = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.postTextBox = new System.Windows.Forms.TextBox();
             this.salaryTextBox = new System.Windows.Forms.TextBox();
             this.fullNameTextBox = new System.Windows.Forms.TextBox();
@@ -38,9 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.plusButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SelectedEmployeesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +69,14 @@
             this.SelectedEmployeesGroupBox.TabIndex = 1;
             this.SelectedEmployeesGroupBox.TabStop = false;
             this.SelectedEmployeesGroupBox.Text = "Selected Employee";
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(168, 115);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(229, 26);
+            this.dateTimePicker.TabIndex = 5;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // postTextBox
             // 
@@ -145,18 +152,9 @@
             this.plusButton.UseVisualStyleBackColor = true;
             this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(71, 476);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(53, 37);
-            this.editButton.TabIndex = 3;
-            this.editButton.Text = "button2";
-            this.editButton.UseVisualStyleBackColor = true;
-            // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(130, 476);
+            this.cancelButton.Location = new System.Drawing.Point(71, 476);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(53, 37);
             this.cancelButton.TabIndex = 4;
@@ -164,21 +162,12 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(168, 115);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(229, 26);
-            this.dateTimePicker.TabIndex = 5;
-            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 525);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.editButton);
             this.Controls.Add(this.plusButton);
             this.Controls.Add(this.SelectedEmployeesGroupBox);
             this.Controls.Add(this.listBoxEmployees);
@@ -202,7 +191,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button plusButton;
-        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
     }

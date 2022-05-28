@@ -10,12 +10,12 @@ namespace ListOfEmployees.Model.Employees
     {
         private static Random _random = new Random();
 
-        public static Employee Randomize()
+        public static Employee CreateStandart()
         {
             Employee employee = new Employee();
-            employee.Salary = _random.Next(30, 100);
-            employee.FullName = "kk kk kk";
-            employee.Post = "redovoi";
+            employee.Salary = 0;
+            employee.FullName = "Имя Фамилия Отчество";
+            employee.Post = "Пост";
             employee.DateOfEmployment = new DateTime(1753, 1, 1);
             return employee;
         }

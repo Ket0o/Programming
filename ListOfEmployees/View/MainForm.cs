@@ -26,14 +26,15 @@ namespace ListOfEmployees
                                       orderby employee.FullName
                                       select employee;
 
-            _employees = sortedListEmployees.ToList();
+            
 
-            return _employees;
+            return sortedListEmployees.ToList();
         }
 
         private int IndexById ()
         {
-            SortedEmployees(_employees);
+            _employees = SortedEmployees(_employees);
+
 
             int currentEmployeeId = _currentEmployee.Id;
 
@@ -51,16 +52,10 @@ namespace ListOfEmployees
             return index;
         }
 
-        private string FormatEmployee(Employee employee)
-        {
-            string lineOutputEmployee = $"{employee.FullName}";
-            return lineOutputEmployee;
-        }
-
         private void ClearEmployeeInfo()
         {
-            listBoxEmployees.Items.Clear();
-            fullNameTextBox.Clear();
+           
+            fullNameTextBox.Clear(); /// Ошибка
             postTextBox.Clear();
             salaryTextBox.Clear();
             dateTimePicker.Value = new DateTime(1753, 1, 1);
@@ -68,26 +63,27 @@ namespace ListOfEmployees
 
         private void UpdateEmployeeInfo(int selectedIndex)
         {
-            SortedEmployees(_employees);
+            listBoxEmployees.Items.Clear();
 
-            foreach(Employee employee in _employees)
+            _employees = SortedEmployees(_employees);
+
+            foreach (Employee employee in _employees)
             {
                 listBoxEmployees.Items.Add($"{employee.FullName}");
             }
 
             if (selectedIndex == -1) return;
 
-            listBoxEmployees.SelectedIndex = selectedIndex;
+            listBoxEmployees.SelectedIndex = selectedIndex; /// Ошибка
         }
 
 
 
         private void plusButton_Click(object sender, EventArgs e)
         {
-            _currentEmployee = EmployeeFactory.Randomize();
+            _currentEmployee = EmployeeFactory.CreateStandart();
             _employees.Add(_currentEmployee);
-            /*SortedEmployees(_employees)*/;
-            listBoxEmployees.Items.Add(FormatEmployee(_currentEmployee));
+            listBoxEmployees.Items.Add(_currentEmployee.FullName);
         }
 
         private void listBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,6 +139,7 @@ namespace ListOfEmployees
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            dateTimePicker.MaxDate = DateTime.Now; 
             if (listBoxEmployees.SelectedIndex == -1)
                 return;
             try
@@ -153,7 +150,7 @@ namespace ListOfEmployees
             }
             catch
             {
-                dateTimePicker.CalendarTitleBackColor = AppColors.ErrorColor;
+                dateTimePicker.CalendarForeColor = AppColors.ErrorColor;
                 return;
             }
             dateTimePicker.CalendarTitleBackColor = AppColors.CorrectColor;
@@ -186,12 +183,13 @@ namespace ListOfEmployees
                 listBoxEmployees.Items.RemoveAt(index);
                 ClearEmployeeInfo();
 
-                for(int i = 0; i < _employees.Count; i++)
+                for (int i = 0; i < _employees.Count; i++)
                 {
-                    listBoxEmployees.Items.Add(FormatEmployee(_employees[i]));
+                    listBoxEmployees.Items.Add(_employees[i].FullName);
                     listBoxEmployees.SelectedIndex = 0;
                 }
             }
+            UpdateEmployeeInfo(-1);
         }
     }
 }
