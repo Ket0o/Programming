@@ -11,7 +11,7 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Регулярное выражение(только цифры).
         /// </summary>
-        private readonly Regex _onlyNumbers = new Regex(@"\d{11}");
+        private readonly Regex _patternString = new Regex(@"\d{11}");
 
         /// <summary>
         /// Номер.
@@ -69,7 +69,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                MatchCollection matches = _onlyNumbers.Matches(value);
+                MatchCollection matches = _patternString.Matches(value);
                 if (matches.Count != 11)
                 {
                     throw new ArgumentException("Enter only numbers");
