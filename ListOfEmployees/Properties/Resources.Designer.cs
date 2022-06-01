@@ -99,5 +99,25 @@ namespace ListOfEmployees.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon free_icon_error_148766__2__removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("free_icon_error_148766__2__removebg_preview", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon free_icon_plus_148764__2__removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("free_icon_plus_148764__2__removebg_preview", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
