@@ -145,6 +145,9 @@
             // 
             // plusButton
             // 
+            this.plusButton.BackgroundImage = global::ListOfEmployees.Properties.Resources.Plus;
+            this.plusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plusButton.Location = new System.Drawing.Point(12, 476);
             this.plusButton.Name = "plusButton";
             this.plusButton.Size = new System.Drawing.Size(53, 37);
