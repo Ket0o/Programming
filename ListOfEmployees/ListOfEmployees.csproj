@@ -52,6 +52,7 @@
     <Compile Include="Model\Classes\AppColors.cs" />
     <Compile Include="Model\Classes\Maximum and minimum values.cs" />
     <Compile Include="Model\Classes\ProjectSerializer.cs" />
+    <Compile Include="Model\Classes\Sorting.cs" />
     <Compile Include="Model\Classes\Validator.cs" />
     <Compile Include="Model\Employees\Employee.cs" />
     <Compile Include="Model\Employees\EmployeeFactory.cs" />
@@ -102,6 +103,23 @@
   <ItemGroup>
     <None Include="Resources\free-icon-user-149071.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\ContactIcon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ContactIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-edit-148987.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-error-148766.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-plus-148764.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-user-149071.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

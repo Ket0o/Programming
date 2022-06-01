@@ -1,6 +1,6 @@
-﻿namespace ListOfEmployees
+﻿namespace ListOfEmployees.View
 {
-    partial class MainForm
+    partial class Employees
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.listBoxEmployees = new System.Windows.Forms.ListBox();
             this.SelectedEmployeesGroupBox = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -39,7 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.plusButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SelectedEmployeesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,31 +149,32 @@
             this.plusButton.Name = "plusButton";
             this.plusButton.Size = new System.Drawing.Size(53, 37);
             this.plusButton.TabIndex = 2;
-            this.plusButton.Text = "button1";
+            this.plusButton.Text = "\r\n";
             this.plusButton.UseVisualStyleBackColor = true;
             this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
-            // cancelButton
+            // deleteButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(71, 476);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(53, 37);
-            this.cancelButton.TabIndex = 4;
-            this.cancelButton.Text = "button3";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.deleteButton.Location = new System.Drawing.Point(71, 476);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(53, 37);
+            this.deleteButton.TabIndex = 4;
+            this.deleteButton.Text = "button3";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // MainForm
+            // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 525);
-            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.plusButton);
             this.Controls.Add(this.SelectedEmployeesGroupBox);
             this.Controls.Add(this.listBoxEmployees);
-            this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Employees";
+            this.Text = "Employees";
             this.SelectedEmployeesGroupBox.ResumeLayout(false);
             this.SelectedEmployeesGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -191,7 +193,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button plusButton;
-        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }

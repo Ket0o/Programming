@@ -5,9 +5,9 @@ using ListOfEmployees.Model.Classes;
 using System.Windows.Forms;
 using System.Linq;
 
-namespace ListOfEmployees
+namespace ListOfEmployees.View
 {
-    public partial class MainForm : Form
+    public partial class Employees : Form
     {
         private List<Employee> _employees;
 
@@ -15,27 +15,21 @@ namespace ListOfEmployees
 
         private string AppdataPath = Application.UserAppDataPath;
 
-        public MainForm()
+        public Employees()
         {
             InitializeComponent();
 
             _employees = ProjectSerializer.Deserialize();
-        }
 
-        public List<Employee> SortedEmployees(List<Employee> employees)
-        {
-            var sortedListEmployees = from employee in employees
-                                      orderby employee.FullName
-                                      select employee;
-
-            
-
-            return sortedListEmployees.ToList();
+            foreach (Employee employee in _employees)
+            {
+                listBoxEmployees.Items.Add($"{employee.FullName}");
+            }
         }
 
         private int IndexById ()
         {
-            _employees = SortedEmployees(_employees);
+            _employees = Sorting.SortedEmployees(_employees);
 
 
             int currentEmployeeId = _currentEmployee.Id;
@@ -56,8 +50,7 @@ namespace ListOfEmployees
 
         private void ClearEmployeeInfo()
         {
-           
-            fullNameTextBox.Clear(); /// Ошибка
+            fullNameTextBox.Clear();
             postTextBox.Clear();
             salaryTextBox.Clear();
             dateTimePicker.Value = new DateTime(1753, 1, 1);
@@ -67,7 +60,7 @@ namespace ListOfEmployees
         {
             listBoxEmployees.Items.Clear();
 
-            _employees = SortedEmployees(_employees);
+            _employees = Sorting.SortedEmployees(_employees);
 
             foreach (Employee employee in _employees)
             {
@@ -180,7 +173,7 @@ namespace ListOfEmployees
             salaryTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
             int index = listBoxEmployees.SelectedIndex;
             if(index != -1)
