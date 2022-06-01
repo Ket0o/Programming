@@ -13,11 +13,13 @@ namespace ListOfEmployees
 
         private Employee _currentEmployee;
 
+        private string AppdataPath = Application.UserAppDataPath;
+
         public MainForm()
         {
             InitializeComponent();
 
-            _employees = new List<Employee>();
+            _employees = ProjectSerializer.Deserialize();
         }
 
         public List<Employee> SortedEmployees(List<Employee> employees)
@@ -110,6 +112,7 @@ namespace ListOfEmployees
                 _currentEmployee.FullName = employeeFullName;
                 int index = IndexById();
                 UpdateEmployeeInfo(index);
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -128,6 +131,7 @@ namespace ListOfEmployees
                 string employeeCurrentPost = postTextBox.Text;
                 string employeePost = employeeCurrentPost;
                 _currentEmployee.Post = employeePost;
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -147,6 +151,7 @@ namespace ListOfEmployees
                 string employeeCurrentDate = dateTimePicker.Text;
                 DateTime employeeDate = DateTime.Parse(employeeCurrentDate);
                 _currentEmployee.DateOfEmployment = employeeDate;
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -165,6 +170,7 @@ namespace ListOfEmployees
                 string employeeCurrentSalary = salaryTextBox.Text;
                 int employeeSalary = int.Parse(employeeCurrentSalary);
                 _currentEmployee.Salary = employeeSalary;
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -190,6 +196,7 @@ namespace ListOfEmployees
                 }
             }
             UpdateEmployeeInfo(-1);
+            ProjectSerializer.Serialize(_employees);
         }
     }
 }

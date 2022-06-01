@@ -12,7 +12,7 @@ namespace ListOfEmployees.Model.Classes
 {
     public class ProjectSerializer
     {
-        public void Serialize(List<Employee> employees)
+        public static void Serialize(List<Employee> employees)
         {
             using (StreamWriter sw = new StreamWriter(@"Serializer.json"))
             {
@@ -20,7 +20,7 @@ namespace ListOfEmployees.Model.Classes
             }
         }
 
-        public List<Employee> Deserialize()
+        public static List<Employee> Deserialize()
         {
             var employees = new List<Employee>();
 
