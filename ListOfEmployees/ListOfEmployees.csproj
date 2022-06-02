@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Classes\AppColors.cs" />
-    <Compile Include="Model\Classes\Maximum and minimum values.cs" />
+    <Compile Include="Model\Classes\InitialConstants.cs" />
     <Compile Include="Model\Classes\ProjectSerializer.cs" />
     <Compile Include="Model\Classes\Sorting.cs" />
     <Compile Include="Model\Classes\Validator.cs" />
@@ -92,19 +92,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\free-icon-user-149071.ico" />
+    <None Include="Resources\user_256x256.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\free-icon-plus-1828817.png" />
+    <None Include="Resources\plus_24x24.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\free-icon-plus-1828926.png" />
+    <None Include="Resources\plus_24x24_uncolor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\premium-icon-minus-button-4159678.png" />
+    <None Include="Resources\minus_24x24_uncolor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\premium-icon-minus-button-4436695.png" />
+    <None Include="Resources\minus_24x24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

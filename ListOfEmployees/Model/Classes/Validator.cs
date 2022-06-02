@@ -23,20 +23,6 @@ namespace ListOfEmployees.Model.Classes
         }
 
         /// <summary>
-        /// Проверяет, чтобы значение типа int было положительным.
-        /// </summary>
-        /// <param name="value">Проверяемое значение.</param>
-        /// <param name="nameProperty">Название значения.</param>
-        /// <exception cref="ArgumentException"></exception>
-        public static void AssertOnPositiveValue(int value, string nameProperty)
-        {
-            if (value < 0)
-            {
-                throw new ArgumentException($"the value of the {nameProperty} field must be positive");
-            }
-        }
-
-        /// <summary>
         /// Проверяет находиться ли значение типа int в диапозоне от одного числа до другого.
         /// </summary>
         /// <param name="nameProperty">Название значения.</param>

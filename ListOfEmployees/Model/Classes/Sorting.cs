@@ -10,7 +10,7 @@ namespace ListOfEmployees.Model.Classes
     /// <summary>
     /// Класс реализует сортировку данных.
     /// </summary>
-    public class Sorting
+    public static class Sorting
     {
         /// <summary>
         /// Проводит сортировку коллекции рабочих по полному имени.

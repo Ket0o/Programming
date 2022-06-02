@@ -38,7 +38,7 @@ namespace ListOfEmployees.Model.Employees
         /// </summary>
         public static int AllEmployeesCount
         {
-            get { return _allEmployeesCount; }
+            get => _allEmployeesCount;
         }
 
         /// <summary>
@@ -46,10 +46,10 @@ namespace ListOfEmployees.Model.Employees
         /// </summary>
         public string FullName
         {
-            get { return _fullName; }
+            get => (_fullName == null) ? null : _fullName;
             set
             {
-                Validator.NoMoreThan(value, Maximum_and_minimum_values.maxLengthFullName, FullName);
+                Validator.NoMoreThan(value, InitialConstants.maxLengthFullName, FullName);
                 _fullName = value;
             }
         }
@@ -59,10 +59,10 @@ namespace ListOfEmployees.Model.Employees
         /// </summary>
         public string Post
         {
-            get { return _post; }
+            get => (_post == null) ? null : _post;
             set
             {
-                Validator.NoMoreThan(value, Maximum_and_minimum_values.maxLengthPost, Post);
+                Validator.NoMoreThan(value, InitialConstants.maxLengthPost, Post);
                 _post = value;
             }
         }
@@ -72,10 +72,10 @@ namespace ListOfEmployees.Model.Employees
         /// </summary>
         public int Salary
         {
-            get { return _salary; }
+            get => _salary;
             set
             {
-                Validator.AssertValueInRange("Salary", value, Maximum_and_minimum_values.minValueSalary, Maximum_and_minimum_values.maxValueSalary);
+                Validator.AssertValueInRange("Salary", value, InitialConstants.minValueSalary, InitialConstants.maxValueSalary);
                 _salary = value;
             }
         }
@@ -85,7 +85,7 @@ namespace ListOfEmployees.Model.Employees
         /// </summary>
         public int Id
         {
-            get { return _id; }
+            get => _id;
         }
 
         /// <summary>

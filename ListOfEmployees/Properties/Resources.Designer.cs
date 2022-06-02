@@ -61,52 +61,52 @@ namespace ListOfEmployees.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap minus_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("minus_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap minus_24x24_uncolor {
+            get {
+                object obj = ResourceManager.GetObject("minus_24x24_uncolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap plus_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("plus_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap plus_24x24_uncolor {
+            get {
+                object obj = ResourceManager.GetObject("plus_24x24_uncolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        public static System.Drawing.Icon ContactIcon {
+        public static System.Drawing.Icon user_256x256 {
             get {
-                object obj = ResourceManager.GetObject("ContactIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("user_256x256", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap minusColor {
-            get {
-                object obj = ResourceManager.GetObject("minusColor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap minusUncolor {
-            get {
-                object obj = ResourceManager.GetObject("minusUncolor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap plusColor {
-            get {
-                object obj = ResourceManager.GetObject("plusColor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap plusUncolor {
-            get {
-                object obj = ResourceManager.GetObject("plusUncolor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

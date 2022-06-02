@@ -10,7 +10,7 @@ namespace ListOfEmployees.Model.Classes
     /// <summary>
     /// Хранит данные о максимальных и минимальных константах
     /// </summary>
-    public class Maximum_and_minimum_values
+    public static class InitialConstants
     {
         /// <summary>
         /// Максимальное количество символов для <see cref="Employee.FullName"/>.

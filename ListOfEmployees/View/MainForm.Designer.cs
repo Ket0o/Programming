@@ -1,6 +1,6 @@
 ﻿namespace ListOfEmployees.View
 {
-    partial class Employees
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.listBoxEmployees = new System.Windows.Forms.ListBox();
             this.SelectedEmployeesGroupBox = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -152,7 +152,7 @@
             this.plusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.plusButton.FlatAppearance.BorderSize = 0;
             this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusButton.Image = global::ListOfEmployees.Properties.Resources.plusUncolor;
+            this.plusButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
             this.plusButton.Location = new System.Drawing.Point(12, 462);
             this.plusButton.Name = "plusButton";
             this.plusButton.Size = new System.Drawing.Size(52, 50);
@@ -169,7 +169,7 @@
             this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Image = global::ListOfEmployees.Properties.Resources.minusUncolor;
+            this.deleteButton.Image = global::ListOfEmployees.Properties.Resources.minus_24x24_uncolor;
             this.deleteButton.Location = new System.Drawing.Point(70, 462);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(52, 50);

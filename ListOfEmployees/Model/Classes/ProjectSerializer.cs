@@ -13,15 +13,15 @@ namespace ListOfEmployees.Model.Classes
     /// <summary>
     /// Класс реализует сериализцаию и десериализацию данных.
     /// </summary>
-    public class ProjectSerializer
+    public static class ProjectSerializer
     {
         /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
-        public static void Serialize(List<Employee> employees)
+        public static void Serialize(string path ,List<Employee> employees)
         {
-            using (StreamWriter sw = new StreamWriter(@"Serializer.json"))
+            using (StreamWriter sw = new StreamWriter(path + @"Serializer.json"))
             {
                 sw.Write(JsonConvert.SerializeObject(employees));
             }
@@ -31,17 +31,25 @@ namespace ListOfEmployees.Model.Classes
         /// Проводит десериализацию данных.
         /// </summary>
         /// <returns>Возвращает коллекцию работников.</returns>
-        public static List<Employee> Deserialize()
+        public static List<Employee> Deserialize(string path)
         {
             var employees = new List<Employee>();
 
-            using(StreamReader sr = new StreamReader(@"Serializer.json"))
+            try
             {
-                employees = JsonConvert.DeserializeObject<List<Employee>>(sr.ReadToEnd());
-                if(employees == null)
+                using (StreamReader sr = new StreamReader(path + @"Serializer.json"))
+                {
+                    employees = JsonConvert.DeserializeObject<List<Employee>>(sr.ReadToEnd());
+                }
+
+                if (employees == null)
                 {
                     employees = new List<Employee>();
                 }
+            }
+            catch
+            {
+                return employees;
             }
 
             return employees;

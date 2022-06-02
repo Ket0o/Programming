@@ -11,7 +11,7 @@ namespace ListOfEmployees.Model.Classes
     /// <summary>
     /// Хранит данные о цветах
     /// </summary>
-    public class AppColors
+    public static class AppColors
     {
         /// <summary>
         /// Переменная цвета, когда ничего не происходит
