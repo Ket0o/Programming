@@ -7,8 +7,16 @@ using ListOfEmployees.Model.Employees;
 
 namespace ListOfEmployees.Model.Classes
 {
+    /// <summary>
+    /// Класс реализует сортировку данных.
+    /// </summary>
     public class Sorting
     {
+        /// <summary>
+        /// Проводит сортировку коллекции рабочих по полному имени.
+        /// </summary>
+        /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
+        /// <returns>Возвращает отсортированную коллекцию рабочих.</returns>
         public static List<Employee> SortedEmployees(List<Employee> employees)
         {
             var sortedListEmployees = from employee in employees

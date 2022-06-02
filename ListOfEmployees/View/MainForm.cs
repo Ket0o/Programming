@@ -7,14 +7,24 @@ using System.Linq;
 
 namespace ListOfEmployees.View
 {
+    /// <summary>
+    /// Предоставляет реализацию расположения элементов на форме.
+    /// </summary>
     public partial class Employees : Form
     {
+        /// <summary>
+        /// Коллекция рабочих.
+        /// </summary>
         private List<Employee> _employees;
 
+        /// <summary>
+        /// Выбранный рабочий.
+        /// </summary>
         private Employee _currentEmployee;
 
-        private string AppdataPath = Application.UserAppDataPath;
-
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Employees"/>
+        /// </summary>
         public Employees()
         {
             InitializeComponent();
@@ -27,6 +37,10 @@ namespace ListOfEmployees.View
             }
         }
 
+        /// <summary>
+        /// Наход индекс элемента по его уникальному индефикатору.
+        /// </summary>
+        /// <returns>Индекс.</returns>
         private int IndexById ()
         {
             _employees = Sorting.SortedEmployees(_employees);
@@ -48,6 +62,9 @@ namespace ListOfEmployees.View
             return index;
         }
 
+        /// <summary>
+        /// Очищает информацию с текстовых полей и поля с датой.
+        /// </summary>
         private void ClearEmployeeInfo()
         {
             fullNameTextBox.Clear();
@@ -56,6 +73,10 @@ namespace ListOfEmployees.View
             dateTimePicker.Value = new DateTime(1753, 1, 1);
         }
 
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
+        /// <param name="selectedIndex">Выбранный индекс.</param>
         private void UpdateEmployeeInfo(int selectedIndex)
         {
             listBoxEmployees.Items.Clear();
@@ -69,9 +90,8 @@ namespace ListOfEmployees.View
 
             if (selectedIndex == -1) return;
 
-            listBoxEmployees.SelectedIndex = selectedIndex; /// Ошибка
+            listBoxEmployees.SelectedIndex = selectedIndex;
         }
-
 
 
         private void plusButton_Click(object sender, EventArgs e)

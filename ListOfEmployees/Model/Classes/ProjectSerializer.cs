@@ -10,8 +10,15 @@ using Newtonsoft.Json;
 
 namespace ListOfEmployees.Model.Classes
 {
+    /// <summary>
+    /// Класс реализует сериализцаию и десериализацию данных.
+    /// </summary>
     public class ProjectSerializer
     {
+        /// <summary>
+        /// Проводит сериализацию данных.
+        /// </summary>
+        /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
         public static void Serialize(List<Employee> employees)
         {
             using (StreamWriter sw = new StreamWriter(@"Serializer.json"))
@@ -20,6 +27,10 @@ namespace ListOfEmployees.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Проводит десериализацию данных.
+        /// </summary>
+        /// <returns>Возвращает коллекцию работников.</returns>
         public static List<Employee> Deserialize()
         {
             var employees = new List<Employee>();

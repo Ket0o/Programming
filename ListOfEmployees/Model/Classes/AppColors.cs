@@ -8,12 +8,16 @@ using System.Drawing;
 
 namespace ListOfEmployees.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о цветах
+    /// </summary>
     public class AppColors
     {
         /// <summary>
         /// Переменная цвета, когда ничего не происходит
         /// </summary>
         public static Color CorrectColor = Color.White;
+
         /// <summary>
         /// Переменная цвета при ошибке
         /// </summary>

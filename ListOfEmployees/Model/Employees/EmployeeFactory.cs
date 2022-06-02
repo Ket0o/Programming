@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace ListOfEmployees.Model.Employees
 {
+    /// <summary>
+    /// Класс создает шаблон для заполнения информации о рабочем.
+    /// </summary>
     public static class EmployeeFactory
     {
-        private static Random _random = new Random();
-
+        /// <summary>
+        /// Создание шаблона для заполнения информации о рабочем.
+        /// </summary>
+        /// <returns>Шаблон для заполнения информации о рабочем.</returns>
         public static Employee CreateStandart()
         {
             Employee employee = new Employee();
