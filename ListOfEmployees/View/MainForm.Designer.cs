@@ -46,11 +46,14 @@
             // 
             // listBoxEmployees
             // 
+            this.listBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxEmployees.FormattingEnabled = true;
             this.listBoxEmployees.ItemHeight = 20;
             this.listBoxEmployees.Location = new System.Drawing.Point(12, 12);
             this.listBoxEmployees.Name = "listBoxEmployees";
-            this.listBoxEmployees.Size = new System.Drawing.Size(291, 444);
+            this.listBoxEmployees.Size = new System.Drawing.Size(290, 444);
             this.listBoxEmployees.TabIndex = 0;
             this.listBoxEmployees.SelectedIndexChanged += new System.EventHandler(this.listBoxEmployees_SelectedIndexChanged);
             // 
@@ -66,7 +69,7 @@
             this.SelectedEmployeesGroupBox.Controls.Add(this.label1);
             this.SelectedEmployeesGroupBox.Location = new System.Drawing.Point(309, 12);
             this.SelectedEmployeesGroupBox.Name = "SelectedEmployeesGroupBox";
-            this.SelectedEmployeesGroupBox.Size = new System.Drawing.Size(583, 205);
+            this.SelectedEmployeesGroupBox.Size = new System.Drawing.Size(584, 205);
             this.SelectedEmployeesGroupBox.TabIndex = 1;
             this.SelectedEmployeesGroupBox.TabStop = false;
             this.SelectedEmployeesGroupBox.Text = "Selected Employee";
@@ -145,26 +148,36 @@
             // 
             // plusButton
             // 
-            this.plusButton.BackgroundImage = global::ListOfEmployees.Properties.Resources.Plus;
+            this.plusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.plusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.plusButton.FlatAppearance.BorderSize = 0;
             this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusButton.Location = new System.Drawing.Point(12, 476);
+            this.plusButton.Image = global::ListOfEmployees.Properties.Resources.plusUncolor;
+            this.plusButton.Location = new System.Drawing.Point(12, 462);
             this.plusButton.Name = "plusButton";
-            this.plusButton.Size = new System.Drawing.Size(53, 37);
+            this.plusButton.Size = new System.Drawing.Size(52, 50);
             this.plusButton.TabIndex = 2;
             this.plusButton.Text = "\r\n";
             this.plusButton.UseVisualStyleBackColor = true;
             this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
+            this.plusButton.MouseEnter += new System.EventHandler(this.plusButton_MouseEnter);
+            this.plusButton.MouseLeave += new System.EventHandler(this.plusButton_MouseLeave);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(71, 476);
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Image = global::ListOfEmployees.Properties.Resources.minusUncolor;
+            this.deleteButton.Location = new System.Drawing.Point(70, 462);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(53, 37);
+            this.deleteButton.Size = new System.Drawing.Size(52, 50);
             this.deleteButton.TabIndex = 4;
-            this.deleteButton.Text = "button3";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.MouseEnter += new System.EventHandler(this.deleteButton_MouseEnter);
+            this.deleteButton.MouseLeave += new System.EventHandler(this.deleteButton_MouseLeave);
             // 
             // Employees
             // 
@@ -176,6 +189,8 @@
             this.Controls.Add(this.SelectedEmployeesGroupBox);
             this.Controls.Add(this.listBoxEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(926, 581);
+            this.MinimumSize = new System.Drawing.Size(926, 581);
             this.Name = "Employees";
             this.Text = "Employees";
             this.SelectedEmployeesGroupBox.ResumeLayout(false);

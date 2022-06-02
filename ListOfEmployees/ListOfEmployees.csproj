@@ -133,5 +133,17 @@
   <ItemGroup>
     <None Include="Resources\free-icon-plus-148764__2_-removebg-preview.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-plus-1828817.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-plus-1828926.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-minus-button-4159678.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-minus-button-4436695.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

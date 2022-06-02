@@ -123,9 +123,39 @@ namespace ListOfEmployees.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Plus {
+        public static System.Drawing.Bitmap minusColor {
             get {
-                object obj = ResourceManager.GetObject("Plus", resourceCulture);
+                object obj = ResourceManager.GetObject("minusColor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap minusUncolor {
+            get {
+                object obj = ResourceManager.GetObject("minusUncolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap plusColor {
+            get {
+                object obj = ResourceManager.GetObject("plusColor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap plusUncolor {
+            get {
+                object obj = ResourceManager.GetObject("plusUncolor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

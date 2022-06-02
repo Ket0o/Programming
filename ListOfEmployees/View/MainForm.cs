@@ -191,5 +191,25 @@ namespace ListOfEmployees.View
             UpdateEmployeeInfo(-1);
             ProjectSerializer.Serialize(_employees);
         }
+
+        private void plusButton_MouseEnter(object sender, EventArgs e)
+        {
+            plusButton.Image = Properties.Resources.plusColor;
+        }
+
+        private void plusButton_MouseLeave(object sender, EventArgs e)
+        {
+            plusButton.Image = Properties.Resources.plusUncolor;
+        }
+
+        private void deleteButton_MouseEnter(object sender, EventArgs e)
+        {
+            deleteButton.Image = Properties.Resources.minusColor;
+        }
+
+        private void deleteButton_MouseLeave(object sender, EventArgs e)
+        {
+            deleteButton.Image = Properties.Resources.minusUncolor;
+        }
     }
 }
