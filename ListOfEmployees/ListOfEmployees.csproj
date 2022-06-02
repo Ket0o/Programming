@@ -92,46 +92,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\free-icon-edit-148987.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-error-148766.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-plus-148764.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-user-149071.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ContactIcon1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ContactIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-edit-148987.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-error-148766.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-plus-148764.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\free-icon-user-149071.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-plus-148764-_1_.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-error-148766-_1_.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-error-148766__2_-removebg-preview.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\free-icon-plus-148764__2_-removebg-preview.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\free-icon-plus-1828817.png" />
