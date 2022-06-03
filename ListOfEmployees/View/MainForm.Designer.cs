@@ -49,6 +49,7 @@
             this.ListBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ListBoxEmployees.FormattingEnabled = true;
+            this.ListBoxEmployees.IntegralHeight = false;
             this.ListBoxEmployees.ItemHeight = 20;
             this.ListBoxEmployees.Location = new System.Drawing.Point(12, 12);
             this.ListBoxEmployees.Name = "ListBoxEmployees";
@@ -153,7 +154,7 @@
             this.AddEmployeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.AddEmployeeButton.FlatAppearance.BorderSize = 0;
             this.AddEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddEmployeeButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
+            this.AddEmployeeButton.Image = ((System.Drawing.Image)(resources.GetObject("AddEmployeeButton.Image")));
             this.AddEmployeeButton.Location = new System.Drawing.Point(12, 462);
             this.AddEmployeeButton.Name = "AddEmployeeButton";
             this.AddEmployeeButton.Size = new System.Drawing.Size(52, 50);
@@ -170,7 +171,7 @@
             this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.DeleteButton.FlatAppearance.BorderSize = 0;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.Image = global::ListOfEmployees.Properties.Resources.minus_24x24_uncolor;
+            this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
             this.DeleteButton.Location = new System.Drawing.Point(70, 462);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(52, 50);
