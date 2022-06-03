@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.listBoxEmployees = new System.Windows.Forms.ListBox();
+            this.ListBoxEmployees = new System.Windows.Forms.ListBox();
             this.SelectedEmployeesGroupBox = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.postTextBox = new System.Windows.Forms.TextBox();
-            this.salaryTextBox = new System.Windows.Forms.TextBox();
-            this.fullNameTextBox = new System.Windows.Forms.TextBox();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.PostTextBox = new System.Windows.Forms.TextBox();
+            this.SalaryTextBox = new System.Windows.Forms.TextBox();
+            this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.plusButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
+            this.PlusButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SelectedEmployeesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBoxEmployees
+            // ListBoxEmployees
             // 
-            this.listBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ListBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxEmployees.FormattingEnabled = true;
-            this.listBoxEmployees.ItemHeight = 20;
-            this.listBoxEmployees.Location = new System.Drawing.Point(12, 12);
-            this.listBoxEmployees.Name = "listBoxEmployees";
-            this.listBoxEmployees.Size = new System.Drawing.Size(290, 444);
-            this.listBoxEmployees.TabIndex = 0;
-            this.listBoxEmployees.SelectedIndexChanged += new System.EventHandler(this.listBoxEmployees_SelectedIndexChanged);
+            this.ListBoxEmployees.FormattingEnabled = true;
+            this.ListBoxEmployees.ItemHeight = 20;
+            this.ListBoxEmployees.Location = new System.Drawing.Point(12, 12);
+            this.ListBoxEmployees.Name = "ListBoxEmployees";
+            this.ListBoxEmployees.Size = new System.Drawing.Size(290, 444);
+            this.ListBoxEmployees.TabIndex = 0;
+            this.ListBoxEmployees.SelectedIndexChanged += new System.EventHandler(this.ListBoxEmployees_SelectedIndexChanged);
             // 
             // SelectedEmployeesGroupBox
             // 
-            this.SelectedEmployeesGroupBox.Controls.Add(this.dateTimePicker);
-            this.SelectedEmployeesGroupBox.Controls.Add(this.postTextBox);
-            this.SelectedEmployeesGroupBox.Controls.Add(this.salaryTextBox);
-            this.SelectedEmployeesGroupBox.Controls.Add(this.fullNameTextBox);
+            this.SelectedEmployeesGroupBox.Controls.Add(this.DateTimePicker);
+            this.SelectedEmployeesGroupBox.Controls.Add(this.PostTextBox);
+            this.SelectedEmployeesGroupBox.Controls.Add(this.SalaryTextBox);
+            this.SelectedEmployeesGroupBox.Controls.Add(this.FullNameTextBox);
             this.SelectedEmployeesGroupBox.Controls.Add(this.label4);
             this.SelectedEmployeesGroupBox.Controls.Add(this.label3);
             this.SelectedEmployeesGroupBox.Controls.Add(this.label2);
@@ -74,37 +74,37 @@
             this.SelectedEmployeesGroupBox.TabStop = false;
             this.SelectedEmployeesGroupBox.Text = "Selected Employee";
             // 
-            // dateTimePicker
+            // DateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(168, 115);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(229, 26);
-            this.dateTimePicker.TabIndex = 5;
-            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.DateTimePicker.Location = new System.Drawing.Point(168, 115);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(229, 26);
+            this.DateTimePicker.TabIndex = 5;
+            this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
-            // postTextBox
+            // PostTextBox
             // 
-            this.postTextBox.Location = new System.Drawing.Point(168, 77);
-            this.postTextBox.Name = "postTextBox";
-            this.postTextBox.Size = new System.Drawing.Size(229, 26);
-            this.postTextBox.TabIndex = 7;
-            this.postTextBox.TextChanged += new System.EventHandler(this.postTextBox_TextChanged);
+            this.PostTextBox.Location = new System.Drawing.Point(168, 77);
+            this.PostTextBox.Name = "PostTextBox";
+            this.PostTextBox.Size = new System.Drawing.Size(229, 26);
+            this.PostTextBox.TabIndex = 7;
+            this.PostTextBox.TextChanged += new System.EventHandler(this.PostTextBox_TextChanged);
             // 
-            // salaryTextBox
+            // SalaryTextBox
             // 
-            this.salaryTextBox.Location = new System.Drawing.Point(168, 157);
-            this.salaryTextBox.Name = "salaryTextBox";
-            this.salaryTextBox.Size = new System.Drawing.Size(229, 26);
-            this.salaryTextBox.TabIndex = 6;
-            this.salaryTextBox.TextChanged += new System.EventHandler(this.salaryTextBox_TextChanged);
+            this.SalaryTextBox.Location = new System.Drawing.Point(168, 157);
+            this.SalaryTextBox.Name = "SalaryTextBox";
+            this.SalaryTextBox.Size = new System.Drawing.Size(229, 26);
+            this.SalaryTextBox.TabIndex = 6;
+            this.SalaryTextBox.TextChanged += new System.EventHandler(this.SalaryTextBox_TextChanged);
             // 
-            // fullNameTextBox
+            // FullNameTextBox
             // 
-            this.fullNameTextBox.Location = new System.Drawing.Point(168, 37);
-            this.fullNameTextBox.Name = "fullNameTextBox";
-            this.fullNameTextBox.Size = new System.Drawing.Size(409, 26);
-            this.fullNameTextBox.TabIndex = 4;
-            this.fullNameTextBox.TextChanged += new System.EventHandler(this.fullNameTextBox_TextChanged);
+            this.FullNameTextBox.Location = new System.Drawing.Point(168, 37);
+            this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.Size = new System.Drawing.Size(409, 26);
+            this.FullNameTextBox.TabIndex = 4;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // label4
             // 
@@ -146,52 +146,52 @@
             this.label1.Text = "Full name:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // plusButton
+            // PlusButton
             // 
-            this.plusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.plusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.plusButton.FlatAppearance.BorderSize = 0;
-            this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
-            this.plusButton.Location = new System.Drawing.Point(12, 462);
-            this.plusButton.Name = "plusButton";
-            this.plusButton.Size = new System.Drawing.Size(52, 50);
-            this.plusButton.TabIndex = 2;
-            this.plusButton.Text = "\r\n";
-            this.plusButton.UseVisualStyleBackColor = true;
-            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
-            this.plusButton.MouseEnter += new System.EventHandler(this.plusButton_MouseEnter);
-            this.plusButton.MouseLeave += new System.EventHandler(this.plusButton_MouseLeave);
+            this.PlusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PlusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PlusButton.FlatAppearance.BorderSize = 0;
+            this.PlusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PlusButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
+            this.PlusButton.Location = new System.Drawing.Point(12, 462);
+            this.PlusButton.Name = "PlusButton";
+            this.PlusButton.Size = new System.Drawing.Size(52, 50);
+            this.PlusButton.TabIndex = 2;
+            this.PlusButton.Text = "\r\n";
+            this.PlusButton.UseVisualStyleBackColor = true;
+            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
+            this.PlusButton.MouseEnter += new System.EventHandler(this.PlusButton_MouseEnter);
+            this.PlusButton.MouseLeave += new System.EventHandler(this.PlusButton_MouseLeave);
             // 
-            // deleteButton
+            // DeleteButton
             // 
-            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.deleteButton.FlatAppearance.BorderSize = 0;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Image = global::ListOfEmployees.Properties.Resources.minus_24x24_uncolor;
-            this.deleteButton.Location = new System.Drawing.Point(70, 462);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(52, 50);
-            this.deleteButton.TabIndex = 4;
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            this.deleteButton.MouseEnter += new System.EventHandler(this.deleteButton_MouseEnter);
-            this.deleteButton.MouseLeave += new System.EventHandler(this.deleteButton_MouseLeave);
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.DeleteButton.FlatAppearance.BorderSize = 0;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Image = global::ListOfEmployees.Properties.Resources.minus_24x24_uncolor;
+            this.DeleteButton.Location = new System.Drawing.Point(70, 462);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(52, 50);
+            this.DeleteButton.TabIndex = 4;
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.DeleteButton.MouseEnter += new System.EventHandler(this.DeleteButton_MouseEnter);
+            this.DeleteButton.MouseLeave += new System.EventHandler(this.DeleteButton_MouseLeave);
             // 
-            // Employees
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 525);
-            this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.plusButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.PlusButton);
             this.Controls.Add(this.SelectedEmployeesGroupBox);
-            this.Controls.Add(this.listBoxEmployees);
+            this.Controls.Add(this.ListBoxEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(926, 581);
             this.MinimumSize = new System.Drawing.Size(926, 581);
-            this.Name = "Employees";
+            this.Name = "MainForm";
             this.Text = "Employees";
             this.SelectedEmployeesGroupBox.ResumeLayout(false);
             this.SelectedEmployeesGroupBox.PerformLayout();
@@ -201,18 +201,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxEmployees;
+        private System.Windows.Forms.ListBox ListBoxEmployees;
         private System.Windows.Forms.GroupBox SelectedEmployeesGroupBox;
-        private System.Windows.Forms.TextBox postTextBox;
-        private System.Windows.Forms.TextBox salaryTextBox;
-        private System.Windows.Forms.TextBox fullNameTextBox;
+        private System.Windows.Forms.TextBox PostTextBox;
+        private System.Windows.Forms.TextBox SalaryTextBox;
+        private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button plusButton;
-        private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button PlusButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.DateTimePicker DateTimePicker;
     }
 }
 

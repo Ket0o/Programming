@@ -35,7 +35,7 @@ namespace ListOfEmployees.View
 
             foreach (Employee employee in _employees)
             {
-                listBoxEmployees.Items.Add($"{employee.FullName}");
+                ListBoxEmployees.Items.Add($"{employee.FullName}");
             }
         }
 
@@ -68,10 +68,10 @@ namespace ListOfEmployees.View
         /// </summary>
         private void ClearEmployeeInfo()
         {
-            fullNameTextBox.Clear();
-            postTextBox.Clear();
-            salaryTextBox.Clear();
-            dateTimePicker.Value = new DateTime(1753, 1, 1);
+            FullNameTextBox.Clear();
+            PostTextBox.Clear();
+            SalaryTextBox.Clear();
+            DateTimePicker.Value = new DateTime(1753, 1, 1);
         }
 
         /// <summary>
@@ -80,48 +80,48 @@ namespace ListOfEmployees.View
         /// <param name="selectedIndex">Выбранный индекс.</param>
         private void UpdateEmployeeInfo(int selectedIndex)
         {
-            listBoxEmployees.Items.Clear();
+            ListBoxEmployees.Items.Clear();
 
             _employees = Sorting.SortedEmployees(_employees);
 
             foreach (Employee employee in _employees)
             {
-                listBoxEmployees.Items.Add($"{employee.FullName}");
+                ListBoxEmployees.Items.Add($"{employee.FullName}");
             }
 
             if (selectedIndex == -1) return;
 
-            listBoxEmployees.SelectedIndex = selectedIndex;
+            ListBoxEmployees.SelectedIndex = selectedIndex;
         }
 
-        private void plusButton_Click(object sender, EventArgs e)
+        private void PlusButton_Click(object sender, EventArgs e)
         {
             _currentEmployee = EmployeeFactory.CreateStandart();
             _employees.Add(_currentEmployee);
-            listBoxEmployees.Items.Add(_currentEmployee.FullName);
+            ListBoxEmployees.Items.Add(_currentEmployee.FullName);
         }
 
-        private void listBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxEmployees.SelectedItem != null)
+            if (ListBoxEmployees.SelectedItem != null)
             {
-                int indexSelectedEmployee = listBoxEmployees.SelectedIndex;
+                int indexSelectedEmployee = ListBoxEmployees.SelectedIndex;
                 _currentEmployee = _employees[indexSelectedEmployee];
-                fullNameTextBox.Text = _currentEmployee.FullName.ToString();
-                postTextBox.Text = _currentEmployee.Post.ToString();
-                dateTimePicker.Value = _currentEmployee.DateOfEmployment;
-                salaryTextBox.Text = _currentEmployee.Salary.ToString();
+                FullNameTextBox.Text = _currentEmployee.FullName.ToString();
+                PostTextBox.Text = _currentEmployee.Post.ToString();
+                DateTimePicker.Value = _currentEmployee.DateOfEmployment;
+                SalaryTextBox.Text = _currentEmployee.Salary.ToString();
             }
         }
 
-        private void fullNameTextBox_TextChanged(object sender, EventArgs e)
+        private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (listBoxEmployees.SelectedIndex == -1)
+            if (ListBoxEmployees.SelectedIndex == -1)
                 return;
 
             try
             {
-                string employeeCurrentFullName = fullNameTextBox.Text;
+                string employeeCurrentFullName = FullNameTextBox.Text;
                 _currentEmployee.FullName = employeeCurrentFullName;
                 int index = IndexById();
                 UpdateEmployeeInfo(index);
@@ -129,88 +129,88 @@ namespace ListOfEmployees.View
             }
             catch
             {
-                fullNameTextBox.BackColor = AppColors.ErrorColor;
+                FullNameTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
 
-            fullNameTextBox.BackColor = AppColors.CorrectColor;
+            FullNameTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void postTextBox_TextChanged(object sender, EventArgs e)
+        private void PostTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (listBoxEmployees.SelectedIndex == -1)
+            if (ListBoxEmployees.SelectedIndex == -1)
                 return;
 
             try
             {
-                string employeeCurrentPost = postTextBox.Text;
+                string employeeCurrentPost = PostTextBox.Text;
                 _currentEmployee.Post = employeeCurrentPost;
                 ProjectSerializer.Serialize(AppDataPath, _employees);
             }
             catch
             {
-                postTextBox.BackColor = AppColors.ErrorColor;
+                PostTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
 
-            postTextBox.BackColor = AppColors.CorrectColor;
+            PostTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker.MaxDate = DateTime.Now;
-            if (listBoxEmployees.SelectedIndex == -1)
+            DateTimePicker.MaxDate = DateTime.Now;
+            if (ListBoxEmployees.SelectedIndex == -1)
                 return;
 
             try
             {
-                string employeeCurrentDate = dateTimePicker.Text;
+                string employeeCurrentDate = DateTimePicker.Text;
                 _currentEmployee.DateOfEmployment = DateTime.Parse(employeeCurrentDate);
                 ProjectSerializer.Serialize(AppDataPath, _employees);
             }
             catch
             {
-                dateTimePicker.CalendarForeColor = AppColors.ErrorColor;
+                DateTimePicker.CalendarForeColor = AppColors.ErrorColor;
                 return;
             }
 
-            dateTimePicker.CalendarTitleBackColor = AppColors.CorrectColor;
+            DateTimePicker.CalendarTitleBackColor = AppColors.CorrectColor;
         }
 
-        private void salaryTextBox_TextChanged(object sender, EventArgs e)
+        private void SalaryTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (listBoxEmployees.SelectedIndex == -1)
+            if (ListBoxEmployees.SelectedIndex == -1)
                 return;
 
             try
             {
-                string employeeCurrentSalary = salaryTextBox.Text;
+                string employeeCurrentSalary = SalaryTextBox.Text;
                 _currentEmployee.Salary = int.Parse(employeeCurrentSalary);
                 ProjectSerializer.Serialize(AppDataPath, _employees);
             }
             catch
             {
-                salaryTextBox.BackColor = AppColors.ErrorColor;
+                SalaryTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
 
-            salaryTextBox.BackColor = AppColors.CorrectColor;
+            SalaryTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            int index = listBoxEmployees.SelectedIndex;
+            int index = ListBoxEmployees.SelectedIndex;
 
             if (index != -1)
             {
                 _employees.RemoveAt(index);
-                listBoxEmployees.Items.RemoveAt(index);
+                ListBoxEmployees.Items.RemoveAt(index);
                 ClearEmployeeInfo();
 
                 for (int i = 0; i < _employees.Count; i++)
                 {
-                    listBoxEmployees.Items.Add(_employees[i].FullName);
-                    listBoxEmployees.SelectedIndex = 0;
+                    ListBoxEmployees.Items.Add(_employees[i].FullName);
+                    ListBoxEmployees.SelectedIndex = 0;
                 }
             }
 
@@ -218,24 +218,24 @@ namespace ListOfEmployees.View
             ProjectSerializer.Serialize(AppDataPath, _employees);
         }
 
-        private void plusButton_MouseEnter(object sender, EventArgs e)
+        private void PlusButton_MouseEnter(object sender, EventArgs e)
         {
-            plusButton.Image = Properties.Resources.plus_24x24;
+            PlusButton.Image = Properties.Resources.plus_24x24;
         }
 
-        private void plusButton_MouseLeave(object sender, EventArgs e)
+        private void PlusButton_MouseLeave(object sender, EventArgs e)
         {
-            plusButton.Image = Properties.Resources.plus_24x24_uncolor;
+            PlusButton.Image = Properties.Resources.plus_24x24_uncolor;
         }
 
-        private void deleteButton_MouseEnter(object sender, EventArgs e)
+        private void DeleteButton_MouseEnter(object sender, EventArgs e)
         {
-            deleteButton.Image = Properties.Resources.minus_24x24;
+            DeleteButton.Image = Properties.Resources.minus_24x24;
         }
 
-        private void deleteButton_MouseLeave(object sender, EventArgs e)
+        private void DeleteButton_MouseLeave(object sender, EventArgs e)
         {
-            deleteButton.Image = Properties.Resources.minus_24x24_uncolor;
+            DeleteButton.Image = Properties.Resources.minus_24x24_uncolor;
         }
     }
 }
