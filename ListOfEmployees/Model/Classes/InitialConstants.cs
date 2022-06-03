@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ListOfEmployees.Model.Employees;
+﻿using ListOfEmployees.Model.Employees;
 
 namespace ListOfEmployees.Model.Classes
 {

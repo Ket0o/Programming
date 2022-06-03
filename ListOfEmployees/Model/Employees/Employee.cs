@@ -1,5 +1,5 @@
-﻿using System;
-using ListOfEmployees.Model.Classes;
+﻿using ListOfEmployees.Model.Classes;
+using System;
 
 namespace ListOfEmployees.Model.Employees
 {

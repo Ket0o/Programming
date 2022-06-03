@@ -16,7 +16,7 @@ namespace ListOfEmployees.Model.Classes
         /// <exception cref="ArgumentException"></exception>
         public static void NoMoreThan(string value, int maxLength, string nameProperty)
         {
-            if(value.Length > maxLength)
+            if (value.Length > maxLength)
             {
                 throw new ArgumentException($"the value of the {nameProperty} more than {maxLength}");
             }

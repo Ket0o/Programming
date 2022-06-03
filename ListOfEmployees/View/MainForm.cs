@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ListOfEmployees.Model.Classes;
 using ListOfEmployees.Model.Employees;
-using ListOfEmployees.Model.Classes;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace ListOfEmployees.View
 {
@@ -12,7 +11,7 @@ namespace ListOfEmployees.View
     /// </summary>
     public partial class MainForm : Form
     {
-        
+
         private string AppDataPath = Application.UserAppDataPath;
 
         /// <summary>
@@ -44,7 +43,7 @@ namespace ListOfEmployees.View
         /// Наход индекс элемента по его уникальному индефикатору.
         /// </summary>
         /// <returns>Индекс.</returns>
-        private int IndexById ()
+        private int IndexById()
         {
             _employees = Sorting.SortedEmployees(_employees);
 
@@ -52,7 +51,7 @@ namespace ListOfEmployees.View
 
             int index = -1;
 
-            for(int i = 0; i < _employees.Count; i++)
+            for (int i = 0; i < _employees.Count; i++)
             {
                 if (_employees[i].Id == currentEmployeeId)
                 {
@@ -159,7 +158,7 @@ namespace ListOfEmployees.View
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker.MaxDate = DateTime.Now; 
+            dateTimePicker.MaxDate = DateTime.Now;
             if (listBoxEmployees.SelectedIndex == -1)
                 return;
 
@@ -186,7 +185,7 @@ namespace ListOfEmployees.View
             try
             {
                 string employeeCurrentSalary = salaryTextBox.Text;
-                _currentEmployee.Salary =int.Parse(employeeCurrentSalary);
+                _currentEmployee.Salary = int.Parse(employeeCurrentSalary);
                 ProjectSerializer.Serialize(AppDataPath, _employees);
             }
             catch
@@ -202,7 +201,7 @@ namespace ListOfEmployees.View
         {
             int index = listBoxEmployees.SelectedIndex;
 
-            if(index != -1)
+            if (index != -1)
             {
                 _employees.RemoveAt(index);
                 listBoxEmployees.Items.RemoveAt(index);

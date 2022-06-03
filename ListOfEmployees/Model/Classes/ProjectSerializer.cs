@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using ListOfEmployees.Model.Employees;
+﻿using ListOfEmployees.Model.Employees;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 
 namespace ListOfEmployees.Model.Classes
@@ -19,7 +15,7 @@ namespace ListOfEmployees.Model.Classes
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
-        public static void Serialize(string path ,List<Employee> employees)
+        public static void Serialize(string path, List<Employee> employees)
         {
             using (StreamWriter sw = new StreamWriter(path + @"Serializer.json"))
             {
