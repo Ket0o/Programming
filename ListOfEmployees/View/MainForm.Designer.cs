@@ -1,4 +1,4 @@
-﻿namespace ListOfEmployees.View
+﻿namespace Employees.View
 {
     partial class MainForm
     {
@@ -39,16 +39,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PlusButton = new System.Windows.Forms.Button();
+            this.AddEmployeeButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.SelectedEmployeesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ListBoxEmployees
             // 
-            this.ListBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ListBoxEmployees.FormattingEnabled = true;
             this.ListBoxEmployees.ItemHeight = 20;
             this.ListBoxEmployees.Location = new System.Drawing.Point(12, 12);
@@ -59,6 +58,8 @@
             // 
             // SelectedEmployeesGroupBox
             // 
+            this.SelectedEmployeesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedEmployeesGroupBox.Controls.Add(this.DateTimePicker);
             this.SelectedEmployeesGroupBox.Controls.Add(this.PostTextBox);
             this.SelectedEmployeesGroupBox.Controls.Add(this.SalaryTextBox);
@@ -146,22 +147,22 @@
             this.label1.Text = "Full name:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // PlusButton
+            // AddEmployeeButton
             // 
-            this.PlusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PlusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PlusButton.FlatAppearance.BorderSize = 0;
-            this.PlusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PlusButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
-            this.PlusButton.Location = new System.Drawing.Point(12, 462);
-            this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(52, 50);
-            this.PlusButton.TabIndex = 2;
-            this.PlusButton.Text = "\r\n";
-            this.PlusButton.UseVisualStyleBackColor = true;
-            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
-            this.PlusButton.MouseEnter += new System.EventHandler(this.PlusButton_MouseEnter);
-            this.PlusButton.MouseLeave += new System.EventHandler(this.PlusButton_MouseLeave);
+            this.AddEmployeeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddEmployeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AddEmployeeButton.FlatAppearance.BorderSize = 0;
+            this.AddEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddEmployeeButton.Image = global::ListOfEmployees.Properties.Resources.plus_24x24_uncolor;
+            this.AddEmployeeButton.Location = new System.Drawing.Point(12, 462);
+            this.AddEmployeeButton.Name = "AddEmployeeButton";
+            this.AddEmployeeButton.Size = new System.Drawing.Size(52, 50);
+            this.AddEmployeeButton.TabIndex = 2;
+            this.AddEmployeeButton.Text = "\r\n";
+            this.AddEmployeeButton.UseVisualStyleBackColor = true;
+            this.AddEmployeeButton.Click += new System.EventHandler(this.AddEmployeeButton_Click);
+            this.AddEmployeeButton.MouseEnter += new System.EventHandler(this.AddEmployeeButton_MouseEnter);
+            this.AddEmployeeButton.MouseLeave += new System.EventHandler(this.AddEmployeeButton_MouseLeave);
             // 
             // DeleteButton
             // 
@@ -175,9 +176,9 @@
             this.DeleteButton.Size = new System.Drawing.Size(52, 50);
             this.DeleteButton.TabIndex = 4;
             this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            this.DeleteButton.MouseEnter += new System.EventHandler(this.DeleteButton_MouseEnter);
-            this.DeleteButton.MouseLeave += new System.EventHandler(this.DeleteButton_MouseLeave);
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteEmployeeButton_Click);
+            this.DeleteButton.MouseEnter += new System.EventHandler(this.DeleteEmployeeButton_MouseEnter);
+            this.DeleteButton.MouseLeave += new System.EventHandler(this.DeleteEmployeeButton_MouseLeave);
             // 
             // MainForm
             // 
@@ -185,12 +186,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 525);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.PlusButton);
+            this.Controls.Add(this.AddEmployeeButton);
             this.Controls.Add(this.SelectedEmployeesGroupBox);
             this.Controls.Add(this.ListBoxEmployees);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(926, 581);
-            this.MinimumSize = new System.Drawing.Size(926, 581);
             this.Name = "MainForm";
             this.Text = "Employees";
             this.SelectedEmployeesGroupBox.ResumeLayout(false);
@@ -210,7 +209,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button PlusButton;
+        private System.Windows.Forms.Button AddEmployeeButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.DateTimePicker DateTimePicker;
     }

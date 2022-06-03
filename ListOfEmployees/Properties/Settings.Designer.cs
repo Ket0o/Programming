@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ListOfEmployees.Properties
+namespace Employees.Properties
 {
 
 

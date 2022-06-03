@@ -1,19 +1,17 @@
-﻿using ListOfEmployees.Model.Classes;
-using ListOfEmployees.Model.Employees;
+﻿using Employees.Model.Classes;
+using Employees.Model.Employees;
+using ListOfEmployees.Properties;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ListOfEmployees.View
+namespace Employees.View
 {
     /// <summary>
     /// Предоставляет реализацию расположения элементов на форме.
     /// </summary>
     public partial class MainForm : Form
     {
-
-        private string AppDataPath = Application.UserAppDataPath;
-
         /// <summary>
         /// Коллекция рабочих.
         /// </summary>
@@ -31,36 +29,14 @@ namespace ListOfEmployees.View
         {
             InitializeComponent();
 
-            _employees = ProjectSerializer.Deserialize(AppDataPath);
+            DateTimePicker.MaxDate = DateTime.Now;
+
+            _employees = ProjectSerializer.Deserialize();
 
             foreach (Employee employee in _employees)
             {
                 ListBoxEmployees.Items.Add($"{employee.FullName}");
             }
-        }
-
-        /// <summary>
-        /// Наход индекс элемента по его уникальному индефикатору.
-        /// </summary>
-        /// <returns>Индекс.</returns>
-        private int IndexById()
-        {
-            _employees = Sorting.SortedEmployees(_employees);
-
-            int currentEmployeeId = _currentEmployee.Id;
-
-            int index = -1;
-
-            for (int i = 0; i < _employees.Count; i++)
-            {
-                if (_employees[i].Id == currentEmployeeId)
-                {
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
         }
 
         /// <summary>
@@ -94,11 +70,14 @@ namespace ListOfEmployees.View
             ListBoxEmployees.SelectedIndex = selectedIndex;
         }
 
-        private void PlusButton_Click(object sender, EventArgs e)
+        private void AddEmployeeButton_Click(object sender, EventArgs e)
         {
-            _currentEmployee = EmployeeFactory.CreateStandart();
+            _currentEmployee = EmployeeFactory.CreateDefaultt();
             _employees.Add(_currentEmployee);
             ListBoxEmployees.Items.Add(_currentEmployee.FullName);
+            int index = _employees.IndexOf(_currentEmployee);
+            Sorting.SortedEmployees(_employees);
+            UpdateEmployeeInfo(index);
         }
 
         private void ListBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,9 +102,9 @@ namespace ListOfEmployees.View
             {
                 string employeeCurrentFullName = FullNameTextBox.Text;
                 _currentEmployee.FullName = employeeCurrentFullName;
-                int index = IndexById();
+                int index = _employees.IndexOf(_currentEmployee);
                 UpdateEmployeeInfo(index);
-                ProjectSerializer.Serialize(AppDataPath, _employees);
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -145,7 +124,7 @@ namespace ListOfEmployees.View
             {
                 string employeeCurrentPost = PostTextBox.Text;
                 _currentEmployee.Post = employeeCurrentPost;
-                ProjectSerializer.Serialize(AppDataPath, _employees);
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -158,7 +137,6 @@ namespace ListOfEmployees.View
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            DateTimePicker.MaxDate = DateTime.Now;
             if (ListBoxEmployees.SelectedIndex == -1)
                 return;
 
@@ -166,7 +144,7 @@ namespace ListOfEmployees.View
             {
                 string employeeCurrentDate = DateTimePicker.Text;
                 _currentEmployee.DateOfEmployment = DateTime.Parse(employeeCurrentDate);
-                ProjectSerializer.Serialize(AppDataPath, _employees);
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -186,7 +164,7 @@ namespace ListOfEmployees.View
             {
                 string employeeCurrentSalary = SalaryTextBox.Text;
                 _currentEmployee.Salary = int.Parse(employeeCurrentSalary);
-                ProjectSerializer.Serialize(AppDataPath, _employees);
+                ProjectSerializer.Serialize(_employees);
             }
             catch
             {
@@ -197,7 +175,7 @@ namespace ListOfEmployees.View
             SalaryTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private void DeleteEmployeeButton_Click(object sender, EventArgs e)
         {
             int index = ListBoxEmployees.SelectedIndex;
 
@@ -215,27 +193,27 @@ namespace ListOfEmployees.View
             }
 
             UpdateEmployeeInfo(-1);
-            ProjectSerializer.Serialize(AppDataPath, _employees);
+            ProjectSerializer.Serialize(_employees);
         }
 
-        private void PlusButton_MouseEnter(object sender, EventArgs e)
+        private void AddEmployeeButton_MouseEnter(object sender, EventArgs e)
         {
-            PlusButton.Image = Properties.Resources.plus_24x24;
+            AddEmployeeButton.Image = Resources.plus_24x24;
         }
 
-        private void PlusButton_MouseLeave(object sender, EventArgs e)
+        private void AddEmployeeButton_MouseLeave(object sender, EventArgs e)
         {
-            PlusButton.Image = Properties.Resources.plus_24x24_uncolor;
+            AddEmployeeButton.Image = Resources.plus_24x24_uncolor;
         }
 
-        private void DeleteButton_MouseEnter(object sender, EventArgs e)
+        private void DeleteEmployeeButton_MouseEnter(object sender, EventArgs e)
         {
-            DeleteButton.Image = Properties.Resources.minus_24x24;
+            DeleteButton.Image = Resources.minus_24x24;
         }
 
-        private void DeleteButton_MouseLeave(object sender, EventArgs e)
+        private void DeleteEmployeeButton_MouseLeave(object sender, EventArgs e)
         {
-            DeleteButton.Image = Properties.Resources.minus_24x24_uncolor;
+            DeleteButton.Image = Resources.minus_24x24_uncolor;
         }
     }
 }

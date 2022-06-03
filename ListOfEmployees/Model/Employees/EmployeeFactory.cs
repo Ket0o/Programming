@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ListOfEmployees.Model.Employees
+namespace Employees.Model.Employees
 {
     /// <summary>
     /// Класс создает шаблон для заполнения информации о рабочем.
@@ -11,7 +11,7 @@ namespace ListOfEmployees.Model.Employees
         /// Создание шаблона для заполнения информации о рабочем.
         /// </summary>
         /// <returns>Шаблон для заполнения информации о рабочем.</returns>
-        public static Employee CreateStandart()
+        public static Employee CreateDefaultt()
         {
             Employee employee = new Employee();
             employee.Salary = 0;

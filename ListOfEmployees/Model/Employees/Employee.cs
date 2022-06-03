@@ -1,7 +1,7 @@
-﻿using ListOfEmployees.Model.Classes;
+﻿using Employees.Model.Classes;
 using System;
 
-namespace ListOfEmployees.Model.Employees
+namespace Employees.Model.Employees
 {
     /// <summary>
     /// Хранит данные о рабочих.
@@ -49,7 +49,7 @@ namespace ListOfEmployees.Model.Employees
             get => (_fullName == null) ? null : _fullName;
             set
             {
-                Validator.NoMoreThan(value, InitialConstants.maxLengthFullName, FullName);
+                Validator.NoMoreThan(value, InitialConstants.MaxLengthFullName, FullName);
                 _fullName = value;
             }
         }
@@ -62,7 +62,7 @@ namespace ListOfEmployees.Model.Employees
             get => (_post == null) ? null : _post;
             set
             {
-                Validator.NoMoreThan(value, InitialConstants.maxLengthPost, Post);
+                Validator.NoMoreThan(value, InitialConstants.MaxLengthPost, Post);
                 _post = value;
             }
         }
@@ -75,7 +75,7 @@ namespace ListOfEmployees.Model.Employees
             get => _salary;
             set
             {
-                Validator.AssertValueInRange("Salary", value, InitialConstants.minValueSalary, InitialConstants.maxValueSalary);
+                Validator.AssertValueInRange(nameof(Salary), value, InitialConstants.MinValueSalary, InitialConstants.MaxValueSalary);
                 _salary = value;
             }
         }

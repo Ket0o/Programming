@@ -1,8 +1,8 @@
-﻿using ListOfEmployees.View;
+﻿using Employees.View;
 using System;
 using System.Windows.Forms;
 
-namespace ListOfEmployees
+namespace Employees
 {
     internal static class Program
     {

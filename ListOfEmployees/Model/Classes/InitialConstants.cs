@@ -1,30 +1,32 @@
-﻿using ListOfEmployees.Model.Employees;
+﻿using Employees.Model.Employees;
 
-namespace ListOfEmployees.Model.Classes
+namespace Employees.Model.Classes
 {
     /// <summary>
     /// Хранит данные о максимальных и минимальных константах
     /// </summary>
     public static class InitialConstants
     {
+        public const string SerializerResult = @"DataUser.json";
+
         /// <summary>
         /// Максимальное количество символов для <see cref="Employee.FullName"/>.
         /// </summary>
-        public static int maxLengthFullName = 100;
+        public const int MaxLengthFullName = 100;
 
         /// <summary>
         /// Максимальное количество символов для <see cref="Employee.Post"/>.
         /// </summary>
-        public static int maxLengthPost = 50;
+        public const int MaxLengthPost = 50;
 
         /// <summary>
         /// Максимальное значение для <see cref="Employee.Salary"/>
         /// </summary>
-        public static int maxValueSalary = 500000;
+        public const int MaxValueSalary = 500000;
 
         /// <summary>
         /// Минимальное значение для <see cref="Employee.Salary"/>
         /// </summary>
-        public static int minValueSalary = 0;
+        public const int MinValueSalary = 0;
     }
 }

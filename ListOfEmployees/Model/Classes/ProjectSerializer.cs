@@ -1,10 +1,10 @@
-﻿using ListOfEmployees.Model.Employees;
+﻿using Employees.Model.Employees;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 
-
-namespace ListOfEmployees.Model.Classes
+namespace Employees.Model.Classes
 {
     /// <summary>
     /// Класс реализует сериализцаию и десериализацию данных.
@@ -12,12 +12,17 @@ namespace ListOfEmployees.Model.Classes
     public static class ProjectSerializer
     {
         /// <summary>
+        /// Путь к a AppData
+        /// </summary>
+        private static string AppDataPath = Application.UserAppDataPath;
+
+        /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
-        public static void Serialize(string path, List<Employee> employees)
+        public static void Serialize(List<Employee> employees)
         {
-            using (StreamWriter sw = new StreamWriter(path + @"Serializer.json"))
+            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResult))
             {
                 sw.Write(JsonConvert.SerializeObject(employees));
             }
@@ -27,13 +32,13 @@ namespace ListOfEmployees.Model.Classes
         /// Проводит десериализацию данных.
         /// </summary>
         /// <returns>Возвращает коллекцию работников.</returns>
-        public static List<Employee> Deserialize(string path)
+        public static List<Employee> Deserialize()
         {
             var employees = new List<Employee>();
 
             try
             {
-                using (StreamReader sr = new StreamReader(path + @"Serializer.json"))
+                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResult))
                 {
                     employees = JsonConvert.DeserializeObject<List<Employee>>(sr.ReadToEnd());
                 }

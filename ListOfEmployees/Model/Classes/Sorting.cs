@@ -1,8 +1,8 @@
-﻿using ListOfEmployees.Model.Employees;
+﻿using Employees.Model.Employees;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ListOfEmployees.Model.Classes
+namespace Employees.Model.Classes
 {
     /// <summary>
     /// Класс реализует сортировку данных.
@@ -19,8 +19,6 @@ namespace ListOfEmployees.Model.Classes
             var sortedListEmployees = from employee in employees
                                       orderby employee.FullName
                                       select employee;
-
-
 
             return sortedListEmployees.ToList();
         }

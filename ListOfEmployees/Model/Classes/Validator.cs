@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ListOfEmployees.Model.Classes
+namespace Employees.Model.Classes
 {
     /// <summary>
     /// Класс реализует проверку валидации.
@@ -36,6 +36,11 @@ namespace ListOfEmployees.Model.Classes
             {
                 throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
+        }
+
+        internal static void AssertValueInRange(object nameof, int value, int minValueSalary, int maxValueSalary)
+        {
+            throw new NotImplementedException();
         }
     }
 }
