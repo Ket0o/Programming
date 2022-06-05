@@ -1,4 +1,4 @@
-﻿using Employees.Model.Classes;
+﻿using Employees.Model;
 using Employees.Model.Employees;
 using ListOfEmployees.Properties;
 using System;

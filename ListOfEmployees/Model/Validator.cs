@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Employees.Model.Classes
+namespace Employees.Model
 {
     /// <summary>
     /// Класс реализует проверку валидации.

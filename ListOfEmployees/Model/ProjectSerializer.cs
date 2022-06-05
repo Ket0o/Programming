@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Employees.Model.Classes
+namespace Employees.Model
 {
     /// <summary>
     /// Класс реализует сериализцаию и десериализацию данных.

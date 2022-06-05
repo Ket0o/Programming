@@ -1,6 +1,6 @@
 ﻿using Employees.Model.Employees;
 
-namespace Employees.Model.Classes
+namespace Employees.Model
 {
     /// <summary>
     /// Хранит данные о максимальных и минимальных константах

@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 
 
-namespace Employees.Model.Classes
+namespace Employees.Model
 {
     /// <summary>
     /// Хранит данные о цветах

@@ -53,11 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Classes\AppColors.cs" />
-    <Compile Include="Model\Classes\InitialConstants.cs" />
-    <Compile Include="Model\Classes\ProjectSerializer.cs" />
-    <Compile Include="Model\Classes\Sorting.cs" />
-    <Compile Include="Model\Classes\Validator.cs" />
+    <Compile Include="Model\AppColors.cs" />
+    <Compile Include="Model\InitialConstants.cs" />
+    <Compile Include="Model\ProjectSerializer.cs" />
+    <Compile Include="Model\Sorting.cs" />
+    <Compile Include="Model\Validator.cs" />
     <Compile Include="Model\Employees\Employee.cs" />
     <Compile Include="Model\Employees\EmployeeFactory.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
