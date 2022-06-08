@@ -86,8 +86,8 @@ namespace Employees.View
             {
                 int indexSelectedEmployee = ListBoxEmployees.SelectedIndex;
                 _currentEmployee = _employees[indexSelectedEmployee];
-                FullNameTextBox.Text = _currentEmployee.FullName.ToString();
-                PostTextBox.Text = _currentEmployee.Post.ToString();
+                FullNameTextBox.Text = _currentEmployee.FullName;
+                PostTextBox.Text = _currentEmployee.Post;
                 DateTimePicker.Value = _currentEmployee.DateOfEmployment;
                 SalaryTextBox.Text = _currentEmployee.Salary.ToString();
             }

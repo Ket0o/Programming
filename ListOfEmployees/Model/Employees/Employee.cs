@@ -1,5 +1,4 @@
-﻿using Employees.Model;
-using System;
+﻿using System;
 
 namespace Employees.Model.Employees
 {
