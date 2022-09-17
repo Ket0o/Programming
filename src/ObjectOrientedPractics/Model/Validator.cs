@@ -41,18 +41,21 @@ namespace ObjectOrientedPractics.Model
                 throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
         }
-        
+
+        /// <summary>
+        /// Проверяет находиться ли значение типа double в диапозоне от одного числа до другого.
+        /// </summary>
+        /// <param name="nameProperty">Название значения.</param>
+        /// <param name="value">Проверяемое значение.</param>
+        /// <param name="min">Левая граница диапозона.</param>
+        /// <param name="max">Правая граница диапозона.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static void AssertValueInRange(string nameProperty, double value, double min, double max)
         {
             if (value < min || value > max)
             {
                 throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
-        }
-
-        internal static void AssertValueInRange(object nameof, int value, int minValueSalary, int maxValueSalary)
-        {
-            throw new NotImplementedException();
         }
     }
 }
