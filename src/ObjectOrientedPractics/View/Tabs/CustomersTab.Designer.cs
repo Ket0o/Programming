@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.CostTextBox = new System.Windows.Forms.TextBox();
+            this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,13 +43,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // NameTextBox
+            // AddressTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(469, 124);
-            this.NameTextBox.Multiline = true;
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(428, 156);
-            this.NameTextBox.TabIndex = 30;
+            this.AddressTextBox.Location = new System.Drawing.Point(469, 124);
+            this.AddressTextBox.Multiline = true;
+            this.AddressTextBox.Name = "AddressTextBox";
+            this.AddressTextBox.Size = new System.Drawing.Size(428, 156);
+            this.AddressTextBox.TabIndex = 30;
+            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
             // 
             // panel1
             // 
@@ -68,12 +69,13 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Address:";
             // 
-            // CostTextBox
+            // FullNameTextBox
             // 
-            this.CostTextBox.Location = new System.Drawing.Point(469, 84);
-            this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(428, 26);
-            this.CostTextBox.TabIndex = 26;
+            this.FullNameTextBox.Location = new System.Drawing.Point(469, 84);
+            this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.Size = new System.Drawing.Size(428, 26);
+            this.FullNameTextBox.TabIndex = 26;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // IdTextBox
             // 
@@ -121,6 +123,7 @@
             this.RemoveButton.TabIndex = 21;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // AddButton
             // 
@@ -130,6 +133,7 @@
             this.AddButton.TabIndex = 20;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // ListBoxCustomers
             // 
@@ -139,6 +143,7 @@
             this.ListBoxCustomers.Name = "ListBoxCustomers";
             this.ListBoxCustomers.Size = new System.Drawing.Size(366, 604);
             this.ListBoxCustomers.TabIndex = 19;
+            this.ListBoxCustomers.SelectedIndexChanged += new System.EventHandler(this.ListBoxCustomers_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -162,10 +167,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.NameTextBox);
+            this.Controls.Add(this.AddressTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.CostTextBox);
+            this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -182,10 +187,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox CostTextBox;
+        private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;

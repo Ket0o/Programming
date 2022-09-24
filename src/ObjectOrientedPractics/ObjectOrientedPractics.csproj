@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Model\AppColors.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\CustomerFactory.cs" />
     <Compile Include="Model\InitialConstants.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\ItemFactory.cs" />
