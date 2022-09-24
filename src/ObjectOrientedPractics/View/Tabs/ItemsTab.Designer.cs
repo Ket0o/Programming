@@ -39,9 +39,9 @@
             this.CostTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ListBoxNameItemsTabPage = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ListBoxDescriptionItemsTabPage = new System.Windows.Forms.ListBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +62,7 @@
             this.ListBoxItems.Name = "ListBoxItems";
             this.ListBoxItems.Size = new System.Drawing.Size(366, 604);
             this.ListBoxItems.TabIndex = 1;
+            this.ListBoxItems.SelectedIndexChanged += new System.EventHandler(this.ListBoxItems_SelectedIndexChanged);
             // 
             // AddButton
             // 
@@ -71,6 +72,7 @@
             this.AddButton.TabIndex = 2;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // RemoveButton
             // 
@@ -80,6 +82,7 @@
             this.RemoveButton.TabIndex = 3;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // label2
             // 
@@ -115,6 +118,7 @@
             // 
             this.IdTextBox.Location = new System.Drawing.Point(438, 42);
             this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(174, 26);
             this.IdTextBox.TabIndex = 8;
             // 
@@ -124,6 +128,7 @@
             this.CostTextBox.Name = "CostTextBox";
             this.CostTextBox.Size = new System.Drawing.Size(174, 26);
             this.CostTextBox.TabIndex = 9;
+            this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
             // label4
             // 
@@ -142,15 +147,6 @@
             this.panel1.Size = new System.Drawing.Size(118, 54);
             this.panel1.TabIndex = 11;
             // 
-            // ListBoxNameItemsTabPage
-            // 
-            this.ListBoxNameItemsTabPage.FormattingEnabled = true;
-            this.ListBoxNameItemsTabPage.ItemHeight = 20;
-            this.ListBoxNameItemsTabPage.Location = new System.Drawing.Point(383, 148);
-            this.ListBoxNameItemsTabPage.Name = "ListBoxNameItemsTabPage";
-            this.ListBoxNameItemsTabPage.Size = new System.Drawing.Size(514, 124);
-            this.ListBoxNameItemsTabPage.TabIndex = 12;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -161,22 +157,31 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Description:";
             // 
-            // ListBoxDescriptionItemsTabPage
+            // NameTextBox
             // 
-            this.ListBoxDescriptionItemsTabPage.FormattingEnabled = true;
-            this.ListBoxDescriptionItemsTabPage.ItemHeight = 20;
-            this.ListBoxDescriptionItemsTabPage.Location = new System.Drawing.Point(383, 307);
-            this.ListBoxDescriptionItemsTabPage.Name = "ListBoxDescriptionItemsTabPage";
-            this.ListBoxDescriptionItemsTabPage.Size = new System.Drawing.Size(514, 184);
-            this.ListBoxDescriptionItemsTabPage.TabIndex = 15;
+            this.NameTextBox.Location = new System.Drawing.Point(383, 148);
+            this.NameTextBox.Multiline = true;
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(514, 124);
+            this.NameTextBox.TabIndex = 16;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
+            // 
+            // DescriptionTextBox
+            // 
+            this.DescriptionTextBox.Location = new System.Drawing.Point(383, 307);
+            this.DescriptionTextBox.Multiline = true;
+            this.DescriptionTextBox.Name = "DescriptionTextBox";
+            this.DescriptionTextBox.Size = new System.Drawing.Size(514, 184);
+            this.DescriptionTextBox.TabIndex = 17;
+            this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ListBoxDescriptionItemsTabPage);
+            this.Controls.Add(this.DescriptionTextBox);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.ListBoxNameItemsTabPage);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CostTextBox);
@@ -208,8 +213,8 @@
         private System.Windows.Forms.TextBox CostTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox ListBoxNameItemsTabPage;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox ListBoxDescriptionItemsTabPage;
+        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox DescriptionTextBox;
     }
 }

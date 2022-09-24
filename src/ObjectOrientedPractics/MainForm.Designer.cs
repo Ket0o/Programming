@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
             this.itemsTab1 = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -38,11 +39,10 @@
             // ItemsTabPage
             // 
             this.ItemsTabPage.Controls.Add(this.itemsTab1);
-            this.ItemsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.ItemsTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ItemsTabPage.Location = new System.Drawing.Point(4, 29);
             this.ItemsTabPage.Name = "ItemsTabPage";
-            this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ItemsTabPage.Size = new System.Drawing.Size(611, 459);
+            this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.ItemsTabPage.Size = new System.Drawing.Size(914, 705);
             this.ItemsTabPage.TabIndex = 0;
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
@@ -50,10 +50,10 @@
             // itemsTab1
             // 
             this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTab1.Location = new System.Drawing.Point(2, 2);
-            this.itemsTab1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.itemsTab1.Location = new System.Drawing.Point(3, 3);
+            this.itemsTab1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(607, 455);
+            this.itemsTab1.Size = new System.Drawing.Size(908, 699);
             this.itemsTab1.TabIndex = 0;
             // 
             // tabControl1
@@ -61,22 +61,21 @@
             this.tabControl1.Controls.Add(this.ItemsTabPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabControl1.MinimumSize = new System.Drawing.Size(615, 480);
+            this.tabControl1.MinimumSize = new System.Drawing.Size(922, 738);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(619, 485);
+            this.tabControl1.Size = new System.Drawing.Size(922, 738);
             this.tabControl1.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 485);
+            this.ClientSize = new System.Drawing.Size(920, 729);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(635, 530);
-            this.MinimumSize = new System.Drawing.Size(635, 449);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(942, 785);
+            this.MinimumSize = new System.Drawing.Size(942, 661);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
