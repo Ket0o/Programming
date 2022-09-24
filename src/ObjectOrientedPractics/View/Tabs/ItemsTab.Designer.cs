@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.ItemsListBox = new System.Windows.Forms.ListBox();
+            this.ListBoxItems = new System.Windows.Forms.ListBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +38,10 @@
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.CostTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ListBoxNameItemsTabPage = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ListBoxDescriptionItemsTabPage = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -50,18 +54,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Items";
             // 
-            // ItemsListBox
+            // ListBoxItems
             // 
-            this.ItemsListBox.FormattingEnabled = true;
-            this.ItemsListBox.ItemHeight = 20;
-            this.ItemsListBox.Location = new System.Drawing.Point(7, 33);
-            this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(366, 504);
-            this.ItemsListBox.TabIndex = 1;
+            this.ListBoxItems.FormattingEnabled = true;
+            this.ListBoxItems.ItemHeight = 20;
+            this.ListBoxItems.Location = new System.Drawing.Point(7, 33);
+            this.ListBoxItems.Name = "ListBoxItems";
+            this.ListBoxItems.Size = new System.Drawing.Size(366, 604);
+            this.ListBoxItems.TabIndex = 1;
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(7, 543);
+            this.AddButton.Location = new System.Drawing.Point(7, 642);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(118, 54);
             this.AddButton.TabIndex = 2;
@@ -70,7 +74,7 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(131, 543);
+            this.RemoveButton.Location = new System.Drawing.Point(131, 642);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(118, 54);
             this.RemoveButton.TabIndex = 3;
@@ -131,10 +135,49 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Name:";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(255, 642);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(118, 54);
+            this.panel1.TabIndex = 11;
+            // 
+            // ListBoxNameItemsTabPage
+            // 
+            this.ListBoxNameItemsTabPage.FormattingEnabled = true;
+            this.ListBoxNameItemsTabPage.ItemHeight = 20;
+            this.ListBoxNameItemsTabPage.Location = new System.Drawing.Point(383, 148);
+            this.ListBoxNameItemsTabPage.Name = "ListBoxNameItemsTabPage";
+            this.ListBoxNameItemsTabPage.Size = new System.Drawing.Size(514, 124);
+            this.ListBoxNameItemsTabPage.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(379, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 20);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Description:";
+            // 
+            // ListBoxDescriptionItemsTabPage
+            // 
+            this.ListBoxDescriptionItemsTabPage.FormattingEnabled = true;
+            this.ListBoxDescriptionItemsTabPage.ItemHeight = 20;
+            this.ListBoxDescriptionItemsTabPage.Location = new System.Drawing.Point(383, 307);
+            this.ListBoxDescriptionItemsTabPage.Name = "ListBoxDescriptionItemsTabPage";
+            this.ListBoxDescriptionItemsTabPage.Size = new System.Drawing.Size(514, 184);
+            this.ListBoxDescriptionItemsTabPage.TabIndex = 15;
+            // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ListBoxDescriptionItemsTabPage);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.ListBoxNameItemsTabPage);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CostTextBox);
             this.Controls.Add(this.IdTextBox);
@@ -143,10 +186,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.ItemsListBox);
+            this.Controls.Add(this.ListBoxItems);
             this.Controls.Add(this.label1);
             this.Name = "ItemsTab";
-            this.Size = new System.Drawing.Size(900, 600);
+            this.Size = new System.Drawing.Size(904, 699);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,7 +198,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox ItemsListBox;
+        private System.Windows.Forms.ListBox ListBoxItems;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Label label2;
@@ -164,5 +207,9 @@
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.TextBox CostTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox ListBoxNameItemsTabPage;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox ListBoxDescriptionItemsTabPage;
     }
 }
