@@ -44,6 +44,8 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             ListBoxItems.Items.Clear();
 
+            _items = Sorting.SortedItems(_items);
+
             foreach (Item item in _items)
             {
                 ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
@@ -133,6 +135,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = ItemFactory.DefaultItem();
             _items.Add(_currentItem);
             int index = _items.IndexOf(_currentItem);
+            Sorting.SortedItems(_items);
             UpdateItemInfo(index);
         }
 

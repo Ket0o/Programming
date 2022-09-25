@@ -43,8 +43,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             ListBoxCustomers.Items.Clear();
 
-            //TODO:
-           //_customers = Sorting.SortedEmployees(_employees);
+           _customers = Sorting.SortedCustomers(_customers);
 
             foreach (Customer customer in _customers)
             {
@@ -113,6 +112,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentCustomer = CustomerFactory.DefaultCustomer();
             _customers.Add(_currentCustomer);
             int index = _customers.IndexOf(_currentCustomer);
+            Sorting.SortedCustomers(_customers);
             UpdateCustomerInfo(index);
         }
 
