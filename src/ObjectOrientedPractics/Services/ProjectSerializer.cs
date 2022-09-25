@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using ObjectOrientedPractics.Model;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Services
 {
     public static class ProjectSerializer
     {

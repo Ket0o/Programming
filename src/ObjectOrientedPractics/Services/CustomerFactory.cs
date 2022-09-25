@@ -4,8 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ObjectOrientedPractics.Model;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Services
 {
     public static class CustomerFactory
     {

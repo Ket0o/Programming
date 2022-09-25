@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.itemsTab1 = new ObjectOrientedPractics.View.Tabs.ItemsTab();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.customersTab1 = new ObjectOrientedPractics.View.Tabs.CustomersTab();
             this.ItemsTabPage.SuspendLayout();
@@ -44,11 +44,20 @@
             this.ItemsTabPage.Controls.Add(this.itemsTab1);
             this.ItemsTabPage.Location = new System.Drawing.Point(4, 29);
             this.ItemsTabPage.Name = "ItemsTabPage";
-            this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.ItemsTabPage.Size = new System.Drawing.Size(914, 705);
             this.ItemsTabPage.TabIndex = 0;
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // itemsTab1
+            // 
+            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.itemsTab1.Location = new System.Drawing.Point(3, 3);
+            this.itemsTab1.Margin = new System.Windows.Forms.Padding(2);
+            this.itemsTab1.Name = "itemsTab1";
+            this.itemsTab1.Size = new System.Drawing.Size(908, 699);
+            this.itemsTab1.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -61,15 +70,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(922, 738);
             this.tabControl1.TabIndex = 0;
-            // 
-            // itemsTab1
-            // 
-            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTab1.Location = new System.Drawing.Point(3, 3);
-            this.itemsTab1.Margin = new System.Windows.Forms.Padding(2);
-            this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(908, 699);
-            this.itemsTab1.TabIndex = 0;
             // 
             // tabPage1
             // 
