@@ -22,7 +22,7 @@ namespace ObjectOrientedPractics.Model
         /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
         public static void Serialize(List<Item> items)
         {
-            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResult))
+            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultItems))
             {
                 sw.Write(JsonConvert.SerializeObject(items));
             }
@@ -30,7 +30,7 @@ namespace ObjectOrientedPractics.Model
         
         public static void Serialize(List<Customer> customers)
         {
-            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResult))
+            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultCostimers))
             {
                 sw.Write(JsonConvert.SerializeObject(customers));
             }
@@ -46,7 +46,7 @@ namespace ObjectOrientedPractics.Model
 
             try
             {
-                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResult))
+                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResultItems))
                 {
                     items = JsonConvert.DeserializeObject<List<Item>>(sr.ReadToEnd());
                 }
@@ -70,7 +70,7 @@ namespace ObjectOrientedPractics.Model
 
             try
             {
-                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResult))
+                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResultCostimers))
                 {
                     customers = JsonConvert.DeserializeObject<List<Customer>>(sr.ReadToEnd());
                 }

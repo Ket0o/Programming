@@ -22,15 +22,12 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
-            _items = new List<Item>();
-        }
+            _items = ProjectSerializer.DeserializeItems();
 
-        private string FormatItem(Item item)
-        {
-            string lineOutputItem = $"{item.Id}: " +
-                                         $"(Name= {item.Name};" +
-                                         $" Cost= {item.Cost})";
-            return lineOutputItem;
+            foreach (Item item in _items)
+            {
+                ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
+            }
         }
 
         private void ClearItemInfo()
@@ -42,13 +39,18 @@ namespace ObjectOrientedPractics.View.Tabs
             NameTextBox.Clear();
         }
 
-        private void UpdateItemInfo(Item item)
+        private void UpdateItemInfo(int selectedIndex)
         {
-            int ind = ListBoxItems.FindString(item.Id.ToString());
+            ListBoxItems.Items.Clear();
 
-            if (ind == -1) return;
+            foreach (Item item in _items)
+            {
+                ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
+            }
 
-            ListBoxItems.Items[ind] = FormatItem(item);
+            if (selectedIndex == -1) return;
+
+            ListBoxItems.SelectedIndex = selectedIndex;
         }
 
         private void ListBoxItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,7 +75,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 string itemCurrentCost = CostTextBox.Text;
                 int itemCost = int.Parse(itemCurrentCost);
                 _currentItem.Cost = itemCost;
-                UpdateItemInfo(_currentItem);
+                int index = _items.IndexOf(_currentItem);
+                UpdateItemInfo(index);
+                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -91,7 +95,9 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 string itemCurrentName = NameTextBox.Text;
                 _currentItem.Name = itemCurrentName;
-                UpdateItemInfo(_currentItem);
+                int index = _items.IndexOf(_currentItem);
+                UpdateItemInfo(index);
+                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -109,7 +115,9 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 string itemCurrentDescription = DescriptionTextBox.Text;
                 _currentItem.Info = itemCurrentDescription;
-                UpdateItemInfo(_currentItem);
+                int index = _items.IndexOf(_currentItem);
+                UpdateItemInfo(index);
+                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -123,7 +131,8 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentItem = ItemFactory.DefaultItem();
             _items.Add(_currentItem);
-            ListBoxItems.Items.Add(FormatItem(_currentItem));
+            int index = _items.IndexOf(_currentItem);
+            UpdateItemInfo(index);
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -137,10 +146,13 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 for (int i = 0; i < _items.Count; i++)
                 {
-                    ListBoxItems.Items.Add(FormatItem(_items[i]));
+                    ListBoxItems.Items.Add(_items[i].Name);
                     ListBoxItems.SelectedIndex = 0;
                 }
             }
+
+            UpdateItemInfo(-1);
+            ProjectSerializer.Serialize(_items);
         }
     }
 }
