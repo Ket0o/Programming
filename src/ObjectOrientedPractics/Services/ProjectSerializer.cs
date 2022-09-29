@@ -10,6 +10,9 @@ using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Services
 {
+    /// <summary>
+    /// Класс реализует сериализцаию и десериализацию данных.
+    /// </summary>
     public static class ProjectSerializer
     {
         /// <summary>
@@ -20,7 +23,7 @@ namespace ObjectOrientedPractics.Services
         /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
-        /// <param name="employees">Коллекция класса <see cref="Employee"/></param>
+        /// <param name="items">Коллекция класса <see cref="Item"/></param>
         public static void Serialize(List<Item> items)
         {
             using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultItems))
@@ -28,10 +31,14 @@ namespace ObjectOrientedPractics.Services
                 sw.Write(JsonConvert.SerializeObject(items));
             }
         }
-        
+
+        /// <summary>
+        /// Проводит сериализацию данных.
+        /// </summary>
+        /// <param name="customers">Коллекция класса<see cref="Customer"/> /param>
         public static void Serialize(List<Customer> customers)
         {
-            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultCostimers))
+            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultCustomers))
             {
                 sw.Write(JsonConvert.SerializeObject(customers));
             }
@@ -40,7 +47,7 @@ namespace ObjectOrientedPractics.Services
         /// <summary>
         /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Возвращает коллекцию работников.</returns>
+        /// <returns>Возвращает коллекцию продуктов.</returns>
         public static List<Item> DeserializeItems()
         {
             var items = new List<Item>();
@@ -64,14 +71,18 @@ namespace ObjectOrientedPractics.Services
 
             return items;
         }
-        
+
+        /// <summary>
+        /// Проводит десериализацию данных.
+        /// </summary>
+        /// <returns>Возвращает коллекцию покупателей.</returns>
         public static List<Customer> DeserializeCustomers()
         {
             var customers = new List<Customer>();
 
             try
             {
-                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResultCostimers))
+                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResultCustomers))
                 {
                     customers = JsonConvert.DeserializeObject<List<Customer>>(sr.ReadToEnd());
                 }

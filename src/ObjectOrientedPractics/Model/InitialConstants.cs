@@ -11,9 +11,15 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public static class InitialConstants
     {
+        /// <summary>
+        /// Путь к appdata для items
+        /// </summary>
         public const string SerializerResultItems = @"\ItemSerialize.json";
 
-        public const string SerializerResultCostimers = @"\CustomerSerialize.json";
+        /// <summary>
+        /// Путь к appdata для 
+        /// </summary>
+        public const string SerializerResultCustomers = @"\CustomerSerialize.json";
 
         /// <summary>
         /// Максимальное количество символов для <see cref="Item.Name"/>.
