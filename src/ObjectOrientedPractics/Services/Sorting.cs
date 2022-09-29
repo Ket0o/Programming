@@ -1,9 +1,6 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Services
 {
@@ -20,8 +17,8 @@ namespace ObjectOrientedPractics.Services
         public static List<Item> SortedItems(List<Item> items)
         {
             var sortedListItems = from item in items
-                orderby item.Name
-                select item;
+                                  orderby item.Name
+                                  select item;
 
             return sortedListItems.ToList();
         }
@@ -34,8 +31,8 @@ namespace ObjectOrientedPractics.Services
         public static List<Customer> SortedCustomers(List<Customer> customers)
         {
             var sortedListCostumer = from customer in customers
-                orderby customer.FullName
-                select customer;
+                                     orderby customer.FullName
+                                     select customer;
 
             return sortedListCostumer.ToList();
         }

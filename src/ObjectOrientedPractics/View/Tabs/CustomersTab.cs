@@ -1,15 +1,8 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Services;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ObjectOrientedPractics.Model;
 using Customer = ObjectOrientedPractics.Model.Customer;
-using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -62,7 +55,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             ListBoxCustomers.Items.Clear();
 
-           _customers = Sorting.SortedCustomers(_customers);
+            _customers = Sorting.SortedCustomers(_customers);
 
             foreach (Customer customer in _customers)
             {
@@ -146,7 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 for (int i = 0; i < _customers.Count; i++)
                 {
-                    ListBoxCustomers.Items.Add(_customers[i].FullName); 
+                    ListBoxCustomers.Items.Add(_customers[i].FullName);
                     ListBoxCustomers.SelectedIndex = 0;
                 }
             }
