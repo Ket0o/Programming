@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
@@ -45,19 +44,14 @@
             // 
             // AddressTextBox
             // 
-            this.AddressTextBox.Location = new System.Drawing.Point(469, 124);
+            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddressTextBox.Location = new System.Drawing.Point(563, 149);
             this.AddressTextBox.Multiline = true;
             this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(428, 156);
+            this.AddressTextBox.Size = new System.Drawing.Size(416, 224);
             this.AddressTextBox.TabIndex = 30;
             this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(255, 641);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(118, 54);
-            this.panel1.TabIndex = 28;
             // 
             // label4
             // 
@@ -71,7 +65,8 @@
             // 
             // FullNameTextBox
             // 
-            this.FullNameTextBox.Location = new System.Drawing.Point(469, 84);
+            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameTextBox.Location = new System.Drawing.Point(581, 116);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(428, 26);
             this.FullNameTextBox.TabIndex = 26;
@@ -117,7 +112,8 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(131, 641);
+            this.RemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveButton.Location = new System.Drawing.Point(157, 784);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(118, 54);
             this.RemoveButton.TabIndex = 21;
@@ -127,7 +123,8 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(7, 641);
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddButton.Location = new System.Drawing.Point(8, 784);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(118, 54);
             this.AddButton.TabIndex = 20;
@@ -137,11 +134,13 @@
             // 
             // ListBoxCustomers
             // 
+            this.ListBoxCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ListBoxCustomers.FormattingEnabled = true;
             this.ListBoxCustomers.ItemHeight = 20;
             this.ListBoxCustomers.Location = new System.Drawing.Point(7, 32);
             this.ListBoxCustomers.Name = "ListBoxCustomers";
-            this.ListBoxCustomers.Size = new System.Drawing.Size(366, 604);
+            this.ListBoxCustomers.Size = new System.Drawing.Size(439, 724);
             this.ListBoxCustomers.TabIndex = 19;
             this.ListBoxCustomers.SelectedIndexChanged += new System.EventHandler(this.ListBoxCustomers_SelectedIndexChanged);
             // 
@@ -164,11 +163,10 @@
             // 
             // CustomersTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.AddressTextBox);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.IdTextBox);
@@ -180,7 +178,7 @@
             this.Controls.Add(this.ListBoxCustomers);
             this.Controls.Add(this.label1);
             this.Name = "CustomersTab";
-            this.Size = new System.Drawing.Size(904, 700);
+            this.Size = new System.Drawing.Size(771, 598);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +186,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.TextBox IdTextBox;

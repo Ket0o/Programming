@@ -38,7 +38,6 @@
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.CostTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -56,6 +55,8 @@
             // 
             // ListBoxItems
             // 
+            this.ListBoxItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ListBoxItems.FormattingEnabled = true;
             this.ListBoxItems.ItemHeight = 20;
             this.ListBoxItems.Location = new System.Drawing.Point(7, 33);
@@ -66,6 +67,7 @@
             // 
             // AddButton
             // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.Location = new System.Drawing.Point(7, 642);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(118, 54);
@@ -76,6 +78,7 @@
             // 
             // RemoveButton
             // 
+            this.RemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveButton.Location = new System.Drawing.Point(131, 642);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(118, 54);
@@ -140,13 +143,6 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Name:";
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(255, 642);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(118, 54);
-            this.panel1.TabIndex = 11;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -159,6 +155,8 @@
             // 
             // NameTextBox
             // 
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(383, 148);
             this.NameTextBox.Multiline = true;
             this.NameTextBox.Name = "NameTextBox";
@@ -168,6 +166,8 @@
             // 
             // DescriptionTextBox
             // 
+            this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptionTextBox.Location = new System.Drawing.Point(383, 307);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
@@ -177,12 +177,10 @@
             // 
             // ItemsTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CostTextBox);
             this.Controls.Add(this.IdTextBox);
@@ -212,7 +210,6 @@
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.TextBox CostTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox DescriptionTextBox;
