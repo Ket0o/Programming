@@ -41,6 +41,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +51,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Items";
             // 
@@ -58,10 +60,9 @@
             this.ListBoxItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ListBoxItems.FormattingEnabled = true;
-            this.ListBoxItems.ItemHeight = 20;
             this.ListBoxItems.Location = new System.Drawing.Point(7, 33);
             this.ListBoxItems.Name = "ListBoxItems";
-            this.ListBoxItems.Size = new System.Drawing.Size(366, 604);
+            this.ListBoxItems.Size = new System.Drawing.Size(366, 602);
             this.ListBoxItems.TabIndex = 1;
             this.ListBoxItems.SelectedIndexChanged += new System.EventHandler(this.ListBoxItems_SelectedIndexChanged);
             // 
@@ -93,7 +94,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(379, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Selected item";
             // 
@@ -103,7 +104,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(379, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 20);
+            this.label3.Size = new System.Drawing.Size(21, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "ID:";
             // 
@@ -113,23 +114,23 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(379, 85);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Cost:";
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Location = new System.Drawing.Point(438, 42);
+            this.IdTextBox.Location = new System.Drawing.Point(457, 42);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(174, 26);
+            this.IdTextBox.Size = new System.Drawing.Size(174, 20);
             this.IdTextBox.TabIndex = 8;
             // 
             // CostTextBox
             // 
-            this.CostTextBox.Location = new System.Drawing.Point(438, 82);
+            this.CostTextBox.Location = new System.Drawing.Point(457, 82);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(174, 26);
+            this.CostTextBox.Size = new System.Drawing.Size(174, 20);
             this.CostTextBox.TabIndex = 9;
             this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
@@ -137,9 +138,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(379, 125);
+            this.label4.Location = new System.Drawing.Point(379, 165);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Name:";
             // 
@@ -147,9 +148,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(379, 284);
+            this.label7.Location = new System.Drawing.Point(379, 334);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 20);
+            this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Description:";
             // 
@@ -157,7 +158,7 @@
             // 
             this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(383, 148);
+            this.NameTextBox.Location = new System.Drawing.Point(382, 190);
             this.NameTextBox.Multiline = true;
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(514, 124);
@@ -168,16 +169,37 @@
             // 
             this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescriptionTextBox.Location = new System.Drawing.Point(383, 307);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(382, 359);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.Size = new System.Drawing.Size(514, 184);
             this.DescriptionTextBox.TabIndex = 17;
             this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(379, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Category:";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(457, 122);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(174, 21);
+            this.CategoryComboBox.TabIndex = 19;
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
+            // 
             // ItemsTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.CategoryComboBox);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label7);
@@ -213,5 +235,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox DescriptionTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
     }
 }

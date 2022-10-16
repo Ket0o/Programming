@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Item = ObjectOrientedPractics.Model.Item;
+using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -28,11 +29,18 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
+            var category = Enum.GetValues(typeof(Category));
+
             _items = ProjectSerializer.DeserializeItems();
 
             foreach (Item item in _items)
             {
                 ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
+            }
+
+            foreach (var value in category)
+            {
+                CategoryComboBox.Items.Add(value);
             }
         }
 
@@ -46,6 +54,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.Clear();
             DescriptionTextBox.Clear();
             NameTextBox.Clear();
+            CategoryComboBox.Items.Clear();
         }
 
         /// <summary>
@@ -78,6 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
+                CategoryComboBox.SelectedIndex = _currentItem.Category.GetHashCode();
             }
         }
 
@@ -169,6 +179,16 @@ namespace ObjectOrientedPractics.View.Tabs
 
             UpdateItemInfo(-1);
             ProjectSerializer.Serialize(_items);
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(CategoryComboBox.SelectedIndex == -1)
+                return;
+            if(ListBoxItems.SelectedIndex == -1)
+                return;
+
+            _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
         }
     }
 }
