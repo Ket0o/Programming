@@ -54,7 +54,6 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.Clear();
             DescriptionTextBox.Clear();
             NameTextBox.Clear();
-            CategoryComboBox.Items.Clear();
         }
 
         /// <summary>
@@ -183,10 +182,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(CategoryComboBox.SelectedIndex == -1)
-                return;
-            if(ListBoxItems.SelectedIndex == -1)
-                return;
+            if ((CategoryComboBox.SelectedIndex == -1) || (ListBoxItems.SelectedIndex == -1)) return;
 
             _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
         }
