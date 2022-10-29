@@ -37,5 +37,13 @@ namespace ObjectOrientedPractics.Services
                 throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
         }
+
+        public static void CertainNumberDigits(int value, int digitQuantity)
+        {
+            if (value.ToString().Length != digitQuantity)
+            {
+                throw new ArgumentException($"the value length must be equal to {digitQuantity}");
+            }
+        }
     }
 }

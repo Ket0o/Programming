@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,30 +37,8 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.ListBoxCustomers = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.SuspendLayout();
-            // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressTextBox.Location = new System.Drawing.Point(383, 148);
-            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(514, 184);
-            this.AddressTextBox.TabIndex = 30;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(379, 125);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Address:";
             // 
             // FullNameTextBox
             // 
@@ -162,11 +138,17 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Customers";
             // 
+            // AddressControl
+            // 
+            this.AddressControl.Location = new System.Drawing.Point(382, 125);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(569, 176);
+            this.AddressControl.TabIndex = 27;
+            // 
             // CustomersTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.Controls.Add(this.AddressTextBox);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.label5);
@@ -178,15 +160,13 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomersTab";
-            this.Size = new System.Drawing.Size(904, 699);
+            this.Size = new System.Drawing.Size(953, 699);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Label label5;
@@ -196,5 +176,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.ListBox ListBoxCustomers;
         private System.Windows.Forms.Label label1;
+        private Controls.AddressControl AddressControl;
     }
 }

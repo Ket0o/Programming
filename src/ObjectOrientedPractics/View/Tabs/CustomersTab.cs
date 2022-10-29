@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Customer = ObjectOrientedPractics.Model.Customer;
+using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -44,7 +46,6 @@ namespace ObjectOrientedPractics.View.Tabs
             ListBoxCustomers.Items.Clear();
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
         }
 
         /// <summary>
@@ -75,7 +76,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[indexSelectedCustomer];
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressTextBox.Text = _currentCustomer.Address;
+                AddressControl.Address = _currentCustomer.Address;
             }
         }
 
@@ -99,25 +100,7 @@ namespace ObjectOrientedPractics.View.Tabs
             FullNameTextBox.BackColor = AppColors.CorrectColor;
         }
 
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (ListBoxCustomers.SelectedIndex == -1)
-                return;
-            try
-            {
-                string customerCurrentAddress = AddressTextBox.Text;
-                _currentCustomer.Address = customerCurrentAddress;
-                int index = _customers.IndexOf(_currentCustomer);
-                UpdateCustomerInfo(index);
-                ProjectSerializer.Serialize(_customers);
-            }
-            catch
-            {
-                AddressTextBox.BackColor = AppColors.ErrorColor;
-                return;
-            }
-            AddressTextBox.BackColor = AppColors.CorrectColor;
-        }
+        //TODO:
 
         private void AddButton_Click(object sender, EventArgs e)
         {

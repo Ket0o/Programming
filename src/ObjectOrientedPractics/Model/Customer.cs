@@ -25,7 +25,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Адрес покупателя.
         /// </summary>
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Возвращает и задает количество всех покупателей.
@@ -51,12 +51,11 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и создает адрес покупателя. Не более 200.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get => (_address == null) ? null : _address;
             set
             {
-                Validator.NoMoreThan(value, InitialConstants.MaxLengthAddress, Address);
                 _address = value;
             }
         }
@@ -83,7 +82,7 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="fullName">Полное имя покупателя. Не более 200 символов.</param>
         /// <param name="address">Адрес покупателя. Не более 200 символов.</param>
-        public Customer(string fullName, string address)
+        public Customer(string fullName, Address address)
         {
             FullName = fullName;
             Address = address;

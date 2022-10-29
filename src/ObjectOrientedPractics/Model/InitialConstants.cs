@@ -20,6 +20,16 @@
         /// </summary>
         public const int MaxLengthName = 200;
 
+        public const int MaxLengthCountry = 50;
+
+        public const int MaxLengthCity = 50;
+
+        public const int MaxLengthStreet = 100;
+
+        public const int MaxLengthBuilding = 10;
+
+        public const int MaxLengthApartment = 10;
+
         /// <summary>
         /// Максимальное количество символов для <see cref="Customer.Address"/>
         /// </summary>
@@ -39,5 +49,7 @@
         /// Максимальное количество символов для <see cref="Item.Cost"/>
         /// </summary>
         public const double MaxValueCost = 100000;
+
+        public const int DigitQuantityIndex = 6;
     }
 }
