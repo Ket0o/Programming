@@ -6,14 +6,9 @@
     public static class InitialConstants
     {
         /// <summary>
-        /// Путь к appdata для items
+        /// Путь к appdata для store
         /// </summary>
-        public const string SerializerResultItems = @"\ItemSerialize.json";
-
-        /// <summary>
-        /// Путь к appdata для 
-        /// </summary>
-        public const string SerializerResultCustomers = @"\CustomerSerialize.json";
+        public const string SerializerResultStore = @"\StoreSerialize.json";
 
         /// <summary>
         /// Максимальное количество символов для <see cref="Item.Name"/>.
@@ -50,6 +45,9 @@
         /// </summary>
         public const double MaxValueCost = 100000;
 
+        /// <summary>
+        /// Количество знаков для <see cref="Address.Index"/>
+        /// </summary>
         public const int DigitQuantityIndex = 6;
     }
 }

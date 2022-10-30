@@ -31,16 +31,26 @@ namespace ObjectOrientedPractics.View.Tabs
 
             var category = Enum.GetValues(typeof(Category));
 
-            _items = ProjectSerializer.DeserializeItems();
-
-            foreach (Item item in _items)
-            {
-                ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
-            }
-
             foreach (var value in category)
             {
                 CategoryComboBox.Items.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию товаров.
+        /// </summary>
+        public List<Item> Items
+        {
+            get { return _items; }
+            set
+            {
+                _items = value;
+
+                if (_items != null)
+                {
+                    UpdateItemInfo(-1);
+                }
             }
         }
 
@@ -101,7 +111,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Cost = itemCost;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -121,7 +130,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Name = itemCurrentName;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -141,7 +149,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Info = itemCurrentDescription;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -177,7 +184,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             UpdateItemInfo(-1);
-            ProjectSerializer.Serialize(_items);
         }
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)

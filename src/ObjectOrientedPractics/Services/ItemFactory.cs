@@ -15,8 +15,10 @@ namespace ObjectOrientedPractics.Services
         {
             Item item = new Item();
             item.Name = "Name";
-            item.Cost = 0;
-            item.Info = "Description";
+            item.Cost = 10;
+            item.Info = "Info";
+            item.Category = Category.Meat;
+
             return item;
         }
     }
