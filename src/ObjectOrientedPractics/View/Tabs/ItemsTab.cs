@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Services;
+﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -28,11 +29,28 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
-            _items = ProjectSerializer.DeserializeItems();
+            var category = Enum.GetValues(typeof(Category));
 
-            foreach (Item item in _items)
+            foreach (var value in category)
             {
-                ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
+                CategoryComboBox.Items.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию товаров.
+        /// </summary>
+        public List<Item> Items
+        {
+            get { return _items; }
+            set
+            {
+                _items = value;
+
+                if (_items != null)
+                {
+                    UpdateItemInfo(-1);
+                }
             }
         }
 
@@ -78,6 +96,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _currentItem.Cost.ToString();
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
+                CategoryComboBox.SelectedIndex = _currentItem.Category.GetHashCode();
             }
         }
 
@@ -92,7 +111,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Cost = itemCost;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -112,7 +130,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Name = itemCurrentName;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -132,7 +149,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem.Info = itemCurrentDescription;
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
-                ProjectSerializer.Serialize(_items);
             }
             catch
             {
@@ -168,7 +184,13 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             UpdateItemInfo(-1);
-            ProjectSerializer.Serialize(_items);
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((CategoryComboBox.SelectedIndex == -1) || (ListBoxItems.SelectedIndex == -1)) return;
+
+            _currentItem.Category = (Category)CategoryComboBox.SelectedItem;
         }
     }
 }

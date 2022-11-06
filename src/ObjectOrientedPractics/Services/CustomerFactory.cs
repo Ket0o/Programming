@@ -15,7 +15,15 @@ namespace ObjectOrientedPractics.Services
         {
             Customer customer = new Customer();
             customer.FullName = "Full name";
-            customer.Address = "Address";
+            Address address = new Address();
+            address.Street = "Street";
+            address.City = "City";
+            address.Country = "Country";
+            address.Apartment = "Apartment";
+            address.Building = "Building";
+            address.Index = 100000;
+            customer.Address = address;
+
             return customer;
         }
     }

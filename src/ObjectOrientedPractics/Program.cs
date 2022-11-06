@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectOrientedPractics.View;
+using System;
 using System.Windows.Forms;
 
 namespace ObjectOrientedPractics

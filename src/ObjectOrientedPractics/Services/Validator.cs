@@ -37,5 +37,20 @@ namespace ObjectOrientedPractics.Services
                 throw new ArgumentException($"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
         }
+
+        /// <summary>
+        /// Проверяет, что количество цифр в числе равно заданному.
+        /// </summary>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="value">Число.></param>
+        /// <param name="length">Заданная длина.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда количество цифр числа не равно заданному.</exception>
+        public static void CertainNumberDigits(string nameProperty, int value, int length)
+        {
+            if (value.ToString().Length != length)
+            {
+                throw new ArgumentException($"the value length must be equal to {length}");
+            }
+        }
     }
 }
