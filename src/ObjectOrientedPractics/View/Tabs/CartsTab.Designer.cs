@@ -29,14 +29,17 @@
         private void InitializeComponent()
         {
             this.CustomerComboBox = new System.Windows.Forms.ComboBox();
-            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.CartTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CustomerLabel = new System.Windows.Forms.Label();
             this.AddCartButton = new System.Windows.Forms.Button();
             this.ListBoxItems = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ClearCartButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.RemoveItemButton = new System.Windows.Forms.Button();
+            this.CreateOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CustomerComboBox
@@ -47,45 +50,25 @@
             this.CustomerComboBox.Size = new System.Drawing.Size(436, 21);
             this.CustomerComboBox.TabIndex = 34;
             // 
-            // DescriptionTextBox
+            // CartTextBox
             // 
-            this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.CartTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescriptionTextBox.Location = new System.Drawing.Point(385, 355);
-            this.DescriptionTextBox.Multiline = true;
-            this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(514, 184);
-            this.DescriptionTextBox.TabIndex = 32;
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(385, 186);
-            this.NameTextBox.Multiline = true;
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(514, 124);
-            this.NameTextBox.TabIndex = 31;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(382, 330);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Description:";
+            this.CartTextBox.Location = new System.Drawing.Point(385, 73);
+            this.CartTextBox.Multiline = true;
+            this.CartTextBox.Name = "CartTextBox";
+            this.CartTextBox.Size = new System.Drawing.Size(514, 184);
+            this.CartTextBox.TabIndex = 32;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(382, 161);
+            this.label4.Location = new System.Drawing.Point(382, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 29;
-            this.label4.Text = "Name:";
+            this.label4.Text = "Cart:";
             // 
             // CustomerLabel
             // 
@@ -127,14 +110,67 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Items";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(832, 269);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Amount:";
+            // 
+            // ClearCartButton
+            // 
+            this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ClearCartButton.Location = new System.Drawing.Point(781, 318);
+            this.ClearCartButton.Name = "ClearCartButton";
+            this.ClearCartButton.Size = new System.Drawing.Size(118, 54);
+            this.ClearCartButton.TabIndex = 36;
+            this.ClearCartButton.Text = "Clear Cart";
+            this.ClearCartButton.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(795, 286);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 29);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "4999,90";
+            // 
+            // RemoveItemButton
+            // 
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveItemButton.Location = new System.Drawing.Point(657, 318);
+            this.RemoveItemButton.Name = "RemoveItemButton";
+            this.RemoveItemButton.Size = new System.Drawing.Size(118, 54);
+            this.RemoveItemButton.TabIndex = 38;
+            this.RemoveItemButton.Text = "Remove Item";
+            this.RemoveItemButton.UseVisualStyleBackColor = true;
+            // 
+            // CreateOrderButton
+            // 
+            this.CreateOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CreateOrderButton.Location = new System.Drawing.Point(385, 318);
+            this.CreateOrderButton.Name = "CreateOrderButton";
+            this.CreateOrderButton.Size = new System.Drawing.Size(118, 54);
+            this.CreateOrderButton.TabIndex = 39;
+            this.CreateOrderButton.Text = "Create Order";
+            this.CreateOrderButton.UseVisualStyleBackColor = true;
+            // 
             // CartsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CreateOrderButton);
+            this.Controls.Add(this.RemoveItemButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ClearCartButton);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.CustomerComboBox);
-            this.Controls.Add(this.DescriptionTextBox);
-            this.Controls.Add(this.NameTextBox);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.CartTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CustomerLabel);
             this.Controls.Add(this.AddCartButton);
@@ -150,13 +186,16 @@
         #endregion
 
         private System.Windows.Forms.ComboBox CustomerComboBox;
-        private System.Windows.Forms.TextBox DescriptionTextBox;
-        private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox CartTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label CustomerLabel;
         private System.Windows.Forms.Button AddCartButton;
         private System.Windows.Forms.ListBox ListBoxItems;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button ClearCartButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button RemoveItemButton;
+        private System.Windows.Forms.Button CreateOrderButton;
     }
 }
