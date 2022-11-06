@@ -1,7 +1,7 @@
-﻿using System.Windows.Forms;
-using ObjectOrientedPractics.Model;
+﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.View.Tabs;
+using System.Windows.Forms;
 
 namespace ObjectOrientedPractics.View
 {

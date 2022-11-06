@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using ObjectOrientedPractics.Model;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -22,7 +21,7 @@ namespace ObjectOrientedPractics.Services
         /// <param name="store">Покупатели и товары.</param>
         public static void Serialize(Store store)
         {
-            using (StreamWriter writer = new StreamWriter(AppDataPath +InitialConstants.SerializerResultStore))
+            using (StreamWriter writer = new StreamWriter(AppDataPath + InitialConstants.SerializerResultStore))
             {
                 writer.Write(JsonConvert.SerializeObject(store));
             }

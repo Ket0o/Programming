@@ -1,10 +1,9 @@
 ﻿using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Customer = ObjectOrientedPractics.Model.Customer;
-using ObjectOrientedPractics.Model;
-using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

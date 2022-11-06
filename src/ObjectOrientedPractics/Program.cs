@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ObjectOrientedPractics.View;
+using System;
 using System.Windows.Forms;
-using ObjectOrientedPractics.View;
 
 namespace ObjectOrientedPractics
 {
