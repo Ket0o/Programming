@@ -33,6 +33,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private Cart _cart;
 
+        /// <summary>
+        /// Коллекция заказов.
+        /// </summary>
         private List<Order> _orders;
 
         /// <summary>
@@ -85,6 +88,9 @@ namespace ObjectOrientedPractics.Model
             set { _cart = value; }
         }
 
+        /// <summary>
+        /// Возвращает и создает коллекцию заказов.
+        /// </summary>
         public List<Order> Orders
         {
             get { return _orders; }
@@ -108,6 +114,7 @@ namespace ObjectOrientedPractics.Model
         /// <param name="fullName">Полное имя покупателя. Не более 200 символов.</param>
         /// <param name="address">Адрес покупателя. Не более 200 символов.</param>
         /// <param name="cart">Корзина товаров.</param>
+        /// <param name="orders">Коллекция товаров.</param>
         public Customer(string fullName, Address address, Cart cart, List<Order> orders)
         {
             FullName = fullName;
