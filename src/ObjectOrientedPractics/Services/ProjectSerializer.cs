@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using ObjectOrientedPractics.Model;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -19,81 +18,38 @@ namespace ObjectOrientedPractics.Services
         /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
-        /// <param name="items">Коллекция класса <see cref="Item"/></param>
-        public static void Serialize(List<Item> items)
+        /// <param name="store">Покупатели и товары.</param>
+        public static void Serialize(Store store)
         {
-            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultItems))
+            using (StreamWriter writer = new StreamWriter(AppDataPath + InitialConstants.SerializerResultStore))
             {
-                sw.Write(JsonConvert.SerializeObject(items));
-            }
-        }
-
-        /// <summary>
-        /// Проводит сериализацию данных.
-        /// </summary>
-        /// <param name="customers">Коллекция класса<see cref="Customer"/> /param>
-        public static void Serialize(List<Customer> customers)
-        {
-            using (StreamWriter sw = new StreamWriter(AppDataPath + InitialConstants.SerializerResultCustomers))
-            {
-                sw.Write(JsonConvert.SerializeObject(customers));
+                writer.Write(JsonConvert.SerializeObject(store));
             }
         }
 
         /// <summary>
         /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Возвращает коллекцию продуктов.</returns>
-        public static List<Item> DeserializeItems()
+        /// <returns>Объект типа <see cref="Store"/>.</returns>
+        public static Store Deserialize()
         {
-            var items = new List<Item>();
+            var store = new Store();
 
             try
             {
-                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResultItems))
+                using (StreamReader reader = new StreamReader(AppDataPath + InitialConstants.SerializerResultStore))
                 {
-                    items = JsonConvert.DeserializeObject<List<Item>>(sr.ReadToEnd());
+                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd());
                 }
 
-                if (items == null)
-                {
-                    items = new List<Item>();
-                }
+                if (store == null) store = new Store();
             }
             catch
             {
-                return items;
+                return store;
             }
 
-            return items;
-        }
-
-        /// <summary>
-        /// Проводит десериализацию данных.
-        /// </summary>
-        /// <returns>Возвращает коллекцию покупателей.</returns>
-        public static List<Customer> DeserializeCustomers()
-        {
-            var customers = new List<Customer>();
-
-            try
-            {
-                using (StreamReader sr = new StreamReader(AppDataPath + InitialConstants.SerializerResultCustomers))
-                {
-                    customers = JsonConvert.DeserializeObject<List<Customer>>(sr.ReadToEnd());
-                }
-
-                if (customers == null)
-                {
-                    customers = new List<Customer>();
-                }
-            }
-            catch
-            {
-                return customers;
-            }
-
-            return customers;
+            return store;
         }
     }
 }

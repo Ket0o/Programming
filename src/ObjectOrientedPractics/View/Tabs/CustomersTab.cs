@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -28,11 +29,22 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
-            _customers = ProjectSerializer.DeserializeCustomers();
+        }
 
-            foreach (Customer customer in _customers)
+        /// <summary>
+        /// Возвращает и задает коллекцию покупателей.
+        /// </summary>
+        public List<Customer> Customers
+        {
+            get { return _customers; }
+            set
             {
-                ListBoxCustomers.Items.Add($"{customer.Id}: " + $"{customer.FullName};");
+                _customers = value;
+
+                if (_customers != null)
+                {
+                    UpdateCustomerInfo(-1);
+                }
             }
         }
 
@@ -44,7 +56,7 @@ namespace ObjectOrientedPractics.View.Tabs
             ListBoxCustomers.Items.Clear();
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressTextBox.Clear();
+            AddressControl.ClearInfo();
         }
 
         /// <summary>
@@ -62,10 +74,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 ListBoxCustomers.Items.Add($"{customer.Id}: " + $"{customer.FullName};");
             }
 
-            if (selectedIndex == -1) return;
-
             ListBoxCustomers.SelectedIndex = selectedIndex;
         }
+
+
 
         private void ListBoxCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -75,7 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[indexSelectedCustomer];
                 IdTextBox.Text = _currentCustomer.Id.ToString();
                 FullNameTextBox.Text = _currentCustomer.FullName;
-                AddressTextBox.Text = _currentCustomer.Address;
+                AddressControl.Address = _currentCustomer.Address;
             }
         }
 
@@ -89,7 +101,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer.FullName = customerCurrentFullName;
                 int index = _customers.IndexOf(_currentCustomer);
                 UpdateCustomerInfo(index);
-                ProjectSerializer.Serialize(_customers);
             }
             catch
             {
@@ -97,26 +108,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
             FullNameTextBox.BackColor = AppColors.CorrectColor;
-        }
-
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (ListBoxCustomers.SelectedIndex == -1)
-                return;
-            try
-            {
-                string customerCurrentAddress = AddressTextBox.Text;
-                _currentCustomer.Address = customerCurrentAddress;
-                int index = _customers.IndexOf(_currentCustomer);
-                UpdateCustomerInfo(index);
-                ProjectSerializer.Serialize(_customers);
-            }
-            catch
-            {
-                AddressTextBox.BackColor = AppColors.ErrorColor;
-                return;
-            }
-            AddressTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -145,7 +136,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             UpdateCustomerInfo(-1);
-            ProjectSerializer.Serialize(_customers);
         }
     }
 }
