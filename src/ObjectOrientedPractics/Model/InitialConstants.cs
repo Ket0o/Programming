@@ -5,6 +5,13 @@
     /// </summary>
     public static class InitialConstants
     {
+        public static string ItemString(Item item)
+        {
+            string ItemString = $"{item.Id}: " + $"{item.Name};";
+            
+            return ItemString;
+        }
+
         /// <summary>
         /// Путь к appdata для store
         /// </summary>

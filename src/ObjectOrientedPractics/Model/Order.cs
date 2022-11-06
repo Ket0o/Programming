@@ -61,7 +61,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает адрес доставки заказа.
         /// </summary>
-        private Address Address
+        public Address Address
         {
             get { return _address; }
             set { _address = value; }
@@ -70,7 +70,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает коллекцию товаров заказа.
         /// </summary>
-        private List<Item> Items
+        public List<Item> Items
         {
             get { return _items; }
             set { _items = value; }

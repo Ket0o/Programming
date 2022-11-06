@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.CustomerComboBox = new System.Windows.Forms.ComboBox();
-            this.CartTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CustomerLabel = new System.Windows.Forms.Label();
             this.AddCartButton = new System.Windows.Forms.Button();
@@ -37,9 +36,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ClearCartButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabelAmount = new System.Windows.Forms.Label();
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this.CreateOrderButton = new System.Windows.Forms.Button();
+            this.ListBoxCarts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // CustomerComboBox
@@ -49,16 +49,7 @@
             this.CustomerComboBox.Name = "CustomerComboBox";
             this.CustomerComboBox.Size = new System.Drawing.Size(436, 21);
             this.CustomerComboBox.TabIndex = 34;
-            // 
-            // CartTextBox
-            // 
-            this.CartTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CartTextBox.Location = new System.Drawing.Point(385, 73);
-            this.CartTextBox.Multiline = true;
-            this.CartTextBox.Name = "CartTextBox";
-            this.CartTextBox.Size = new System.Drawing.Size(514, 184);
-            this.CartTextBox.TabIndex = 32;
+            this.CustomerComboBox.SelectedIndexChanged += new System.EventHandler(this.CustomerComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -89,6 +80,7 @@
             this.AddCartButton.TabIndex = 22;
             this.AddCartButton.Text = "Add To Cart";
             this.AddCartButton.UseVisualStyleBackColor = true;
+            this.AddCartButton.Click += new System.EventHandler(this.AddCartButton_Click);
             // 
             // ListBoxItems
             // 
@@ -129,16 +121,17 @@
             this.ClearCartButton.TabIndex = 36;
             this.ClearCartButton.Text = "Clear Cart";
             this.ClearCartButton.UseVisualStyleBackColor = true;
+            this.ClearCartButton.Click += new System.EventHandler(this.ClearCartButton_Click);
             // 
-            // label3
+            // LabelAmount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(795, 286);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 29);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "4999,90";
+            this.LabelAmount.AutoSize = true;
+            this.LabelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelAmount.Location = new System.Drawing.Point(788, 286);
+            this.LabelAmount.Name = "LabelAmount";
+            this.LabelAmount.Size = new System.Drawing.Size(111, 29);
+            this.LabelAmount.TabIndex = 37;
+            this.LabelAmount.Text = "4 999,90";
             // 
             // RemoveItemButton
             // 
@@ -149,6 +142,7 @@
             this.RemoveItemButton.TabIndex = 38;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // CreateOrderButton
             // 
@@ -159,18 +153,29 @@
             this.CreateOrderButton.TabIndex = 39;
             this.CreateOrderButton.Text = "Create Order";
             this.CreateOrderButton.UseVisualStyleBackColor = true;
+            this.CreateOrderButton.Click += new System.EventHandler(this.CreateOrderButton_Click);
+            // 
+            // ListBoxCarts
+            // 
+            this.ListBoxCarts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ListBoxCarts.FormattingEnabled = true;
+            this.ListBoxCarts.Location = new System.Drawing.Point(385, 73);
+            this.ListBoxCarts.Name = "ListBoxCarts";
+            this.ListBoxCarts.Size = new System.Drawing.Size(514, 186);
+            this.ListBoxCarts.TabIndex = 40;
             // 
             // CartsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ListBoxCarts);
             this.Controls.Add(this.CreateOrderButton);
             this.Controls.Add(this.RemoveItemButton);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LabelAmount);
             this.Controls.Add(this.ClearCartButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CustomerComboBox);
-            this.Controls.Add(this.CartTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CustomerLabel);
             this.Controls.Add(this.AddCartButton);
@@ -186,7 +191,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox CustomerComboBox;
-        private System.Windows.Forms.TextBox CartTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label CustomerLabel;
         private System.Windows.Forms.Button AddCartButton;
@@ -194,8 +198,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ClearCartButton;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelAmount;
         private System.Windows.Forms.Button RemoveItemButton;
         private System.Windows.Forms.Button CreateOrderButton;
+        private System.Windows.Forms.ListBox ListBoxCarts;
     }
 }
