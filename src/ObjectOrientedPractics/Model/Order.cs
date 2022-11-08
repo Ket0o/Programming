@@ -59,6 +59,11 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает и задает статус заказа.
+        /// </summary>
+        public OrderStatus Status { get; set; }
+
+        /// <summary>
         /// Возвращает и задает адрес доставки заказа.
         /// </summary>
         public Address Address

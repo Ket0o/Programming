@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -57,6 +59,13 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        public void RefreshData()
+        {
+            OrdersDataGridView.Rows.Clear();
+            _orders = new List<Order>();
+            UpdateOrderInfo();
+        }
+
         private void UpdateOrderInfo()
         {
             foreach (var customer in _customers)
@@ -68,10 +77,44 @@ namespace ObjectOrientedPractics.View.Tabs
                 foreach (var order in customer.Orders)
                 {
                     _orders.Add(order);
-                    //TODO:.Rows.Add(order.Id.ToString(), order.DateOfCreate,
-                        order.Status, customer.Fullname, fullAddress, order.Amount.ToString());
+                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.CreatesDate,
+                        order.Status, customer.FullName, fullAddress, order.Amount.ToString());
                 }
             }
+        }
+
+        private void SetValuesTextBoxes()
+        {
+            StatusComboBox.Enabled = true;
+            IdTextBox.Text = _currentOrder.Id.ToString();
+            CreatedTextBox.Text = _currentOrder.CreatesDate;
+            StatusComboBox.SelectedIndex = (int)_currentOrder.Status;
+            AddressControl.Address = _currentOrder.Address;
+
+            OrderItemsListBox.Items.Clear();
+            foreach (var item in _currentOrder.Items)
+            {
+                OrderItemsListBox.Items.Add(item.Name);
+            }
+
+            LabelAmount.Text = _currentOrder.Amount.ToString();
+        }
+
+        private void OrdersDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            int index = OrdersDataGridView.CurrentCell.RowIndex;
+            if (index == -1) return;
+
+            _currentOrder = _orders[index];
+            SetValuesTextBoxes();
+        }
+
+        private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = OrdersDataGridView.CurrentCell.RowIndex;
+
+            _currentOrder.Status = (OrderStatus)StatusComboBox.SelectedIndex;
+            OrdersDataGridView.Rows[index].Cells[2].Value = (OrderStatus)StatusComboBox.SelectedIndex;
         }
     }
 }
