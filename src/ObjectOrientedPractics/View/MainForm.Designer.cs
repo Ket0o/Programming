@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
+            this.ItemsTab = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.CartsTabPage = new System.Windows.Forms.TabPage();
-            this.ItemsTab = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.CustomersTab = new ObjectOrientedPractics.View.Tabs.CustomersTab();
+            this.CartsTabPage = new System.Windows.Forms.TabPage();
             this.CartsTab = new ObjectOrientedPractics.View.Tabs.CartsTab();
             this.ItemsTabPage.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -53,6 +53,16 @@
             this.ItemsTabPage.TabIndex = 0;
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // ItemsTab
+            // 
+            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsTab.Items = null;
+            this.ItemsTab.Location = new System.Drawing.Point(2, 2);
+            this.ItemsTab.Margin = new System.Windows.Forms.Padding(1);
+            this.ItemsTab.Name = "ItemsTab";
+            this.ItemsTab.Size = new System.Drawing.Size(905, 692);
+            this.ItemsTab.TabIndex = 0;
             // 
             // TabControl
             // 
@@ -80,6 +90,16 @@
             this.tabPage1.Text = "Customers";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // CustomersTab
+            // 
+            this.CustomersTab.Customers = null;
+            this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersTab.Location = new System.Drawing.Point(2, 2);
+            this.CustomersTab.Margin = new System.Windows.Forms.Padding(1);
+            this.CustomersTab.Name = "CustomersTab";
+            this.CustomersTab.Size = new System.Drawing.Size(905, 692);
+            this.CustomersTab.TabIndex = 0;
+            // 
             // CartsTabPage
             // 
             this.CartsTabPage.Controls.Add(this.CartsTab);
@@ -90,26 +110,6 @@
             this.CartsTabPage.TabIndex = 2;
             this.CartsTabPage.Text = "Carts";
             this.CartsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // ItemsTab
-            // 
-            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsTab.Items = null;
-            this.ItemsTab.Location = new System.Drawing.Point(2, 2);
-            this.ItemsTab.Margin = new System.Windows.Forms.Padding(1);
-            this.ItemsTab.Name = "ItemsTab";
-            this.ItemsTab.Size = new System.Drawing.Size(905, 692);
-            this.ItemsTab.TabIndex = 0;
-            // 
-            // CustomersTab
-            // 
-            this.CustomersTab.Customers = null;
-            this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersTab.Location = new System.Drawing.Point(2, 2);
-            this.CustomersTab.Margin = new System.Windows.Forms.Padding(1);
-            this.CustomersTab.Name = "CustomersTab";
-            this.CustomersTab.Size = new System.Drawing.Size(905, 692);
-            this.CustomersTab.TabIndex = 0;
             // 
             // CartsTab
             // 
