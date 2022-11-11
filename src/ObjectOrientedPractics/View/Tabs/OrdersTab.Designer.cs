@@ -63,6 +63,7 @@
             // OrdersDataGridView
             // 
             this.OrdersDataGridView.AllowUserToAddRows = false;
+            this.OrdersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.OrdersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrdersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
@@ -111,6 +112,7 @@
             // 
             // IdLabel
             // 
+            this.IdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.IdLabel.AutoSize = true;
             this.IdLabel.Location = new System.Drawing.Point(490, 30);
             this.IdLabel.Name = "IdLabel";
@@ -120,6 +122,7 @@
             // 
             // IdTextBox
             // 
+            this.IdTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.IdTextBox.Location = new System.Drawing.Point(561, 27);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.Size = new System.Drawing.Size(139, 20);
@@ -127,6 +130,7 @@
             // 
             // CreatedTextBox
             // 
+            this.CreatedTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CreatedTextBox.Location = new System.Drawing.Point(561, 53);
             this.CreatedTextBox.Name = "CreatedTextBox";
             this.CreatedTextBox.Size = new System.Drawing.Size(139, 20);
@@ -134,6 +138,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(490, 56);
             this.label2.Name = "label2";
@@ -143,6 +148,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(490, 82);
             this.label3.Name = "label3";
@@ -152,6 +158,7 @@
             // 
             // StatusComboBox
             // 
+            this.StatusComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.StatusComboBox.FormattingEnabled = true;
             this.StatusComboBox.Location = new System.Drawing.Point(561, 79);
             this.StatusComboBox.Name = "StatusComboBox";
@@ -162,6 +169,7 @@
             // AddressControl
             //
             this.AddressControl.Address = address1;
+            this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressControl.Enabled = false;
             this.AddressControl.Location = new System.Drawing.Point(493, 106);
             this.AddressControl.Name = "AddressControl";
@@ -170,6 +178,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(490, 297);
@@ -180,6 +189,7 @@
             // 
             // OrderItemsListBox
             // 
+            this.OrderItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.OrderItemsListBox.FormattingEnabled = true;
             this.OrderItemsListBox.Location = new System.Drawing.Point(493, 316);
             this.OrderItemsListBox.Name = "OrderItemsListBox";
