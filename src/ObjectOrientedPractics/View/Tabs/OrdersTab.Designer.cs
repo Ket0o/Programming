@@ -160,7 +160,7 @@
             this.StatusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
             // AddressControl
-            // 
+            //
             this.AddressControl.Address = address1;
             this.AddressControl.Enabled = false;
             this.AddressControl.Location = new System.Drawing.Point(493, 106);
