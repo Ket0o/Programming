@@ -1209,7 +1209,7 @@
 											"top": 213,
 											"width": 243.8515625,
 											"height": 13,
-											"text": "-_costumers: List<Costumer>",
+											"text": "-_customers: List<Costumer>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3205,7 +3205,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGEKUya9V+JIn4="
 							},
-							"name": "_costumers",
+							"name": "_customers",
 							"visibility": "private",
 							"type": "List<Costumer>"
 						}
