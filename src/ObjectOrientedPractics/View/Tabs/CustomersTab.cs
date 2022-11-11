@@ -28,7 +28,6 @@ namespace ObjectOrientedPractics.View.Tabs
         public CustomersTab()
         {
             InitializeComponent();
-
         }
 
         /// <summary>

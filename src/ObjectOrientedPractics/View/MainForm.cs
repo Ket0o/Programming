@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Model;
+﻿using System.Collections.Generic;
+using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.View.Tabs;
 using System.Windows.Forms;
