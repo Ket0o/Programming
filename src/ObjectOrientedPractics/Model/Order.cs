@@ -112,7 +112,7 @@ namespace ObjectOrientedPractics.Model
         {
             _allOrdersCount++;
             _id = _allOrdersCount;
-            _createsDate = DateTime.Today.ToString();
+            _createsDate = DateTime.Now.ToString();
         }
     }
 }
