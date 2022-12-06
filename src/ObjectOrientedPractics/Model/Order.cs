@@ -34,7 +34,7 @@ namespace ObjectOrientedPractics.Model
 
         /// <summary>
         /// Коллекция товаров.
-        /// </summary>
+        /// </summary>й
         private List<Item> _items;
 
         /// <summary>
