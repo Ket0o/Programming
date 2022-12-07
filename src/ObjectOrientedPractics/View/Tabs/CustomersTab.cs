@@ -29,6 +29,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
+            IsPriorityCheckBox.Enabled = false;
         }
 
         /// <summary>
@@ -136,6 +137,11 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             UpdateCustomerInfo(-1);
+        }
+
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
         }
     }
 }

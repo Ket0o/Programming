@@ -87,7 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 ListBoxItems.Items.Add(InitialConstants.ItemString(item));
             }
 
-            if (selectedIndex == -1) return;
+            //if (selectedIndex == -1) return;
 
             ListBoxItems.SelectedIndex = selectedIndex;
         }
@@ -159,10 +159,19 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
+            Order order;
+            if (CurrentCustomer.IsPriority)
+            {
+                order = new PriorityOrder();
+            }
+            else
+            {
+                order = new Order();
+            }
+
             order.Address = CurrentCustomer.Address;
             order.Items = CurrentCustomer.Cart.Items;
-            //TODO:order.Status = OrderStatus.New;
+            order.Status = OrderStatus.New;
             CurrentCustomer.Orders.Add(order);
             CurrentCustomer.Cart = new Cart();
             UpdateCartInfo(-1);

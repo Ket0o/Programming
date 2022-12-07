@@ -39,6 +39,7 @@
             this.ListBoxCustomers = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // FullNameTextBox
@@ -144,14 +145,26 @@
             this.AddressControl.Address = address1;
             this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressControl.Location = new System.Drawing.Point(382, 125);
+            this.AddressControl.Location = new System.Drawing.Point(382, 134);
             this.AddressControl.Name = "AddressControl";
             this.AddressControl.Size = new System.Drawing.Size(568, 204);
             this.AddressControl.TabIndex = 27;
             // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(466, 111);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.IsPriorityCheckBox.TabIndex = 28;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
             // CustomersTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.IsPriorityCheckBox);
             this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.IdTextBox);
@@ -181,5 +194,6 @@
         private System.Windows.Forms.ListBox ListBoxCustomers;
         private System.Windows.Forms.Label label1;
         private Controls.AddressControl AddressControl;
+        private System.Windows.Forms.CheckBox IsPriorityCheckBox;
     }
 }

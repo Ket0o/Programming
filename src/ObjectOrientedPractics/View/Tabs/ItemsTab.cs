@@ -81,7 +81,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 ListBoxItems.Items.Add($"{item.Id}: " + $"{item.Name};");
             }
 
-            if (selectedIndex == -1) return;
+            //if (selectedIndex == -1) return;
 
             ListBoxItems.SelectedIndex = selectedIndex;
         }
@@ -162,28 +162,35 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentItem = ItemFactory.DefaultItem();
             _items.Add(_currentItem);
-            int index = _items.IndexOf(_currentItem);
-            Sorting.SortedItems(_items);
-            UpdateItemInfo(index);
+            //int index = _items.IndexOf(_currentItem);
+            //Sorting.SortedItems(_items);
+            UpdateItemInfo(0);
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             int index = ListBoxItems.SelectedIndex;
-            if (index != -1)
-            {
-                _items.RemoveAt(index);
-                ListBoxItems.Items.RemoveAt(index);
-                ClearItemInfo();
+            //if (index != -1)
+            //{
+            //    _items.RemoveAt(index);
+            //    ListBoxItems.Items.RemoveAt(index);
+            //    ClearItemInfo();
 
-                for (int i = 0; i < _items.Count; i++)
-                {
-                    ListBoxItems.Items.Add(_items[i].Name);
-                    ListBoxItems.SelectedIndex = 0;
-                }
-            }
+            //    for (int i = 0; i < _items.Count; i++)
+            //    {
+            //        ListBoxItems.Items.Add(_items[i].Name);
+            //        ListBoxItems.SelectedIndex = 0;
+            //    }
+            //}
 
+            //UpdateItemInfo(-1);
+
+            if (index == -1) return;
+
+            _items.RemoveAt(index);
             UpdateItemInfo(-1);
+
+            ClearItemInfo();
         }
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
