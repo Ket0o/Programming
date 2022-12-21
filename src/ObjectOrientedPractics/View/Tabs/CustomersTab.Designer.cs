@@ -40,6 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
+            this.RemoveDiscountButton = new System.Windows.Forms.Button();
+            this.AddDiscountButton = new System.Windows.Forms.Button();
+            this.DiscountsListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // FullNameTextBox
@@ -142,6 +145,12 @@
             // 
             // AddressControl
             // 
+            address1.Apartment = null;
+            address1.Building = null;
+            address1.City = null;
+            address1.Country = null;
+            address1.Index = 0;
+            address1.Street = null;
             this.AddressControl.Address = address1;
             this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -163,9 +172,42 @@
             this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
             this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
             // 
+            // RemoveDiscountButton
+            // 
+            this.RemoveDiscountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveDiscountButton.Location = new System.Drawing.Point(619, 379);
+            this.RemoveDiscountButton.Name = "RemoveDiscountButton";
+            this.RemoveDiscountButton.Size = new System.Drawing.Size(146, 54);
+            this.RemoveDiscountButton.TabIndex = 31;
+            this.RemoveDiscountButton.Text = "Remove";
+            this.RemoveDiscountButton.UseVisualStyleBackColor = true;
+            // 
+            // AddDiscountButton
+            // 
+            this.AddDiscountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddDiscountButton.Location = new System.Drawing.Point(619, 319);
+            this.AddDiscountButton.Name = "AddDiscountButton";
+            this.AddDiscountButton.Size = new System.Drawing.Size(146, 54);
+            this.AddDiscountButton.TabIndex = 30;
+            this.AddDiscountButton.Text = "Add";
+            this.AddDiscountButton.UseVisualStyleBackColor = true;
+            // 
+            // DiscountsListBox
+            // 
+            this.DiscountsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiscountsListBox.FormattingEnabled = true;
+            this.DiscountsListBox.Location = new System.Drawing.Point(382, 319);
+            this.DiscountsListBox.Name = "DiscountsListBox";
+            this.DiscountsListBox.Size = new System.Drawing.Size(231, 160);
+            this.DiscountsListBox.TabIndex = 29;
+            // 
             // CustomersTab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.RemoveDiscountButton);
+            this.Controls.Add(this.AddDiscountButton);
+            this.Controls.Add(this.DiscountsListBox);
             this.Controls.Add(this.IsPriorityCheckBox);
             this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.FullNameTextBox);
@@ -197,5 +239,8 @@
         private System.Windows.Forms.Label label1;
         private Controls.AddressControl AddressControl;
         private System.Windows.Forms.CheckBox IsPriorityCheckBox;
+        private System.Windows.Forms.Button RemoveDiscountButton;
+        private System.Windows.Forms.Button AddDiscountButton;
+        private System.Windows.Forms.ListBox DiscountsListBox;
     }
 }

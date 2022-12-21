@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ObjectOrientedPractics.Model.Enums;
+using ObjectOrientedPractics.Model.Orders;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

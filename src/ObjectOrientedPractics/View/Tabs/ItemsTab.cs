@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Item = ObjectOrientedPractics.Model.Item;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.View.Tabs
 {

@@ -28,7 +28,6 @@ namespace ObjectOrientedPractics.View
             CartsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
             ordersTab1.Customers = _store.Customers;
-            priorityOrdersTab1.Items = _store.Items;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
