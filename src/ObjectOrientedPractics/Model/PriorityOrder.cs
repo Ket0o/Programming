@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -53,7 +52,8 @@ namespace ObjectOrientedPractics.Model
         /// <param name="items">Товары заказа.</param>
         /// <param name="deliveryDate">Дата доставки.</param>
         /// <param name="deliveryTime">Время доставки.</param>
-        public PriorityOrder(OrderStatus status, Address address, List<Item> items, DateTime deliveryDate, string deliveryTime)
+        public PriorityOrder(OrderStatus status, Address address, List<Item> items, 
+            DateTime deliveryDate, string deliveryTime) : base(status, address, items)
         {
             DeliveryDate = deliveryDate;
             DeliveryTime = deliveryTime;

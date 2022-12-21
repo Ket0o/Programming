@@ -29,7 +29,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
-            IsPriorityCheckBox.Enabled = false;
+            IsPriorityCheckBox.Enabled = true;
         }
 
         /// <summary>

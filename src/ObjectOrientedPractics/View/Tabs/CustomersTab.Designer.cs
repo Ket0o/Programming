@@ -153,6 +153,8 @@
             // IsPriorityCheckBox
             // 
             this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Checked = true;
+            this.IsPriorityCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IsPriorityCheckBox.Location = new System.Drawing.Point(466, 111);
             this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
             this.IsPriorityCheckBox.Size = new System.Drawing.Size(68, 17);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address5 = new ObjectOrientedPractics.Model.Address();
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this.ClearOrderButton = new System.Windows.Forms.Button();
             this.AddItemButton = new System.Windows.Forms.Button();
@@ -58,6 +58,7 @@
             this.RemoveItemButton.TabIndex = 45;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click_1);
             // 
             // ClearOrderButton
             // 
@@ -68,6 +69,7 @@
             this.ClearOrderButton.TabIndex = 44;
             this.ClearOrderButton.Text = "Clear Order";
             this.ClearOrderButton.UseVisualStyleBackColor = true;
+            this.ClearOrderButton.Click += new System.EventHandler(this.ClearOrderButton_Click_1);
             // 
             // AddItemButton
             // 
@@ -78,6 +80,7 @@
             this.AddItemButton.TabIndex = 43;
             this.AddItemButton.Text = "Add Item";
             this.AddItemButton.UseVisualStyleBackColor = true;
+            this.AddItemButton.Click += new System.EventHandler(this.AddItemButton_Click_1);
             // 
             // AmountDigitLabel
             // 
@@ -140,6 +143,7 @@
             this.DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
             this.DeliveryTimeComboBox.Size = new System.Drawing.Size(121, 21);
             this.DeliveryTimeComboBox.TabIndex = 37;
+            this.DeliveryTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.DeliveryTimeComboBox_SelectedIndexChanged_1);
             // 
             // DeliveryTimeLabel
             // 
@@ -158,6 +162,7 @@
             this.StatusComboBox.Name = "StatusComboBox";
             this.StatusComboBox.Size = new System.Drawing.Size(121, 21);
             this.StatusComboBox.TabIndex = 34;
+            this.StatusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged_1);
             // 
             // IDTextBox
             // 
@@ -214,7 +219,7 @@
             // 
             // addressControl1
             // 
-            this.addressControl1.Address = address1;
+            this.addressControl1.Address = address5;
             this.addressControl1.Location = new System.Drawing.Point(3, 110);
             this.addressControl1.Name = "addressControl1";
             this.addressControl1.Size = new System.Drawing.Size(569, 204);

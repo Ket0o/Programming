@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -104,12 +106,21 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        public Order()
+        {
+            _allOrdersCount++;
+            _id = _allOrdersCount;
+            _createsDate = DateTime.Today.ToString();
+        }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Order"/>. 
         /// </summary>
-        public Order()
+        public Order(OrderStatus status, Address address, List<Item> items)
         {
+            Status = status;
+            Address = address;
+            Items = items;
             _allOrdersCount++;
             _id = _allOrdersCount;
             _createsDate = DateTime.Now.ToString();

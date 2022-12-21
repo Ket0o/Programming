@@ -27,7 +27,7 @@ namespace ObjectOrientedPractics.View
             CustomersTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
-            //OrdersTab.Customers = _store.Customers;
+            ordersTab1.Customers = _store.Customers;
             priorityOrdersTab1.Items = _store.Items;
         }
 
@@ -48,8 +48,8 @@ namespace ObjectOrientedPractics.View
             }
             else if (TabControl.SelectedIndex == 3)
             {
-                //OrdersTab.Customers = CartsTab.Customers;
-                //OrdersTab.RefreshData();
+                ordersTab1.Customers = CartsTab.Customers;
+                ordersTab1.RefreshData();
             }
         }
     }

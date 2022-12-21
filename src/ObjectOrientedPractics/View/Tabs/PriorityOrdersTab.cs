@@ -63,17 +63,17 @@ namespace ObjectOrientedPractics.View.Tabs
             OrderItemsListBox.Items.Clear();
         }
 
-        private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void StatusComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             _currentPriorityOrder.Status = (OrderStatus)StatusComboBox.SelectedItem;
         }
 
-        private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void DeliveryTimeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             _currentPriorityOrder.DeliveryTime = (string)DeliveryTimeComboBox.SelectedItem;
         }
 
-        private void AddItemButton_Click(object sender, EventArgs e)
+        private void AddItemButton_Click_1(object sender, EventArgs e)
         {
             Item item = Items[_randomForAddItem.Next(Items.Count)];
             _currentPriorityOrder.Items.Add(item);
@@ -81,7 +81,7 @@ namespace ObjectOrientedPractics.View.Tabs
             AmountDigitLabel.Text = _currentPriorityOrder.Amount.ToString();
         }
 
-        private void RemoveItemButton_Click(object sender, EventArgs e)
+        private void RemoveItemButton_Click_1(object sender, EventArgs e)
         {
             int index = OrderItemsListBox.SelectedIndex;
             if (index == -1) return;
@@ -91,7 +91,7 @@ namespace ObjectOrientedPractics.View.Tabs
             AmountDigitLabel.Text = _currentPriorityOrder.Amount.ToString();
         }
 
-        private void ClearOrderButton_Click(object sender, EventArgs e)
+        private void ClearOrderButton_Click_1(object sender, EventArgs e)
         {
             CreateNewPriorityOrder();
         }

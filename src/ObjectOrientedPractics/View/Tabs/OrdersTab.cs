@@ -59,7 +59,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             StatusComboBox.Enabled = false;
-            PriorityOptionsPanel.Visible = false;
+            DeliveryTimeComboBox.Visible = false;
         }
 
         public List<Customer> Customers
@@ -131,11 +131,11 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_currentOrder is PriorityOrder priority)
             {
                 _currentPriorityOrder = (PriorityOrder)_orders[index];
-                PriorityOptionsPanel.Visible = true;
+                DeliveryTimeComboBox.Visible = true;
             }
             else
             {
-                PriorityOptionsPanel.Visible = false;
+                DeliveryTimeComboBox.Visible = false;
                 _currentPriorityOrder = null;
             }
             SetValuesTextBoxes();
