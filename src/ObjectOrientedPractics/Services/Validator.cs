@@ -52,5 +52,14 @@ namespace ObjectOrientedPractics.Services
                 throw new ArgumentException($"the value length must be equal to {length}");
             }
         }
+
+        public static void AssertOnPositiveValue(string nameProperty, double value)
+        {
+            if (value < 0)
+            {
+                throw new System.ArgumentException(
+                    $"the value of the {nameProperty} field must be positive");
+            }
+        }
     }
 }
