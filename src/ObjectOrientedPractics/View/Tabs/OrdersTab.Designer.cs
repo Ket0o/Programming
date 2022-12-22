@@ -1,4 +1,6 @@
-﻿namespace ObjectOrientedPractics.View.Tabs
+﻿using ObjectOrientedPractics.Model;
+
+namespace ObjectOrientedPractics.View.Tabs
 {
     partial class OrdersTab
     {
@@ -50,6 +52,8 @@
             this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
             this.DeliveryTimeLabel = new System.Windows.Forms.Label();
             this.PriorityOptionsLabel = new System.Windows.Forms.Label();
+            this.TotalAmountDigitLabel = new System.Windows.Forms.Label();
+            this.TotalAmountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,6 +184,12 @@
             // 
             // AddressControl
             // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
             this.AddressControl.Address = address1;
             this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -265,10 +275,34 @@
             this.PriorityOptionsLabel.TabIndex = 23;
             this.PriorityOptionsLabel.Text = "Priority Options";
             // 
+            // TotalAmountDigitLabel
+            // 
+            this.TotalAmountDigitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalAmountDigitLabel.Font = new System.Drawing.Font("Roboto Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalAmountDigitLabel.Location = new System.Drawing.Point(606, 529);
+            this.TotalAmountDigitLabel.Name = "TotalAmountDigitLabel";
+            this.TotalAmountDigitLabel.Size = new System.Drawing.Size(385, 24);
+            this.TotalAmountDigitLabel.TabIndex = 41;
+            this.TotalAmountDigitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TotalAmountLabel
+            // 
+            this.TotalAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalAmountLabel.AutoSize = true;
+            this.TotalAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalAmountLabel.Location = new System.Drawing.Point(911, 513);
+            this.TotalAmountLabel.Name = "TotalAmountLabel";
+            this.TotalAmountLabel.Size = new System.Drawing.Size(86, 13);
+            this.TotalAmountLabel.TabIndex = 40;
+            this.TotalAmountLabel.Text = "Total Amount:";
+            // 
             // OrdersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TotalAmountDigitLabel);
+            this.Controls.Add(this.TotalAmountLabel);
             this.Controls.Add(this.PriorityOptionsLabel);
             this.Controls.Add(this.DeliveryTimeLabel);
             this.Controls.Add(this.DeliveryTimeComboBox);
@@ -317,5 +351,7 @@
         private System.Windows.Forms.ComboBox DeliveryTimeComboBox;
         private System.Windows.Forms.Label DeliveryTimeLabel;
         private System.Windows.Forms.Label PriorityOptionsLabel;
+        private System.Windows.Forms.Label TotalAmountDigitLabel;
+        private System.Windows.Forms.Label TotalAmountLabel;
     }
 }

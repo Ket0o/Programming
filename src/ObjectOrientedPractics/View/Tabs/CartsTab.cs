@@ -58,6 +58,25 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        private void UpdateDiscountDigit()
+        {
+            double discountAmount = 0;
+            for (int i = 0; i < DiscountCheckedListBox.Items.Count; i++)
+            {
+                if (DiscountCheckedListBox.GetItemChecked(i))
+                {
+                    discountAmount += CurrentCustomer.Discounts[i].Calculate(CurrentCustomer.Cart.Items);
+                }
+            }
+            DiscountAmountDigitLabel.Text = discountAmount.ToString();
+            if (CurrentCustomer.Cart.Amount == 0)
+            {
+                TotalDigitLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                return;
+            }
+            TotalDigitLabel.Text = (CurrentCustomer.Cart.Amount - discountAmount).ToString();
+        }
+
         public void RefreshData()
         {
             UpdateItemInfo(-1);
@@ -76,6 +95,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CustomerComboBox.SelectedItem = -1;
             }
+            UpdateDiscountDigit();
         }
 
         private void UpdateItemInfo(int selectedIndex)
@@ -92,6 +112,15 @@ namespace ObjectOrientedPractics.View.Tabs
             //if (selectedIndex == -1) return;
 
             ListBoxItems.SelectedIndex = selectedIndex;
+        }
+
+        private void UpdateDiscountCheckedListBox()
+        {
+            DiscountCheckedListBox.Items.Clear();
+            foreach (var discount in CurrentCustomer.Discounts)
+            {
+                DiscountCheckedListBox.Items.Add(discount.Info, true);
+            }
         }
 
         private void UpdateCartInfo(int selectedIndex)
@@ -122,6 +151,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             LabelAmount.Text = CurrentCustomer.Cart.Amount.ToString();
             UpdateCartInfo(-1);
+            UpdateDiscountCheckedListBox();
         }
 
         private void AddCartButton_Click(object sender, EventArgs e)
@@ -137,6 +167,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             UpdateCartInfo(-1);
             CreateOrderButton.Enabled = true;
+            UpdateDiscountDigit();
         }
 
         private void RemoveItemButton_Click(object sender, EventArgs e)
@@ -150,6 +181,7 @@ namespace ObjectOrientedPractics.View.Tabs
             LabelAmount.Text = CurrentCustomer.Cart.Amount.ToString();
 
             UpdateCartInfo(-1);
+            UpdateDiscountDigit();
         }
 
         private void ClearCartButton_Click(object sender, EventArgs e)
@@ -157,6 +189,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CurrentCustomer.Cart = new Cart();
             UpdateCartInfo(-1);
             LabelAmount.Text = CurrentCustomer.Cart.Amount.ToString();
+            UpdateDiscountDigit();
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
@@ -174,11 +207,36 @@ namespace ObjectOrientedPractics.View.Tabs
             order.Address = CurrentCustomer.Address;
             order.Items = CurrentCustomer.Cart.Items;
             order.Status = OrderStatus.New;
+            double discountAmount = 0;
+            for (int i = 0; i < DiscountCheckedListBox.Items.Count; i++)
+            {
+                if (DiscountCheckedListBox.GetItemChecked(i))
+                {
+                    discountAmount += CurrentCustomer.Discounts[i].Calculate(CurrentCustomer.Cart.Items);
+                }
+            }
+            order.DiscountAmount = discountAmount;
             CurrentCustomer.Orders.Add(order);
+
+            for (int i = 0; i < DiscountCheckedListBox.Items.Count; i++)
+            {
+                if (DiscountCheckedListBox.GetItemChecked(i))
+                {
+                    CurrentCustomer.Discounts[i].Apply(CurrentCustomer.Cart.Items);
+                }
+                CurrentCustomer.Discounts[i].Update(CurrentCustomer.Cart.Items);
+            }
+            UpdateDiscountCheckedListBox();
+
             CurrentCustomer.Cart = new Cart();
             UpdateCartInfo(-1);
             LabelAmount.Text = CurrentCustomer.Cart.Amount.ToString();
             CreateOrderButton.Enabled = false;
+        }
+
+        private void DiscountCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDiscountDigit();
         }
     }
 }

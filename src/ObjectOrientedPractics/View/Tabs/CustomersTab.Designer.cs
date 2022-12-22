@@ -1,4 +1,6 @@
-﻿namespace ObjectOrientedPractics.View.Tabs
+﻿using ObjectOrientedPractics.Model;
+
+namespace ObjectOrientedPractics.View.Tabs
 {
     partial class CustomersTab
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -145,13 +147,13 @@
             // 
             // AddressControl
             // 
-            address1.Apartment = null;
-            address1.Building = null;
-            address1.City = null;
-            address1.Country = null;
-            address1.Index = 0;
-            address1.Street = null;
-            this.AddressControl.Address = address1;
+            address2.Apartment = "";
+            address2.Building = "";
+            address2.City = "";
+            address2.Country = "";
+            address2.Index = 100000;
+            address2.Street = "";
+            this.AddressControl.Address = address2;
             this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressControl.Location = new System.Drawing.Point(382, 134);
@@ -181,6 +183,7 @@
             this.RemoveDiscountButton.TabIndex = 31;
             this.RemoveDiscountButton.Text = "Remove";
             this.RemoveDiscountButton.UseVisualStyleBackColor = true;
+            this.RemoveDiscountButton.Click += new System.EventHandler(this.RemoveDiscountButton_Click);
             // 
             // AddDiscountButton
             // 
@@ -191,6 +194,7 @@
             this.AddDiscountButton.TabIndex = 30;
             this.AddDiscountButton.Text = "Add";
             this.AddDiscountButton.UseVisualStyleBackColor = true;
+            this.AddDiscountButton.Click += new System.EventHandler(this.AddDiscountButton_Click);
             // 
             // DiscountsListBox
             // 

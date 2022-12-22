@@ -40,6 +40,11 @@
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this.CreateOrderButton = new System.Windows.Forms.Button();
             this.ListBoxCarts = new System.Windows.Forms.ListBox();
+            this.TotalDigitLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DiscountAmountDigitLabel = new System.Windows.Forms.Label();
+            this.DiscountAmountLabel = new System.Windows.Forms.Label();
+            this.DiscountCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // CustomerComboBox
@@ -170,10 +175,73 @@
             this.ListBoxCarts.Size = new System.Drawing.Size(514, 186);
             this.ListBoxCarts.TabIndex = 40;
             // 
+            // TotalDigitLabel
+            // 
+            this.TotalDigitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalDigitLabel.Font = new System.Drawing.Font("Roboto Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalDigitLabel.Location = new System.Drawing.Point(460, 573);
+            this.TotalDigitLabel.Name = "TotalDigitLabel";
+            this.TotalDigitLabel.Size = new System.Drawing.Size(435, 24);
+            this.TotalDigitLabel.TabIndex = 45;
+            this.TotalDigitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(844, 557);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "TOTAL:";
+            // 
+            // DiscountAmountDigitLabel
+            // 
+            this.DiscountAmountDigitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiscountAmountDigitLabel.Font = new System.Drawing.Font("Roboto Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountDigitLabel.Location = new System.Drawing.Point(657, 407);
+            this.DiscountAmountDigitLabel.Name = "DiscountAmountDigitLabel";
+            this.DiscountAmountDigitLabel.Size = new System.Drawing.Size(232, 24);
+            this.DiscountAmountDigitLabel.TabIndex = 43;
+            this.DiscountAmountDigitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // DiscountAmountLabel
+            // 
+            this.DiscountAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiscountAmountLabel.AutoSize = true;
+            this.DiscountAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountAmountLabel.Location = new System.Drawing.Point(790, 387);
+            this.DiscountAmountLabel.Name = "DiscountAmountLabel";
+            this.DiscountAmountLabel.Size = new System.Drawing.Size(107, 13);
+            this.DiscountAmountLabel.TabIndex = 42;
+            this.DiscountAmountLabel.Text = "Discount Amount:";
+            // 
+            // DiscountCheckedListBox
+            // 
+            this.DiscountCheckedListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.DiscountCheckedListBox.BackColor = System.Drawing.SystemColors.Window;
+            this.DiscountCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DiscountCheckedListBox.CheckOnClick = true;
+            this.DiscountCheckedListBox.FormattingEnabled = true;
+            this.DiscountCheckedListBox.Location = new System.Drawing.Point(385, 378);
+            this.DiscountCheckedListBox.Name = "DiscountCheckedListBox";
+            this.DiscountCheckedListBox.Size = new System.Drawing.Size(193, 180);
+            this.DiscountCheckedListBox.TabIndex = 41;
+            this.DiscountCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountCheckedListBox_SelectedIndexChanged);
+            // 
             // CartsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TotalDigitLabel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.DiscountAmountDigitLabel);
+            this.Controls.Add(this.DiscountAmountLabel);
+            this.Controls.Add(this.DiscountCheckedListBox);
             this.Controls.Add(this.ListBoxCarts);
             this.Controls.Add(this.CreateOrderButton);
             this.Controls.Add(this.RemoveItemButton);
@@ -207,5 +275,10 @@
         private System.Windows.Forms.Button RemoveItemButton;
         private System.Windows.Forms.Button CreateOrderButton;
         private System.Windows.Forms.ListBox ListBoxCarts;
+        private System.Windows.Forms.Label TotalDigitLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label DiscountAmountDigitLabel;
+        private System.Windows.Forms.Label DiscountAmountLabel;
+        private System.Windows.Forms.CheckedListBox DiscountCheckedListBox;
     }
 }

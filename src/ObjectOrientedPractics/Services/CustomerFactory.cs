@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Discounts;
 
 namespace ObjectOrientedPractics.Services
 {
@@ -23,6 +24,7 @@ namespace ObjectOrientedPractics.Services
             address.Building = "Building";
             address.Index = 100000;
             customer.Address = address;
+            customer.Discounts.Add(new PointsDiscount());
 
             return customer;
         }

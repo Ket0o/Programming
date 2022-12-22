@@ -96,7 +96,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 foreach (var order in customer.Orders)
                 {
                     _orders.Add(order);
-                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.CreatesDate,
+                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.Total.ToString(), order.CreatesDate,
                         order.Status, customer.FullName, fullAddress, order.Amount.ToString());
                 }
             }
@@ -109,15 +109,13 @@ namespace ObjectOrientedPractics.View.Tabs
             CreatedTextBox.Text = _currentOrder.CreatesDate;
             StatusComboBox.SelectedIndex = (int)_currentOrder.Status;
             AddressControl.Address = _currentOrder.Address;
-
+            LabelAmount.Text = _currentOrder.Amount.ToString();
+            TotalAmountDigitLabel.Text = _currentOrder.Total.ToString();
             OrderItemsListBox.Items.Clear();
             foreach (var item in _currentOrder.Items)
             {
                 OrderItemsListBox.Items.Add(item.Name);
             }
-
-            LabelAmount.Text = _currentOrder.Amount.ToString();
-
             if (_currentOrder is PriorityOrder priority)
             {
                 DeliveryTimeComboBox.SelectedIndex = Array.IndexOf(_deliveryTime, _currentPriorityOrder.DeliveryTime);
