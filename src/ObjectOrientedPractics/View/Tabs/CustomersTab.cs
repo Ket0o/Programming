@@ -103,6 +103,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 FullNameTextBox.Text = _currentCustomer.FullName;
                 AddressControl.Address = _currentCustomer.Address;
             }
+            UpdateDiscountsListBox();
         }
 
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
