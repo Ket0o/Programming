@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace View.Model
 {
-    internal class Contact
+    public class Contact
     {
+
     }
 }
