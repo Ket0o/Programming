@@ -8,7 +8,8 @@ namespace View.Model
 {
     public static class InitialConstants
     {
-        public const int NamesMaximumLength = 200;
+        public const int MaxLengthName = 200;
 
+        public const int PhoneNumberLength = 11;
     }
 }
