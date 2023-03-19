@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace View.Model
 {
-    internal class InitialConstants
+    public static class InitialConstants
     {
+        public const int NamesMaximumLength = 200;
+
     }
 }
