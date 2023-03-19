@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectOrientedPractics.Services
+namespace View.Services
 {
     /// <summary>
     /// Класс реализует проверку валидации.
