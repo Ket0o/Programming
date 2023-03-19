@@ -5,6 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Contacts" Height="600" Width="500">
-    <Grid x:Name="_312" Height="NaN" Margin="0,0,0,-41" Width="NaN"/>
+        Title="Contacts" Height="600" Width="742" RenderTransformOrigin="0.5,1" ResizeMode="NoResize">
+    <Grid x:Name="ContactcsGrid" Height="NaN" Margin="15,15,15,15" Width="NaN">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="270*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="EditGroupBox" Header="Edit Contact" Margin="0,0,354,28" Grid.RowSpan="2">
+            <StackPanel x:Name="EditStackPanel">
+                <Label Content="Name:"/>
+                <TextBox Width="336" TextWrapping="Wrap" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Read Contact" Margin="354,0,0,28" Grid.RowSpan="2"/>
+    </Grid>
 </Window>
