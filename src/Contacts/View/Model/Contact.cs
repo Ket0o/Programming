@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using View;
+using View.Services;
 
 namespace View.Model
 {
@@ -16,8 +18,12 @@ namespace View.Model
 
         public string Name
         {
-            get { return _name; } 
-            set { _name = value; }
+            get => (_name == null) ? null : _name;
+            set
+            {
+                Validator.NoMoreThan(value, , Name);
+                _name = value;
+            }
         }
     }
 }
