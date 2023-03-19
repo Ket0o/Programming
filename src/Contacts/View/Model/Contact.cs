@@ -8,6 +8,16 @@ namespace View.Model
 {
     public class Contact
     {
+        private string _name;
 
+        private string _email;
+
+        private string _phone;
+
+        public string Name
+        {
+            get { return _name; } 
+            set { _name = value; }
+        }
     }
 }
