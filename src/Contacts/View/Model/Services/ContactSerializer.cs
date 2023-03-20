@@ -8,7 +8,6 @@ namespace View.Model.Services
 {
     public static class ContactSerializer
     {
-
-
+        
     }
 }
