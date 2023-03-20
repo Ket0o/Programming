@@ -11,6 +11,10 @@ namespace View.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
+        private SaveCommand _saveCommand;
+
+        private LoadCommand _loadCommand;
+
         public Contact Contact { get; } = new Contact();
 
         public string Name
@@ -49,6 +53,22 @@ namespace View.ViewModel
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void Save()
+        {
+
+        }
+
+        public void Load()
+        {
+
+        }
+
+        public MainVM()
+        {
+            _saveCommand = new SaveCommand(this);
+            _loadCommand = new LoadCommand(this);
         }
     }
 }
