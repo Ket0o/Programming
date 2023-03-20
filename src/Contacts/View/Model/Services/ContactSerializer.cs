@@ -17,11 +17,11 @@ namespace View.Model.Services
         public static void Serialize(Contact contact)
         {
             using (StreamWriter writer = 
-                   new StreamWriter(AppDataPath + InitialConstants.SerializerResultStore))
+                   new StreamWriter(AppDataPath))
             {
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.TypeNameHandling = TypeNameHandling.All;
-                writer.Write(JsonConvert.SerializeObject(store, settings));                        
+                writer.Write(JsonConvert.SerializeObject(contact, settings));                        
             }
         }
 
@@ -29,29 +29,29 @@ namespace View.Model.Services
         /// Проводит десериализацию данных.
         /// </summary>
         /// <returns>Объект типа <see cref="Store"/>.</returns>
-        public static Store Deserialize()
+        public static Contact Deserialize()
         {
-            var store = new Store();
+            var contact = new Contact();
 
             try
             {
                 using (StreamReader reader = 
-                       new StreamReader(AppDataPath + InitialConstants.SerializerResultStore))
+                       new StreamReader(AppDataPath))
                 {
                     JsonSerializerSettings settings = new JsonSerializerSettings();
                     settings.TypeNameHandling = TypeNameHandling.All;
-                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), 
+                    contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd(), 
                         settings);
                 }
 
-                if (store == null) store = new Store();
+                if (contact == null) contact = new Contact();
             }
             catch
             {
-                return store;
+                return contact;
             }
 
-            return store;
+            return contact;
         }
     }
 }
