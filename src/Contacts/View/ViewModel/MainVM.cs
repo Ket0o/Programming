@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using View.Model;
+using View.Model.Services;
 
 namespace View.ViewModel
 {
@@ -47,7 +48,7 @@ namespace View.ViewModel
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
@@ -57,12 +58,12 @@ namespace View.ViewModel
 
         public void Save()
         {
-
+            ContactSerializer.Serialize(Contact);
         }
 
         public void Load()
         {
-
+            ContactSerializer.Deserialize();
         }
 
         public MainVM()
