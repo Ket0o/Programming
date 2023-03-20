@@ -1,13 +1,14 @@
-﻿<Window x:Class="View.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
+        xmlns:ViewModel="clr-namespace:View.ViewModel" x:Class="View.MainWindow"
         mc:Ignorable="d"
         Title="Contacts" Height="450" Width="500" RenderTransformOrigin="0.5,1" MinHeight="450" 
         MinWidth="500">
-    
+
     <Grid Margin="15,15,15,15" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -41,8 +42,16 @@
         </GroupBox>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" 
                     HorizontalAlignment="Right">
-            <Button Margin="3" Height="25" Width="75" Content="Save" Command="{Binding SaveCommand}"/>
-            <Button Margin="3" Height="25" Width="75" Content="Load" Command="{Binding LoadCommand}" />
+            <Button Margin="3" Height="25" Width="75" Content="Save" Command="{Binding SaveCommand}">
+                <Button.DataContext>
+                    <ViewModel:MainVM/>
+                </Button.DataContext>
+            </Button>
+            <Button Margin="3" Height="25" Width="75" Content="Load" Command="{Binding LoadCommand}" >
+                <Button.DataContext>
+                    <ViewModel:MainVM/>
+                </Button.DataContext>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
