@@ -13,10 +13,6 @@ namespace View.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
-        private SaveCommand _saveCommand;
-
-        private LoadCommand _loadCommand;
-
         public Contact Contact { get; } = new Contact();
 
         public string Name
@@ -57,21 +53,14 @@ namespace View.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
-        public void Save()
-        {
-            ContactSerializer.Serialize(Contact);
-        }
-
-        public void Load()
-        {
-            ContactSerializer.Deserialize();
-        }
-
         public ICommand SaveCommand
         {
             get
             {
-                return _saveCommand;
+                return new RelayCommand((obj) =>
+                {
+                    ContactSerializer.Serialize(Contact);
+                });
             }
         }
 
@@ -79,14 +68,14 @@ namespace View.ViewModel
         {
             get
             {
-                return _loadCommand;
+                return new RelayCommand((obj) =>
+                {
+                    Contact contact = ContactSerializer.Deserialize();
+                    Name = contact.Name;
+                    PhoneNumber = contact.PhoneNumber;
+                    Email = contact.Email;
+                });
             }
-        }
-
-        public MainVM()
-        {
-            _saveCommand = new SaveCommand(this);
-            _loadCommand = new LoadCommand(this);
         }
     }
 }
