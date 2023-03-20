@@ -5,18 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Contacts" Height="600" Width="742" RenderTransformOrigin="0.5,1" ResizeMode="NoResize">
-    <Grid x:Name="ContactcsGrid" Height="NaN" Margin="15,15,15,15" Width="NaN">
+        Title="Contacts" Height="450" Width="500" RenderTransformOrigin="0.5,1" MinHeight="450" MinWidth="500">
+    <Grid x:Name="ContactcsGrid" Margin="15,15,15,15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="270*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="31"/>
         </Grid.RowDefinitions>
-        <GroupBox x:Name="EditGroupBox" Header="Edit Contact" Margin="0,0,354,28" Grid.RowSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="EditGroupBox" Header="Edit Contact" Margin="3"  Grid.Column="0" Grid.Row="0">
             <StackPanel x:Name="EditStackPanel">
-                <Label Content="Name:"/>
-                <TextBox Width="336" TextWrapping="Wrap" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+                <TextBlock Text="Name:" Margin="3"/>
+                <TextBox Margin="3" />
+                <TextBlock Text="Phone Number:" Margin="3"/>
+                <TextBox Margin="3" />
+                <TextBlock Text="Email:" Margin="3"/>
+                <TextBox Margin="3" />
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Read Contact" Margin="354,0,0,28" Grid.RowSpan="2"/>
+        <GroupBox x:Name="ReadGroupBox" Header="Read Contact" Margin="3"  Grid.Column="1" Grid.Row="0">
+            <StackPanel x:Name="ReadStackPanel">
+                <TextBlock Text="Name:" Margin="3"/>
+                <TextBlock Margin="3" FontWeight="Bold"/>
+                <TextBlock Text="Phone Number:" Margin="3"/>
+                <TextBlock Margin="3" FontWeight="Bold"/>
+                <TextBlock Text="Email:" Margin="3"/>
+                <TextBlock Margin="3" FontWeight="Bold"/>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+            <Button Margin="3" Height="25" Width="75" Content="Save"/>
+            <Button Margin="3" Height="25" Width="75" Content="Load"/>
+        </StackPanel>
     </Grid>
 </Window>

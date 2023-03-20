@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using View;
-using Validator = View.Services.Validator;
+using Validator = View.Model.Services.Validator;
 
 namespace View.Model
 {

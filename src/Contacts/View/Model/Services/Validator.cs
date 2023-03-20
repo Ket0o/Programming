@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace View.Services
+namespace View.Model.Services
 {
     /// <summary>
     /// Класс реализует проверку валидации.
