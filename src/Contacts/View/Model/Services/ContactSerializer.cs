@@ -16,11 +16,12 @@ namespace View.Model.Services
 
         public static void Serialize(Contact contact)
         {
-            using (StreamWriter writer = new StreamWriter(AppDataPath + InitialConstants.SerializerResultStore))
+            using (StreamWriter writer = 
+                   new StreamWriter(AppDataPath + InitialConstants.SerializerResultStore))
             {
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.TypeNameHandling = TypeNameHandling.All;
-                writer.Write(JsonConvert.SerializeObject(store, settings));
+                writer.Write(JsonConvert.SerializeObject(store, settings));                        
             }
         }
 
@@ -34,11 +35,13 @@ namespace View.Model.Services
 
             try
             {
-                using (StreamReader reader = new StreamReader(AppDataPath + InitialConstants.SerializerResultStore))
+                using (StreamReader reader = 
+                       new StreamReader(AppDataPath + InitialConstants.SerializerResultStore))
                 {
                     JsonSerializerSettings settings = new JsonSerializerSettings();
                     settings.TypeNameHandling = TypeNameHandling.All;
-                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), settings);
+                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), 
+                        settings);
                 }
 
                 if (store == null) store = new Store();
