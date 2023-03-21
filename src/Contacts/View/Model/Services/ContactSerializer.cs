@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace View.Model.Services
 {
@@ -17,7 +13,8 @@ namespace View.Model.Services
         public static void Serialize(Contact contact)
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
-                Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
+                Directory.CreateDirectory(
+                    Path.GetDirectoryName(MyDocumentsPath));
             using (StreamWriter writer = new StreamWriter(MyDocumentsPath))
             {
                 writer.Write(JsonConvert.SerializeObject(contact));

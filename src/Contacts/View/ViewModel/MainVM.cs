@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using View.Model;
 using View.Model.Services;
@@ -13,7 +8,9 @@ namespace View.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
-        public Contact Contact { get; set; } = new Contact();
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Contact Contact { get; } = new Contact();
 
         public string Name
         {
@@ -21,7 +18,7 @@ namespace View.ViewModel
             set
             {
                 Contact.Name = value;
-                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged();
             }
         }
 
@@ -31,7 +28,7 @@ namespace View.ViewModel
             set
             {
                 Contact.PhoneNumber = value;
-                OnPropertyChanged(nameof(PhoneNumber));
+                OnPropertyChanged();
             }
         }
 
@@ -41,7 +38,7 @@ namespace View.ViewModel
             set
             {
                 Contact.Email = value;
-                OnPropertyChanged(nameof(Email));
+                OnPropertyChanged();
             }
         }
 
@@ -69,8 +66,6 @@ namespace View.ViewModel
                 });
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
