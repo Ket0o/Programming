@@ -13,7 +13,7 @@ namespace View.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
-        public Contact Contact { get; } = new Contact();
+        public Contact Contact { get; set; } = new Contact();
 
         public string Name
         {
@@ -21,7 +21,7 @@ namespace View.ViewModel
             set
             {
                 Contact.Name = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -31,7 +31,7 @@ namespace View.ViewModel
             set
             {
                 Contact.PhoneNumber = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(PhoneNumber));
             }
         }
 
@@ -41,7 +41,7 @@ namespace View.ViewModel
             set
             {
                 Contact.Email = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Email));
             }
         }
 
