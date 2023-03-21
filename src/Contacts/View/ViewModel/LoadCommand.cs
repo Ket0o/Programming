@@ -26,6 +26,6 @@ namespace View.ViewModel
             mainVM.Load();
         }
 
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler CanExecuteChanged;
     }
 }

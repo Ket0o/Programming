@@ -22,7 +22,6 @@ namespace View.Model
             get => (_name == null) ? null : _name;
             set
             {
-                Validator.NoMoreThan(value, InitialConstants.MaxLengthName, nameof(Name));
                 _name = value;
             }
         }
@@ -41,7 +40,6 @@ namespace View.Model
             get => _phoneNumberNumber;
             set
             {
-                Validator.CertainNumberDigits(nameof(PhoneNumber), value, InitialConstants.PhoneNumberLength);
                 _phoneNumberNumber = value;
             }
         }
