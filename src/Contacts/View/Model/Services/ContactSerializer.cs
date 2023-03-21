@@ -6,10 +6,17 @@ namespace View.Model.Services
 {
     public static class ContactSerializer
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static string MyDocumentsPath { get; set; } =
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
             + @"\Contacts\contacts.json";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contact"></param>
         public static void Serialize(Contact contact)
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
