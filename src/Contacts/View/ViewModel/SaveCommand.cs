@@ -30,7 +30,7 @@ namespace View.ViewModel
         //    this.execute(parameter);
         //}
 
-        private MainVM mainVM;
+        public MainVM mainVM;
 
         public SaveCommand(MainVM mainVM)
         {

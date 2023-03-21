@@ -10,18 +10,17 @@ namespace View.Model.Services
 {
     public static class ContactSerializer
     {
-        public static string AppDataPath { get; set; } =
+        public static string MyDocumentsPath { get; set; } =
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
             + @"\Contacts\contacts.json";
 
         public static void Serialize(Contact contact)
         {
-            using (StreamWriter writer = 
-                   new StreamWriter(AppDataPath))
+            if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
+                Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
+            using (StreamWriter writer = new StreamWriter(MyDocumentsPath))
             {
-                JsonSerializerSettings settings = new JsonSerializerSettings();
-                settings.TypeNameHandling = TypeNameHandling.All;
-                writer.Write(JsonConvert.SerializeObject(contact, settings));                        
+                writer.Write(JsonConvert.SerializeObject(contact));
             }
         }
 
@@ -31,22 +30,19 @@ namespace View.Model.Services
         /// <returns>Объект типа <see cref="Store"/>.</returns>
         public static Contact Deserialize()
         {
+            if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
+                Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
             var contact = new Contact();
-
             try
             {
-                using (StreamReader reader = 
-                       new StreamReader(AppDataPath))
+                using (StreamReader reader = new StreamReader(MyDocumentsPath))
                 {
-                    JsonSerializerSettings settings = new JsonSerializerSettings();
-                    settings.TypeNameHandling = TypeNameHandling.All;
-                    contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd(), 
-                        settings);
+                    contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd());
                 }
 
                 if (contact == null) contact = new Contact();
             }
-            catch
+            catch (FileNotFoundException e)
             {
                 return contact;
             }
