@@ -6,21 +6,21 @@
         xmlns:local="clr-namespace:View"
         xmlns:ViewModel="clr-namespace:View.ViewModel" x:Class="View.MainWindow"
         mc:Ignorable="d"
-        Title="Contacts" Height="450" Width="500" RenderTransformOrigin="0.5,1" MinHeight="450" 
-        MinWidth="500">
+        Title="Contacts" Height="450" Width="500" MinHeight="450" 
+        MinWidth="500" Icon="/contact_people_14393.ico">
 
-    <Grid Margin="15,15,15,15" >
+    <Grid Margin="15" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="31"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox x:Name="EditGroupBox" Header="Edit Contact" Margin="3"  Grid.Column="0" 
+        <GroupBox Header="Edit Contact" Margin="3"  Grid.Column="0" 
                   Grid.Row="0">
-            <StackPanel x:Name="EditStackPanel">
+            <StackPanel >
                 <TextBlock Text="Name:" Margin="3"/>
                 <TextBox Margin="3" Text="{Binding Name, 
                     UpdateSourceTrigger=PropertyChanged}">
@@ -35,9 +35,9 @@
                 </TextBox>
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="ReadGroupBox" Header="Read Contact" Margin="3"  Grid.Column="1" 
+        <GroupBox Header="Read Contact" Margin="3"  Grid.Column="1" 
                   Grid.Row="0">
-            <StackPanel x:Name="ReadStackPanel">
+            <StackPanel >
                 <TextBlock Text="Name:" Margin="3"/>
                 <TextBlock Margin="3" FontWeight="Bold" Text="{Binding Name, 
                     UpdateSourceTrigger=PropertyChanged}">
