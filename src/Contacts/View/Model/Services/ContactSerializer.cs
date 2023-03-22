@@ -39,7 +39,7 @@ namespace View.Model.Services
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
-            var contact = new Contact();
+            Contact contact = new Contact();
             try
             {
                 using (StreamReader reader = new StreamReader(MyDocumentsPath))
