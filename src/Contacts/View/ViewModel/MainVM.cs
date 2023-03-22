@@ -6,12 +6,24 @@ using View.Model.Services;
 
 namespace View.ViewModel
 {
+    /// <summary>
+    /// ViewModel для главного окна.
+    /// </summary>
     public class MainVM : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Событие на изменение свойст.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Контактные данные.
+        /// </summary>
         public Contact Contact { get; } = new Contact();
 
+        /// <summary>
+        /// Возвращает и задает имя.
+        /// </summary>
         public string Name
         {
             get => Contact.Name;
@@ -22,6 +34,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает телефонный номер.
+        /// </summary>
         public int PhoneNumber
         {
             get => Contact.PhoneNumber;
@@ -32,6 +47,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает электронную почту.
+        /// </summary>
         public string Email
         {
             get => Contact.Email;
@@ -42,6 +60,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Команда на сохранение контактных данных.
+        /// </summary>
         public ICommand SaveCommand
         {
             get
@@ -53,6 +74,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Команда на загрузку контактных данных.
+        /// </summary>
         public ICommand LoadCommand
         {
             get
@@ -67,6 +91,10 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Зажигает событие <see cref="OnPropertyChanged"/>.
+        /// </summary>
+        /// <param name="prop">Имя свойства.</param>
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged != null)

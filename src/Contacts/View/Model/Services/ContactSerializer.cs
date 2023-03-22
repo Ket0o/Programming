@@ -4,19 +4,22 @@ using System.IO;
 
 namespace View.Model.Services
 {
+    /// <summary>
+    /// Класс реализует сериализцаию и десериализацию данных.
+    /// </summary>
     public static class ContactSerializer
     {
         /// <summary>
-        /// 
+        /// Путь к – «Мои документы\Contacts\contacts.json».
         /// </summary>
         public static string MyDocumentsPath { get; set; } =
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
             + @"\Contacts\contacts.json";
 
         /// <summary>
-        /// 
+        /// Проводит сериализацию данных.
         /// </summary>
-        /// <param name="contact"></param>
+        /// <param name="contact">Контактные данные.</param>
         public static void Serialize(Contact contact)
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
@@ -31,7 +34,7 @@ namespace View.Model.Services
         /// <summary>
         /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Объект типа <see cref="Store"/>.</returns>
+        /// <returns>Объект типа <see cref="Contact"/>.</returns>
         public static Contact Deserialize()
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
