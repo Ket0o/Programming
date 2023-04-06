@@ -21,9 +21,8 @@ namespace View.ViewModel
 
         public override void Execute(object? parameter)
         {
-            Contact contact = ContactSerializer.Deserialize();
-            parameter = contact;
-            return;
+            ContactSerializer.Deserialize();
+            
         }
     }
 }
