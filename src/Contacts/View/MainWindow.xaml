@@ -58,7 +58,7 @@
             <Button Margin="3" 
                     Height="25" Width="75" 
                     Content="Load" 
-                    CommandParameter="{Binding}">
+                    CommandParameter="{Binding MainVM}">
                 <Button.Command>
                     <cmd:LoadCommand></cmd:LoadCommand>
                 </Button.Command>

@@ -22,7 +22,6 @@ namespace View.ViewModel
         public override void Execute(object? parameter)
         {
             ContactSerializer.Deserialize();
-            
         }
     }
 }

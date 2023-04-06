@@ -12,6 +12,7 @@ namespace View.ViewModel
 {
     public class SaveCommand : Command
     {
+
         public override bool CanExecute(object? parameter)
         {
             return true;
