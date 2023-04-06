@@ -26,7 +26,7 @@ namespace View
             InitializeComponent();
 
             MainVM vm = new MainVM();
-            DataContext = vm;
+            DataContext = vm.Contact;
         }
     }
 }

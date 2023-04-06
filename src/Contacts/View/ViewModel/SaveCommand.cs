@@ -4,49 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using View.Model.Services;
+using View.Model;
+using View.ViewModel.Base;
 
 namespace View.ViewModel
 {
-    public class SaveCommand : ICommand
+    public class SaveCommand : Command
     {
-        //public event EventHandler? CanExecuteChanged;
-
-        //private Action<object> execute;
-        //private Func<object, bool> canExecute;
-
-        //public SaveCommand(Action<object> execute, Func<object, bool> canExecute)
-        //{
-        //    this.execute = execute;
-        //    this.canExecute = canExecute;
-        //}
-
-        //public bool CanExecute(object? parameter)
-        //{
-        //    return true;
-        //}
-
-        //public void Execute(object? parameter)
-        //{
-        //    this.execute(parameter);
-        //}
-
-        public MainVM mainVM;
-
-        public SaveCommand(MainVM mainVM)
-        {
-            mainVM = mainVM;
-        }
-
-        public bool CanExecute(object parameter)
+        public override bool CanExecute(object? parameter)
         {
             return true;
         }
 
-        public void Execute(object parameter)
+        public override void Execute(object? parameter)
         {
-            mainVM.Save();
+            ContactSerializer.Serialize((Contact) parameter);
         }
-
-        public event EventHandler? CanExecuteChanged;
     }
 }
