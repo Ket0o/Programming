@@ -24,7 +24,7 @@
                 <TextBlock Margin="3"
                            Text="Find:"></TextBlock>
                 <TextBox Margin="3"
-                         ></TextBox>
+                         Width=""/>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1" Margin="8">
