@@ -8,8 +8,8 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.4*"></ColumnDefinition>
-            <ColumnDefinition Width="0.6 *"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0"
               Background="#f8f8f8">
@@ -18,17 +18,47 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0"
-                        Orientation="Horizontal"
-                        Margin="8">
-                <TextBlock Margin="3"
-                           Text="Find:"></TextBlock>
-                <TextBox Margin="3"
-                         Width=""/>
-            </StackPanel>
+            <Grid Grid.Row="0" Margin="8,8,8,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="3"
+                           Text="Find:"/>
+                <TextBox Grid.Column="1" Margin="3"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="8,0,8,0">
+                <ListBox Margin="3"></ListBox>
+            </Grid>
+            <Grid Grid.Row="2" Margin="8,0,8,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="3"
+                        Height="25" Content="Add" />
+                <Button Grid.Column="1" Margin="3"
+                        Height="25" Content="Edit"/>
+                <Button Grid.Column="2" Margin="3"
+                        Height="25" Content="Remove"/>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1" Margin="8">
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" Grid.Row="1" 
+                   Source="../../Resources/photo_placeholder_100x100.png" 
+                   Width="100"
+                   Margin="3" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" Grid.Row="0"
+                       Text="Name:" Margin="3"/>
         </Grid>
     </Grid>
 </Window> 

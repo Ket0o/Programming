@@ -13,6 +13,7 @@
     <Folder Include="Infastructure\" />
     <Folder Include="View\" />
     <Folder Include="View.Windows\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
