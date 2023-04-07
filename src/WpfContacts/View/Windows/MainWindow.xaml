@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfContacts.View.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.6 *"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0"
+              Background="#f8f8f8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        Margin="8">
+                <TextBlock Margin="3"
+                           Text="Find:"></TextBlock>
+                <TextBox Margin="3"
+                         ></TextBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Margin="8">
 
+        </Grid>
     </Grid>
-</Window>
+</Window> 
