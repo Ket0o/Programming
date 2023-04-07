@@ -56,7 +56,7 @@
             <Image Grid.Column="0" Grid.Row="1" 
                    Source="../../Resources/photo_placeholder_100x100.png" 
                    Width="100"
-                   Margin="3" VerticalAlignment="Top"/>
+                   Margin="3"/>
             <TextBlock Grid.Column="1" Grid.Row="0"
                        Text="Name:" Margin="3"/>
         </Grid>

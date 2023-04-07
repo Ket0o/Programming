@@ -8,12 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\photo_placeholder_100x100.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Infastructure\" />
     <Folder Include="View\" />
     <Folder Include="View.Windows\" />
-    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\photo_placeholder_100x100.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
