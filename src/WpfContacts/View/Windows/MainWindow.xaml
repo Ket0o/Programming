@@ -44,7 +44,7 @@
                         Height="25" Content="Remove"/>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1" Margin="8">
+        <Grid Grid.Column="1" Margin="8,8,8,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -53,12 +53,17 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Image Grid.Column="0" Grid.Row="1" 
-                   Source="../../Resources/photo_placeholder_100x100.png" 
-                   Width="100"
-                   Margin="3"/>
+            <StackPanel Grid.Column="0" Grid.Row="1"
+                        Margin="3,0,3,3">
+                <Image Source="../../Resources/photo_placeholder_100x100.png" 
+                       Width="100"
+                       Margin="3,3,3,3"/>
+            </StackPanel>
             <TextBlock Grid.Column="1" Grid.Row="0"
-                       Text="Name:" Margin="3"/>
+                       Text="Name:" Margin="0,3,3,3"/>
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <TextBox Margin="0,3,3,3"></TextBox>    
+            </StackPanel>
         </Grid>
     </Grid>
 </Window> 
