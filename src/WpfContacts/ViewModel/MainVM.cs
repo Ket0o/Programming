@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfContacts.Infastructure.Commands;
 using WpfContacts.Model;
+using WpfContacts.Model.Services;
+
 
 namespace WpfContacts.ViewModel
 {
@@ -17,8 +20,12 @@ namespace WpfContacts.ViewModel
 
         private void OnAddContactCommandExecute(object parameter)
         {
+            SelectedContact = null;
+            IsReadOnly = !IsReadOnly;
+            IsEnabled = !IsEnabled;
+            Visibility = !Visibility;
             ContactVM contact = new ContactVM();
-            Contacts.Add(contact);
+            SelectedContact = contact;
         }
 
         private bool CanAddContactCommandExecute(object parameter)
@@ -28,31 +35,109 @@ namespace WpfContacts.ViewModel
 
         private void OnEditContactCommandExecute(object parameter)
         {
-            IsReadOnly = false;
+            IsReadOnly = ! IsReadOnly;
+            IsEnabled = ! IsEnabled;
+            Visibility = ! Visibility;
+            ContactsSerializer.Serialize(Contacts);
         }
 
         private bool CanEditContactCommandExecute(object parameter)
         {
+            if (SelectedContact != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void OnDeleteContactCommandExecure(object parameter)
+        {
+            if (SelectedContact == Contacts[Contacts.Count - 1])
+            {
+                Contacts!.Remove(SelectedContact);
+                if (Contacts.Count > 1)
+                {
+                    SelectedContact = Contacts[Contacts.Count - 1];
+                }
+                else
+                {
+                    SelectedContact = null;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Contacts.Count; i++)
+                {
+                    if (SelectedContact == Contacts[i])
+                    {
+                        Contacts!.Remove(SelectedContact);
+                        SelectedContact = Contacts[i];
+                        break;
+                    }
+                }
+            }
+
+            ContactsSerializer.Serialize(Contacts);
+        }
+
+        private bool CanDeleteContactCommandExecute(object parameter)
+        {
+            if (SelectedContact != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void OnApplyContactCommandExecute(object parameter)
+        {
+            IsReadOnly = !IsReadOnly;
+            IsEnabled = !IsEnabled;
+            Visibility = !Visibility;
+            Contacts.Add(SelectedContact);
+            SelectedContact = Contacts[Contacts.Count - 1];
+
+            ContactsSerializer.Serialize(Contacts);
+        }
+
+        private bool CanApplyContactCommandExecute(Object parameter)
+        {
             return true;
         }
 
-        public bool IsReadOnly { get; private set; } = true;
+        public bool _isReadOnly { get; private set; } = true;
 
-        public bool IsEnabled { get; private set; } = true;
+        public bool _isEnabled { get; private set; } = true;
 
-        public bool Visibility { get; private set; } = true;
+        public bool _visibility { get; private set; } = false;
 
         public ICommand AddContactCommand { get; }
 
         public ICommand EditContactCommand { get; }
 
-        public ObservableCollection<ContactVM> Contacts { get; } = 
-            new ObservableCollection<ContactVM>();
+        public ICommand DeleteContactCommand { get; }
+
+        public ICommand ApplyContactCommand { get; }
+
+        public ObservableCollection<ContactVM>? Contacts { get; } = 
+            ContactsSerializer.Deserialize();
 
         public MainVM()
         {
             AddContactCommand = new RelayCommand(OnAddContactCommandExecute,
                 CanAddContactCommandExecute);
+            EditContactCommand = new RelayCommand(OnEditContactCommandExecute, 
+                CanEditContactCommandExecute);
+            DeleteContactCommand = new RelayCommand(OnDeleteContactCommandExecure,
+                CanDeleteContactCommandExecute);
+            ApplyContactCommand = new RelayCommand(OnApplyContactCommandExecute, 
+                CanApplyContactCommandExecute);
         }
 
         public ContactVM SelectedContact
@@ -64,6 +149,36 @@ namespace WpfContacts.ViewModel
             set
             {
                 _selectedContact = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get { return _isReadOnly; }
+            set
+            {
+                _isReadOnly = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsEnabled
+        {
+            get { return _isEnabled; }
+            set
+            {
+                _isEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool Visibility
+        {
+            get { return _visibility; }
+            set
+            {
+                _visibility = value;
                 OnPropertyChanged();
             }
         }

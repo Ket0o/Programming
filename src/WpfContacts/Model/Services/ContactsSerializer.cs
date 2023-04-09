@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using WpfContacts.ViewModel;
 
 namespace WpfContacts.Model.Services
 {
@@ -21,7 +23,7 @@ namespace WpfContacts.Model.Services
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="contact">Контактные данные.</param>
-        public static void Serialize(Contact contact)
+        public static void Serialize(ObservableCollection<ContactVM>? contact)
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(
@@ -36,19 +38,20 @@ namespace WpfContacts.Model.Services
         /// Проводит десериализацию данных.
         /// </summary>
         /// <returns>Объект типа <see cref="Contact"/>.</returns>
-        public static Contact Deserialize()
+        public static ObservableCollection<ContactVM>? Deserialize()
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
-            Contact contact = new Contact();
+            ObservableCollection<ContactVM>? contact = new ObservableCollection<ContactVM>();
             try
             {
                 using (StreamReader reader = new StreamReader(MyDocumentsPath))
                 {
-                    contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd());
+                    contact = JsonConvert.
+                        DeserializeObject<ObservableCollection<ContactVM>>(reader.ReadToEnd());
                 }
 
-                if (contact == null) contact = new Contact();
+                if (contact == null) contact = new ObservableCollection<ContactVM>();
             }
             catch (FileNotFoundException e)
             {
