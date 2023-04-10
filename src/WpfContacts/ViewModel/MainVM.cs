@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 using WpfContacts.Infastructure.Commands;
-using WpfContacts.Model;
 using WpfContacts.Model.Services;
 
 
@@ -54,7 +47,7 @@ namespace WpfContacts.ViewModel
             {
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }
@@ -133,18 +126,18 @@ namespace WpfContacts.ViewModel
 
         public ICommand ApplyContactCommand { get; }
 
-        public ObservableCollection<ContactVM>? Contacts { get; } = 
+        public ObservableCollection<ContactVM>? Contacts { get; } =
             ContactsSerializer.Deserialize();
 
         public MainVM()
         {
             AddContactCommand = new RelayCommand(OnAddContactCommandExecute,
                 CanAddContactCommandExecute);
-            EditContactCommand = new RelayCommand(OnEditContactCommandExecute, 
+            EditContactCommand = new RelayCommand(OnEditContactCommandExecute,
                 CanEditContactCommandExecute);
             DeleteContactCommand = new RelayCommand(OnDeleteContactCommandExecure,
                 CanDeleteContactCommandExecute);
-            ApplyContactCommand = new RelayCommand(OnApplyContactCommandExecute, 
+            ApplyContactCommand = new RelayCommand(OnApplyContactCommandExecute,
                 CanApplyContactCommandExecute);
         }
 

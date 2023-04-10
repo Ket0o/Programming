@@ -8,12 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="View.Windows\**" />
+    <EmbeddedResource Remove="View.Windows\**" />
+    <None Remove="View.Windows\**" />
+    <Page Remove="View.Windows\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\photo_placeholder_100x100.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="View\" />
-    <Folder Include="View.Windows\" />
   </ItemGroup>
 
   <ItemGroup>
