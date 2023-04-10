@@ -102,11 +102,7 @@ namespace WpfContacts.ViewModel
 
         private bool CanApplyContactCommandExecute(Object parameter)
         {
-            if (SelectedContact == Contacts.Last())
-            {
-                return true;
-            }
-            else return false;
+            return true;
         }
 
         public bool _isReadOnly { get; private set; } = true;
