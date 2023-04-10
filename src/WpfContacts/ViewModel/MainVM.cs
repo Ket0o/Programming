@@ -21,29 +21,40 @@ namespace WpfContacts.ViewModel
         private void OnAddContactCommandExecute(object parameter)
         {
             SelectedContact = null;
-            SwitchingProperties();
             ContactVM contact = new ContactVM();
             SelectedContact = contact;
+            OnProperties();
         }
 
         private bool CanAddContactCommandExecute(object parameter)
         {
-            return true;
+            if (Visibility)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void OnEditContactCommandExecute(object parameter)
         {
-            SwitchingProperties();
             ContactsSerializer.Serialize(Contacts);
+            OnProperties();
         }
 
         private bool CanEditContactCommandExecute(object parameter)
         {
-            if (SelectedContact != null)
+            if (Visibility)
+            {
+                return false;
+            }
+            else if (SelectedContact != null)
             {
                 return true;
             }
-            else
+            else 
             {
                 return false;
             }
@@ -81,7 +92,11 @@ namespace WpfContacts.ViewModel
 
         private bool CanDeleteContactCommandExecute(object parameter)
         {
-            if (SelectedContact != null)
+            if (Visibility)
+            {
+                return false;
+            }
+            else if (SelectedContact != null)
             {
                 return true;
             }
@@ -93,14 +108,13 @@ namespace WpfContacts.ViewModel
 
         private void OnApplyContactCommandExecute(object parameter)
         {
-            SwitchingProperties();
+            OffProperties();
             Contacts.Add(SelectedContact);
-            SelectedContact = Contacts.Last();
 
             ContactsSerializer.Serialize(Contacts);
         }
 
-        private bool CanApplyContactCommandExecute(Object parameter)
+        private bool CanApplyContactCommandExecute(object parameter)
         {
             return true;
         }
@@ -144,6 +158,7 @@ namespace WpfContacts.ViewModel
             {
                 _selectedContact = value;
                 OnPropertyChanged();
+                OffProperties();
             }
         }
 
@@ -177,11 +192,18 @@ namespace WpfContacts.ViewModel
             }
         }
 
-        public void SwitchingProperties()
+        public void OnProperties()
         {
-            IsReadOnly = !IsReadOnly;
-            IsEnabled = !IsEnabled;
-            Visibility = !Visibility;
+            IsReadOnly = false;
+            IsEnabled = false;
+            Visibility = true;
+        }
+
+        public void OffProperties()
+        {
+            IsReadOnly = true;
+            IsEnabled = true;
+            Visibility = false;
         }
     }
 }

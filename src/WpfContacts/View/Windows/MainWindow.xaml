@@ -53,9 +53,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Margin="3"
                         Height="25" Content="Add" 
-                        Command="{Binding Path=AddContactCommand}" 
-                        CommandParameter="{Binding ElementName=ListBox, 
-                                            Path=SelectedItem}"/>
+                        Command="{Binding Path=AddContactCommand}" />
                 <Button Grid.Column="1" Margin="3"
                         Height="25" Content="Edit"
                         Command="{Binding Path=EditContactCommand}"/>
