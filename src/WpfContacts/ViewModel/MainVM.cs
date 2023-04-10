@@ -21,9 +21,7 @@ namespace WpfContacts.ViewModel
         private void OnAddContactCommandExecute(object parameter)
         {
             SelectedContact = null;
-            IsReadOnly = !IsReadOnly;
-            IsEnabled = !IsEnabled;
-            Visibility = !Visibility;
+            SwitchingProperties();
             ContactVM contact = new ContactVM();
             SelectedContact = contact;
         }
@@ -35,9 +33,7 @@ namespace WpfContacts.ViewModel
 
         private void OnEditContactCommandExecute(object parameter)
         {
-            IsReadOnly = ! IsReadOnly;
-            IsEnabled = ! IsEnabled;
-            Visibility = ! Visibility;
+            SwitchingProperties();
             ContactsSerializer.Serialize(Contacts);
         }
 
@@ -55,12 +51,12 @@ namespace WpfContacts.ViewModel
 
         private void OnDeleteContactCommandExecure(object parameter)
         {
-            if (SelectedContact == Contacts[Contacts.Count - 1])
+            if (SelectedContact == Contacts.Last())
             {
                 Contacts!.Remove(SelectedContact);
                 if (Contacts.Count > 1)
                 {
-                    SelectedContact = Contacts[Contacts.Count - 1];
+                    SelectedContact = Contacts.Last();
                 }
                 else
                 {
@@ -97,18 +93,20 @@ namespace WpfContacts.ViewModel
 
         private void OnApplyContactCommandExecute(object parameter)
         {
-            IsReadOnly = !IsReadOnly;
-            IsEnabled = !IsEnabled;
-            Visibility = !Visibility;
+            SwitchingProperties();
             Contacts.Add(SelectedContact);
-            SelectedContact = Contacts[Contacts.Count - 1];
+            SelectedContact = Contacts.Last();
 
             ContactsSerializer.Serialize(Contacts);
         }
 
         private bool CanApplyContactCommandExecute(Object parameter)
         {
-            return true;
+            if (SelectedContact == Contacts.Last())
+            {
+                return true;
+            }
+            else return false;
         }
 
         public bool _isReadOnly { get; private set; } = true;
@@ -181,6 +179,13 @@ namespace WpfContacts.ViewModel
                 _visibility = value;
                 OnPropertyChanged();
             }
+        }
+
+        public void SwitchingProperties()
+        {
+            IsReadOnly = !IsReadOnly;
+            IsEnabled = !IsEnabled;
+            Visibility = !Visibility;
         }
     }
 }
