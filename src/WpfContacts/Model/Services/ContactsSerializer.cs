@@ -18,43 +18,43 @@ namespace WpfContacts.Model.Services
         /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
-        /// <param name="contact">Контактные данные.</param>
-        public static void Serialize(ObservableCollection<ContactVM>? contact)
+        /// <param name="contacts">Списко контактных данных.</param>
+        public static void Serialize(ObservableCollection<ContactVM>? contacts)
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(
                     Path.GetDirectoryName(MyDocumentsPath));
             using (StreamWriter writer = new StreamWriter(MyDocumentsPath))
             {
-                writer.Write(JsonConvert.SerializeObject(contact));
+                writer.Write(JsonConvert.SerializeObject(contacts));
             }
         }
 
         /// <summary>
         /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Объект типа <see cref="Contact"/>.</returns>
+        /// <returns>Список контактных данных.</returns>
         public static ObservableCollection<ContactVM>? Deserialize()
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
-            ObservableCollection<ContactVM>? contact = new ObservableCollection<ContactVM>();
+            ObservableCollection<ContactVM>? contacts = new ObservableCollection<ContactVM>();
             try
             {
                 using (StreamReader reader = new StreamReader(MyDocumentsPath))
                 {
-                    contact = JsonConvert.
+                    contacts = JsonConvert.
                         DeserializeObject<ObservableCollection<ContactVM>>(reader.ReadToEnd());
                 }
 
-                if (contact == null) contact = new ObservableCollection<ContactVM>();
+                if (contacts == null) contacts = new ObservableCollection<ContactVM>();
             }
             catch (FileNotFoundException e)
             {
-                return contact;
+                return contacts;
             }
 
-            return contact;
+            return contacts;
         }
     }
 }

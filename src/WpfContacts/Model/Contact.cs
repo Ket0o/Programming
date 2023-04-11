@@ -15,7 +15,7 @@
         /// <summary>
         /// Телефонный номер.
         /// </summary>
-        public long PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Contact"/>.
@@ -31,7 +31,7 @@
         /// <param name="name">Имя.</param>
         /// <param name="email">Электронная почта.</param>
         /// <param name="phoneNumber">Телефонный номер.</param>
-        public Contact(string name, string email, long phoneNumber)
+        public Contact(string name, string email, string phoneNumber)
         {
             Name = name;
             Email = email;

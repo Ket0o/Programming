@@ -7,10 +7,20 @@ using WpfContacts.Model.Services;
 
 namespace WpfContacts.ViewModel
 {
+    /// <summary>
+    /// ViewModel для главного окна.
+    /// </summary>
     public class MainVM : Base.ViewModel
     {
+        /// <summary>
+        /// Выбранный контакт.
+        /// </summary>
         private ContactVM _selectedContact;
 
+        /// <summary>
+        /// Логика команды <see cref="AddContactCommand"/>.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
         private void OnAddContactCommandExecute(object parameter)
         {
             SelectedContact = null;
@@ -19,6 +29,12 @@ namespace WpfContacts.ViewModel
             OnProperties();
         }
 
+        /// <summary>
+        /// Определяет, когда команда <see cref="AddContactCommand"/> будет выполняться.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
+        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
+        /// иначе false.</returns>
         private bool CanAddContactCommandExecute(object parameter)
         {
             if (Visibility)
@@ -31,12 +47,22 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Логика команды <see cref="EditContactCommand"/>.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
         private void OnEditContactCommandExecute(object parameter)
         {
             ContactsSerializer.Serialize(Contacts);
             OnProperties();
         }
 
+        /// <summary>
+        /// Определяет, когда команда <see cref="EditContactCommand"/> будет выполняться.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
+        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
+        /// иначе false.</returns>
         private bool CanEditContactCommandExecute(object parameter)
         {
             if (Visibility)
@@ -53,6 +79,10 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Логика команды <see cref="DeleteContactCommand"/>.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
         private void OnDeleteContactCommandExecure(object parameter)
         {
             if (SelectedContact == Contacts.Last())
@@ -83,6 +113,12 @@ namespace WpfContacts.ViewModel
             ContactsSerializer.Serialize(Contacts);
         }
 
+        /// <summary>
+        /// Определяет, когда команда <see cref="DeleteContactCommand"/> будет выполняться.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
+        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
+        /// иначе false.</returns>
         private bool CanDeleteContactCommandExecute(object parameter)
         {
             if (Visibility)
@@ -99,6 +135,10 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Логика команды <see cref="ApplyContactCommand"/>.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
         private void OnApplyContactCommandExecute(object parameter)
         {
             OffProperties();
@@ -107,28 +147,61 @@ namespace WpfContacts.ViewModel
             ContactsSerializer.Serialize(Contacts);
         }
 
+        /// <summary>
+        /// Определяет, когда команда <see cref="ApplyContactCommand"/> будет выполняться.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
+        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
+        /// иначе false.</returns>
         private bool CanApplyContactCommandExecute(object parameter)
         {
             return true;
         }
 
+        /// <summary>
+        /// Свойство для блокировки пользовательского интерфейса
+        /// </summary>
         public bool _isReadOnly { get; private set; } = true;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool _isEnabled { get; private set; } = true;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool _visibility { get; private set; } = false;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ICommand AddContactCommand { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ICommand EditContactCommand { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ICommand DeleteContactCommand { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ICommand ApplyContactCommand { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ObservableCollection<ContactVM>? Contacts { get; } =
             ContactsSerializer.Deserialize();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public MainVM()
         {
             AddContactCommand = new RelayCommand(OnAddContactCommandExecute,
@@ -141,6 +214,9 @@ namespace WpfContacts.ViewModel
                 CanApplyContactCommandExecute);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ContactVM SelectedContact
         {
             get
@@ -155,6 +231,9 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsReadOnly
         {
             get { return _isReadOnly; }
@@ -165,6 +244,9 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsEnabled
         {
             get { return _isEnabled; }
@@ -175,6 +257,9 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Visibility
         {
             get { return _visibility; }
@@ -185,6 +270,9 @@ namespace WpfContacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OnProperties()
         {
             IsReadOnly = false;
@@ -192,6 +280,9 @@ namespace WpfContacts.ViewModel
             Visibility = true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OffProperties()
         {
             IsReadOnly = true;

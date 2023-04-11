@@ -2,6 +2,9 @@
 
 namespace WpfContacts.ViewModel
 {
+    /// <summary>
+    /// ViewModel для contact.
+    /// </summary>
     public class ContactVM : Base.ViewModel
     {
         /// <summary>
@@ -25,7 +28,7 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Возвращает и задает телефонный номер.
         /// </summary>
-        public long PhoneNumber
+        public string PhoneNumber
         {
             get => Contact.PhoneNumber;
             set
