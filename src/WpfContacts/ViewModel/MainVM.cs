@@ -159,48 +159,43 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// Свойство для блокировки пользовательского интерфейса
+        /// Свойство для блокировки элементов пользовательского интерфейса.
         /// </summary>
         public bool _isReadOnly { get; private set; } = true;
 
         /// <summary>
-        /// 
-        /// </summary>
-        public bool _isEnabled { get; private set; } = true;
-
-        /// <summary>
-        /// 
+        /// Свойство для блокировки элементов пользовательского интерфейса.
         /// </summary>
         public bool _visibility { get; private set; } = false;
 
         /// <summary>
-        /// 
+        /// Команда на добавление контакта.
         /// </summary>
         public ICommand AddContactCommand { get; }
 
         /// <summary>
-        /// 
+        /// Команда на редактирование контакта.
         /// </summary>
         public ICommand EditContactCommand { get; }
 
         /// <summary>
-        /// 
+        /// Команда на удаление контакта.
         /// </summary>
         public ICommand DeleteContactCommand { get; }
 
         /// <summary>
-        /// 
+        /// Команда на сохранение изменений данных контакта.
         /// </summary>
         public ICommand ApplyContactCommand { get; }
 
         /// <summary>
-        /// 
+        /// Коллекция контактов.
         /// </summary>
         public ObservableCollection<ContactVM>? Contacts { get; } =
             ContactsSerializer.Deserialize();
 
         /// <summary>
-        /// 
+        /// Создает экземпляр класса <see cref="MainVM"/>
         /// </summary>
         public MainVM()
         {
@@ -215,7 +210,7 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Возвращает и задает выбранный контакт.
         /// </summary>
         public ContactVM SelectedContact
         {
@@ -232,7 +227,7 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Возвращает и задает свойство для блокировки элементов пользовательского интерфейса.
         /// </summary>
         public bool IsReadOnly
         {
@@ -245,20 +240,7 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public bool IsEnabled
-        {
-            get { return _isEnabled; }
-            set
-            {
-                _isEnabled = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// 
+        /// Возвращает и задает свойство для блокировки элементов пользовательского интерфейса.
         /// </summary>
         public bool Visibility
         {
@@ -271,22 +253,20 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Открывает элементы пользовательского интерфейса.
         /// </summary>
         public void OnProperties()
         {
             IsReadOnly = false;
-            IsEnabled = false;
             Visibility = true;
         }
 
         /// <summary>
-        /// 
+        /// Закрывает элементы пользовательского интерфейса.
         /// </summary>
         public void OffProperties()
         {
             IsReadOnly = true;
-            IsEnabled = true;
             Visibility = false;
         }
     }
