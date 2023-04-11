@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfContacts.View.Windows"
         xmlns:dttest="clr-namespace:WpfContacts.ViewModel"
         xmlns:services="clr-namespace:WpfContacts.Model.Services"
+        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
         mc:Ignorable="d"
         Title="Contacts" Height="600" Width="800" 
         MinHeight="600" MinWidth="800" Icon="/Resources/ContactsApp_96x96.ico">
@@ -14,7 +15,7 @@
         <dttest:MainVM/>
     </Window.DataContext>
     <Window.Resources>
-        <services:BoolToVisibilityFeaturesConverter x:Key="BoolToVisibilityFeaturesConverter"/>
+        <controls:BooleanToVisibilityConverter x:Key="BoolToVisibilityFeaturesConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
