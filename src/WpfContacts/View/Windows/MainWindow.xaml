@@ -19,20 +19,20 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.4*" MinWidth="200"></ColumnDefinition>
-            <ColumnDefinition Width="*" MinWidth="250"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*" MinWidth="200"/>
+            <ColumnDefinition Width="*" MinWidth="250"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0"
               Background="#f8f8f8">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="8,8,8,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Margin="3"
                            Text="Find:"/>
@@ -48,9 +48,9 @@
             </Grid>
             <Grid Grid.Row="2" Margin="8,0,8,8">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Margin="3"
                         Height="25" Content="Add" 
@@ -65,12 +65,12 @@
         </Grid>
         <Grid Grid.Column="1" Margin="8,8,8,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Grid.Row="1"
                         Margin="3,0,3,3">
@@ -109,6 +109,6 @@
                         Command="{Binding Path=ApplyContactCommand}"/>
             </StackPanel>
         </Grid>
-        <GridSplitter Grid.Column="0" Width="3" Background="White"></GridSplitter>
+        <GridSplitter Grid.Column="0" Width="3" Background="White"/>
     </Grid>
 </Window> 
