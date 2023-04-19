@@ -133,7 +133,6 @@ namespace WpfContacts.ViewModel
         /// <param name="parameter">Параметр.</param>
         private void OnApplyContactCommandExecute(object parameter)
         {
-            OffProperties();
             if (Contacts.Contains(SelectedContact))
             {
                 ContactsSerializer.Serialize(Contacts);
@@ -159,12 +158,8 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Свойство для блокировки элементов пользовательского интерфейса.
         /// </summary>
-        public bool _isReadOnly { get; private set; } = true;
+        private bool _isReadOnly = true; 
 
-        /// <summary>
-        /// Свойство для блокировки элементов пользовательского интерфейса.
-        /// </summary>
-        public bool _visibility { get; private set; } = false;
 
         /// <summary>
         /// Команда на добавление контакта.
@@ -220,7 +215,6 @@ namespace WpfContacts.ViewModel
             {
                 _selectedContact = value;
                 OnPropertyChanged();
-                OffProperties();
             }
         }
 
@@ -235,37 +229,6 @@ namespace WpfContacts.ViewModel
                 _isReadOnly = value;
                 OnPropertyChanged();
             }
-        }
-
-        /// <summary>
-        /// Возвращает и задает свойство для блокировки элементов пользовательского интерфейса.
-        /// </summary>
-        public bool Visibility
-        {
-            get { return _visibility; }
-            set
-            {
-                _visibility = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Открывает элементы пользовательского интерфейса.
-        /// </summary>
-        public void OnProperties()
-        {
-            IsReadOnly = false;
-            Visibility = true;
-        }
-
-        /// <summary>
-        /// Закрывает элементы пользовательского интерфейса.
-        /// </summary>
-        public void OffProperties()
-        {
-            IsReadOnly = true;
-            Visibility = false;
         }
     }
 }

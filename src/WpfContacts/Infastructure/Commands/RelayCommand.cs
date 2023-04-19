@@ -27,13 +27,13 @@ namespace WpfContacts.Infastructure.Commands
         /// <summary>
         /// Создает экземпляр класса <see cref="RelayCommand"/>
         /// </summary>
-        /// <param name="Execute">Делегат для вызова команды.</param>
-        /// <param name="CanExecute">Делегат проверки, для вызова команды.</param>
+        /// <param name="execute">Делегат для вызова команды.</param>
+        /// <param name="canExecute">Делегат проверки, для вызова команды.</param>
         /// <exception cref="ArgumentNullException">Вызывается, если получаем null.</exception>
-        public RelayCommand(Action<object> Execute, Func<object, bool> CanExecute = null)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            _execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
-            _canExecute = CanExecute;
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
         }
 
         /// <summary>
