@@ -37,14 +37,7 @@ namespace WpfContacts.ViewModel
         /// иначе false.</returns>
         private bool CanAddContactCommandExecute(object parameter)
         {
-            if (Visibility)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return !Visibility;
         }
 
         /// <summary>
@@ -53,7 +46,6 @@ namespace WpfContacts.ViewModel
         /// <param name="parameter">Параметр.</param>
         private void OnEditContactCommandExecute(object parameter)
         {
-            ContactsSerializer.Serialize(Contacts);
             OnProperties();
         }
 
@@ -83,7 +75,7 @@ namespace WpfContacts.ViewModel
         /// Логика команды <see cref="DeleteContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnDeleteContactCommandExecure(object parameter)
+        private void OnDeleteContactCommandExecute(object parameter)
         {
             if (SelectedContact == Contacts.Last())
             {
@@ -142,9 +134,15 @@ namespace WpfContacts.ViewModel
         private void OnApplyContactCommandExecute(object parameter)
         {
             OffProperties();
-            Contacts.Add(SelectedContact);
-
-            ContactsSerializer.Serialize(Contacts);
+            if (Contacts.Contains(SelectedContact))
+            {
+                ContactsSerializer.Serialize(Contacts);
+            }
+            else
+            {
+                Contacts.Add(SelectedContact);
+                ContactsSerializer.Serialize(Contacts);
+            }
         }
 
         /// <summary>
@@ -203,7 +201,7 @@ namespace WpfContacts.ViewModel
                 CanAddContactCommandExecute);
             EditContactCommand = new RelayCommand(OnEditContactCommandExecute,
                 CanEditContactCommandExecute);
-            DeleteContactCommand = new RelayCommand(OnDeleteContactCommandExecure,
+            DeleteContactCommand = new RelayCommand(OnDeleteContactCommandExecute,
                 CanDeleteContactCommandExecute);
             ApplyContactCommand = new RelayCommand(OnApplyContactCommandExecute,
                 CanApplyContactCommandExecute);

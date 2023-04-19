@@ -1,10 +1,19 @@
 ﻿using System;
-using WpfContacts.Infastructure.Commands.Base;
+using System.Windows.Input;
 
 namespace WpfContacts.Infastructure.Commands
 {
-    public class RelayCommand : Command
+    public class RelayCommand : ICommand
     {
+        /// <summary>
+        /// Событие изменения возможности вызова команды.
+        /// </summary>
+        public event EventHandler? CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
         /// <summary>
         /// Делегат для вызова команды.
         /// </summary>
@@ -32,7 +41,7 @@ namespace WpfContacts.Infastructure.Commands
         /// </summary>
         /// <param name="parameter">Параметр.</param>
         /// <returns>Возвращает true, если кто-то подписался на событие и false, если нет.</returns>
-        public override bool CanExecute(object? parameter)
+        public bool CanExecute(object? parameter)
         {
             return _canExecute?.Invoke(parameter) ?? true;
         }
@@ -41,7 +50,7 @@ namespace WpfContacts.Infastructure.Commands
         /// Выполняет реализацию команды.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        public override void Execute(object? parameter)
+        public void Execute(object? parameter)
         {
             _execute(parameter);
         }
