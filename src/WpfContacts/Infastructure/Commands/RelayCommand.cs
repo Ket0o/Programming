@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace WpfContacts.Infastructure.Commands
 {
+    /// <summary>
+    /// Предоставляет базовую реализацию ICommand интерфейса.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         /// <summary>

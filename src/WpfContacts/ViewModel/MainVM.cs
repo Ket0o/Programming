@@ -26,7 +26,7 @@ namespace WpfContacts.ViewModel
             SelectedContact = null;
             ContactVM contact = new ContactVM();
             SelectedContact = contact;
-            OnProperties();
+            IsReadOnly = false;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace WpfContacts.ViewModel
         /// иначе false.</returns>
         private bool CanAddContactCommandExecute(object parameter)
         {
-            return !Visibility;
+            return IsReadOnly;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace WpfContacts.ViewModel
         /// <param name="parameter">Параметр.</param>
         private void OnEditContactCommandExecute(object parameter)
         {
-            OnProperties();
+            IsReadOnly = false;
         }
 
         /// <summary>
@@ -57,18 +57,12 @@ namespace WpfContacts.ViewModel
         /// иначе false.</returns>
         private bool CanEditContactCommandExecute(object parameter)
         {
-            if (Visibility)
+            if (SelectedContact != null)
             {
-                return false;
+                return IsReadOnly;
             }
-            else if (SelectedContact != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return !IsReadOnly;
         }
 
         /// <summary>
@@ -113,18 +107,12 @@ namespace WpfContacts.ViewModel
         /// иначе false.</returns>
         private bool CanDeleteContactCommandExecute(object parameter)
         {
-            if (Visibility)
+            if (SelectedContact != null)
             {
-                return false;
+                return IsReadOnly;
             }
-            else if (SelectedContact != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return !IsReadOnly;
         }
 
         /// <summary>
@@ -133,6 +121,7 @@ namespace WpfContacts.ViewModel
         /// <param name="parameter">Параметр.</param>
         private void OnApplyContactCommandExecute(object parameter)
         {
+            IsReadOnly = true;
             if (Contacts.Contains(SelectedContact))
             {
                 ContactsSerializer.Serialize(Contacts);
@@ -214,7 +203,11 @@ namespace WpfContacts.ViewModel
             set
             {
                 _selectedContact = value;
-                OnPropertyChanged();
+                if (IsReadOnly == true)
+                {
+                    OnPropertyChanged();
+                }
+                IsReadOnly = true;
             }
         }
 

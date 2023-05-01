@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfContacts.View.Windows"
         xmlns:dttest="clr-namespace:WpfContacts.ViewModel"
-        xmlns:services="clr-namespace:WpfContacts.Model.Services"
-        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+        xmlns:services="clr-namespace:ValueConverters;assembly=ValueConverters"
         mc:Ignorable="d"
         Title="Contacts" Height="600" Width="800" 
         MinHeight="600" MinWidth="800" Icon="/Resources/ContactsApp_96x96.ico">
@@ -15,7 +14,7 @@
         <dttest:MainVM/>
     </Window.DataContext>
     <Window.Resources>
-        <controls:BooleanToVisibilityConverter x:Key="BoolToVisibilityFeaturesConverter"/>
+        <services:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsInverted="True"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -103,8 +102,9 @@
                 <Button Height="25" Width="75" 
                         Margin="0,50,3,3" 
                         HorizontalAlignment="Left"
-                        Content="Apply" Visibility="{Binding Path=Visibility, 
-                        Converter={StaticResource BoolToVisibilityFeaturesConverter}}"
+                        Content="Apply" Visibility="{Binding Path=IsReadOnly, 
+                        UpdateSourceTrigger=PropertyChanged, 
+                        Converter={StaticResource BoolToVisibilityConverter}}"
                         x:Name="ApplyButton"
                         Command="{Binding Path=ApplyContactCommand}"/>
             </StackPanel>
