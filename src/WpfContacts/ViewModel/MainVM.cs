@@ -203,10 +203,7 @@ namespace WpfContacts.ViewModel
             set
             {
                 _selectedContact = value;
-                if (IsReadOnly == true)
-                {
-                    OnPropertyChanged();
-                }
+                OnPropertyChanged();
                 IsReadOnly = true;
             }
         }
