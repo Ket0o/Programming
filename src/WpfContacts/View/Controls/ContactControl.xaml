@@ -4,16 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfContacts.View.Controls"
+             xmlns:viewModel="clr-namespace:WpfContacts.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Grid.Column="1" Margin="8,8,8,0">
+    <UserControl.DataContext>
+        <viewModel:MainVM/>
+    </UserControl.DataContext>
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="1"
                         Margin="3,0,3,3">
@@ -43,14 +47,6 @@
                                         UpdateSourceTrigger=PropertyChanged}"
                          Text="{Binding Path=SelectedContact.Email, 
                                         UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Height="25" Width="75" 
-                        Margin="0,50,3,3" 
-                        HorizontalAlignment="Left"
-                        Content="Apply" Visibility="{Binding Path=IsReadOnly, 
-                        UpdateSourceTrigger=PropertyChanged, 
-                        Converter={StaticResource BoolToVisibilityConverter}}"
-                        x:Name="ApplyButton"
-                        Command="{Binding Path=ApplyContactCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>
