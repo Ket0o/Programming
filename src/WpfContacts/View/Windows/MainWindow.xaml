@@ -15,6 +15,15 @@
     </Window.DataContext>
     <Window.Resources>
         <services:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsInverted="True"/>
+        <DataTemplate x:Key="contactTemplate">
+            <StackPanel Margin="3" Orientation="Horizontal">
+                <Image Width="40" Source="../../Resources/photo_placeholder_100x100.png"/>
+                <StackPanel Margin="3">
+                    <TextBlock Text="{Binding Path=Name}" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Path=PhoneNumber}" FontSize="12"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,11 +48,11 @@
             </Grid>
             <Grid Grid.Row="1" Margin="8,0,8,0">
                 <ListBox Margin="3"
-                         DisplayMemberPath="Name"
                          ItemsSource="{Binding Path=Contacts, 
                                        UpdateSourceTrigger=PropertyChanged}"
                          x:Name="ListBox"
-                         SelectedItem="{Binding Path=SelectedContact}"/>
+                         SelectedItem="{Binding Path=SelectedContact}"
+                         ItemTemplate="{StaticResource contactTemplate}"/>
             </Grid>
             <Grid Grid.Row="2" Margin="8,0,8,8">
                 <Grid.ColumnDefinitions>
@@ -62,53 +71,7 @@
                         Command="{Binding Path=DeleteContactCommand}"/>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1" Margin="8,8,8,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Column="0" Grid.Row="1"
-                        Margin="3,0,3,3">
-                <Image Source="../../Resources/photo_placeholder_100x100.png" 
-                       Width="100" Height="100"
-                       Margin="3,3,3,3"/>
-            </StackPanel>
-            <TextBlock Grid.Column="1" Grid.Row="0"
-                       Text="Name:" Margin="0,3,3,3"/>
-            <StackPanel Grid.Column="1" Grid.Row="1">
-                <TextBox Margin="0,3,3,3"
-                         IsReadOnly="{Binding Path=IsReadOnly, 
-                                        UpdateSourceTrigger=PropertyChanged}" 
-                         Text="{Binding Path=SelectedContact.Name, 
-                                        UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="0,3,3,3"
-                           Text="Phone Number:"/>
-                <TextBox Margin="0, 3, 3, 3"
-                         IsReadOnly="{Binding Path=IsReadOnly, 
-                                        UpdateSourceTrigger=PropertyChanged}"
-                         Text="{Binding Path=SelectedContact.PhoneNumber, 
-                                        UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="0,3,3,3"
-                           Text="Email:"/>
-                <TextBox Margin="0, 3, 3, 3"
-                         IsReadOnly="{Binding Path=IsReadOnly, 
-                                        UpdateSourceTrigger=PropertyChanged}"
-                         Text="{Binding Path=SelectedContact.Email, 
-                                        UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Height="25" Width="75" 
-                        Margin="0,50,3,3" 
-                        HorizontalAlignment="Left"
-                        Content="Apply" Visibility="{Binding Path=IsReadOnly, 
-                        UpdateSourceTrigger=PropertyChanged, 
-                        Converter={StaticResource BoolToVisibilityConverter}}"
-                        x:Name="ApplyButton"
-                        Command="{Binding Path=ApplyContactCommand}"/>
-            </StackPanel>
-        </Grid>
+        
         <GridSplitter Grid.Column="0" Width="3" Background="White"/>
     </Grid>
 </Window>
