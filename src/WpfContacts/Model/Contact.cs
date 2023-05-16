@@ -1,4 +1,7 @@
-﻿namespace WpfContacts.Model
+﻿using System;
+using System.ComponentModel;
+
+namespace WpfContacts.Model
 {
     public class Contact
     {

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfContacts.ViewModel;
 
 namespace WpfContacts.View.Controls
 {
@@ -24,5 +25,17 @@ namespace WpfContacts.View.Controls
         {
             InitializeComponent();
         }
+
+        public ContactVM SelectedContact
+        {
+            get { return (ContactVM)GetValue(MyPropertyProperty); }
+            set { SetValue(MyPropertyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MyPropertyProperty =
+            DependencyProperty.Register("SelectedContact", typeof(ContactVM), typeof(Control), new PropertyMetadata(null));
+
+
     }
 }

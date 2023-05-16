@@ -1,11 +1,13 @@
-﻿using WpfContacts.Model;
+﻿using System;
+using System.ComponentModel;
+using WpfContacts.Model;
 
 namespace WpfContacts.ViewModel
 {
     /// <summary>
     /// ViewModel для contact.
     /// </summary>
-    public class ContactVM : Base.ViewModel
+    public class ContactVM : Base.ViewModel, IDataErrorInfo
     {
         /// <summary>
         /// Контактные данные.
@@ -49,6 +51,47 @@ namespace WpfContacts.ViewModel
                 Contact.Email = value;
                 OnPropertyChanged();
             }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string error = String.Empty;
+                switch (columnName)
+                {
+                    case "Name":
+                        if (Name == null)
+                        {
+                            break;
+                        }
+                        if (Name.Length > 100)
+                        {
+                            error = "Name должен быть не длиннее 100 символов";
+                        }
+                        break;
+                    case "PhoneNumber":
+                        if (PhoneNumber == null)
+                        {
+                            break;
+                        }
+
+                        if (PhoneNumber.Length > 100)
+                        {
+                            error =
+                                "PhoneNumber должен быть не длиннее 100 символов и " +
+                                "может содержать только цифры или символы +-() .\r\nПример: " +
+                                "+7 (999) 111-22-33\r\n";
+                        }
+                        break;
+                }
+                return error;
+            }
+        }
+
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }
