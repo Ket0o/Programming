@@ -6,6 +6,9 @@ using WpfContacts.ViewModel;
 
 namespace WpfContacts.Model.Services
 {
+    /// <summary>
+    /// Класс реализует сериализцаию и десериализацию данных.
+    /// </summary>
     public static class ContactsSerializer
     {
         /// <summary>
