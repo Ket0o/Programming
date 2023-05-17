@@ -8,6 +8,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" x:Name="Control">
 
+    <UserControl.Resources>
+        <Style x:Key="DefaultTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Margin" Value="0,3,3,3"/>
+        </Style>
+
+        <Style x:Key="ToolTipWithErrorMessageOnErrorStyle" TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource  PreviousData}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="RedBackgroundOnErrorStyle" TargetType="TextBox" BasedOn="{StaticResource ToolTipWithErrorMessageOnErrorStyle}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Background" Value="LightPink" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="BlueBorderBushOnErrorStyle" TargetType="TextBox" BasedOn="{StaticResource RedBackgroundOnErrorStyle}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="BorderBrush" Value="SkyBlue"/>
+                    <Setter Property="BorderThickness" Value="2"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -26,17 +57,11 @@
         <TextBlock Grid.Column="1" Grid.Row="0"
                        Text="Name:" Margin="0,3,3,3"/>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBox Margin="0,3,3,3"
-                         IsReadOnly="{Binding Path=IsReadOnly, 
-                                        UpdateSourceTrigger=PropertyChanged}">
-                <TextBox.Text>
-                    <Binding Path="SelectedContact.Name" 
-                             UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <DataErrorValidationRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
+            <TextBox IsReadOnly="{Binding Path=IsReadOnly, 
+                                        UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding Path=SelectedContact.Name, 
+                                        UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource BlueBorderBushOnErrorStyle}">
             </TextBox>
             <TextBlock Margin="0,3,3,3"
                            Text="Phone Number:"/>

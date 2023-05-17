@@ -141,7 +141,11 @@ namespace WpfContacts.ViewModel
         /// иначе false.</returns>
         private bool CanApplyContactCommandExecute(object parameter)
         {
-            return true;
+            if (SelectedContact == null)
+            {
+                return false;
+            }
+            return !SelectedContact.HasErrors;
         }
 
         /// <summary>

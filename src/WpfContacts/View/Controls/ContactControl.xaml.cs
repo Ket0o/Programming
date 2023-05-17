@@ -32,10 +32,11 @@ namespace WpfContacts.View.Controls
             set { SetValue(MyPropertyProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation,
+        // styling, binding, etc...
         public static readonly DependencyProperty MyPropertyProperty =
-            DependencyProperty.Register("SelectedContact", typeof(ContactVM), typeof(Control), new PropertyMetadata(null));
-
+            DependencyProperty.Register("SelectedContact", typeof(ContactVM), 
+                typeof(Control), new PropertyMetadata(null));
 
     }
 }
