@@ -15,7 +15,7 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Выбранный контакт.
         /// </summary>
-        private ContactVM _selectedContact;
+        private ContactVm _selectedContact;
 
         /// <summary>
         /// Логика команды <see cref="AddContactCommand"/>.
@@ -24,7 +24,7 @@ namespace WpfContacts.ViewModel
         private void OnAddContactCommandExecute(object parameter)
         {
             SelectedContact = null;
-            ContactVM contact = new ContactVM();
+            ContactVm contact = new ContactVm();
             contact.Name = "";
             contact.PhoneNumber = "";
             contact.Email = "";
@@ -180,7 +180,7 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Коллекция контактов.
         /// </summary>
-        public ObservableCollection<ContactVM>? Contacts { get; } =
+        public ObservableCollection<ContactVm>? Contacts { get; } =
             ContactsSerializer.Deserialize();
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Возвращает и задает выбранный контакт.
         /// </summary>
-        public ContactVM SelectedContact
+        public ContactVm SelectedContact
         {
             get
             {

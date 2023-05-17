@@ -16,26 +16,26 @@ namespace WpfContacts.ViewModel
     public class ErrorsVM : INotifyDataErrorInfo
     {
         /// <summary>
-        /// 
+        /// Словарь свойст зависимостей.
         /// </summary>
         private readonly Dictionary <string, List<string>> _propertyDependencies =
             new Dictionary<string, List<string>>();
 
         /// <summary>
-        /// 
+        /// Возвращает true или false, в зависимости от того, есть ли ошибки.
         /// </summary>
         public bool HasErrors => _propertyDependencies.Any();
 
         /// <summary>
-        /// 
+        /// Событие измнение ошибки.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
         /// <summary>
-        /// 
+        /// Добавляет ошибку.
         /// </summary>
-        /// <param name="propertyName"></param>
-        /// <param name="errorMessage"></param>
+        /// <param name="propertyName">Имя объекта.</param>
+        /// <param name="errorMessage">Сообщение об ошибке.</param>
         public void AddError(string propertyName, string errorMessage)
         {
             if (!_propertyDependencies.ContainsKey(propertyName))
@@ -47,9 +47,9 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Убирает ошибку.
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Имя объекта.</param>
         public void ClearErrors(string propertyName)
         {
             if (_propertyDependencies.Remove(propertyName))
@@ -59,19 +59,19 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Pажигает событие <see cref="ErrorsChanged"/>.
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Имя объекта.</param>
         private void OnErrorsChanged(string propertyName)
         {
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
         }
 
         /// <summary>
-        /// 
+        /// Извлекает имя объекта.
         /// </summary>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
+        /// <param name="propertyName">Имя объекта.</param>
+        /// <returns><see cref="propertyName"/> или <see cref="null"/>.</returns>
         public IEnumerable GetErrors(string? propertyName)
         {
             return _propertyDependencies.GetValueOrDefault(propertyName, null);

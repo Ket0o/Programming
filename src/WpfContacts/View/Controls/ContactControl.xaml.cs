@@ -22,45 +22,33 @@ namespace WpfContacts.View.Controls
     /// </summary>
     public partial class ContactControl : UserControl
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public ContactControl()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// 
+        /// Возвращает и задает выбранный контакт.
         /// </summary>
-        public ContactVM SelectedContact
+        public ContactVm SelectedContact
         {
-            get { return (ContactVM)GetValue(MyPropertyProperty); }
+            get { return (ContactVm)GetValue(MyPropertyProperty); }
             set { SetValue(MyPropertyProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation,
-        // styling, binding, etc...
+        /// <summary>
+        /// регистрирует свойство зависимостей для <see cref="SelectedContact"/>.
+        /// </summary>
         public static readonly DependencyProperty MyPropertyProperty =
-            DependencyProperty.Register("SelectedContact", typeof(ContactVM), 
+            DependencyProperty.Register("SelectedContact", typeof(ContactVm), 
                 typeof(Control), new PropertyMetadata(null));
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void NumberPhoneTextBoxValidation(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[0-9()+-]");
             e.Handled = !regex.IsMatch(e.Text);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void DataObject_OnPasting(object sender, DataObjectPastingEventArgs e)
         {
             string clipboard = e.DataObject.GetData(typeof(string)) as string;

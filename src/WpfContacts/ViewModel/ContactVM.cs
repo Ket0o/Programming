@@ -13,18 +13,18 @@ namespace WpfContacts.ViewModel
     /// <summary>
     /// ViewModel для contact.
     /// </summary>
-    public class ContactVM : Base.ViewModel, INotifyDataErrorInfo
+    public class ContactVm : Base.ViewModel, INotifyDataErrorInfo
     {
         /// <summary>
-        /// 
+        /// Экземпляр класса <see cref="ErrorsVM"/>.
         /// </summary>
-        private readonly ErrorsVM errorsVM;
+        private readonly ErrorsVM _errorsVm;
 
         /// <summary>
-        /// 
+        /// Зажигает событие <see cref="ErrorsChanged"/>
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Объект, который вызвал событие.</param>
+        /// <param name="e">Параметр.</param>
         private void ErrorsVM_ErrorsChanged(object? sender, DataErrorsChangedEventArgs e)
         {
             ErrorsChanged?.Invoke(this, e);
@@ -45,10 +45,10 @@ namespace WpfContacts.ViewModel
             set
             {
                 Contact.Name = value;
-                errorsVM.ClearErrors(nameof(Name));
+                _errorsVm.ClearErrors(nameof(Name));
                 if ((Contact.Name.Length == 0) || (Contact.Name.Length > 100))
                 {
-                    errorsVM.AddError(nameof(Name), 
+                    _errorsVm.AddError(nameof(Name), 
                         "Name должен быть не длиннее 100 символов");
                 }
                 OnPropertyChanged();
@@ -64,10 +64,10 @@ namespace WpfContacts.ViewModel
             set
             {
                 Contact.PhoneNumber = value;
-                errorsVM.ClearErrors(nameof(PhoneNumber));
+                _errorsVm.ClearErrors(nameof(PhoneNumber));
                 if ((Contact.PhoneNumber.Length > 100) || (Contact.PhoneNumber.Length == 0))
                 {
-                    errorsVM.AddError(nameof(PhoneNumber),
+                    _errorsVm.AddError(nameof(PhoneNumber),
                         "PhoneNumber должен быть не длиннее 100 символов и может " +
                         "содержать только цифры или символы +-() ." +
                         "\r\nПример: +7 (999) 111-22-33\r\n");
@@ -85,11 +85,11 @@ namespace WpfContacts.ViewModel
             set
             {
                 Contact.Email = value;
-                errorsVM.ClearErrors(nameof(Email));
+                _errorsVm.ClearErrors(nameof(Email));
                 if (((Contact.Email.Length > 100) || (Contact.Email.Length == 0)) || 
                     (new Regex("[@]").IsMatch(Contact.Email) == false))
                 {
-                    errorsVM.AddError(nameof(Email),
+                    _errorsVm.AddError(nameof(Email),
                         "Email должен быть не длиннее 100 символов и должен содержать" +
                         "\r\nсимвол @ .");
                 }
@@ -98,32 +98,32 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// 
+        /// Возвращает true или false, в зависимости от того, есть ли ошибки.
         /// </summary>
-        public bool HasErrors => errorsVM.HasErrors;
+        public bool HasErrors => _errorsVm.HasErrors;
 
         /// <summary>
-        /// 
+        /// Событие измнение ошибки.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
         /// <summary>
-        /// 
+        /// Создает экземпляр класса <see cref="ContactVm"/>
         /// </summary>
-        public ContactVM()
+        public ContactVm()
         {
-            errorsVM = new ErrorsVM();
-            errorsVM.ErrorsChanged += ErrorsVM_ErrorsChanged;
+            _errorsVm = new ErrorsVM();
+            _errorsVm.ErrorsChanged += ErrorsVM_ErrorsChanged;
         }
 
         /// <summary>
-        /// 
+        /// Извлекает имя объекта.
         /// </summary>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
+        /// <param name="propertyName">Имя объекта.</param>
+        /// <returns><see cref="propertyName"/> или <see cref="null"/>.</returns>
         public IEnumerable GetErrors(string? propertyName)
         {
-            return errorsVM.GetErrors(propertyName);
+            return _errorsVm.GetErrors(propertyName);
         }
     }
 }
