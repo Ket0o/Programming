@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfContacts.ViewModel;
 
 namespace WpfContacts.View.Controls
@@ -40,7 +29,7 @@ namespace WpfContacts.View.Controls
         /// регистрирует свойство зависимостей для <see cref="SelectedContact"/>.
         /// </summary>
         public static readonly DependencyProperty MyPropertyProperty =
-            DependencyProperty.Register("SelectedContact", typeof(ContactVm), 
+            DependencyProperty.Register("SelectedContact", typeof(ContactVm),
                 typeof(Control), new PropertyMetadata(null));
 
         private void NumberPhoneTextBoxValidation(object sender, TextCompositionEventArgs e)

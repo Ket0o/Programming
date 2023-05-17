@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace WpfContacts.ViewModel
 {
@@ -18,7 +14,7 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Словарь свойст зависимостей.
         /// </summary>
-        private readonly Dictionary <string, List<string>> _propertyDependencies =
+        private readonly Dictionary<string, List<string>> _propertyDependencies =
             new Dictionary<string, List<string>>();
 
         /// <summary>

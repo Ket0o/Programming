@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Controls;
 using WpfContacts.Model;
 
 namespace WpfContacts.ViewModel
@@ -48,7 +44,7 @@ namespace WpfContacts.ViewModel
                 _errorsVm.ClearErrors(nameof(Name));
                 if ((Contact.Name.Length == 0) || (Contact.Name.Length > 100))
                 {
-                    _errorsVm.AddError(nameof(Name), 
+                    _errorsVm.AddError(nameof(Name),
                         "Name должен быть не длиннее 100 символов");
                 }
                 OnPropertyChanged();
@@ -86,7 +82,7 @@ namespace WpfContacts.ViewModel
             {
                 Contact.Email = value;
                 _errorsVm.ClearErrors(nameof(Email));
-                if (((Contact.Email.Length > 100) || (Contact.Email.Length == 0)) || 
+                if (((Contact.Email.Length > 100) || (Contact.Email.Length == 0)) ||
                     (new Regex("[@]").IsMatch(Contact.Email) == false))
                 {
                     _errorsVm.AddError(nameof(Email),

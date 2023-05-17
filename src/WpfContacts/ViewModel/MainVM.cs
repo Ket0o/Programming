@@ -154,7 +154,7 @@ namespace WpfContacts.ViewModel
         /// <summary>
         /// Свойство для блокировки элементов пользовательского интерфейса.
         /// </summary>
-        private bool _isReadOnly = true; 
+        private bool _isReadOnly = true;
 
 
         /// <summary>
