@@ -16,10 +16,19 @@
         <services:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsInverted="True"/>
         <DataTemplate x:Key="contactTemplate">
             <StackPanel Margin="3" Orientation="Horizontal">
-                <Image Width="40" Source="../../Resources/photo_placeholder_100x100.png"/>
+                <Ellipse Width="40" Height="40">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="../../Resources/photo_placeholder_100x100.png" 
+                                    Stretch="UniformToFill"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                
                 <StackPanel Margin="3">
-                    <TextBlock Text="{Binding Name}" Validation.ErrorTemplate="{x:Null}" FontSize="16" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding PhoneNumber}" Validation.ErrorTemplate="{x:Null}" FontSize="12"/>
+                    <TextBlock Text="{Binding Name}" 
+                               Validation.ErrorTemplate="{x:Null}" 
+                               FontSize="16" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding PhoneNumber}" 
+                               Validation.ErrorTemplate="{x:Null}" FontSize="12"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
@@ -51,7 +60,8 @@
             </Grid>
             <Grid Grid.Row="1" Margin="8,0,8,0">
                 <ListBox Margin="3"
-                         ItemsSource="{Binding Contacts, UpdateSourceTrigger=PropertyChanged}"
+                         ItemsSource="{Binding Contacts, 
+                    UpdateSourceTrigger=PropertyChanged}"
                          x:Name="ListBox"
                          SelectedItem="{Binding SelectedContact}"
                          ItemTemplate="{StaticResource contactTemplate}"/>
