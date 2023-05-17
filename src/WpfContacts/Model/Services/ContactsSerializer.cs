@@ -19,7 +19,7 @@ namespace WpfContacts.Model.Services
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="contacts">Списко контактных данных.</param>
-        public static void Serialize(ObservableCollection<ContactVM>? contacts)
+        public static void Serialize(ObservableCollection<ContactVm>? contacts)
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(
@@ -34,20 +34,20 @@ namespace WpfContacts.Model.Services
         /// Проводит десериализацию данных.
         /// </summary>
         /// <returns>Список контактных данных.</returns>
-        public static ObservableCollection<ContactVM>? Deserialize()
+        public static ObservableCollection<ContactVm>? Deserialize()
         {
             if (!Directory.Exists(Path.GetDirectoryName(MyDocumentsPath)))
                 Directory.CreateDirectory(Path.GetDirectoryName(MyDocumentsPath));
-            ObservableCollection<ContactVM>? contacts = new ObservableCollection<ContactVM>();
+            ObservableCollection<ContactVm>? contacts = new ObservableCollection<ContactVm>();
             try
             {
                 using (StreamReader reader = new StreamReader(MyDocumentsPath))
                 {
                     contacts = JsonConvert.
-                        DeserializeObject<ObservableCollection<ContactVM>>(reader.ReadToEnd());
+                        DeserializeObject<ObservableCollection<ContactVm>>(reader.ReadToEnd());
                 }
 
-                if (contacts == null) contacts = new ObservableCollection<ContactVM>();
+                if (contacts == null) contacts = new ObservableCollection<ContactVm>();
             }
             catch (FileNotFoundException e)
             {

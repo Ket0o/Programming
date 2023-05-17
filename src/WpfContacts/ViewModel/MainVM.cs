@@ -25,6 +25,9 @@ namespace WpfContacts.ViewModel
         {
             SelectedContact = null;
             ContactVM contact = new ContactVM();
+            contact.Name = "";
+            contact.PhoneNumber = "";
+            contact.Email = "";
             SelectedContact = contact;
             IsReadOnly = false;
         }

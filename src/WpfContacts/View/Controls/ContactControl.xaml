@@ -24,7 +24,8 @@
             </Style.Triggers>
         </Style>
 
-        <Style x:Key="RedBackgroundOnErrorStyle" TargetType="TextBox" BasedOn="{StaticResource ToolTipWithErrorMessageOnErrorStyle}">
+        <Style x:Key="RedBackgroundOnErrorStyle" TargetType="TextBox" 
+               BasedOn="{StaticResource ToolTipWithErrorMessageOnErrorStyle}">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="Background" Value="LightPink" />
@@ -32,11 +33,12 @@
             </Style.Triggers>
         </Style>
 
-        <Style x:Key="BlueBorderBushOnErrorStyle" TargetType="TextBox" BasedOn="{StaticResource RedBackgroundOnErrorStyle}">
+        <Style x:Key="BlueBorderBushOnErrorStyle" TargetType="TextBox" 
+               BasedOn="{StaticResource RedBackgroundOnErrorStyle}">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="BorderBrush" Value="SkyBlue"/>
-                    <Setter Property="BorderThickness" Value="2"></Setter>
+                    <Setter Property="BorderThickness" Value="1"></Setter>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -64,22 +66,29 @@
                                         UpdateSourceTrigger=PropertyChanged}"
                          Text="{Binding Path=SelectedContact.Name, 
                                         UpdateSourceTrigger=PropertyChanged}"
-                         Style="{StaticResource BlueBorderBushOnErrorStyle}">
+                         Style="{StaticResource BlueBorderBushOnErrorStyle}"
+                         Validation.ErrorTemplate="{x:Null}">
             </TextBox>
             <TextBlock Margin="0,3,3,3"
                            Text="Phone Number:"/>
-            <TextBox Margin="0, 3, 3, 3"
+            <TextBox    DataObject.Pasting="DataObject_OnPasting"
+                        Margin="0, 3, 3, 3"
                          IsReadOnly="{Binding Path=IsReadOnly, 
                                         UpdateSourceTrigger=PropertyChanged}"
                          Text="{Binding Path=SelectedContact.PhoneNumber, 
-                                        UpdateSourceTrigger=PropertyChanged}"/>
+                                        UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource BlueBorderBushOnErrorStyle}"
+                         PreviewTextInput="NumberPhoneTextBoxValidation"
+                         Validation.ErrorTemplate="{x:Null}"/>
             <TextBlock Margin="0,3,3,3"
                            Text="Email:"/>
             <TextBox Margin="0, 3, 3, 3"
                          IsReadOnly="{Binding Path=IsReadOnly, 
                                         UpdateSourceTrigger=PropertyChanged}"
                          Text="{Binding Path=SelectedContact.Email, 
-                                        UpdateSourceTrigger=PropertyChanged}"/>
+                                        UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource BlueBorderBushOnErrorStyle}"
+                         Validation.ErrorTemplate="{x:Null}"/>
         </StackPanel>
     </Grid>
 </UserControl>

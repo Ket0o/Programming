@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,11 +22,17 @@ namespace WpfContacts.View.Controls
     /// </summary>
     public partial class ContactControl : UserControl
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public ContactControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ContactVM SelectedContact
         {
             get { return (ContactVM)GetValue(MyPropertyProperty); }
@@ -38,5 +45,31 @@ namespace WpfContacts.View.Controls
             DependencyProperty.Register("SelectedContact", typeof(ContactVM), 
                 typeof(Control), new PropertyMetadata(null));
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NumberPhoneTextBoxValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[0-9()+-]");
+            e.Handled = !regex.IsMatch(e.Text);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataObject_OnPasting(object sender, DataObjectPastingEventArgs e)
+        {
+            string clipboard = e.DataObject.GetData(typeof(string)) as string;
+
+            Regex regex = new Regex("[^0-9()+-]");
+            if (regex.IsMatch(clipboard))
+            {
+                e.CancelCommand();
+            }
+        }
     }
 }

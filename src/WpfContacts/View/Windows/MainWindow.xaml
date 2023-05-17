@@ -18,8 +18,8 @@
             <StackPanel Margin="3" Orientation="Horizontal">
                 <Image Width="40" Source="../../Resources/photo_placeholder_100x100.png"/>
                 <StackPanel Margin="3">
-                    <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding PhoneNumber}" FontSize="12"/>
+                    <TextBlock Text="{Binding Name}" Validation.ErrorTemplate="{x:Null}" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding PhoneNumber}" Validation.ErrorTemplate="{x:Null}" FontSize="12"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
