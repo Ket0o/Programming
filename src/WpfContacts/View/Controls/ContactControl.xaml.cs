@@ -16,22 +16,6 @@ namespace WpfContacts.View.Controls
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Возвращает и задает выбранный контакт.
-        /// </summary>
-        public ContactVm SelectedContact
-        {
-            get { return (ContactVm)GetValue(MyPropertyProperty); }
-            set { SetValue(MyPropertyProperty, value); }
-        }
-
-        /// <summary>
-        /// регистрирует свойство зависимостей для <see cref="SelectedContact"/>.
-        /// </summary>
-        public static readonly DependencyProperty MyPropertyProperty =
-            DependencyProperty.Register("SelectedContact", typeof(ContactVm),
-                typeof(Control), new PropertyMetadata(null));
-
         private void NumberPhoneTextBoxValidation(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[0-9()+-]");
