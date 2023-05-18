@@ -21,7 +21,7 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// Словарь свойст зависимостей.
+        /// Словарь свойств зависимостей. Доступен только на чтение.
         /// </summary>
         private readonly Dictionary<string, List<string>> _propertyDependencies =
             new Dictionary<string, List<string>>();
