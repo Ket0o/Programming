@@ -17,7 +17,7 @@ namespace WpfContacts.ViewModel
         private readonly ErrorsVM _errorsVm;
 
         /// <summary>
-        /// Зажигает событие <see cref="ErrorsChanged"/>
+        /// Зажигает событие <see cref="ErrorsChanged"/>.
         /// </summary>
         /// <param name="sender">Объект, который вызвал событие.</param>
         /// <param name="e">Параметр.</param>
@@ -104,7 +104,7 @@ namespace WpfContacts.ViewModel
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="ContactVm"/>
+        /// Создает экземпляр класса <see cref="ContactVm"/>.
         /// </summary>
         public ContactVm()
         {
