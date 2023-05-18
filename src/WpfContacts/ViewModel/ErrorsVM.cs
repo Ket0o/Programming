@@ -63,7 +63,6 @@ namespace WpfContacts.ViewModel
             }
         }
 
-
         /// <summary>
         /// Извлекает имя объекта.
         /// </summary>
