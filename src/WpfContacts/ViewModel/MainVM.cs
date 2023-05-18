@@ -184,7 +184,7 @@ namespace WpfContacts.ViewModel
             ContactsSerializer.Deserialize();
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="MainVM"/>
+        /// Создает экземпляр класса <see cref="MainVM"/>.
         /// </summary>
         public MainVM()
         {
