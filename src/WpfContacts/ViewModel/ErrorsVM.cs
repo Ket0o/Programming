@@ -12,6 +12,15 @@ namespace WpfContacts.ViewModel
     public class ErrorsVM : INotifyDataErrorInfo
     {
         /// <summary>
+        /// Pажигает событие <see cref="ErrorsChanged"/>.
+        /// </summary>
+        /// <param name="propertyName">Имя объекта.</param>
+        private void OnErrorsChanged(string propertyName)
+        {
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// Словарь свойст зависимостей.
         /// </summary>
         private readonly Dictionary<string, List<string>> _propertyDependencies =
@@ -54,14 +63,6 @@ namespace WpfContacts.ViewModel
             }
         }
 
-        /// <summary>
-        /// Pажигает событие <see cref="ErrorsChanged"/>.
-        /// </summary>
-        /// <param name="propertyName">Имя объекта.</param>
-        private void OnErrorsChanged(string propertyName)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Извлекает имя объекта.
