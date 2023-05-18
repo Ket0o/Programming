@@ -11,6 +11,7 @@ namespace WpfContacts.ViewModel
     /// </summary>
     public class ContactVm : Base.ViewModel, INotifyDataErrorInfo
     {
+        private const int MaxLengthValueTextBox = 100;
         /// <summary>
         /// Экземпляр класса <see cref="ErrorsVM"/>.
         /// </summary>
@@ -42,7 +43,7 @@ namespace WpfContacts.ViewModel
             {
                 Contact.Name = value;
                 _errorsVm.ClearErrors(nameof(Name));
-                if ((Contact.Name.Length == 0) || (Contact.Name.Length > 100))
+                if ((Contact.Name.Length == 0) || (Contact.Name.Length > MaxLengthValueTextBox))
                 {
                     _errorsVm.AddError(nameof(Name),
                         "Name должен быть не длиннее 100 символов");
@@ -61,7 +62,7 @@ namespace WpfContacts.ViewModel
             {
                 Contact.PhoneNumber = value;
                 _errorsVm.ClearErrors(nameof(PhoneNumber));
-                if ((Contact.PhoneNumber.Length > 100) || (Contact.PhoneNumber.Length == 0))
+                if ((Contact.PhoneNumber.Length > MaxLengthValueTextBox) || (Contact.PhoneNumber.Length == 0))
                 {
                     _errorsVm.AddError(nameof(PhoneNumber),
                         "PhoneNumber должен быть не длиннее 100 символов и может " +
@@ -82,7 +83,7 @@ namespace WpfContacts.ViewModel
             {
                 Contact.Email = value;
                 _errorsVm.ClearErrors(nameof(Email));
-                if (((Contact.Email.Length > 100) || (Contact.Email.Length == 0)) ||
+                if (((Contact.Email.Length > MaxLengthValueTextBox) || (Contact.Email.Length == 0)) ||
                     (new Regex("[@]").IsMatch(Contact.Email) == false))
                 {
                     _errorsVm.AddError(nameof(Email),
