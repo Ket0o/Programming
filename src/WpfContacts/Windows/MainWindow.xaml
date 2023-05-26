@@ -34,7 +34,7 @@
     </Window.Resources>
 
     <Window.DataContext>
-        <viewModel1:MainVM/>
+        <viewModel:MainVM/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
