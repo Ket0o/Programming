@@ -20,6 +20,12 @@ namespace ViewModel
         private bool _isReadOnly = true;
 
         /// <summary>
+        /// Свойство для блокировки элементов пользовательского интерфейса.
+        /// </summary>
+        [ObservableProperty]
+        private bool _isSelecting;
+
+        /// <summary>
         /// Выбранный контакт.
         /// </summary>
         private ContactVm _selectedContact;
@@ -28,7 +34,7 @@ namespace ViewModel
         /// Логика команды <see cref="AddContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        [RelayCommand(CanExecute = nameof(CanAddContact))]
+        [RelayCommand]
         private void AddContact()
         {
             SelectedContact = null;
@@ -38,50 +44,25 @@ namespace ViewModel
             contact.Email = "";
             SelectedContact = contact;
             IsReadOnly = false;
-        }
-
-        /// <summary>
-        /// Определяет, когда команда <see cref="AddContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanAddContact()
-        {
-            return IsReadOnly;
+            IsSelecting = false;
         }
 
         /// <summary>
         /// Логика команды <see cref="EditContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        [RelayCommand(CanExecute = nameof(CanEditContact))]
+        [RelayCommand]
         private void EditContact()
         {
             IsReadOnly = false;
-        }
-
-        /// <summary>
-        /// Определяет, когда команда <see cref="EditContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanEditContact()
-        {
-            if (SelectedContact != null)
-            {
-                return IsReadOnly;
-            }
-
-            return !IsReadOnly;
+            IsSelecting = false;
         }
 
         /// <summary>
         /// Логика команды <see cref="DeleteContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        [RelayCommand(CanExecute = nameof(CanDeleteContact))]
+        [RelayCommand]
         private void DeleteContact()
         {
             if (SelectedContact == Contacts.Last())
@@ -90,10 +71,12 @@ namespace ViewModel
                 if (Contacts.Count > 1)
                 {
                     SelectedContact = Contacts.Last();
+                    IsSelecting = true;
                 }
                 else
                 {
                     SelectedContact = null;
+                    IsSelecting = false;
                 }
             }
             else
@@ -104,6 +87,7 @@ namespace ViewModel
                     {
                         Contacts!.Remove(SelectedContact);
                         SelectedContact = Contacts[i];
+                        IsSelecting = true;
                         break;
                     }
                 }
@@ -113,29 +97,14 @@ namespace ViewModel
         }
 
         /// <summary>
-        /// Определяет, когда команда <see cref="DeleteContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanDeleteContact()
-        {
-            if (SelectedContact != null)
-            {
-                return IsReadOnly;
-            }
-
-            return !IsReadOnly;
-        }
-
-        /// <summary>
         /// Логика команды <see cref="ApplyContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        [RelayCommand(CanExecute = nameof(CanApplyContact))]
+        [RelayCommand]
         private void ApplyContact()
         {
             IsReadOnly = true;
+            IsSelecting = true;
             if (Contacts.Contains(SelectedContact))
             {
                 ContactsSerializer.Serialize(Contacts);
@@ -146,41 +115,6 @@ namespace ViewModel
                 ContactsSerializer.Serialize(Contacts);
             }
         }
-
-        /// <summary>
-        /// Определяет, когда команда <see cref="ApplyContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanApplyContact()
-        {
-            if (SelectedContact == null)
-            {
-                return false;
-            }
-            return !SelectedContact.HasErrors;
-        }
-
-        ///// <summary>
-        ///// Команда на добавление контакта.
-        ///// </summary>
-        //public ICommand AddContactCommand { get; }
-
-        ///// <summary>
-        ///// Команда на редактирование контакта.
-        ///// </summary>
-        //public ICommand EditContactCommand { get; }
-
-        ///// <summary>
-        ///// Команда на удаление контакта.
-        ///// </summary>
-        //public ICommand DeleteContactCommand { get; }
-
-        ///// <summary>
-        ///// Команда на сохранение изменений данных контакта.
-        ///// </summary>
-        //public ICommand ApplyContactCommand { get; }
 
         /// <summary>
         /// Коллекция контактов.
@@ -210,6 +144,7 @@ namespace ViewModel
                 _selectedContact = value;
                 OnPropertyChanged();
                 IsReadOnly = true;
+                IsSelecting = true;
             }
         }
     }

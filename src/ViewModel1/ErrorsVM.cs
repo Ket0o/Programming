@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace ViewModel
         /// </summary>
         public bool HasErrors => _propertyDependencies.Any();
 
-        /// <summary>
+            /// <summary>
         /// Событие измнение ошибки.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;

@@ -54,6 +54,7 @@ namespace ViewModel
                         "Name должен быть не длиннее 100 символов");
                 }
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -75,6 +76,7 @@ namespace ViewModel
                         "\r\nПример: +7 (999) 111-22-33\r\n");
                 }
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
@@ -96,6 +98,7 @@ namespace ViewModel
                         "\r\nсимвол @ .");
                 }
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(HasErrors));
             }
         }
 
