@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
-using ViewModel.Infastructure.Commands;
+using CommunityToolkit.Mvvm.Input;
 using ViewModel.Services;
 
 namespace ViewModel
@@ -28,7 +28,8 @@ namespace ViewModel
         /// Логика команды <see cref="AddContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnAddContactCommandExecute(object parameter)
+        [RelayCommand(CanExecute = nameof(CanAddContact))]
+        private void AddContact()
         {
             SelectedContact = null;
             ContactVm contact = new ContactVm();
@@ -45,7 +46,7 @@ namespace ViewModel
         /// <param name="parameter">Параметр.</param>
         /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
         /// иначе false.</returns>
-        private bool CanAddContactCommandExecute(object parameter)
+        private bool CanAddContact()
         {
             return IsReadOnly;
         }
@@ -54,7 +55,8 @@ namespace ViewModel
         /// Логика команды <see cref="EditContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnEditContactCommandExecute(object parameter)
+        [RelayCommand(CanExecute = nameof(CanEditContact))]
+        private void EditContact()
         {
             IsReadOnly = false;
         }
@@ -65,7 +67,7 @@ namespace ViewModel
         /// <param name="parameter">Параметр.</param>
         /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
         /// иначе false.</returns>
-        private bool CanEditContactCommandExecute(object parameter)
+        private bool CanEditContact()
         {
             if (SelectedContact != null)
             {
@@ -79,7 +81,8 @@ namespace ViewModel
         /// Логика команды <see cref="DeleteContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnDeleteContactCommandExecute(object parameter)
+        [RelayCommand(CanExecute = nameof(CanDeleteContact))]
+        private void DeleteContact()
         {
             if (SelectedContact == Contacts.Last())
             {
@@ -115,7 +118,7 @@ namespace ViewModel
         /// <param name="parameter">Параметр.</param>
         /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
         /// иначе false.</returns>
-        private bool CanDeleteContactCommandExecute(object parameter)
+        private bool CanDeleteContact()
         {
             if (SelectedContact != null)
             {
@@ -129,7 +132,8 @@ namespace ViewModel
         /// Логика команды <see cref="ApplyContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnApplyContactCommandExecute(object parameter)
+        [RelayCommand(CanExecute = nameof(CanApplyContact))]
+        private void ApplyContact()
         {
             IsReadOnly = true;
             if (Contacts.Contains(SelectedContact))
@@ -149,7 +153,7 @@ namespace ViewModel
         /// <param name="parameter">Параметр.</param>
         /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
         /// иначе false.</returns>
-        private bool CanApplyContactCommandExecute(object parameter)
+        private bool CanApplyContact()
         {
             if (SelectedContact == null)
             {
@@ -158,25 +162,25 @@ namespace ViewModel
             return !SelectedContact.HasErrors;
         }
 
-        /// <summary>
-        /// Команда на добавление контакта.
-        /// </summary>
-        public ICommand AddContactCommand { get; }
+        ///// <summary>
+        ///// Команда на добавление контакта.
+        ///// </summary>
+        //public ICommand AddContactCommand { get; }
 
-        /// <summary>
-        /// Команда на редактирование контакта.
-        /// </summary>
-        public ICommand EditContactCommand { get; }
+        ///// <summary>
+        ///// Команда на редактирование контакта.
+        ///// </summary>
+        //public ICommand EditContactCommand { get; }
 
-        /// <summary>
-        /// Команда на удаление контакта.
-        /// </summary>
-        public ICommand DeleteContactCommand { get; }
+        ///// <summary>
+        ///// Команда на удаление контакта.
+        ///// </summary>
+        //public ICommand DeleteContactCommand { get; }
 
-        /// <summary>
-        /// Команда на сохранение изменений данных контакта.
-        /// </summary>
-        public ICommand ApplyContactCommand { get; }
+        ///// <summary>
+        ///// Команда на сохранение изменений данных контакта.
+        ///// </summary>
+        //public ICommand ApplyContactCommand { get; }
 
         /// <summary>
         /// Коллекция контактов.
@@ -189,14 +193,7 @@ namespace ViewModel
         /// </summary>
         public MainVM()
         {
-            AddContactCommand = new RelayCommand(OnAddContactCommandExecute,
-                CanAddContactCommandExecute);
-            EditContactCommand = new RelayCommand(OnEditContactCommandExecute,
-                CanEditContactCommandExecute);
-            DeleteContactCommand = new RelayCommand(OnDeleteContactCommandExecute,
-                CanDeleteContactCommandExecute);
-            ApplyContactCommand = new RelayCommand(OnApplyContactCommandExecute,
-                CanApplyContactCommandExecute);
+            
         }
 
         /// <summary>
