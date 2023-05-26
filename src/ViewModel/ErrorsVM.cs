@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.ComponentModel;
-using System.Linq;
 
-namespace WpfContacts.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// Представляет базовую реализацию интерфейса <see cref="INotifyDataErrorInfo"/>.
     /// </summary>
-    public class ErrorsVM : INotifyDataErrorInfo
+    public class ErrorsVm : INotifyDataErrorInfo
     {
         /// <summary>
         /// Pажигает событие <see cref="ErrorsChanged"/>.

@@ -1,17 +1,22 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
-using WpfContacts.Infastructure.Commands;
-using WpfContacts.Model.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
+using ViewModel.Infastructure.Commands;
+using ViewModel.Services;
 
-
-namespace WpfContacts.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel для главного окна.
     /// </summary>
-    public class MainVM : Base.ViewModel
+    public partial class MainVM : ObservableObject
     {
+        /// <summary>
+        /// Свойство для блокировки элементов пользовательского интерфейса.
+        /// </summary>
+        [ObservableProperty]
+        private bool _isReadOnly = true;
+
         /// <summary>
         /// Выбранный контакт.
         /// </summary>
@@ -152,12 +157,6 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// Свойство для блокировки элементов пользовательского интерфейса.
-        /// </summary>
-        private bool _isReadOnly = true;
-
-
-        /// <summary>
         /// Команда на добавление контакта.
         /// </summary>
         public ICommand AddContactCommand { get; }
@@ -212,19 +211,6 @@ namespace WpfContacts.ViewModel
                 _selectedContact = value;
                 OnPropertyChanged();
                 IsReadOnly = true;
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и задает свойство для блокировки элементов пользовательского интерфейса.
-        /// </summary>
-        public bool IsReadOnly
-        {
-            get { return _isReadOnly; }
-            set
-            {
-                _isReadOnly = value;
-                OnPropertyChanged();
             }
         }
     }

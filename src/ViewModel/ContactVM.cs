@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
-using WpfContacts.Model;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Model;
 
-namespace WpfContacts.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel для contact.
     /// </summary>
-    public class ContactVm : Base.ViewModel, INotifyDataErrorInfo
+    public partial class ContactVm : ObservableObject, INotifyDataErrorInfo
     {
-        private const int MaxLengthValueTextBox = 100;
         /// <summary>
-        /// Экземпляр класса <see cref="ErrorsVM"/>.
+        /// Максимальная длина для textBox
         /// </summary>
-        private readonly ErrorsVM _errorsVm;
+        private const int MaxLengthValueTextBox = 100;
+
+        /// <summary>
+        /// Экземпляр класса <see cref="ErrorsVm"/>.
+        /// </summary>
+        private readonly ErrorsVm _errorsVm;
 
         /// <summary>
         /// Зажигает событие <see cref="ErrorsChanged"/>.
@@ -109,7 +113,7 @@ namespace WpfContacts.ViewModel
         /// </summary>
         public ContactVm()
         {
-            _errorsVm = new ErrorsVM();
+            _errorsVm = new ErrorsVm();
             _errorsVm.ErrorsChanged += ErrorsVM_ErrorsChanged;
         }
 

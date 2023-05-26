@@ -1,10 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using WpfContacts.ViewModel;
+﻿using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
-namespace WpfContacts.Model.Services
+namespace ViewModel.Services
 {
     /// <summary>
     /// Класс реализует сериализцаию и десериализацию данных.

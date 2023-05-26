@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace WpfContacts.Infastructure.Commands
+namespace ViewModel.Infastructure.Commands
 {
     /// <summary>
     /// Предоставляет базовую реализацию ICommand интерфейса.

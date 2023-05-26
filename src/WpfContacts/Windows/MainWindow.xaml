@@ -3,14 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfContacts.View.Windows"
-        xmlns:dttest="clr-namespace:WpfContacts.ViewModel"
         xmlns:services="clr-namespace:ValueConverters;assembly=ValueConverters"
-        xmlns:Controls="clr-namespace:WpfContacts.View.Controls" 
-        x:Class="WpfContacts.View.Windows.MainWindow"
+        xmlns:controls="clr-namespace:View.Controls"
+        xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel"
+        x:Class="View.Windows.MainWindow"
         mc:Ignorable="d"
         Title="Contacts" Height="600" Width="800" 
-        MinHeight="600" MinWidth="800" Icon="/Resources/ContactsApp_96x96.ico">
+        MinHeight="600" MinWidth="800" Icon="../Resources/ContactsApp_96x96.ico">
 
     <Window.Resources>
         <services:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsInverted="True"/>
@@ -18,7 +17,7 @@
             <StackPanel Margin="3" Orientation="Horizontal">
                 <Ellipse Width="40" Height="40">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="../../Resources/photo_placeholder_100x100.png" 
+                        <ImageBrush ImageSource="../Resources/photo_placeholder_100x100.png" 
                                     Stretch="UniformToFill"></ImageBrush>
                     </Ellipse.Fill>
                 </Ellipse>
@@ -35,7 +34,7 @@
     </Window.Resources>
 
     <Window.DataContext>
-        <dttest:MainVM/>
+        <viewModel1:MainVM/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -85,7 +84,7 @@
         </Grid>
         <Grid Grid.Column="1" Margin="8,8,8,0">
             <StackPanel>
-                <Controls:ContactControl/>
+                <controls:ContactControl/>
                     <Grid Margin="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="103"/>
