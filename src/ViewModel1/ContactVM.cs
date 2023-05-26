@@ -10,7 +10,7 @@ namespace ViewModel
     /// <summary>
     /// ViewModel для contact.
     /// </summary>
-    public partial class ContactVm : ObservableObject, INotifyDataErrorInfo
+    public class ContactVm : ObservableObject, INotifyDataErrorInfo
     {
         /// <summary>
         /// Максимальная длина для textBox
