@@ -1,9 +1,9 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Model;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Model;
 
 namespace ViewModel
 {

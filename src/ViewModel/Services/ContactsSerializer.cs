@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using Newtonsoft.Json;
 
 namespace ViewModel.Services
 {
