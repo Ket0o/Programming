@@ -43,8 +43,7 @@ namespace ViewModel
             contact.PhoneNumber = "";
             contact.Email = "";
             SelectedContact = contact;
-            IsReadOnly = false;
-            IsSelecting = false;
+            IsReadOnly = IsSelecting = false;
         }
 
         /// <summary>
@@ -54,8 +53,7 @@ namespace ViewModel
         [RelayCommand]
         private void EditContact()
         {
-            IsReadOnly = false;
-            IsSelecting = false;
+            IsReadOnly = IsSelecting = false;
         }
 
         /// <summary>
@@ -103,8 +101,8 @@ namespace ViewModel
         [RelayCommand]
         private void ApplyContact()
         {
-            IsReadOnly = true;
-            IsSelecting = true;
+            IsReadOnly = IsSelecting = true;
+            //IsSelecting = true;
             if (Contacts.Contains(SelectedContact))
             {
                 ContactsSerializer.Serialize(Contacts);
@@ -121,14 +119,6 @@ namespace ViewModel
         /// </summary>
         public ObservableCollection<ContactVm>? Contacts { get; } =
             ContactsSerializer.Deserialize();
-
-        /// <summary>
-        /// Создает экземпляр класса <see cref="MainVM"/>.
-        /// </summary>
-        public MainVM()
-        {
-            
-        }
 
         /// <summary>
         /// Возвращает и задает выбранный контакт.

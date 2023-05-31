@@ -13,7 +13,7 @@ namespace ViewModel
     public class ContactVm : ObservableObject, INotifyDataErrorInfo
     {
         /// <summary>
-        /// Максимальная длина для textBox
+        /// Максимальная длина для textBox.
         /// </summary>
         private const int MaxLengthValueTextBox = 100;
 

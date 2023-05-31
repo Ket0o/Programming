@@ -13,6 +13,12 @@ namespace ViewModel
     public class ErrorsVm : INotifyDataErrorInfo
     {
         /// <summary>
+        /// Словарь свойств зависимостей. Доступен только на чтение.
+        /// </summary>
+        private readonly Dictionary<string, List<string>> _propertyDependencies =
+            new Dictionary<string, List<string>>();
+
+        /// <summary>
         /// Pажигает событие <see cref="ErrorsChanged"/>.
         /// </summary>
         /// <param name="propertyName">Имя объекта.</param>
@@ -22,17 +28,11 @@ namespace ViewModel
         }
 
         /// <summary>
-        /// Словарь свойств зависимостей. Доступен только на чтение.
-        /// </summary>
-        private readonly Dictionary<string, List<string>> _propertyDependencies =
-            new Dictionary<string, List<string>>();
-
-        /// <summary>
         /// Возвращает true или false, в зависимости от того, есть ли ошибки.
         /// </summary>
         public bool HasErrors => _propertyDependencies.Any();
 
-            /// <summary>
+        /// <summary>
         /// Событие измнение ошибки.
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
