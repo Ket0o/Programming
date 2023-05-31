@@ -102,7 +102,6 @@ namespace ViewModel
         private void ApplyContact()
         {
             IsReadOnly = IsSelecting = true;
-            //IsSelecting = true;
             if (Contacts.Contains(SelectedContact))
             {
                 ContactsSerializer.Serialize(Contacts);
