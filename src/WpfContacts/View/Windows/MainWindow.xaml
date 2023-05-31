@@ -100,13 +100,13 @@
                             HorizontalAlignment="Left"
                             Content="Apply"
                             Visibility="{Binding IsReadOnly, 
-                        Converter={StaticResource BoolToVisibilityConverter}, 
-                        UpdateSourceTrigger=PropertyChanged}"
+                                Converter={StaticResource BoolToVisibilityConverter}, 
+                                UpdateSourceTrigger=PropertyChanged}"
                             x:Name="ApplyButton"
                             Command="{Binding ApplyContactCommand}"
                             IsEnabled="{Binding Path=SelectedContact.HasErrors,
-                            Converter={StaticResource BoolInverterConverter},
-                            UpdateSourceTrigger=PropertyChanged}"/>
+                                Converter={StaticResource BoolInverterConverter},
+                                UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </StackPanel>
         </Grid>

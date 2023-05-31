@@ -5,6 +5,7 @@ using System.IO;
 
 namespace ViewModel.Services
 {
+    // TODO: почитать про DTO (data transfer object)
     /// <summary>
     /// Класс реализует сериализцаию и десериализацию данных.
     /// </summary>

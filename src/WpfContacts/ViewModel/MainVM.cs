@@ -47,7 +47,6 @@ namespace ViewModel
         /// <summary>
         /// Логика команды <see cref="EditContactCommand"/>.
         /// </summary>
-        /// <param name="parameter">Параметр.</param>
         [RelayCommand]
         private void EditContact()
         {
@@ -57,7 +56,6 @@ namespace ViewModel
         /// <summary>
         /// Логика команды <see cref="DeleteContactCommand"/>.
         /// </summary>
-        /// <param name="parameter">Параметр.</param>
         [RelayCommand]
         private void DeleteContact()
         {
