@@ -13,6 +13,7 @@
 
     <Window.Resources>
         <services:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsInverted="True"/>
+        <services:BoolInverter x:Key="BoolInverterConverter" />
         <DataTemplate x:Key="contactTemplate">
             <StackPanel Margin="3" Orientation="Horizontal">
                 <Ellipse Width="40" Height="40">
@@ -73,13 +74,16 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Margin="3"
                         Height="25" Content="Add" 
-                        Command="{Binding AddContactCommand}" />
+                        Command="{Binding AddContactCommand}"
+                        IsEnabled="{Binding IsReadOnly}"/>
                 <Button Grid.Column="1" Margin="3"
                         Height="25" Content="Edit"
-                        Command="{Binding EditContactCommand}"/>
+                        Command="{Binding EditContactCommand}"
+                        IsEnabled="{Binding IsSelecting}"/>
                 <Button Grid.Column="2" Margin="3"
                         Height="25" Content="Remove"
-                        Command="{Binding DeleteContactCommand}"/>
+                        Command="{Binding DeleteContactCommand}"
+                        IsEnabled="{Binding IsSelecting}"/>
             </Grid>
         </Grid>
         <Grid Grid.Column="1" Margin="8,8,8,0">
@@ -99,7 +103,10 @@
                         Converter={StaticResource BoolToVisibilityConverter}, 
                         UpdateSourceTrigger=PropertyChanged}"
                             x:Name="ApplyButton"
-                            Command="{Binding ApplyContactCommand}"/>
+                            Command="{Binding ApplyContactCommand}"
+                            IsEnabled="{Binding Path=SelectedContact.HasErrors,
+                            Converter={StaticResource BoolInverterConverter},
+                            UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </StackPanel>
         </Grid>

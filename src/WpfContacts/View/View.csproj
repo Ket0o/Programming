@@ -5,15 +5,7 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="View.Windows\**" />
-    <EmbeddedResource Remove="View.Windows\**" />
-    <None Remove="View.Windows\**" />
-    <Page Remove="View.Windows\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\ContactsApp_96x96.ico" />
@@ -22,12 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ValueConverters" Version="3.0.26" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="App.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +28,12 @@
     <Resource Include="Resources\photo_placeholder_100x100.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\ContactControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
