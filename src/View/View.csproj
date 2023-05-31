@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
+    <ProjectReference Include="C:\Users\Кирилл\source\repos\Programming\src\WpfContacts\ViewModel\ViewModel.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
