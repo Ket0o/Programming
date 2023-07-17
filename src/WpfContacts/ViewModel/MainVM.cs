@@ -1,17 +1,28 @@
-﻿using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
-using WpfContacts.Infastructure.Commands;
-using WpfContacts.Model.Services;
+using ViewModel.Services;
 
-
-namespace WpfContacts.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel для главного окна.
     /// </summary>
-    public class MainVM : Base.ViewModel
+    public partial class MainVM : ObservableObject
     {
+        /// <summary>
+        /// Свойство для блокировки элементов пользовательского интерфейса.
+        /// </summary>
+        [ObservableProperty]
+        private bool _isReadOnly = true;
+
+        /// <summary>
+        /// Свойство для блокировки элементов пользовательского интерфейса.
+        /// </summary>
+        [ObservableProperty]
+        private bool _isSelecting;
+
         /// <summary>
         /// Выбранный контакт.
         /// </summary>
@@ -21,7 +32,8 @@ namespace WpfContacts.ViewModel
         /// Логика команды <see cref="AddContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnAddContactCommandExecute(object parameter)
+        [RelayCommand]
+        private void AddContact()
         {
             SelectedContact = null;
             ContactVm contact = new ContactVm();
@@ -29,50 +41,23 @@ namespace WpfContacts.ViewModel
             contact.PhoneNumber = "";
             contact.Email = "";
             SelectedContact = contact;
-            IsReadOnly = false;
-        }
-
-        /// <summary>
-        /// Определяет, когда команда <see cref="AddContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanAddContactCommandExecute(object parameter)
-        {
-            return IsReadOnly;
+            IsReadOnly = IsSelecting = false;
         }
 
         /// <summary>
         /// Логика команды <see cref="EditContactCommand"/>.
         /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        private void OnEditContactCommandExecute(object parameter)
+        [RelayCommand]
+        private void EditContact()
         {
-            IsReadOnly = false;
-        }
-
-        /// <summary>
-        /// Определяет, когда команда <see cref="EditContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanEditContactCommandExecute(object parameter)
-        {
-            if (SelectedContact != null)
-            {
-                return IsReadOnly;
-            }
-
-            return !IsReadOnly;
+            IsReadOnly = IsSelecting = false;
         }
 
         /// <summary>
         /// Логика команды <see cref="DeleteContactCommand"/>.
         /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        private void OnDeleteContactCommandExecute(object parameter)
+        [RelayCommand]
+        private void DeleteContact()
         {
             if (SelectedContact == Contacts.Last())
             {
@@ -80,10 +65,12 @@ namespace WpfContacts.ViewModel
                 if (Contacts.Count > 1)
                 {
                     SelectedContact = Contacts.Last();
+                    IsSelecting = true;
                 }
                 else
                 {
                     SelectedContact = null;
+                    IsSelecting = false;
                 }
             }
             else
@@ -94,6 +81,7 @@ namespace WpfContacts.ViewModel
                     {
                         Contacts!.Remove(SelectedContact);
                         SelectedContact = Contacts[i];
+                        IsSelecting = true;
                         break;
                     }
                 }
@@ -103,28 +91,13 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// Определяет, когда команда <see cref="DeleteContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanDeleteContactCommandExecute(object parameter)
-        {
-            if (SelectedContact != null)
-            {
-                return IsReadOnly;
-            }
-
-            return !IsReadOnly;
-        }
-
-        /// <summary>
         /// Логика команды <see cref="ApplyContactCommand"/>.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void OnApplyContactCommandExecute(object parameter)
+        [RelayCommand]
+        private void ApplyContact()
         {
-            IsReadOnly = true;
+            IsReadOnly = IsSelecting = true;
             if (Contacts.Contains(SelectedContact))
             {
                 ContactsSerializer.Serialize(Contacts);
@@ -137,66 +110,10 @@ namespace WpfContacts.ViewModel
         }
 
         /// <summary>
-        /// Определяет, когда команда <see cref="ApplyContactCommand"/> будет выполняться.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        /// <returns>Если свойство <see cref="Visibility"/> равно true, возвращает true,
-        /// иначе false.</returns>
-        private bool CanApplyContactCommandExecute(object parameter)
-        {
-            if (SelectedContact == null)
-            {
-                return false;
-            }
-            return !SelectedContact.HasErrors;
-        }
-
-        /// <summary>
-        /// Свойство для блокировки элементов пользовательского интерфейса.
-        /// </summary>
-        private bool _isReadOnly = true;
-
-
-        /// <summary>
-        /// Команда на добавление контакта.
-        /// </summary>
-        public ICommand AddContactCommand { get; }
-
-        /// <summary>
-        /// Команда на редактирование контакта.
-        /// </summary>
-        public ICommand EditContactCommand { get; }
-
-        /// <summary>
-        /// Команда на удаление контакта.
-        /// </summary>
-        public ICommand DeleteContactCommand { get; }
-
-        /// <summary>
-        /// Команда на сохранение изменений данных контакта.
-        /// </summary>
-        public ICommand ApplyContactCommand { get; }
-
-        /// <summary>
         /// Коллекция контактов.
         /// </summary>
         public ObservableCollection<ContactVm>? Contacts { get; } =
             ContactsSerializer.Deserialize();
-
-        /// <summary>
-        /// Создает экземпляр класса <see cref="MainVM"/>.
-        /// </summary>
-        public MainVM()
-        {
-            AddContactCommand = new RelayCommand(OnAddContactCommandExecute,
-                CanAddContactCommandExecute);
-            EditContactCommand = new RelayCommand(OnEditContactCommandExecute,
-                CanEditContactCommandExecute);
-            DeleteContactCommand = new RelayCommand(OnDeleteContactCommandExecute,
-                CanDeleteContactCommandExecute);
-            ApplyContactCommand = new RelayCommand(OnApplyContactCommandExecute,
-                CanApplyContactCommandExecute);
-        }
 
         /// <summary>
         /// Возвращает и задает выбранный контакт.
@@ -212,19 +129,7 @@ namespace WpfContacts.ViewModel
                 _selectedContact = value;
                 OnPropertyChanged();
                 IsReadOnly = true;
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и задает свойство для блокировки элементов пользовательского интерфейса.
-        /// </summary>
-        public bool IsReadOnly
-        {
-            get { return _isReadOnly; }
-            set
-            {
-                _isReadOnly = value;
-                OnPropertyChanged();
+                IsSelecting = true;
             }
         }
     }

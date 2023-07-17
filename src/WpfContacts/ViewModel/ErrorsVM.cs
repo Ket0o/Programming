@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace WpfContacts.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// Представляет базовую реализацию интерфейса <see cref="INotifyDataErrorInfo"/>.
     /// </summary>
-    public class ErrorsVM : INotifyDataErrorInfo
+    public class ErrorsVm : INotifyDataErrorInfo
     {
+        /// <summary>
+        /// Словарь свойств зависимостей. Доступен только на чтение.
+        /// </summary>
+        private readonly Dictionary<string, List<string>> _propertyDependencies =
+            new Dictionary<string, List<string>>();
+
         /// <summary>
         /// Pажигает событие <see cref="ErrorsChanged"/>.
         /// </summary>
@@ -19,12 +25,6 @@ namespace WpfContacts.ViewModel
         {
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
         }
-
-        /// <summary>
-        /// Словарь свойств зависимостей. Доступен только на чтение.
-        /// </summary>
-        private readonly Dictionary<string, List<string>> _propertyDependencies =
-            new Dictionary<string, List<string>>();
 
         /// <summary>
         /// Возвращает true или false, в зависимости от того, есть ли ошибки.

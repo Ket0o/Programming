@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfContacts
+namespace View
 {
     /// <summary>
     /// Interaction logic for App.xaml

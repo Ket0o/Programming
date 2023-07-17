@@ -2,10 +2,10 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using WpfContacts.ViewModel;
 
-namespace WpfContacts.Model.Services
+namespace ViewModel.Services
 {
+    // TODO: почитать про DTO (data transfer object)
     /// <summary>
     /// Класс реализует сериализцаию и десериализацию данных.
     /// </summary>

@@ -2,9 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WpfContacts.ViewModel;
 
-namespace WpfContacts.View.Controls
+namespace View.Controls
 {
     /// <summary>
     /// Логика взаимодействия для ContactControl.xaml
